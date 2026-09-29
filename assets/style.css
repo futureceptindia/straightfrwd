@@ -1,0 +1,400 @@
+/* StraightFrwd — mockup design system. Colours lifted from the packaging artwork. */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Black&display=swap');
+
+:root{
+  --orange:#E8690F;
+  --orange-lt:#F58A2E;
+  --brown:#472317;
+  --brown-2:#5C3421;
+  --tan:#D9BC93;
+  --tan-lt:#EBDCC4;
+  --green:#1C5A34;
+  --green-lt:#2E7A49;
+  --maroon:#8E1F32;
+  --amber:#F2A81D;
+  --lime:#9AC93B;
+  --lemon:#E5E01A;
+  --ink:#231109;
+  --paper:#FBF6EE;
+  --paper-2:#F3E9DA;
+  --line:rgba(71,35,23,.14);
+  --shadow:0 18px 40px -22px rgba(35,17,9,.55);
+  --r:14px;
+  --max:1180px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font:400 17px/1.6 Archivo,system-ui,-apple-system,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- logo ---------- */
+.logo{display:inline-flex;flex-direction:column;line-height:.84;text-decoration:none}
+.logo b{font:900 22px/.84 "Archivo Black",Archivo,sans-serif;letter-spacing:-.02em}
+.logo .r2{display:flex;align-items:center;gap:6px}
+.logo .chev{display:block}
+.logo small{font:500 8.5px/1.25 Archivo,sans-serif;letter-spacing:.02em;opacity:.85;margin-left:4px;text-transform:none}
+.logo.lg b{font-size:44px}
+.logo.lg small{font-size:14px;line-height:1.15}
+
+/* ---------- header ---------- */
+.announce{background:var(--brown);color:var(--tan-lt);font-size:13px;letter-spacing:.04em;text-align:center;padding:9px 16px;font-weight:500}
+.announce b{color:var(--orange-lt)}
+header.site{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:28px;height:74px}
+.bar nav{display:flex;gap:26px;margin-left:12px}
+.bar nav a{text-decoration:none;font-weight:600;font-size:15px;padding:6px 0;border-bottom:2px solid transparent}
+.bar nav a:hover,.bar nav a[aria-current]{border-color:var(--orange)}
+.bar .sp{margin-left:auto}
+.iconbtn{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:15px;padding:9px 14px;border-radius:999px}
+.iconbtn:hover{background:var(--paper-2)}
+.cartdot{background:var(--orange);color:#fff;border-radius:999px;font-size:11px;font-weight:800;min-width:19px;height:19px;display:inline-grid;place-items:center;padding:0 5px}
+.burger{display:none}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:15px 28px;border-radius:999px;font-weight:700;font-size:16px;text-decoration:none;
+  background:var(--orange);color:#fff;transition:transform .12s ease, background .15s ease}
+.btn:hover{background:#d15c09;transform:translateY(-1px)}
+.btn.dark{background:var(--brown)}.btn.dark:hover{background:#31180f}
+.btn.ghost{background:transparent;color:var(--brown);box-shadow:inset 0 0 0 2px var(--brown)}
+.btn.ghost:hover{background:var(--brown);color:var(--paper)}
+.btn.sm{padding:11px 20px;font-size:14px}
+.btn.wide{width:100%}
+
+/* ---------- type ---------- */
+h1,h2,h3,h4{font-family:"Archivo Black",Archivo,sans-serif;font-weight:900;letter-spacing:-.025em;margin:0 0 .4em}
+h1{font-size:clamp(44px,7vw,84px);line-height:.94}
+h2{font-size:clamp(30px,4.2vw,52px);line-height:1}
+h3{font-size:22px;line-height:1.15}
+.eyebrow{font:700 12px/1 Archivo,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:18px}
+.lede{font-size:19px;max-width:56ch;opacity:.82}
+.sec{padding:96px 0}
+.sec.tight{padding:68px 0}
+
+/* ---------- hero ---------- */
+.hero{background:var(--brown);color:var(--tan-lt);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto -10% -55% 55%;height:70%;background:var(--orange);opacity:.14;border-radius:50%;filter:blur(40px)}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding-block:78px 86px;position:relative;z-index:1}
+.hero h1{color:#fff}
+.hero h1 em{font-style:normal;color:var(--orange-lt)}
+.hero .lede{color:rgba(235,220,196,.86);margin:26px 0 34px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.trust{display:flex;gap:30px;margin-top:44px;flex-wrap:wrap}
+.trust div{max-width:150px}
+.trust b{display:block;font:900 27px/1 "Archivo Black",sans-serif;color:var(--orange-lt)}
+.trust span{font-size:13px;opacity:.75;line-height:1.35;display:block;margin-top:4px}
+
+/* ---------- pack renders (CSS-drawn stand-ins for product photos) ---------- */
+.pack{--pk-a:var(--brown);--pk-b:var(--orange);
+  width:100%;aspect-ratio:1/1.24;border-radius:6px;overflow:hidden;position:relative;
+  background:var(--pk-a);box-shadow:var(--shadow);display:flex;flex-direction:column}
+.pack .band{background:var(--pk-b);padding:13% 9% 9%}
+.pack .band .logo b{color:var(--pk-a)}
+.pack .band .logo small{color:var(--pk-a)}
+.pack .body{flex:1;padding:8% 9% 9%;display:flex;flex-direction:column;color:var(--pk-b)}
+.pack .kind{font:800 10px/1.2 Archivo,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.pack .flav{margin-top:auto;font:800 15px/1 Archivo,sans-serif;letter-spacing:.06em;text-transform:uppercase;
+  padding-bottom:9px;border-bottom:1.5px solid currentColor}
+.pack .qty{font-size:9px;letter-spacing:.08em;margin-top:8px;opacity:.85;text-transform:uppercase}
+.pack .fruit{position:absolute;right:7%;bottom:16%;width:38%;opacity:.95}
+.pack.sachet{aspect-ratio:1.55/1;border-radius:4px}
+.pack.sachet .band{padding:9% 7% 7%}
+.pack.sachet .body{padding:6% 7% 7%}
+.pack.sachet .flav{font-size:13px}
+
+.pk-choc{--pk-a:var(--brown);--pk-b:var(--orange)}
+.pk-mango{--pk-a:var(--green);--pk-b:var(--orange)}
+.pk-kulfi{--pk-a:var(--brown-2);--pk-b:var(--tan)}
+.pk-kahwa{--pk-a:var(--maroon);--pk-b:var(--amber)}
+.pk-ginger{--pk-a:var(--brown-2);--pk-b:var(--amber)}
+.pk-tulsi{--pk-a:var(--green);--pk-b:var(--lime)}
+.pk-lemon{--pk-a:var(--green);--pk-b:var(--lemon)}
+
+/* ---------- product grid ---------- */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+
+.card{background:#fff;border-radius:var(--r);padding:20px;border:1px solid var(--line);
+  display:flex;flex-direction:column;transition:transform .15s ease, box-shadow .15s ease}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.card .shot{background:var(--paper-2);border-radius:10px;padding:22px 28px;margin-bottom:18px}
+.card h3{font-size:18px;margin-bottom:5px}
+.card .sub{font-size:13.5px;opacity:.65;margin-bottom:12px}
+.card .price{font-weight:800;font-size:19px}
+.card .price s{font-weight:500;opacity:.45;font-size:15px;margin-left:7px}
+.card .row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:14px;gap:12px}
+.pill{display:inline-block;background:var(--paper-2);border-radius:999px;padding:4px 11px;font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.pill.hot{background:var(--orange);color:#fff}
+.pill.veg{background:#fff;box-shadow:inset 0 0 0 1.5px var(--green);color:var(--green)}
+.stars{color:var(--amber);font-size:13px;letter-spacing:.06em}
+.stars span{color:var(--ink);opacity:.5;margin-left:5px}
+
+/* ---------- strips / panels ---------- */
+.strip{background:var(--orange);color:#fff;padding:20px 0;overflow:hidden;white-space:nowrap}
+.strip .run{display:inline-flex;gap:46px;animation:run 26s linear infinite;font:800 15px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+@keyframes run{to{transform:translateX(-50%)}}
+.panel{background:var(--paper-2);border-radius:20px;padding:44px}
+.panel.brown{background:var(--brown);color:var(--tan-lt)}
+.panel.brown h2{color:#fff}
+
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+.facts div{background:var(--paper);padding:26px 22px}
+.facts b{display:block;font:900 34px/1 "Archivo Black",sans-serif;color:var(--orange)}
+.facts span{font-size:13.5px;opacity:.72;display:block;margin-top:7px;line-height:1.4}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;counter-reset:s}
+.steps li{list-style:none;counter-increment:s}
+.steps li::before{content:counter(s,decimal-leading-zero);font:900 14px/1 "Archivo Black",sans-serif;
+  color:var(--orange);display:block;margin-bottom:14px;letter-spacing:.1em}
+.steps h3{font-size:19px}
+.steps p{margin:0;font-size:15px;opacity:.75}
+
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.q{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.q p{font-size:15.5px;margin:12px 0 18px}
+.q .who{display:flex;align-items:center;gap:11px;font-size:13.5px}
+.q .av{width:36px;height:36px;border-radius:999px;background:var(--brown);color:var(--tan);
+  display:grid;place-items:center;font-weight:800;font-size:13px}
+.q .who b{display:block}
+.q .who span{opacity:.6;font-size:12px}
+
+details.faq{border-bottom:1px solid var(--line)}
+details.faq summary{list-style:none;cursor:pointer;padding:22px 0;font-weight:700;font-size:17.5px;
+  display:flex;justify-content:space-between;gap:20px}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";color:var(--orange);font-weight:800;font-size:23px;line-height:1}
+details.faq[open] summary::after{content:"–"}
+details.faq p{margin:0 0 22px;opacity:.78;max-width:72ch;font-size:16px}
+
+/* ---------- product page ---------- */
+.pdp{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:52px 0 0;align-items:start}
+.pdp .gallery{background:var(--paper-2);border-radius:20px;padding:56px 76px;position:sticky;top:98px}
+.swatches{display:flex;gap:12px;margin:14px 0 26px;flex-wrap:wrap}
+.sw{border-radius:10px;padding:10px 16px;font-weight:700;font-size:14px;background:#fff;
+  border:1.5px solid var(--line);cursor:pointer}
+.sw[aria-pressed="true"]{border-color:var(--orange);background:#fff;box-shadow:0 0 0 3px rgba(232,105,15,.16)}
+.sizerow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.size{border:1.5px solid var(--line);border-radius:12px;padding:15px;text-align:left;background:#fff}
+.size[aria-pressed="true"]{border-color:var(--orange);box-shadow:0 0 0 3px rgba(232,105,15,.16)}
+.size b{display:block;font-size:16px}
+.size span{font-size:13px;opacity:.65}
+.nutri{width:100%;border-collapse:collapse;font-size:15px}
+.nutri th,.nutri td{padding:11px 0;border-bottom:1px solid var(--line);text-align:left}
+.nutri td:last-child,.nutri th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.nutri tr.key td{font-weight:800}
+.ticks{list-style:none;padding:0;margin:0 0 26px}
+.ticks li{padding-left:28px;position:relative;margin-bottom:9px;font-size:15.5px}
+.ticks li::before{content:"";position:absolute;left:0;top:7px;width:15px;height:8px;
+  border-left:2.5px solid var(--orange);border-bottom:2.5px solid var(--orange);transform:rotate(-45deg)}
+
+/* ---------- footer ---------- */
+footer.site{background:var(--brown);color:var(--tan-lt);padding:66px 0 30px;margin-top:20px}
+footer.site .cols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.3fr;gap:38px}
+footer.site h4{font:800 12px/1 Archivo,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-lt);margin-bottom:18px}
+footer.site a{display:block;text-decoration:none;font-size:15px;opacity:.82;margin-bottom:11px}
+footer.site a:hover{opacity:1;color:var(--orange-lt)}
+footer.site .logo b{color:#fff}
+.sub{display:flex;gap:8px;margin-top:14px}
+.sub input{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(235,220,196,.22);
+  border-radius:999px;padding:13px 18px;color:#fff;font:inherit;font-size:14px}
+.sub input::placeholder{color:rgba(235,220,196,.5)}
+.legal{margin-top:44px;padding-top:22px;border-top:1px solid rgba(235,220,196,.16);
+  display:flex;justify-content:space-between;gap:20px;font-size:13px;opacity:.6;flex-wrap:wrap}
+
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,240%);opacity:0;pointer-events:none;background:var(--brown);color:#fff;
+  padding:14px 24px;border-radius:999px;font-weight:600;font-size:15px;z-index:70;transition:transform .25s, opacity .25s;box-shadow:var(--shadow)}
+.toast.on{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+
+@media(max-width:960px){
+  .hero .grid,.grid2,.pdp{grid-template-columns:1fr;gap:34px}
+  .pdp .gallery{position:static;padding:36px}
+  .grid3,.grid4,.quotes,.steps{grid-template-columns:1fr 1fr}
+  .facts{grid-template-columns:1fr 1fr}
+  footer.site .cols{grid-template-columns:1fr 1fr}
+  .bar{height:64px}
+  /* nav becomes a scrollable strip under the bar instead of vanishing */
+  .bar nav{position:absolute;left:0;right:0;top:100%;margin:0;gap:0;
+    background:var(--paper);border-top:1px solid var(--line);
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .bar nav::-webkit-scrollbar{display:none}
+  .bar nav a{flex:0 0 auto;padding:13px 18px;font-size:14px;white-space:nowrap;border-bottom-width:3px}
+  header.site{padding-bottom:47px}
+  .bar{position:relative}
+  .sec{padding:64px 0}
+}
+@media(max-width:600px){
+  .grid3,.grid4,.quotes,.steps,.facts,footer.site .cols{grid-template-columns:1fr}
+  .wrap{padding:0 18px}
+  .panel{padding:28px}
+}
+
+
+/* ---------- imagery ---------- */
+.shotimg{border-radius:12px;overflow:hidden;background:var(--brown-2)}
+.shotimg img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2}
+.hero-art{position:relative}
+.hero-art .shotimg img{aspect-ratio:4/5}
+.hero-art .float{position:absolute;bottom:-34px;left:-34px;width:42%;
+  border-radius:12px;overflow:hidden;box-shadow:var(--shadow);border:5px solid var(--brown)}
+.hero-art .float img{aspect-ratio:1/1;width:100%;height:100%;object-fit:cover;display:block}
+.card .shot{position:relative;padding:0;overflow:hidden;background:var(--brown-2)}
+.card .shot img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.card .shot .pack{position:absolute;right:10px;bottom:10px;width:31%;box-shadow:0 10px 24px -10px rgba(0,0,0,.65)}
+.card .shot .pack.sachet{width:42%}
+.bleed{width:100%;border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.bleed img{width:100%;aspect-ratio:21/9;object-fit:cover;display:block}
+.gallery{position:relative}
+.gallery .hero-img{border-radius:14px;overflow:hidden;margin-bottom:24px}
+.gallery .hero-img img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
+.pdp .gallery{padding:24px}
+.pdp .gallery .packwrap{max-width:210px;margin:0 auto}
+.steps figure{margin:0 0 16px;border-radius:12px;overflow:hidden}
+.steps figure img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+@media(max-width:960px){.hero-art .float{width:36%;left:-14px;bottom:-20px}}
+
+/* small pack renders used as overlays and cart thumbnails */
+.pack.mini .band{padding:11% 9% 9%}
+.pack.mini .body{padding:7% 9% 9%}
+.pack.mini .logo b{font-size:9px}
+.pack.mini .logo small{display:none}
+.pack.mini .kind{font-size:6px;letter-spacing:.08em}
+.pack.mini .flav{font-size:8px;padding-bottom:5px;border-bottom-width:1px}
+.pack.mini .qty{display:none}
+.pdp .gallery #thumbs .pack{width:100%}
+
+
+/* ---------- catalogue ---------- */
+a.card{text-decoration:none;color:inherit}
+.card .note{font-size:14.5px;opacity:.7;margin:0 0 16px;line-height:1.5}
+.card .more{margin-top:auto;font-weight:700;font-size:14px;color:var(--orange)}
+a.card:hover .more{text-decoration:underline}
+
+/* where to buy */
+.retailers{display:flex;flex-wrap:wrap;gap:10px}
+.retailer{display:inline-flex;align-items:center;padding:12px 20px;border-radius:999px;
+  background:#fff;border:1.5px solid var(--line);font-weight:700;font-size:15px;text-decoration:none}
+.retailer:hover{border-color:var(--orange);color:var(--orange)}
+.panel.brown .retailer{background:rgba(255,255,255,.08);border-color:rgba(235,220,196,.28);color:var(--tan-lt)}
+.panel.brown .retailer:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+
+/* forms */
+.form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form label{display:flex;flex-direction:column;gap:7px;font-weight:700;font-size:13.5px}
+.form label.full{grid-column:1/-1}
+.form input,.form select,.form textarea{
+  font:inherit;font-size:15.5px;font-weight:400;padding:13px 15px;border-radius:10px;
+  border:1.5px solid var(--line);background:#fff;color:inherit}
+.form input:focus,.form select:focus,.form textarea:focus{
+  outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(232,105,15,.16)}
+.form textarea{min-height:110px;resize:vertical}
+.form .actions{grid-column:1/-1;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.form .actions p{margin:0;font-size:13px;opacity:.6}
+
+.spec{display:grid;grid-template-columns:150px 1fr;gap:0 24px;font-size:15.5px}
+.spec dt{font-weight:700;padding:12px 0;border-top:1px solid var(--line)}
+.spec dd{margin:0;padding:12px 0;border-top:1px solid var(--line);opacity:.8}
+@media(max-width:600px){
+  .form{grid-template-columns:1fr}
+  .spec{grid-template-columns:1fr;gap:0}
+  .spec dd{padding-top:0;border-top:0}
+}
+
+/* Grid children default to min-width:auto, so a wide child (the 4-up thumbnail row
+   on an energy drink) pushes the whole column past the screen. Let them shrink. */
+.pdp > *{min-width:0}
+#thumbs{flex-wrap:wrap}
+
+/* ---------- packshots ----------
+   A real product render: the carton and the sachet built as CSS 3D solids so the
+   artwork stays exactly on-brand, lit and shadowed like a studio shot. */
+.shot3d{
+  position:relative;display:grid;place-items:center;overflow:hidden;
+  aspect-ratio:4/3;perspective:1500px;perspective-origin:50% 42%;
+  background:
+    radial-gradient(70% 55% at 50% 30%, rgba(255,255,255,.9), rgba(255,255,255,0) 70%),
+    linear-gradient(176deg,#FAF5EC 0%,#F1E6D4 58%,#E4D4BB 100%);
+}
+.shot3d::before{ /* flavour glow, keeps each shot tied to its pack without tinting it */
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(52% 44% at 50% 62%, var(--pk-b), transparent 70%);
+  opacity:.2;
+}
+.shot3d .floor{ /* contact shadow */
+  position:absolute;left:50%;bottom:11%;width:60%;height:9%;
+  transform:translateX(-50%);border-radius:50%;
+  background:radial-gradient(50% 50%, rgba(50,26,14,.5), transparent 72%);
+  filter:blur(7px);
+}
+.box{
+  position:relative;transform-style:preserve-3d;
+  width:var(--w,180px);height:var(--h,258px);
+  transform:rotateX(5deg) rotateY(-27deg) translateZ(-40px);
+}
+.box .f{position:absolute;top:0;left:0;width:100%;height:100%}
+.box .front{box-shadow:0 0 0 1px rgba(40,20,10,.12)}
+.box .front .pack{
+  width:100%;height:100%;aspect-ratio:auto;border-radius:0;box-shadow:none;
+  background:var(--pk-a);
+}
+.box .side{
+  width:var(--d,96px);left:100%;transform-origin:left center;transform:rotateY(90deg);
+  background:var(--pk-a);
+  /* the side panel carries the same band split as the front, then is shaded */
+  background-image:linear-gradient(180deg, var(--pk-b) 0 34%, var(--pk-a) 34% 100%);
+}
+.box .side::after{content:"";position:absolute;inset:0;background:rgba(20,8,3,.34)}
+.box .top{
+  height:var(--d,96px);transform-origin:center top;transform:rotateX(90deg);
+  background:var(--pk-b);
+}
+.box .top::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.22)}
+.box .front::after{ /* sheen across the face */
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(104deg, rgba(255,255,255,.2) 0 22%, rgba(255,255,255,0) 46%, rgba(20,8,3,.14) 100%);
+}
+/* the sachet is a flat pouch: shallow depth, wider than tall, with crimped edges */
+.box.pouch{--w:230px;--h:150px;--d:16px;transform:rotateX(9deg) rotateY(-21deg) translateZ(-10px)}
+.box.pouch .front .pack{border-radius:3px}
+.box.pouch .front::before{ /* crimp */
+  content:"";position:absolute;left:0;right:0;top:0;height:9px;z-index:2;
+  background:repeating-linear-gradient(90deg, rgba(255,255,255,.34) 0 3px, rgba(20,8,3,.16) 3px 6px);
+}
+.shot3d.sm{aspect-ratio:1/1}
+.shot3d.sm .box{--w:118px;--h:170px;--d:64px}
+.shot3d.sm .box.pouch{--w:152px;--h:100px;--d:11px}
+
+/* packshot inside a catalogue card */
+.card .shot3d{border-radius:10px}
+/* packshot as the product page's main image */
+.gallery .packshot{border-radius:14px;margin-bottom:18px}
+.gallery .packshot .box{--w:210px;--h:300px;--d:118px}
+.gallery .packshot .box.pouch{--w:268px;--h:174px;--d:18px}
+@media(max-width:600px){
+  .gallery .packshot .box{--w:160px;--h:230px;--d:90px}
+  .gallery .packshot .box.pouch{--w:210px;--h:136px;--d:15px}
+}
+@media(prefers-reduced-motion:no-preference){
+  .card:hover .box{transform:rotateX(5deg) rotateY(-19deg) translateZ(-40px);transition:transform .35s ease}
+  .card .box{transition:transform .35s ease}
+}
+
+/* Label type has to scale with the rendered pack, or the wordmark clips.
+   --ls is the reference length each face sizes its type from. */
+.box{--ls:var(--w)}
+.box.pouch{--ls:calc(var(--w) * .62)}
+.box .front .pack .logo b{font-size:calc(var(--ls) * .125)}
+.box .front .pack .logo small{font-size:calc(var(--ls) * .05);line-height:1.2}
+.box .front .pack .chev{width:calc(var(--ls) * .092);height:auto}
+.box .front .pack .kind{font-size:calc(var(--ls) * .055)}
+.box .front .pack .flav{font-size:calc(var(--ls) * .075);padding-bottom:calc(var(--ls) * .04)}
+.box .front .pack .qty{font-size:calc(var(--ls) * .042)}

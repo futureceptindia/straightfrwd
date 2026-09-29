@@ -1,0 +1,118 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1790684868"></head><body>
+
+<div class="wrap pdp">
+  <div class="gallery">
+    <div id="shot"></div>
+    <div class="hero-img"><img id="heroImg" src="assets/img/hero-shake.jpg" alt=""></div>
+    <div style="display:flex;gap:12px;margin-top:22px;justify-content:center" id="thumbs"></div>
+  </div>
+  <div>
+    <div class="eyebrow" id="range">Daily Protein</div>
+    <h1 style="font-size:clamp(34px,4.4vw,52px)" id="title">Chocolate</h1>
+    <p class="lede" style="font-size:18px" id="blurb"></p>
+
+    <h4 style="font:800 12px/1 Archivo,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin:28px 0 0">Flavour</h4>
+    <div class="swatches" id="sw"></div>
+
+    <ul class="ticks" id="ticks"></ul>
+
+    <h3 style="margin-top:8px">Pack sizes</h3>
+    <dl class="spec" id="sizes"></dl>
+
+    <h3 style="margin-top:34px">How to make it</h3>
+    <p style="font-size:15.5px;opacity:.8" id="how"></p>
+
+    <div id="nutriBlock">
+      <h3 style="margin-top:34px">Nutrition</h3>
+      <table class="nutri">
+        <tr><th>Per serving</th><th>50 g</th></tr>
+        <tr class="key"><td>Protein</td><td>22.5 g</td></tr>
+        <tr><td>Energy</td><td>200.3 kcal</td></tr>
+        <tr><td>Carbohydrate</td><td>13 g</td></tr>
+        <tr><td>&nbsp;&nbsp;of which total sugars</td><td>1.12 g</td></tr>
+        <tr><td>&nbsp;&nbsp;added sugars</td><td>0 g</td></tr>
+        <tr><td>Dietary fibre</td><td>4.4 g</td></tr>
+        <tr><td>Total fat</td><td>5.5 g</td></tr>
+        <tr><td>Trans fat</td><td>0.0125 g</td></tr>
+        <tr><td>Sodium</td><td>210 mg</td></tr>
+      </table>
+      <p style="font-size:13px;opacity:.6;margin-top:12px">Full vitamin and mineral breakdown is on the pack and on <a href="science.html">What's Inside</a>.</p>
+
+      <h3 style="margin-top:34px">Ingredients</h3>
+      <p style="font-size:15.5px;opacity:.8">Soy protein isolate, pea protein, soy fat powder, maltodextrin, sodium caseinate, stabiliser (INS 340 (ii)), emulsifier (INS 471), antioxidant (INS 306(i)), soya fibre, brown rice protein, natural identical flavouring substances, minerals, vitamins, Garcinia Cambogia extract, Cissus Quadrangularis extract, digestive enzymes (α-amylase, protease, lipase, cellulase and lactase), sweeteners (INS 955 &amp; INS 950).</p>
+      <p style="font-size:13px;opacity:.6">Contains soy. Made in a facility that also processes wheat, milk, oats and nuts.</p>
+    </div>
+
+    <h3 style="margin-top:34px">Where to buy</h3>
+    <div class="retailers" id="pdpBuy"></div>
+  </div>
+</div>
+
+<section class="sec"><div class="wrap">
+  <h2 style="font-size:30px;margin-bottom:26px" id="moreTitle">The rest of the range</h2>
+  <div class="grid3" id="more"></div>
+</div></section>
+
+<script src="assets/app.js?v=1790684868"></script><script>
+chrome('products.html');
+
+const PROTEIN_TICKS = [
+  '22.5 g protein in every 50 g serving',
+  'No added sugar — sweetened with sucralose and acesulfame K',
+  'Vegetarian. Contains soy.',
+  'Digestive enzymes and FOS prebiotic fibre in the mix'
+];
+const ENERGY_TICKS = [
+  'One 1 g sachet per cup',
+  'Brewed in hot water, no milk needed',
+  'Vegetarian',
+  'Individually sealed — keeps in a desk drawer'
+];
+
+let cur = PROTEIN[0];
+
+function paint(){
+  const protein = isProtein(cur.id);
+  const set = protein ? PROTEIN : ENERGY;
+
+  document.getElementById('heroImg').src = `assets/img/${cur.shot}.jpg`;
+  document.getElementById('shot').innerHTML = packshot(cur,{cls:'packshot'});
+  document.getElementById('thumbs').innerHTML = set.map(p =>
+    `<div style="width:72px;cursor:pointer" onclick="pick('${p.id}')">${pack(p,{mini:true})}</div>`).join('');
+  document.getElementById('range').textContent = protein ? 'Daily Protein' : 'Energy Drink';
+  document.getElementById('title').textContent = cur.name;
+  document.getElementById('blurb').textContent = protein
+    ? 'Soy, pea and brown rice protein with the vitamins, minerals and enzymes already folded in. Mixes in plain water with a spoon.'
+    : cur.note;
+  document.getElementById('sw').innerHTML = set.map(p =>
+    `<button class="sw" aria-pressed="${p.id===cur.id}" onclick="pick('${p.id}')">${p.name}</button>`).join('');
+  document.getElementById('ticks').innerHTML =
+    (protein ? PROTEIN_TICKS : ENERGY_TICKS).map(t=>`<li>${t}</li>`).join('');
+  document.getElementById('sizes').innerHTML = protein
+    ? '<dt>1 kg pack</dt><dd>20 servings</dd><dt>50 g sachet</dt><dd>Single serving</dd>'
+    : '<dt>1 g sachet</dt><dd>One cup</dd>';
+  document.getElementById('how').textContent = protein
+    ? 'Add 50 g of powder to 250 ml of water and stir well until the powder has completely dissolved. Drink it straight away.'
+    : 'Add one 1 g sachet to 150 ml of hot water and stir. Drink it while it is hot.';
+  document.getElementById('nutriBlock').hidden = !protein;
+  const rest = set.filter(p => p.id !== cur.id);
+  document.getElementById('moreTitle').textContent =
+    protein ? 'The other protein flavours' : 'The other energy drinks';
+  document.getElementById('more').innerHTML = rest.map(card).join('');
+  document.getElementById('more').className = rest.length > 2 ? 'grid3' : 'grid2';
+  document.title = `${cur.name} — StraightFrwd`;
+}
+
+function pick(id){
+  cur = ALL.find(p=>p.id===id) || PROTEIN[0];
+  history.replaceState(null,'','#'+cur.id);
+  paint(); window.scrollTo({top:0,behavior:'smooth'});
+}
+
+cur = ALL.find(p => p.id === location.hash.slice(1)) || PROTEIN[0];
+paint();
+document.getElementById('pdpBuy').innerHTML = buyRow();
+</script></body></html>
