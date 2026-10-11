@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1791728140"></head><body>
+<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1791728951"></head><body>
 
 <div class="wrap pdp">
   <div class="gallery">
@@ -29,22 +29,31 @@
     <div id="nutriBlock">
       <h3 style="margin-top:34px">Nutrition</h3>
       <table class="nutri">
-        <tr><th>Per 50 g serving (1 kg pouch)</th><th>50 g</th></tr>
-        <tr class="key"><td>Protein</td><td>22.5 g</td></tr>
-        <tr><td>Energy</td><td>200.3 kcal</td></tr>
-        <tr><td>Carbohydrate</td><td>13 g</td></tr>
-        <tr><td>&nbsp;&nbsp;of which total sugars</td><td>1.12 g</td></tr>
-        <tr><td>&nbsp;&nbsp;added sugars</td><td>0 g</td></tr>
-        <tr><td>Dietary fibre</td><td>4.4 g</td></tr>
-        <tr><td>Total fat</td><td>5.5 g</td></tr>
-        <tr><td>Trans fat</td><td>0.0125 g</td></tr>
-        <tr><td>Sodium</td><td>210 mg</td></tr>
+        <tr><th>Per serving</th><th>50 g</th><th>Per 100 g</th></tr>
+        <tr class="key"><td>Protein</td><td>22.5 g</td><td>45 g</td></tr>
+        <tr><td>Energy</td><td>200.3 kcal</td><td>400.6 kcal</td></tr>
+        <tr><td>Carbohydrate</td><td>13 g</td><td>26 g</td></tr>
+        <tr><td>&nbsp;&nbsp;Total sugars</td><td>1.12 g</td><td>2.23 g</td></tr>
+        <tr><td>&nbsp;&nbsp;Added sugars</td><td>0 g</td><td>0 g</td></tr>
+        <tr><td>Dietary fibre</td><td>4.4 g</td><td>8.8 g</td></tr>
+        <tr><td>&nbsp;&nbsp;of which FOS</td><td>1 g</td><td>2 g</td></tr>
+        <tr><td>Total fat</td><td>5.5 g</td><td>11 g</td></tr>
+        <tr><td>&nbsp;&nbsp;Saturated</td><td>1.36 g</td><td>2.71 g</td></tr>
+        <tr><td>&nbsp;&nbsp;Trans fat</td><td>0.0125 g</td><td>0.05 g</td></tr>
+        <tr><td>Sodium</td><td>175 mg</td><td>350 mg</td></tr>
       </table>
-      <p style="font-size:13px;opacity:.6;margin-top:12px">These figures are from the 1 kg soy, pea and brown rice pouch. The sachets are a separate whey formulation — their panel is printed on the pack. Full breakdown on <a href="science.html">What's Inside</a>.</p>
+      <p style="font-size:13px;opacity:.6;margin-top:12px">Same panel on all three flavours. Full vitamin and mineral breakdown on <a href="science.html">What&rsquo;s Inside</a>.</p>
 
       <h3 style="margin-top:34px">Ingredients</h3>
       <p style="font-size:15.5px;opacity:.8" id="ing"></p>
       <p style="font-size:13px;opacity:.6" id="alg"></p>
+
+      <div class="panel" style="margin-top:28px;padding:26px">
+        <h3 style="margin-bottom:6px">Recommended as a one meal replacement</h3>
+        <p style="font-size:15.5px;opacity:.8;margin:0 0 10px">1 serving a day, or as directed by a physician, certified dietitian or nutritional professional. Not to exceed the recommended daily usage.</p>
+        <p style="font-size:13.5px;opacity:.75;margin:0 0 10px">Not to be used by pregnant, nursing and lactating women, children under 5, adolescents or the elderly, except when medically advised.</p>
+        <p style="font-size:13px;opacity:.6;margin:0">Not intended to treat, cure, mitigate or prevent any specific disease, disorder or condition. For oral consumption only.</p>
+      </div>
     </div>
 
     <h3 style="margin-top:34px">Where to buy</h3>
@@ -57,15 +66,10 @@
   <div class="grid3" id="more"></div>
 </div></section>
 
-<script src="assets/app.js?v=1791728140"></script><script>
+<script src="assets/app.js?v=1791728951"></script><script>
 chrome('products.html');
 
-const proteinTicks = p => [
-  `One ${p.grams} g serving per sachet`,
-  'No added sugar — sweetened with sucralose (INS 955)',
-  p.allergen,
-  'Also sold as a 1 kg pouch (soy, pea and brown rice formulation)'
-];
+
 const ENERGY_TICKS = [
   'One 1 g sachet per cup',
   'Brewed in hot water, no milk needed',
@@ -94,17 +98,16 @@ function paint(){
   document.getElementById('sw').innerHTML = set.map(p =>
     `<button class="sw" aria-pressed="${p.id===cur.id}" onclick="pick('${p.id}')">${p.name}</button>`).join('');
   document.getElementById('ticks').innerHTML =
-    (protein ? proteinTicks(cur) : ENERGY_TICKS).map(t=>`<li>${t}</li>`).join('');
+    (protein ? LABEL.claims : ENERGY_TICKS).map(t=>`<li>${t}</li>`).join('');
   document.getElementById('sizes').innerHTML = protein
-    ? `<dt>${cur.grams} g sachet</dt><dd>Single serving, also sold in a carton</dd>`
-      + '<dt>1 kg pouch</dt><dd>Soy, pea and brown rice formulation</dd>'
+    ? '<dt>50 g sachet</dt><dd>One serving</dd><dt>1 kg pack</dt><dd>20 servings</dd>'
     : '<dt>1 g sachet</dt><dd>One cup</dd>';
   document.getElementById('how').textContent = protein
-    ? `Add one ${cur.grams} g sachet to 250 ml of water and stir well until the powder has completely dissolved. Drink it straight away.`
+    ? LABEL.howTo
     : 'Add one 1 g sachet to 150 ml of hot water and stir. Drink it while it is hot.';
   if(protein){
-    document.getElementById('ing').textContent = cur.ingredients;
-    document.getElementById('alg').textContent = cur.allergen;
+    document.getElementById('ing').innerHTML = LABEL.ingredients;
+    document.getElementById('alg').textContent = LABEL.allergen;
   }
   document.getElementById('nutriBlock').hidden = !protein;
   const rest = set.filter(p => p.id !== cur.id);

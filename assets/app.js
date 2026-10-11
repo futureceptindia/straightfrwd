@@ -15,19 +15,32 @@ function logo(size, color, tagline){
 
 /* --- the catalogue, taken off the packaging artwork --- */
 const PROTEIN = [
-  {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'life-choc',  real:true, grams:50, tag:'',
-   allergen:'Contains milk. Processed in a facility that also handles soy, nuts and cereals.',
-   ingredients:'Whey Protein Concentrate, Cocoa Powder, Milk Solids, Oats Flour, Nature Identical Flavouring Substances, Stabilizers (INS 415, INS 461), Sweetener (INS 955), Anticaking Agent (INS 551).',
+  {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'life-choc',  real:true, tag:'',
    note:'Dark and not sweet. The one most people start on.'},
-  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'life-mango', real:true, grams:30, tag:'',
-   allergen:'Contains milk. Processed in a facility that also handles soy, nuts and cereals.',
-   ingredients:'Whey Protein (from Cow\'s Milk), Milk Solids, Oats Flour, Mango Fruit Powder, Natural Identical Flavouring Substances, Emulsifier (INS 322), Stabilizers (INS 415, INS 466), Sweetener (INS 955), Anticaking Agent (INS 551).',
+  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'life-mango', real:true, tag:'',
    note:'Tastes closer to a lassi than a supplement.'},
-  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'life-kulfi', real:true, grams:30, tag:'New',
-   allergen:'Contains milk. May contain traces of soy, nuts, gluten and oats.',
-   ingredients:'Protein Blend (Whey Protein, Whey Protein Isolate), Milk Solids, Bulking Agent (Maltodextrin), Sunflower Oil Powder, Stabilizers, Kulfi Flavour, Sweetener, Anticaking Agent, Digestive Enzymes, Vitamins and Minerals Premix.',
+  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'life-kulfi', real:true, tag:'New',
    note:'Cardamom and pistachio. Made for people who find chocolate boring.'},
 ];
+
+// One formulation across all three flavours — the approved label artwork carries an
+// identical ingredient list and nutrition panel on every variant.
+const LABEL = {
+  serving: 50, perKg: 20,
+  ingredients: "Soya Protein Isolate, Pea Protein, Soy Fat Powder [Soy Oil, Maltodextrin, Sodium Caseinate, Stabilizer (INS 340(ii)), Emulsifier (INS 471), Anti-oxidant (INS 304)], Maltodextrin, Soya Fiber, Brown Rice Protein, Nature Identical Flavouring Substances, FOS, Minerals, Garcinia Cambogia, Curcumin, Vitamins, Cissus Quadrangularis Extract, Digestive Enzyme (α-amylase, protease, lipase, cellulase and lactase), Sweeteners (INS 955 &amp; INS 950) Sucralose &amp; Acesulfame potassium.",
+  allergen: "Contains soy. Manufactured in a facility which processes wheat, milk, oats and nuts.",
+  claims: [
+    '22.5 g protein in a 50 g serving (45 g per 100 g)',
+    'No added sugar — sweetened with sucralose and acesulfame potassium',
+    'Digestive enzymes, FOS, vitamins and minerals in the mix',
+    'Contains soy. Made in a facility that also handles wheat, milk, oats and nuts.'
+  ],
+  recommendedAs: 'Recommended as a one meal replacement.',
+  notFor: 'Not to be used by pregnant, nursing and lactating women, children under 5, adolescents or the elderly, except when medically advised by a physician, certified dietitian or nutrition professional.',
+  usage: '1 serving per day, or as directed by a physician, certified dietitian or nutritional professional. Not to exceed the recommended daily usage.',
+  howTo: 'Add 50 g of powder to 250 mL of water and stir well until the powder has completely dissolved. Consume immediately after preparation.',
+  disclaimer: 'The product is not intended to treat, cure, mitigate or prevent any specific disease, disorder or condition. For oral consumption only.',
+};
 const ENERGY = [
   {id:'kahwa',  name:'Kashmiri Kahwa', cls:'pk-kahwa',  shot:'energy-kahwa',  tag:'',
    note:'Saffron and almond, the way it is made up north.'},
@@ -81,7 +94,7 @@ function card(p){
     ${p.real ? `<div class="shot"><img src="assets/img/${p.shot}.jpg" alt=""></div>` : packshot(p,{small:true})}
     <span class="pill" style="align-self:flex-start;margin-bottom:10px;${p.tag?'':'visibility:hidden'}">${p.tag||'–'}</span>
     <h3>${p.name}</h3>
-    <div class="sub">${sachet ? '1 g sachet · Energy Drink' : `${p.grams} g sachet &amp; 1 kg · Daily Protein`}</div>
+    <div class="sub">${sachet ? '1 g sachet · Energy Drink' : '50 g sachet &amp; 1 kg · Daily Protein'}</div>
     <p class="note">${p.note}</p>
     <span class="more">View details <span aria-hidden="true">→</span></span>
   </a>`;
@@ -120,7 +133,7 @@ function chrome(page){
       <div><h4>Products</h4><a href="products.html">Daily Protein</a><a href="products.html">Energy Drinks</a><a href="science.html">What's inside</a></div>
       <div><h4>Company</h4><a href="about.html">Our story</a><a href="distributors.html">Become a distributor</a><a href="contact.html">Contact</a></div>
       <div><h4>Talk to us</h4>
-        <p style="opacity:.75;font-size:14.5px;margin:0 0 10px">+91 99797 04254<br>writetous@ayushkanutrition.com</p>
+        <p style="opacity:.75;font-size:14.5px;margin:0 0 10px">+91 97097 04234<br>writetous@ayushvanutrition.com</p>
         <p style="opacity:.6;font-size:13.5px;margin:0">2-A/3 S/F Front Side, Asafali Road,<br>Turkman Gate, Darya Ganj,<br>New Delhi 110002</p>
       </div>
     </div>
