@@ -1,11 +1,12 @@
 /* StraightFrwd — catalogue site. No cart, no prices: this site shows the range and
    sends people to a retailer or a distributor form. */
 
-const CHEV = (c, h) => `<svg class="chev" width="${h*1.55}" height="${h}" viewBox="0 0 62 40" fill="${c}" aria-hidden="true">
-  <path d="M0 0h18l20 20-20 20H0l20-20z"/><path d="M24 0h18l20 20-20 20H24l20-20z"/></svg>`;
+const CHEV = (c, h) => `<svg class="chev" width="${(h*66/40).toFixed(2)}" height="${h}" viewBox="0 0 66 40" fill="${c}" fill-rule="evenodd" aria-hidden="true">
+  <path d="M0 0H10L32 20 10 40H0ZM10 10.8 23 20 10 29.2Z"/>
+  <path d="M34 0h10l22 20-22 20h-10ZM44 10.8 57 20l-13 9.2Z"/></svg>`;
 
 function logo(size, color, tagline){
-  const h = size === 'lg' ? 34 : 17;
+  const h = size === 'lg' ? 32 : 16;
   return `<a href="index.html" class="logo ${size==='lg'?'lg':''}" style="color:${color}">
     <b>STRAIGHT</b>
     <span class="r2"><b>FRW</b>${CHEV(color,h)}${tagline?`<small>Nutrition,<br>Made Easy</small>`:''}</span>
@@ -14,11 +15,11 @@ function logo(size, color, tagline){
 
 /* --- the catalogue, taken off the packaging artwork --- */
 const PROTEIN = [
-  {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'hero-shake',  tag:'',
+  {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'life-choc',  real:true, tag:'',
    note:'Dark and not sweet. The one most people start on.'},
-  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'mango-shake', tag:'',
+  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'life-mango', real:true, tag:'',
    note:'Tastes closer to a lassi than a supplement.'},
-  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'kulfi-shake', tag:'New',
+  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'life-kulfi', real:true, tag:'New',
    note:'Cardamom and pistachio. Made for people who find chocolate boring.'},
 ];
 const ENERGY = [
@@ -43,7 +44,7 @@ function pack(p, opts={}){
     <div class="band">
       <span class="logo" style="color:inherit">
         <b>STRAIGHT</b>
-        <span class="r2"><b>FRW</b>${CHEV('currentColor', sachet?12:15)}<small>Nutrition,<br>Made Easy</small></span>
+        <span class="r2"><b>FRW</b>${CHEV('currentColor', sachet?11:14)}<small>Nutrition,<br>Made Easy</small></span>
       </span>
     </div>
     <div class="body">
@@ -71,7 +72,7 @@ function packshot(p, opts={}){
 function card(p){
   const sachet = !isProtein(p.id);
   return `<a class="card" href="product.html#${p.id}">
-    ${packshot(p,{small:true})}
+    ${p.real ? `<div class="shot"><img src="assets/img/${p.shot}.jpg" alt=""></div>` : packshot(p,{small:true})}
     <span class="pill" style="align-self:flex-start;margin-bottom:10px;${p.tag?'':'visibility:hidden'}">${p.tag||'–'}</span>
     <h3>${p.name}</h3>
     <div class="sub">${sachet ? '1 g sachet · Energy Drink' : '50 g sachet &amp; 1 kg · Daily Protein'}</div>

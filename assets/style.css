@@ -55,9 +55,9 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 /* ---------- logo ---------- */
 .logo{display:inline-flex;flex-direction:column;line-height:.84;text-decoration:none}
 .logo b{font:900 22px/.84 "Archivo Black",Archivo,sans-serif;letter-spacing:-.02em}
-.logo .r2{display:flex;align-items:center;gap:6px}
-.logo .chev{display:block}
-.logo small{font:500 8.5px/1.25 Archivo,sans-serif;letter-spacing:.02em;opacity:.85;margin-left:4px;text-transform:none}
+.logo .r2{display:flex;align-items:flex-end;gap:2px}
+.logo .chev{display:block;margin-bottom:.06em}
+.logo small{font:500 8.5px/1.25 Archivo,sans-serif;letter-spacing:.02em;opacity:.95;margin-left:7px;text-transform:none;align-self:flex-end;margin-bottom:.1em}
 .logo.lg b{font-size:44px}
 .logo.lg small{font-size:14px;line-height:1.15}
 
@@ -420,3 +420,8 @@ a.card:hover .more{text-decoration:underline}
    SF_Guidelines / CLEAR SPACE — 1X clear on all sides, X = half the symbol height. */
 .logo{min-width:80px}
 .bar .logo{padding:calc(17px * .5) 0}
+
+
+/* photo card: real pack render, same frame as the CSS packshot it sits beside */
+.card .shot{background:var(--paper-2);border-radius:10px;overflow:hidden;padding:0;margin-bottom:18px}
+.card .shot img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
