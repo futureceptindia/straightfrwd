@@ -15,11 +15,17 @@ function logo(size, color, tagline){
 
 /* --- the catalogue, taken off the packaging artwork --- */
 const PROTEIN = [
-  {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'life-choc',  real:true, tag:'',
+  {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'life-choc',  real:true, grams:50, tag:'',
+   allergen:'Contains milk. Processed in a facility that also handles soy, nuts and cereals.',
+   ingredients:'Whey Protein Concentrate, Cocoa Powder, Milk Solids, Oats Flour, Nature Identical Flavouring Substances, Stabilizers (INS 415, INS 461), Sweetener (INS 955), Anticaking Agent (INS 551).',
    note:'Dark and not sweet. The one most people start on.'},
-  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'life-mango', real:true, tag:'',
+  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'life-mango', real:true, grams:30, tag:'',
+   allergen:'Contains milk. Processed in a facility that also handles soy, nuts and cereals.',
+   ingredients:'Whey Protein (from Cow\'s Milk), Milk Solids, Oats Flour, Mango Fruit Powder, Natural Identical Flavouring Substances, Emulsifier (INS 322), Stabilizers (INS 415, INS 466), Sweetener (INS 955), Anticaking Agent (INS 551).',
    note:'Tastes closer to a lassi than a supplement.'},
-  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'life-kulfi', real:true, tag:'New',
+  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'life-kulfi', real:true, grams:30, tag:'New',
+   allergen:'Contains milk. May contain traces of soy, nuts, gluten and oats.',
+   ingredients:'Protein Blend (Whey Protein, Whey Protein Isolate), Milk Solids, Bulking Agent (Maltodextrin), Sunflower Oil Powder, Stabilizers, Kulfi Flavour, Sweetener, Anticaking Agent, Digestive Enzymes, Vitamins and Minerals Premix.',
    note:'Cardamom and pistachio. Made for people who find chocolate boring.'},
 ];
 const ENERGY = [
