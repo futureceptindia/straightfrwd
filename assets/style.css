@@ -53,13 +53,14 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
 /* ---------- logo ---------- */
-.logo{display:inline-flex;flex-direction:column;line-height:.84;text-decoration:none}
-.logo b{font:900 22px/.84 "Archivo Black",Archivo,sans-serif;letter-spacing:-.02em}
-.logo .r2{display:flex;align-items:flex-end;gap:2px}
-.logo .chev{display:block;margin-bottom:.06em}
-.logo small{font:500 8.5px/1.25 Archivo,sans-serif;letter-spacing:.02em;opacity:.95;margin-left:7px;text-transform:none;align-self:flex-end;margin-bottom:.1em}
-.logo.lg b{font-size:44px}
-.logo.lg small{font-size:14px;line-height:1.15}
+/* One vector lockup from the brand guidelines; sized by height, width follows. */
+.logo{display:inline-flex;align-items:flex-end;gap:9px;text-decoration:none;color:inherit}
+.logo .mark{display:block}
+.logo .mark svg{display:block;height:var(--logo-h,36px);width:auto}
+.logo small{font:500 9px/1.25 Archivo,sans-serif;letter-spacing:.01em;opacity:.95;
+  text-transform:none;white-space:nowrap;padding-bottom:.18em}
+.logo.lg{--logo-h:62px}
+.logo.lg small{font-size:16px}
 
 /* ---------- header ---------- */
 .announce{background:var(--brown);color:var(--tan-lt);font-size:13px;letter-spacing:.04em;text-align:center;padding:9px 16px;font-weight:500}
@@ -219,7 +220,7 @@ footer.site .cols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.3fr;gap:38p
 footer.site h4{font:800 12px/1 Archivo,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-lt);margin-bottom:18px}
 footer.site a{display:block;text-decoration:none;font-size:15px;opacity:.82;margin-bottom:11px}
 footer.site a:hover{opacity:1;color:var(--orange-lt)}
-footer.site .logo b{color:#fff}
+footer.site .logo{--logo-h:48px;color:#fff}
 .sub{display:flex;gap:8px;margin-top:14px}
 .sub input{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(235,220,196,.22);
   border-radius:999px;padding:13px 18px;color:#fff;font:inherit;font-size:14px}
@@ -408,9 +409,6 @@ a.card:hover .more{text-decoration:underline}
    --ls is the reference length each face sizes its type from. */
 .box{--ls:var(--w)}
 .box.pouch{--ls:calc(var(--w) * .62)}
-.box .front .pack .logo b{font-size:calc(var(--ls) * .125)}
-.box .front .pack .logo small{font-size:calc(var(--ls) * .05);line-height:1.2}
-.box .front .pack .chev{width:calc(var(--ls) * .092);height:auto}
 .box .front .pack .kind{font-size:calc(var(--ls) * .055)}
 .box .front .pack .flav{font-size:calc(var(--ls) * .075);padding-bottom:calc(var(--ls) * .04)}
 .box .front .pack .qty{font-size:calc(var(--ls) * .042)}
@@ -418,10 +416,16 @@ a.card:hover .more{text-decoration:underline}
 
 /* SF_Guidelines / SCALING — logo minimum 80px for digital use, symbol 50px.
    SF_Guidelines / CLEAR SPACE — 1X clear on all sides, X = half the symbol height. */
-.logo{min-width:80px}
-.bar .logo{padding:calc(17px * .5) 0}
+.bar .logo{--logo-h:40px}
 
 
 /* photo card: real pack render, same frame as the CSS packshot it sits beside */
 .card .shot{background:var(--paper-2);border-radius:10px;overflow:hidden;padding:0;margin-bottom:18px}
 .card .shot img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+
+/* pack label lockup scales with the rendered pack */
+.pack .band .logo{gap:5px;align-items:flex-end}
+.box .front .pack .logo{--logo-h:calc(var(--ls) * .20)}
+.box .front .pack .logo small{font-size:calc(var(--ls) * .05);line-height:1.2;padding-bottom:.1em}
+.pack.mini .logo{--logo-h:16px}
+.pack.mini .logo small{display:none}
