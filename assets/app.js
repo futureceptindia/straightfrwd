@@ -30,9 +30,10 @@ const LABEL = {
   ingredients: "Soya Protein Isolate, Pea Protein, Soy Fat Powder [Soy Oil, Maltodextrin, Sodium Caseinate, Stabilizer (INS 340(ii)), Emulsifier (INS 471), Anti-oxidant (INS 304)], Maltodextrin, Soya Fiber, Brown Rice Protein, Nature Identical Flavouring Substances, FOS, Minerals, Garcinia Cambogia, Curcumin, Vitamins, Cissus Quadrangularis Extract, Digestive Enzyme (α-amylase, protease, lipase, cellulase and lactase), Sweeteners (INS 955 &amp; INS 950) Sucralose &amp; Acesulfame potassium.",
   allergen: "Contains soy. Manufactured in a facility which processes wheat, milk, oats and nuts.",
   claims: [
-    '22.5 g protein in a 50 g serving (45 g per 100 g)',
+    '22.5 g protein in a 50 g serving — 45 g per 100 g',
+    '4.4 g dietary fibre a serving — 8.8 g per 100 g, of which 1 g is FOS',
     'No added sugar — sweetened with sucralose and acesulfame potassium',
-    'Digestive enzymes, FOS, vitamins and minerals in the mix',
+    'Digestive enzymes, vitamins and minerals in the mix',
     'Contains soy. Made in a facility that also handles wheat, milk, oats and nuts.'
   ],
   recommendedAs: 'Recommended as a one meal replacement.',
