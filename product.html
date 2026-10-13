@@ -1,13 +1,15 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1791730173"></head><body>
+<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1791886000"></head><body>
 
 <div class="wrap pdp">
   <div class="gallery">
-    <div class="hero-img"><img id="heroImg" src="assets/img/life-choc.jpg" alt=""></div>
+    <div class="pgal" id="pgal" hidden>
+      <div class="rail" id="rail"></div>
+      <div class="main"><img id="heroImg" src="assets/img/life-choc.jpg" alt=""></div>
+    </div>
     <div id="shot"></div>
-    <div class="hero-img" id="shot2" hidden><img id="heroImg2" src="assets/img/life-pouch.jpg" alt="The 1 kg stand-up pouch"></div>
     <div style="display:flex;gap:12px;margin-top:22px;justify-content:center" id="thumbs"></div>
   </div>
   <div>
@@ -15,7 +17,7 @@
     <h1 style="font-size:clamp(34px,4.4vw,52px)" id="title">Chocolate</h1>
     <p class="lede" style="font-size:18px" id="blurb"></p>
 
-    <h4 style="font:800 12px/1 Archivo,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin:28px 0 0">Flavour</h4>
+    <h4 style="font:800 12px/1 var(--font);letter-spacing:.16em;text-transform:uppercase;margin:28px 0 0">Flavour</h4>
     <div class="swatches" id="sw"></div>
 
     <ul class="ticks" id="ticks"></ul>
@@ -61,12 +63,45 @@
   </div>
 </div>
 
+<section class="sec tight" id="howSec"><div class="wrap">
+  <div class="eyebrow">How to make it</div>
+  <h2 style="font-size:32px;margin-bottom:34px">Three steps, thirty seconds.</h2>
+  <ol class="howrow">
+    <li><h3>Scoop 50 g</h3><p>The scoop is in the pack, so you are not guessing with a tablespoon.</p></li>
+    <li><h3>250 ml water</h3><p>Water, not milk. The mix carries its own fat powder, so it goes creamy on its own.</p></li>
+    <li><h3>Stir and drink</h3><p>Stir until nothing sits at the bottom, then drink it immediately after preparation.</p></li>
+  </ol>
+</div></section>
+
+<section class="sec tight" id="cmpSec"><div class="wrap">
+  <div class="eyebrow">How it compares</div>
+  <h2 style="font-size:32px;margin-bottom:10px">What you usually have to dig for.</h2>
+  <p style="opacity:.72;margin:0 0 26px;max-width:58ch">Every figure below is printed on our pack. We have left the other column blank rather than put words in anyone else&rsquo;s mouth.</p>
+  <div class="tablewrap"><table class="compare">
+    <thead><tr><th>Per 50 g serving</th><th>StraightFrwd Daily Protein</th><th>Typical pack</th></tr></thead>
+    <tbody>
+      <tr><td>Protein</td><td class="y">22.5 g</td><td style="opacity:.5">Check the back</td></tr>
+      <tr><td>Dietary fibre</td><td class="y">4.4 g, 1 g of it FOS</td><td style="opacity:.5">Rarely stated</td></tr>
+      <tr><td>Added sugar</td><td class="y">0 g</td><td style="opacity:.5">Check the back</td></tr>
+      <tr><td>Sweetener named on front</td><td class="y">Yes — sucralose, acesulfame K</td><td style="opacity:.5">Usually not</td></tr>
+      <tr><td>Botanicals with amounts</td><td class="y">Garcinia 416.67 mg, Cissus 75 mg</td><td style="opacity:.5">&ldquo;Proprietary blend&rdquo;</td></tr>
+      <tr><td>Same formula in every flavour</td><td class="y">Yes</td><td style="opacity:.5">Varies</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section class="sec tight" id="pairSec"><div class="wrap">
+  <div class="eyebrow">Goes with</div>
+  <h2 style="font-size:32px;margin-bottom:28px">The rest of the shelf.</h2>
+  <div class="pairs" id="pairs"></div>
+</div></section>
+
 <section class="sec"><div class="wrap">
   <h2 style="font-size:30px;margin-bottom:26px" id="moreTitle">The rest of the range</h2>
   <div class="grid3" id="more"></div>
 </div></section>
 
-<script src="assets/app.js?v=1791730173"></script><script>
+<script src="assets/app.js?v=1791886000"></script><script>
 chrome('products.html');
 
 
@@ -83,11 +118,15 @@ function paint(){
   const protein = isProtein(cur.id);
   const set = protein ? PROTEIN : ENERGY;
 
-  document.getElementById('heroImg').src = `assets/img/${cur.shot}.jpg`;
+  const gal = cur.gallery || [cur.shot];
+  document.getElementById('pgal').hidden = !cur.real;
+  document.getElementById('rail').innerHTML = gal.map((g,n)=>
+    `<button aria-current="${n===0}" aria-label="View image ${n+1}" onclick="showShot(${n})"><img src="assets/img/${g}.jpg" alt=""></button>`).join('');
+  window.__gal = gal;
+  document.getElementById('heroImg').src = `assets/img/${gal[0]}.jpg`;
   // real renders exist for the protein packs, so show those instead of the CSS packshot
   document.getElementById('shot').hidden = !!cur.real;
   document.getElementById('shot').innerHTML = cur.real ? '' : packshot(cur,{cls:'packshot'});
-  document.getElementById('shot2').hidden = !cur.real;
   document.getElementById('thumbs').innerHTML = set.map(p =>
     `<div style="width:72px;cursor:pointer" onclick="pick('${p.id}')">${pack(p,{mini:true})}</div>`).join('');
   document.getElementById('range').textContent = protein ? 'Daily Protein' : 'Energy Drink';
@@ -114,8 +153,17 @@ function paint(){
   document.getElementById('moreTitle').textContent =
     protein ? 'The other protein flavours' : 'The other energy drinks';
   document.getElementById('more').innerHTML = rest.map(card).join('');
+  document.getElementById('pairs').innerHTML = ENERGY.map(e =>
+    `<a class="pair" href="product.html#${e.id}"><img src="assets/img/${e.shot}.jpg" alt="">
+       <div><b>${e.name}</b><span>Energy Drink · 1 g sachet</span></div></a>`).join('');
+  ['howSec','cmpSec'].forEach(id => document.getElementById(id).hidden = !protein);
   document.getElementById('more').className = rest.length > 2 ? 'grid3' : 'grid2';
   document.title = `${cur.name} — StraightFrwd`;
+}
+
+function showShot(n){
+  document.getElementById('heroImg').src = `assets/img/${window.__gal[n]}.jpg`;
+  [...document.querySelectorAll('#rail button')].forEach((b,k)=>b.setAttribute('aria-current', String(k===n)));
 }
 
 function pick(id){

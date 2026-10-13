@@ -15,11 +15,11 @@ function logo(size, color, tagline){
 
 /* --- the catalogue, taken off the packaging artwork --- */
 const PROTEIN = [
-  {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'life-choc',  real:true, tag:'',
+  {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'life-choc',  real:true, tag:'', gallery:['life-choc','choc-2','choc-3','choc-4'],
    note:'Dark and not sweet. The one most people start on.'},
-  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'life-mango', real:true, tag:'',
+  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'life-mango', real:true, tag:'', gallery:['life-mango','mango-2','mango-3','mango-4'],
    note:'Tastes closer to a lassi than a supplement.'},
-  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'life-kulfi', real:true, tag:'New',
+  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'life-kulfi', real:true, tag:'New', gallery:['life-kulfi','kulfi-2','kulfi-3','kulfi-4'],
    note:'Cardamom and pistachio. Made for people who find chocolate boring.'},
 ];
 
@@ -112,12 +112,26 @@ function toast(m){
   clearTimeout(t._); t._ = setTimeout(()=>t.classList.remove('on'), 2200);
 }
 
+/* --- social icons (inline SVG, 24px grid) --- */
+const SOCIAL_PATHS = {
+  Instagram:'<path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.46 2.21 8.84 2.2 12 2.2Zm0 1.8c-3.14 0-3.5.01-4.74.07-.9.04-1.38.19-1.7.31-.43.17-.73.37-1.05.69-.32.32-.52.62-.69 1.05-.12.32-.27.8-.31 1.7C3.45 8.5 3.44 8.86 3.44 12s.01 3.5.07 4.74c.04.9.19 1.38.31 1.7.17.43.37.73.69 1.05.32.32.62.52 1.05.69.32.12.8.27 1.7.31 1.24.06 1.6.07 4.74.07s3.5-.01 4.74-.07c.9-.04 1.38-.19 1.7-.31.43-.17.73-.37 1.05-.69.32-.32.52-.62.69-1.05.12-.32.27-.8.31-1.7.06-1.24.07-1.6.07-4.74s-.01-3.5-.07-4.74c-.04-.9-.19-1.38-.31-1.7a2.8 2.8 0 0 0-.69-1.05 2.8 2.8 0 0 0-1.05-.69c-.32-.12-.8-.27-1.7-.31C15.5 4.01 15.14 4 12 4Zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8Zm0 8.08a3.18 3.18 0 1 0 0-6.36 3.18 3.18 0 0 0 0 6.36Zm6.24-8.28a1.14 1.14 0 1 1-2.28 0 1.14 1.14 0 0 1 2.28 0Z"/>',
+  Facebook:'<path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.9h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94Z"/>',
+  YouTube:'<path d="M21.58 7.19a2.5 2.5 0 0 0-1.76-1.77C18.25 5 12 5 12 5s-6.25 0-7.82.42A2.5 2.5 0 0 0 2.42 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .42 4.81 2.5 2.5 0 0 0 1.76 1.77C5.75 19 12 19 12 19s6.25 0 7.82-.42a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.42-4.81ZM10 15.02V8.98L15.2 12 10 15.02Z"/>',
+  LinkedIn:'<path d="M6.94 5.5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0ZM3.2 8.98h3.47V21H3.2V8.98Zm5.65 0h3.33v1.64h.05c.46-.88 1.6-1.8 3.29-1.8 3.52 0 4.17 2.32 4.17 5.33V21h-3.47v-5.33c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.81V21H8.85V8.98Z"/>',
+  X:'<path d="M17.53 3h3.04l-6.64 7.59L21.75 21h-6.13l-4.8-6.28L5.32 21H2.28l7.1-8.12L2.5 3h6.28l4.34 5.74L17.53 3Zm-1.07 16.17h1.69L7.63 4.74H5.82l10.64 14.43Z"/>',
+};
+const SOCIALS = Object.entries(SOCIAL_PATHS).map(([name, d]) =>
+  `<a class="social" href="#" aria-label="${name}" title="${name}"
+      onclick="event.preventDefault();toast('${name} profile not linked yet')">
+     <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">${d}</svg>
+   </a>`).join('');
+
 /* --- shared chrome --- */
 function chrome(page){
   const nav = [['index.html','Home'],['products.html','Products'],['science.html',"What's Inside"],
-               ['about.html','About'],['distributors.html','Distributors'],['contact.html','Contact']];
+               ['about.html','About'],['faq.html','FAQs'],['contact.html','Contact']];
   document.body.insertAdjacentHTML('afterbegin', `
-  <div class="announce">Nutrition, Made Easy &nbsp;·&nbsp; <b>Distributor enquiries open</b></div>
+  <div class="announce">Nutrition, Made Easy &nbsp;·&nbsp; <b>22.5 g protein</b> and <b>4.4 g fibre</b> in every serving</div>
   <header class="site"><div class="wrap bar">
     ${logo('', 'var(--brown)', false)}
     <nav>${nav.map(([h,l])=>`<a href="${h}" ${h===page?'aria-current="page"':''}>${l}</a>`).join('')}</nav>
@@ -132,10 +146,12 @@ function chrome(page){
         <p style="opacity:.75;font-size:15px;max-width:34ch;margin-top:18px">Protein and energy mixes with the label written in words you already know. Made in Sirmaur, packed in Delhi.</p>
       </div>
       <div><h4>Products</h4><a href="products.html">Daily Protein</a><a href="products.html">Energy Drinks</a><a href="science.html">What's inside</a></div>
-      <div><h4>Company</h4><a href="about.html">Our story</a><a href="distributors.html">Become a distributor</a><a href="contact.html">Contact</a></div>
+      <div><h4>Company</h4><a href="about.html">Our story</a><a href="faq.html">FAQs</a><a href="contact.html">Contact</a></div>
       <div><h4>Talk to us</h4>
         <p style="opacity:.75;font-size:14.5px;margin:0 0 10px">+91 97097 04234<br>writetous@ayushvanutrition.com</p>
-        <p style="opacity:.6;font-size:13.5px;margin:0">2-A/3 S/F Front Side, Asafali Road,<br>Turkman Gate, Darya Ganj,<br>New Delhi 110002</p>
+        <p style="opacity:.6;font-size:13.5px;margin:0 0 18px">2-A/3 S/F Front Side, Asafali Road,<br>Turkman Gate, Darya Ganj,<br>New Delhi 110002</p>
+        <h4>Follow</h4>
+        <div class="socials">${SOCIALS}</div>
       </div>
     </div>
     <div class="legal"><span>© 2026 Shiv Protein Private Limited</span>

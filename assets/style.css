@@ -1,7 +1,11 @@
 /* StraightFrwd — mockup design system. Colours lifted from the packaging artwork. */
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root{
+  /* SUBSTITUTE for Volte (ITF), the brand typeface — see README */
+  --font:'Figtree',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-display:'Figtree',ui-sans-serif,system-ui,-apple-system,sans-serif;
+
   /* Brand primary — SF_Guidelines, LOGO / PRIMARY COLOUR, Pantone P 41-13 C */
   --brand:#AE5D40;
   --brand-d:#94492F;
@@ -43,7 +47,7 @@
 html{scroll-behavior:smooth}
 body{
   margin:0;background:var(--paper);color:var(--ink);
-  font:400 17px/1.6 Archivo,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font:400 17px/1.6 var(--font);
   -webkit-font-smoothing:antialiased;
 }
 img{max-width:100%;display:block}
@@ -57,7 +61,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .logo{display:inline-flex;align-items:flex-end;gap:9px;text-decoration:none;color:inherit}
 .logo .mark{display:block}
 .logo .mark svg{display:block;height:var(--logo-h,36px);width:auto}
-.logo small{font:500 9px/1.25 Archivo,sans-serif;letter-spacing:.01em;opacity:.95;
+.logo small{font:500 9px/1.25 var(--font);letter-spacing:.01em;opacity:.95;
   text-transform:none;white-space:nowrap;padding-bottom:.18em}
 .logo.lg{--logo-h:62px}
 .logo.lg small{font-size:16px}
@@ -88,11 +92,11 @@ header.site{position:sticky;top:0;z-index:40;background:var(--paper);border-bott
 .btn.wide{width:100%}
 
 /* ---------- type ---------- */
-h1,h2,h3,h4{font-family:"Archivo Black",Archivo,sans-serif;font-weight:900;letter-spacing:-.025em;margin:0 0 .4em}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;margin:0 0 .4em}
 h1{font-size:clamp(44px,7vw,84px);line-height:.94}
 h2{font-size:clamp(30px,4.2vw,52px);line-height:1}
 h3{font-size:22px;line-height:1.15}
-.eyebrow{font:700 12px/1 Archivo,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:18px}
+.eyebrow{font:700 12px/1 var(--font);letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:18px}
 .lede{font-size:19px;max-width:56ch;opacity:.82}
 .sec{padding:96px 0}
 .sec.tight{padding:68px 0}
@@ -107,7 +111,7 @@ h3{font-size:22px;line-height:1.15}
 .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
 .trust{display:flex;gap:30px;margin-top:44px;flex-wrap:wrap}
 .trust div{max-width:150px}
-.trust b{display:block;font:900 27px/1 "Archivo Black",sans-serif;color:var(--orange-lt)}
+.trust b{display:block;font:800 27px/1 var(--font-display);color:var(--orange-lt)}
 .trust span{font-size:13px;opacity:.75;line-height:1.35;display:block;margin-top:4px}
 
 /* ---------- pack renders (CSS-drawn stand-ins for product photos) ---------- */
@@ -118,8 +122,8 @@ h3{font-size:22px;line-height:1.15}
 .pack .band .logo b{color:var(--pk-a)}
 .pack .band .logo small{color:var(--pk-a)}
 .pack .body{flex:1;padding:8% 9% 9%;display:flex;flex-direction:column;color:var(--pk-b)}
-.pack .kind{font:800 10px/1.2 Archivo,sans-serif;letter-spacing:.12em;text-transform:uppercase}
-.pack .flav{margin-top:auto;font:800 15px/1 Archivo,sans-serif;letter-spacing:.06em;text-transform:uppercase;
+.pack .kind{font:800 10px/1.2 var(--font);letter-spacing:.12em;text-transform:uppercase}
+.pack .flav{margin-top:auto;font:800 15px/1 var(--font);letter-spacing:.06em;text-transform:uppercase;
   padding-bottom:9px;border-bottom:1.5px solid currentColor}
 .pack .qty{font-size:9px;letter-spacing:.08em;margin-top:8px;opacity:.85;text-transform:uppercase}
 .pack .fruit{position:absolute;right:7%;bottom:16%;width:38%;opacity:.95}
@@ -158,7 +162,7 @@ h3{font-size:22px;line-height:1.15}
 
 /* ---------- strips / panels ---------- */
 .strip{background:var(--orange);color:#fff;padding:20px 0;overflow:hidden;white-space:nowrap}
-.strip .run{display:inline-flex;gap:46px;animation:run 26s linear infinite;font:800 15px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.strip .run{display:inline-flex;gap:46px;animation:run 26s linear infinite;font:800 15px/1 var(--font);letter-spacing:.14em;text-transform:uppercase}
 @keyframes run{to{transform:translateX(-50%)}}
 .panel{background:var(--paper-2);border-radius:20px;padding:44px}
 .panel.brown{background:var(--brown);color:var(--tan-lt)}
@@ -166,12 +170,12 @@ h3{font-size:22px;line-height:1.15}
 
 .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
 .facts div{background:var(--paper);padding:26px 22px}
-.facts b{display:block;font:900 34px/1 "Archivo Black",sans-serif;color:var(--orange)}
+.facts b{display:block;font:800 34px/1 var(--font-display);color:var(--orange)}
 .facts span{font-size:13.5px;opacity:.72;display:block;margin-top:7px;line-height:1.4}
 
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;counter-reset:s}
 .steps li{list-style:none;counter-increment:s}
-.steps li::before{content:counter(s,decimal-leading-zero);font:900 14px/1 "Archivo Black",sans-serif;
+.steps li::before{content:counter(s,decimal-leading-zero);font:800 14px/1 var(--font-display);
   color:var(--orange);display:block;margin-bottom:14px;letter-spacing:.1em}
 .steps h3{font-size:19px}
 .steps p{margin:0;font-size:15px;opacity:.75}
@@ -217,7 +221,7 @@ details.faq p{margin:0 0 22px;opacity:.78;max-width:72ch;font-size:16px}
 /* ---------- footer ---------- */
 footer.site{background:var(--brown);color:var(--tan-lt);padding:66px 0 30px;margin-top:20px}
 footer.site .cols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.3fr;gap:38px}
-footer.site h4{font:800 12px/1 Archivo,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-lt);margin-bottom:18px}
+footer.site h4{font:800 12px/1 var(--font);letter-spacing:.16em;text-transform:uppercase;color:var(--orange-lt);margin-bottom:18px}
 footer.site a{display:block;text-decoration:none;font-size:15px;opacity:.82;margin-bottom:11px}
 footer.site a:hover{opacity:1;color:var(--orange-lt)}
 footer.site .logo{--logo-h:48px;color:#fff}
@@ -429,3 +433,78 @@ a.card:hover .more{text-decoration:underline}
 .box .front .pack .logo small{font-size:calc(var(--ls) * .05);line-height:1.2;padding-bottom:.1em}
 .pack.mini .logo{--logo-h:16px}
 .pack.mini .logo small{display:none}
+
+
+/* social icons */
+.socials{display:flex;gap:9px;flex-wrap:wrap}
+.social{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:999px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(235,220,196,.22);
+  color:var(--tan-lt);text-decoration:none;transition:background .15s, color .15s, border-color .15s}
+.social:hover{background:var(--brand);border-color:var(--brand);color:#fff}
+.social svg{display:block}
+
+
+/* ---------- hero slider ---------- */
+.hero{position:relative}
+.slides{position:relative}
+.slide{display:none}
+.slide.on{display:block}
+@media(prefers-reduced-motion:no-preference){
+  .slide.on{animation:slideIn .55s cubic-bezier(.25,.8,.3,1) both}
+  @keyframes slideIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+}
+.hero-ui{display:flex;align-items:center;gap:16px;padding:0 0 30px;position:relative;z-index:2}
+.dots{display:flex;gap:9px}
+.dot{width:9px;height:9px;border-radius:999px;background:rgba(235,220,196,.32);
+  border:0;padding:0;cursor:pointer;transition:background .2s, width .2s}
+.dot[aria-current="true"]{background:var(--orange-lt);width:26px}
+.dot:focus-visible{outline:2px solid var(--orange-lt);outline-offset:3px}
+.arrow{width:38px;height:38px;border-radius:999px;display:grid;place-items:center;
+  background:rgba(255,255,255,.08);border:1px solid rgba(235,220,196,.24);
+  color:var(--tan-lt);cursor:pointer;transition:background .15s,color .15s}
+.arrow:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+.arrow svg{display:block}
+.hero-ui .count{margin-left:auto;font-size:13px;opacity:.6;font-variant-numeric:tabular-nums}
+@media(max-width:600px){.hero-ui .count{display:none}}
+
+
+/* ---------- product gallery (thumbnail rail + main image) ---------- */
+.pgal{display:grid;grid-template-columns:76px 1fr;gap:14px;align-items:start}
+.pgal .rail{display:flex;flex-direction:column;gap:10px}
+.pgal .rail button{padding:0;border:2px solid transparent;border-radius:10px;overflow:hidden;
+  background:var(--paper-2);cursor:pointer;line-height:0;transition:border-color .15s}
+.pgal .rail button[aria-current="true"]{border-color:var(--brand)}
+.pgal .rail img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.pgal .main{border-radius:14px;overflow:hidden;background:var(--paper-2);position:relative}
+.pgal .main img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+@media(max-width:600px){
+  .pgal{grid-template-columns:1fr}
+  .pgal .rail{flex-direction:row;order:2;overflow-x:auto;scrollbar-width:none}
+  .pgal .rail::-webkit-scrollbar{display:none}
+  .pgal .rail button{flex:0 0 68px}
+}
+
+/* ---------- extra product sections ---------- */
+.howrow{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;counter-reset:hs}
+.howrow li{list-style:none;counter-increment:hs}
+.howrow li::before{content:counter(hs);display:grid;place-items:center;width:34px;height:34px;
+  border-radius:999px;background:var(--brand);color:#fff;font-weight:800;font-size:15px;margin-bottom:14px}
+.howrow h3{font-size:18px;margin-bottom:6px}
+.howrow p{margin:0;font-size:15px;opacity:.75}
+
+.compare{width:100%;border-collapse:collapse;font-size:15.5px}
+.compare th,.compare td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:left}
+.compare thead th{font:800 12px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.compare td:first-child{font-weight:700}
+.compare td.y{color:var(--green);font-weight:700}
+.compare tbody tr:hover{background:var(--paper-2)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:#fff}
+
+.pairs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pair{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.pair img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.pair div{padding:16px}
+.pair b{display:block;font-size:15px;margin-bottom:3px}
+.pair span{font-size:13.5px;opacity:.7}
+@media(max-width:960px){.howrow,.pairs{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.howrow,.pairs{grid-template-columns:1fr}}

@@ -2,16 +2,70 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>StraightFrwd — Nutrition, Made Easy</title>
-<link rel="stylesheet" href="assets/style.css?v=1791730173"></head><body>
+<link rel="stylesheet" href="assets/style.css?v=1791886000"></head><body>
 
-<section class="hero"><div class="wrap grid">
-  <div>
-    <div class="eyebrow">Daily Protein · Energy Drinks</div>
-    <h1>22.5 g protein.<br>4.4 g fibre.<br><em>Nothing you<br>can't pronounce.</em></h1>
-    <p class="lede">One 50 g scoop in 250 ml of water. High in protein and high in fibre, with every ingredient named on the back — no "proprietary blend" hiding what you paid for.</p>
-    <div class="cta">
-      <a class="btn" href="products.html">See the range</a>
-      <a class="btn ghost" href="science.html" style="color:var(--tan-lt);box-shadow:inset 0 0 0 2px rgba(235,220,196,.4)">Read the full label</a>
+<section class="hero" aria-roledescription="carousel" aria-label="StraightFrwd highlights">
+  <div class="slides" id="slides">
+  <div class="slide on" role="group" aria-roledescription="slide" aria-label="Daily Protein · Energy Drinks">
+    <div class="wrap grid">
+    <div>
+      <div class="eyebrow">Daily Protein · Energy Drinks</div>
+      <h1>22.5 g protein.<br>4.4 g fibre.<br><em>Nothing you<br>can't pronounce.</em></h1>
+      <p class="lede">One 50 g scoop in 250 ml of water. High in protein and high in fibre, with every ingredient named on the back — no "proprietary blend" hiding what you paid for.</p>
+      <div class="cta"><a class="btn" href="products.html">See the range</a><a class="btn ghost" href="science.html" style="color:var(--tan-lt);box-shadow:inset 0 0 0 2px rgba(235,220,196,.4)">Read the full label</a></div>
+    </div>
+    <div class="hero-art">
+      <div class="shotimg"><img src="assets/img/life-choc.jpg" alt="Chocolate Daily Protein sachet and carton beside a mixed shake"></div>
+    <div class="float"><img src="assets/img/life-pouch.jpg" alt=""></div>
+    </div>
+    </div>
+  </div>
+  <div class="slide" role="group" aria-roledescription="slide" aria-label="Three flavours">
+    <div class="wrap grid">
+    <div>
+      <div class="eyebrow">Three flavours</div>
+      <h1>Chocolate.<br>Mango.<br><em>Kulfi.</em></h1>
+      <p class="lede">The same formulation in all three — identical ingredient list, identical nutrition panel. Only the flavour changes, so you pick on taste alone.</p>
+      <div class="cta"><a class="btn" href="products.html">See the range</a><a class="btn ghost" href="science.html" style="color:var(--tan-lt);box-shadow:inset 0 0 0 2px rgba(235,220,196,.4)">Read the full label</a></div>
+    </div>
+    <div class="hero-art">
+      <div class="shotimg"><img src="assets/img/life-range.jpg" alt="The three Daily Protein sachets side by side"></div>
+    </div>
+    </div>
+  </div>
+  <div class="slide" role="group" aria-roledescription="slide" aria-label="1 kg pack">
+    <div class="wrap grid">
+    <div>
+      <div class="eyebrow">1 kg pack</div>
+      <h1>Twenty servings.<br><em>One honest<br>label.</em></h1>
+      <p class="lede">Soya protein isolate, pea and brown rice, with vitamins, minerals and digestive enzymes already folded in. Recommended as a one meal replacement.</p>
+      <div class="cta"><a class="btn" href="products.html">See the range</a><a class="btn ghost" href="faq.html" style="color:var(--tan-lt);box-shadow:inset 0 0 0 2px rgba(235,220,196,.4)">Read the FAQs</a></div>
+    </div>
+    <div class="hero-art">
+      <div class="shotimg"><img src="assets/img/life-pouch.jpg" alt="The 1 kg Daily Protein pack"></div>
+    </div>
+    </div>
+  </div>
+  <div class="slide" role="group" aria-roledescription="slide" aria-label="Energy Drinks">
+    <div class="wrap grid">
+    <div>
+      <div class="eyebrow">Energy Drinks</div>
+      <h1>One gram.<br><em>150 ml of<br>hot water.</em></h1>
+      <p class="lede">Kashmiri Kahwa, Ginger, Tulsi and Lemon, in single-gram sachets that live in a desk drawer. Nothing to measure, nothing to shake.</p>
+      <div class="cta"><a class="btn" href="products.html">See the range</a><a class="btn ghost" href="faq.html" style="color:var(--tan-lt);box-shadow:inset 0 0 0 2px rgba(235,220,196,.4)">Read the FAQs</a></div>
+    </div>
+    <div class="hero-art">
+      <div class="shotimg"><img src="assets/img/energy-kahwa.jpg" alt="A glass cup of Kashmiri kahwa with saffron and almonds"></div>
+    </div>
+    </div>
+  </div>
+  </div>
+  <div class="wrap">
+    <div class="hero-ui">
+      <button class="arrow" id="prev" aria-label="Previous slide"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 8 12l7 7"/></svg></button>
+      <button class="arrow" id="next" aria-label="Next slide"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></button>
+      <div class="dots" id="dots" role="tablist" aria-label="Choose slide"></div>
+      <span class="count" id="count"></span>
     </div>
     <div class="trust">
       <div><b>22.5 g</b><span>Protein per 50 g serving</span></div>
@@ -20,11 +74,7 @@
       <div><b>20</b><span>Servings in every kilo</span></div>
     </div>
   </div>
-  <div class="hero-art">
-    <div class="shotimg"><img src="assets/img/life-choc.jpg" alt="StraightFrwd Daily Protein chocolate sachet and carton on a kitchen counter beside a mixed shake"></div>
-    <div class="float"><img src="assets/img/life-pouch.jpg" alt="The 1 kg Daily Protein pouch"></div>
-  </div>
-</div></section>
+</section>
 
 <div class="strip"><div class="run" id="strip"></div></div>
 
@@ -88,18 +138,6 @@
   </div>
 </div></section>
 
-<section class="sec tight"><div class="wrap">
-  <div class="panel grid2" style="background:var(--paper-2)">
-    <div>
-      <div class="eyebrow">Trade</div>
-      <h2 style="font-size:34px">Stock StraightFrwd.</h2>
-      <p style="opacity:.78">We are appointing distributors across North India, and we work directly with gyms, chemists and kirana chains on bulk pricing.</p>
-      <a class="btn dark" href="distributors.html" style="margin-top:8px">Distributor enquiry</a>
-    </div>
-    <div class="shotimg" style="border-radius:16px"><img src="assets/img/facility.jpg" alt="Manufacturing facility"></div>
-  </div>
-</div></section>
-
 <section class="sec"><div class="wrap" style="max-width:860px">
   <div class="eyebrow">Questions</div>
   <h2 style="margin-bottom:26px">Before you ask.</h2>
@@ -110,10 +148,61 @@
   <details class="faq"><summary>Who should not take it?</summary><p>Pregnant, nursing and lactating women, children under 5, adolescents and the elderly, unless a physician or certified dietitian advises it. Contains soy; made in a facility that also processes wheat, milk, oats and nuts.</p></details>
 </div></section>
 
-<script src="assets/app.js?v=1791730173"></script><script>
+<script src="assets/app.js?v=1791886000"></script><script>
 chrome('index.html');
 document.getElementById('homeProtein').innerHTML = PROTEIN.map(card).join('');
 document.getElementById('homeEnergy').innerHTML  = ENERGY.map(card).join('');
 document.getElementById('homeBuy').innerHTML = buyRow();
 document.getElementById('strip').innerHTML = Array(2).fill('<span>Nutrition, Made Easy</span><span>22.5 g protein</span><span>4.4 g fibre</span><span>No added sugar</span><span>Every ingredient named</span><span>20 servings a kilo</span><span>Every ingredient named</span>').join('');
+
+/* hero slider: autoplay pauses on hover, focus, hidden tab and reduced motion */
+(function(){
+  const slides = [...document.querySelectorAll('#slides .slide')];
+  const dots = document.getElementById('dots');
+  const count = document.getElementById('count');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let i = 0, timer = null, held = false;
+
+  dots.innerHTML = slides.map((s,n)=>
+    `<button class="dot" role="tab" aria-label="Slide ${n+1}: ${s.getAttribute('aria-label')}"></button>`).join('');
+  const buttons = [...dots.children];
+
+  function show(n){
+    i = (n + slides.length) % slides.length;
+    slides.forEach((s,k)=>s.classList.toggle('on', k===i));
+    buttons.forEach((b,k)=>b.setAttribute('aria-current', String(k===i)));
+    count.textContent = `${i+1} / ${slides.length}`;
+  }
+  const next = () => show(i+1), prev = () => show(i-1);
+
+  function play(){ if(reduce || held) return; stop(); timer = setInterval(next, 6500); }
+  function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+  function hold(v){ held = v; v ? stop() : play(); }
+
+  buttons.forEach((b,n)=>b.addEventListener('click', ()=>{ show(n); play(); }));
+  document.getElementById('next').addEventListener('click', ()=>{ next(); play(); });
+  document.getElementById('prev').addEventListener('click', ()=>{ prev(); play(); });
+
+  const hero = document.querySelector('.hero');
+  hero.addEventListener('mouseenter', ()=>hold(true));
+  hero.addEventListener('mouseleave', ()=>hold(false));
+  hero.addEventListener('focusin',   ()=>hold(true));
+  hero.addEventListener('focusout',  ()=>hold(false));
+  document.addEventListener('visibilitychange', ()=>hold(document.hidden));
+  hero.addEventListener('keydown', e=>{
+    if(e.key === 'ArrowRight'){ next(); play(); }
+    if(e.key === 'ArrowLeft'){ prev(); play(); }
+  });
+  // swipe
+  let x0 = null;
+  hero.addEventListener('touchstart', e=>{ x0 = e.touches[0].clientX; }, {passive:true});
+  hero.addEventListener('touchend', e=>{
+    if(x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if(Math.abs(dx) > 45){ dx < 0 ? next() : prev(); play(); }
+    x0 = null;
+  }, {passive:true});
+
+  show(0); play();
+})();
 </script></body></html>
