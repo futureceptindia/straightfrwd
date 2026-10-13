@@ -142,20 +142,23 @@ function chrome(page){
   document.body.insertAdjacentHTML('beforeend', `
   <footer class="site"><div class="wrap">
     <div class="cols">
-      <div>${logo('','#fff',true)}
-        <p style="opacity:.75;font-size:15px;max-width:34ch;margin-top:18px">Protein and energy mixes with the label written in words you already know. Made in Sirmaur, packed in Delhi.</p>
+      <div class="brandcol">
+        ${logo('', '#fff', false)}
+        <p>Protein and energy mixes with the label written in words you already know. Made in Sirmaur, packed in Delhi.</p>
+        <div class="socials">${SOCIALS}</div>
       </div>
       <div><h4>Products</h4><a href="products.html">Daily Protein</a><a href="products.html">Energy Drinks</a><a href="science.html">What's inside</a></div>
       <div><h4>Company</h4><a href="about.html">Our story</a><a href="faq.html">FAQs</a><a href="contact.html">Contact</a></div>
       <div><h4>Talk to us</h4>
-        <p style="opacity:.75;font-size:14.5px;margin:0 0 10px">+91 97097 04234<br>writetous@ayushvanutrition.com</p>
-        <p style="opacity:.6;font-size:13.5px;margin:0 0 18px">2-A/3 S/F Front Side, Asafali Road,<br>Turkman Gate, Darya Ganj,<br>New Delhi 110002</p>
-        <h4>Follow</h4>
-        <div class="socials">${SOCIALS}</div>
+        <a href="tel:+919709704234" class="plain">+91 97097 04234</a>
+        <a href="mailto:writetous@ayushvanutrition.com" class="plain">writetous@ayushvanutrition.com</a>
+        <p class="addr">2-A/3 S/F Front Side, Asafali Road,<br>Turkman Gate, Darya Ganj,<br>New Delhi 110002</p>
       </div>
     </div>
-    <div class="legal"><span>© 2026 Shiv Protein Private Limited</span>
-      <span>FSSAI Lic. 12200000000000 · Mfg. Lic. RJ/NUT/2026/001</span></div>
+    <div class="legal">
+      <span>&copy; 2026 Shiv Protein Private Limited</span>
+      <span>FSSAI Lic. 12200000000000 &nbsp;·&nbsp; Mfg. Lic. RJ/NUT/2026/001</span>
+    </div>
   </div></footer>
   <div class="toast" id="toast"></div>`);
 }
