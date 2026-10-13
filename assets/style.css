@@ -534,3 +534,38 @@ footer.site .legal{margin-top:40px;padding-top:22px;border-top:1px solid rgba(23
   footer.site .cols{grid-template-columns:1fr;gap:30px}
   footer.site .legal{flex-direction:column;gap:8px;margin-top:34px}
 }
+
+
+/* ---------- image bands with CSS text overlay ----------
+   Type is rendered in the brand face over the photo, never baked into it:
+   stays sharp at any size, edits without regenerating, and screen readers get it. */
+.imgband{position:relative;border-radius:18px;overflow:hidden;isolation:isolate;
+  display:grid;align-items:center;min-height:clamp(300px,34vw,420px)}
+.imgband > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:72% center;z-index:-2}
+.imgband::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(90deg, var(--imgband-scrim,rgba(22,11,6,.92)) 0%,
+    var(--imgband-scrim,rgba(22,11,6,.92)) 28%, rgba(22,11,6,.5) 56%, rgba(22,11,6,0) 86%)}
+.imgband .copy{padding:clamp(26px,4vw,52px);max-width:min(520px,62%);color:#fff}
+.imgband .eyebrow{color:var(--orange-lt);margin-bottom:12px}
+.imgband h3{font-size:clamp(26px,3.2vw,40px);line-height:1.02;margin:0 0 12px;color:#fff}
+.imgband h3 em{font-style:normal;color:var(--orange-lt)}
+.imgband p{margin:0;font-size:16px;opacity:.86;max-width:40ch}
+
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.tile{position:relative;border-radius:16px;overflow:hidden;isolation:isolate;
+  display:grid;align-items:end;min-height:clamp(240px,26vw,320px)}
+.tile > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.tile::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(22,11,6,.12) 0%, rgba(22,11,6,.5) 52%, rgba(22,11,6,.92) 100%)}
+.tile .copy{padding:26px;color:#fff}
+.tile b{display:block;font:800 21px/1.1 var(--font-display);margin-bottom:6px}
+.tile span{font-size:14.5px;opacity:.84;display:block;max-width:34ch}
+
+@media(max-width:860px){
+  .imgband{min-height:0}
+  .imgband > img{object-position:66% center}
+  .imgband::after{background:linear-gradient(180deg, rgba(22,11,6,.55) 0%, rgba(22,11,6,.86) 62%, rgba(22,11,6,.95) 100%)}
+  .imgband .copy{max-width:100%;padding-block:clamp(180px,42vw,260px) 30px}
+  .tiles{grid-template-columns:1fr}
+}

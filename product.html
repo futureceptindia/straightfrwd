@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1791899474"></head><body>
+<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1791900612"></head><body>
 
 <div class="wrap pdp">
   <div class="gallery">
@@ -73,6 +73,27 @@
   </ol>
 </div></section>
 
+<section class="sec tight" id="bandSec"><div class="wrap">
+  <div class="imgband" style="--imgband-scrim:rgba(22,11,6,.93)">
+    <img src="assets/img/band-choc.jpg" alt="Daily Protein chocolate sachet and carton">
+    <div class="copy">
+      <div class="eyebrow">Daily Protein</div>
+      <h3>Made for the mornings<br><em>you are already late.</em></h3>
+      <p>A scoop, some water, and you are out of the door. No blender, no measuring, no second thought.</p>
+    </div>
+  </div>
+  <div class="tiles" style="margin-top:20px">
+    <div class="tile">
+      <img src="assets/img/tile-scoop.jpg" alt="A scoop of protein powder">
+      <div class="copy"><b>One scoop is one serving</b><span>The scoop is in the pack, so there is nothing to work out.</span></div>
+    </div>
+    <div class="tile">
+      <img src="assets/img/ing-protein.jpg" alt="Soya protein, split peas and brown rice">
+      <div class="copy"><b>Three plant sources</b><span>Soya isolate, pea and brown rice, listed with their amounts.</span></div>
+    </div>
+  </div>
+</div></section>
+
 <section class="sec tight" id="cmpSec"><div class="wrap">
   <div class="eyebrow">How it compares</div>
   <h2 style="font-size:32px;margin-bottom:10px">What you usually have to dig for.</h2>
@@ -101,7 +122,7 @@
   <div class="grid3" id="more"></div>
 </div></section>
 
-<script src="assets/app.js?v=1791899474"></script><script>
+<script src="assets/app.js?v=1791900612"></script><script>
 chrome('products.html');
 
 
@@ -157,6 +178,7 @@ function paint(){
     `<a class="pair" href="product.html#${e.id}"><img src="assets/img/${e.shot}.jpg" alt="">
        <div><b>${e.name}</b><span>Energy Drink · 1 g sachet</span></div></a>`).join('');
   ['howSec','cmpSec'].forEach(id => document.getElementById(id).hidden = !protein);
+  document.getElementById('bandSec').hidden = cur.id !== 'choc';
   document.getElementById('more').className = rest.length > 2 ? 'grid3' : 'grid2';
   document.title = `${cur.name} — StraightFrwd`;
 }
