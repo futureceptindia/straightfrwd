@@ -237,12 +237,12 @@ details.faq p{margin:0 0 22px;opacity:.78;max-width:72ch;font-size:16px}
   border-left:2.5px solid var(--orange);border-bottom:2.5px solid var(--orange);transform:rotate(-45deg)}
 
 /* ---------- footer ---------- */
-footer.site{background:var(--brown);color:var(--tan-lt);padding:66px 0 30px;margin-top:20px}
+footer.site{background:var(--brown);color:var(--tan-lt);padding:66px 0 34px;margin-top:20px}
 footer.site .cols{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.25fr;gap:40px 36px;align-items:start}
 footer.site h4{font:800 12px/1 var(--font);letter-spacing:.16em;text-transform:uppercase;color:var(--orange-lt);margin-bottom:18px}
-footer.site a{display:block;text-decoration:none;font-size:15px;opacity:.82;margin-bottom:11px}
-footer.site a:hover{opacity:1;color:var(--orange-lt)}
-footer.site .logo{--logo-h:44px;color:#fff}
+footer.site .cols a:not(.logo):not(.social){display:block;text-decoration:none;font-size:15px;opacity:.82;margin-bottom:11px}
+footer.site .cols a:not(.logo):not(.social):hover{opacity:1;color:var(--orange-lt)}
+footer.site .logo{--logo-h:44px;color:#fff;display:inline-flex;margin:0}
 .sub{display:flex;gap:8px;margin-top:14px}
 .sub input{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(235,220,196,.22);
   border-radius:999px;padding:13px 18px;color:#fff;font:inherit;font-size:14px}
@@ -449,8 +449,8 @@ a.card:hover .more{text-decoration:underline}
 
 /* social icons */
 .socials{display:flex;gap:9px;flex-wrap:wrap}
-.social{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:999px;
-  background:rgba(255,255,255,.1);border:1px solid rgba(235,220,196,.22);
+.social{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:999px;margin:0;
+  background:rgba(255,255,255,.14);border:1px solid rgba(235,220,196,.34);
   color:var(--tan-lt);text-decoration:none;transition:background .15s, color .15s, border-color .15s}
 .social:hover{background:var(--brand);border-color:var(--brand);color:#fff}
 .social svg{display:block}
@@ -522,7 +522,7 @@ footer.site .brandcol .socials{margin-top:0}
 footer.site a.plain{display:block;opacity:.82;font-size:15px;margin-bottom:8px;text-decoration:none}
 footer.site a.plain:hover{opacity:1;color:var(--orange-lt)}
 footer.site .addr{opacity:.6;font-size:13.5px;line-height:1.6;margin:14px 0 0}
-footer.site .legal{margin-top:48px;padding-top:22px;border-top:1px solid rgba(235,220,196,.16);
+footer.site .legal{margin-top:40px;padding-top:22px;border-top:1px solid rgba(235,220,196,.16);
   display:flex;justify-content:space-between;gap:16px;font-size:13px;opacity:.6;flex-wrap:wrap}
 @media(max-width:960px){
   footer.site .cols{grid-template-columns:1fr 1fr;gap:36px 28px}

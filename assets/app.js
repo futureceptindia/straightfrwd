@@ -147,8 +147,8 @@ function chrome(page){
         <p>Protein and energy mixes with the label written in words you already know. Made in Sirmaur, packed in Delhi.</p>
         <div class="socials">${SOCIALS}</div>
       </div>
-      <div><h4>Products</h4><a href="products.html">Daily Protein</a><a href="products.html">Energy Drinks</a><a href="science.html">What's inside</a></div>
-      <div><h4>Company</h4><a href="about.html">Our story</a><a href="faq.html">FAQs</a><a href="contact.html">Contact</a></div>
+      <div><h4>Products</h4><a href="products.html">Daily Protein</a><a href="products.html">Energy Drinks</a><a href="science.html">What's Inside</a></div>
+      <div><h4>Company</h4><a href="about.html">Our Story</a><a href="faq.html">FAQs</a><a href="contact.html">Contact</a></div>
       <div><h4>Talk to us</h4>
         <a href="tel:+919709704234" class="plain">+91 97097 04234</a>
         <a href="mailto:writetous@ayushvanutrition.com" class="plain">writetous@ayushvanutrition.com</a>
