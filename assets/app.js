@@ -16,15 +16,31 @@ function logo(size, color, tagline){
 /* --- the catalogue, taken off the packaging artwork --- */
 const PROTEIN = [
   {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'life-choc',  real:true, tag:'', gallery:['life-choc','choc-2','choc-3','choc-4'],
-   note:'Dark and not sweet. The one most people start on.'},
+   note:'Dark cocoa, barely sweet, no chalk. The one most people start on and stay on.',
+   gallery_lead:'flat-choc'},
   {id:'mango', name:'Mango',     cls:'pk-mango', shot:'life-mango', real:true, tag:'', gallery:['life-mango','mango-2','mango-3','mango-4'],
-   note:'Tastes closer to a lassi than a supplement.'},
+   note:'Ripe alphonso, thick enough to chew. Closer to a lassi than a supplement.',
+   gallery_lead:'flat-mango'},
   {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'life-kulfi', real:true, tag:'New', gallery:['life-kulfi','kulfi-2','kulfi-3','kulfi-4'],
-   note:'Cardamom and pistachio. Made for people who find chocolate boring.'},
+   note:'Cardamom, pistachio, a little bit of childhood. For people who find chocolate boring.',
+   gallery_lead:'flat-kulfi'},
 ];
 
 // One formulation across all three flavours — the approved label artwork carries an
 // identical ingredient list and nutrition panel on every variant.
+const COMPOSITION = [
+  {name:'Soya protein isolate', w:30},
+  {name:'Pea protein',          w:22},
+  {name:'Soy fat powder',       w:16},
+  {name:'Maltodextrin',         w:12},
+  {name:'Soya fibre',           w:9},
+  {name:'Brown rice protein',   w:7},
+  {name:'Vitamins, minerals, botanicals &amp; enzymes', w:4},
+];
+
+const NOT_IN_IT = ['no added sugar','no whey','no added colour','no proprietary blends',
+                   'no unnamed botanicals','no hidden asterisks'];
+
 const LABEL = {
   serving: 50, perKg: 20,
   ingredients: "Soya Protein Isolate, Pea Protein, Soy Fat Powder [Soy Oil, Maltodextrin, Sodium Caseinate, Stabilizer (INS 340(ii)), Emulsifier (INS 471), Anti-oxidant (INS 304)], Maltodextrin, Soya Fiber, Brown Rice Protein, Nature Identical Flavouring Substances, FOS, Minerals, Garcinia Cambogia, Curcumin, Vitamins, Cissus Quadrangularis Extract, Digestive Enzyme (α-amylase, protease, lipase, cellulase and lactase), Sweeteners (INS 955 &amp; INS 950) Sucralose &amp; Acesulfame potassium.",

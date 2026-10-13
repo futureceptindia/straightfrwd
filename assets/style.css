@@ -569,3 +569,29 @@ footer.site .legal{margin-top:40px;padding-top:22px;border-top:1px solid rgba(23
   .imgband .copy{max-width:100%;padding-block:clamp(180px,42vw,260px) 30px}
   .tiles{grid-template-columns:1fr}
 }
+
+
+/* ---------- PDP: stat badges under the title ---------- */
+.statrow{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 26px}
+.statrow div{flex:1 1 120px;background:var(--paper-2);border-radius:12px;padding:14px 16px;
+  border:1px solid var(--line)}
+.statrow b{display:block;font:800 20px/1 var(--font-display);color:var(--brand)}
+.statrow span{display:block;font-size:12.5px;opacity:.7;margin-top:5px;line-height:1.3}
+
+/* ---------- PDP: claim marquee ---------- */
+.pstrip{background:var(--brown);color:var(--tan-lt);padding:14px 0;overflow:hidden;white-space:nowrap;border-radius:12px}
+.pstrip .run{display:inline-flex;gap:34px;animation:run 24s linear infinite;
+  font:800 13px/1 var(--font);letter-spacing:.12em;text-transform:uppercase}
+
+/* ---------- PDP: what it is made of ---------- */
+.comp{display:grid;gap:12px;margin-top:4px}
+.comp .row{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+.comp .nm{font-size:15.5px}
+.comp .bar{grid-column:1/-1;height:9px;border-radius:999px;background:var(--paper-2);overflow:hidden}
+.comp .bar i{display:block;height:100%;border-radius:999px;background:var(--brand)}
+.comp .ord{font-size:12.5px;opacity:.55;font-variant-numeric:tabular-nums}
+
+.notin{display:flex;flex-wrap:wrap;gap:9px;margin-top:8px}
+.notin span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 15px;
+  font-size:14px;font-weight:600}
+.notin span::before{content:"\00d7";color:var(--brand);font-weight:800;margin-right:7px}

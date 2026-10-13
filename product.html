@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1791900732"></head><body>
+<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1791901479"></head><body>
 
 <div class="wrap pdp">
   <div class="gallery">
@@ -16,7 +16,9 @@
     <h1 style="font-size:clamp(34px,4.4vw,52px)" id="title">Chocolate</h1>
     <p class="lede" style="font-size:18px" id="blurb"></p>
 
-    <h4 style="font:800 12px/1 var(--font);letter-spacing:.16em;text-transform:uppercase;margin:28px 0 0">Flavour</h4>
+    <div class="statrow" id="statrow"></div>
+
+    <h4 style="font:800 12px/1 var(--font);letter-spacing:.16em;text-transform:uppercase;margin:0 0 0">Flavour</h4>
     <div class="swatches" id="sw"></div>
 
     <ul class="ticks" id="ticks"></ul>
@@ -45,7 +47,14 @@
       </table>
       <p style="font-size:13px;opacity:.6;margin-top:12px">Same panel on all three flavours. Full vitamin and mineral breakdown on <a href="science.html">What&rsquo;s Inside</a>.</p>
 
-      <h3 style="margin-top:34px">Ingredients</h3>
+      <h3 style="margin-top:34px">What it is made of</h3>
+      <p style="font-size:14px;opacity:.65;margin:0 0 18px">In the order the label declares them. Exact percentages are not published on the pack, so we have not put any here.</p>
+      <div class="comp" id="comp"></div>
+
+      <h3 style="margin-top:34px">What is not in it</h3>
+      <div class="notin" id="notin"></div>
+
+      <h3 style="margin-top:34px">Full ingredient list</h3>
       <p style="font-size:15.5px;opacity:.8" id="ing"></p>
       <p style="font-size:13px;opacity:.6" id="alg"></p>
 
@@ -61,6 +70,10 @@
     <div class="retailers" id="pdpBuy"></div>
   </div>
 </div>
+
+<section class="sec tight"><div class="wrap">
+  <div class="pstrip"><div class="run" id="pstrip"></div></div>
+</div></section>
 
 <section class="sec tight" id="howSec"><div class="wrap">
   <div class="eyebrow">How to make it</div>
@@ -121,7 +134,7 @@
   <div class="grid3" id="more"></div>
 </div></section>
 
-<script src="assets/app.js?v=1791900732"></script><script>
+<script src="assets/app.js?v=1791901479"></script><script>
 chrome('products.html');
 
 
@@ -138,7 +151,7 @@ function paint(){
   const protein = isProtein(cur.id);
   const set = protein ? PROTEIN : ENERGY;
 
-  const gal = cur.gallery || [cur.shot];
+  const gal = cur.gallery ? [cur.gallery[0], cur.gallery_lead, ...cur.gallery.slice(1)].filter(Boolean) : [cur.shot];
   document.getElementById('pgal').hidden = !cur.real;
   document.getElementById('rail').innerHTML = gal.map((g,n)=>
     `<button aria-current="${n===0}" aria-label="View image ${n+1}" onclick="showShot(${n})"><img src="assets/img/${g}.jpg" alt=""></button>`).join('');
@@ -162,7 +175,18 @@ function paint(){
   document.getElementById('how').textContent = protein
     ? LABEL.howTo
     : 'Add one 1 g sachet to 150 ml of hot water and stir. Drink it while it is hot.';
+  document.getElementById('statrow').innerHTML = protein
+    ? `<div><b>22.5 g</b><span>Protein per serving</span></div>
+       <div><b>4.4 g</b><span>Dietary fibre</span></div>
+       <div><b>0 g</b><span>Added sugar</span></div>`
+    : `<div><b>1 g</b><span>One sachet</span></div>
+       <div><b>150 ml</b><span>Hot water</span></div>
+       <div><b>4</b><span>Flavours</span></div>`;
   if(protein){
+    document.getElementById('comp').innerHTML = COMPOSITION.map((c,n)=>
+      `<div class="row"><span class="nm">${c.name}</span><span class="ord">${String(n+1).padStart(2,'0')}</span>
+       <span class="bar"><i style="width:${c.w}%"></i></span></div>`).join('');
+    document.getElementById('notin').innerHTML = NOT_IN_IT.map(t=>`<span>${t}</span>`).join('');
     document.getElementById('ing').innerHTML = LABEL.ingredients;
     document.getElementById('alg').textContent = LABEL.allergen;
   }
@@ -193,5 +217,8 @@ function pick(id){
 
 cur = ALL.find(p => p.id === location.hash.slice(1)) || PROTEIN[0];
 paint();
+document.getElementById('pstrip').innerHTML = Array(2).fill(
+  '<span>Plant protein</span><span>No added sugar</span><span>Vitamins &amp; minerals</span>'
++ '<span>Digestive enzymes</span><span>Amounts on the pack</span><span>Made in Himachal</span>').join('');
 document.getElementById('pdpBuy').innerHTML = buyRow();
 </script></body></html>
