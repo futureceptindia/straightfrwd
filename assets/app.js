@@ -131,7 +131,7 @@ function chrome(page){
   const nav = [['index.html','Home'],['products.html','Products'],['science.html',"What's Inside"],
                ['about.html','About'],['faq.html','FAQs'],['contact.html','Contact']];
   document.body.insertAdjacentHTML('afterbegin', `
-  <div class="announce">Nutrition, Made Easy &nbsp;·&nbsp; <b>22.5 g protein</b> and <b>4.4 g fibre</b> in every serving</div>
+  <div class="announce">Nutrition, Made Easy &nbsp;·&nbsp; <b>Every ingredient named on the pack</b>, with the amount beside it</div>
   <header class="site"><div class="wrap bar">
     ${logo('', 'var(--brown)', false)}
     <nav>${nav.map(([h,l])=>`<a href="${h}" ${h===page?'aria-current="page"':''}>${l}</a>`).join('')}</nav>
