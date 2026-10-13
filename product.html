@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1791901479"></head><body>
+<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1791902411"></head><body>
 
 <div class="wrap pdp">
   <div class="gallery">
@@ -87,7 +87,7 @@
 
 <section class="sec tight" id="bandSec"><div class="wrap">
   <div class="imgband" style="--imgband-scrim:rgba(22,11,6,.93)">
-    <img src="assets/img/band-choc.jpg" alt="Daily Protein chocolate sachet and carton">
+    <img src="assets/img/pack-choc.jpg" alt="Daily Protein chocolate sachet and carton">
     <div class="copy">
       <div class="eyebrow">Daily Protein</div>
       <h3>Made for the mornings<br><em>you are already late.</em></h3>
@@ -134,7 +134,7 @@
   <div class="grid3" id="more"></div>
 </div></section>
 
-<script src="assets/app.js?v=1791901479"></script><script>
+<script src="assets/app.js?v=1791902411"></script><script>
 chrome('products.html');
 
 
@@ -151,7 +151,7 @@ function paint(){
   const protein = isProtein(cur.id);
   const set = protein ? PROTEIN : ENERGY;
 
-  const gal = cur.gallery ? [cur.gallery[0], cur.gallery_lead, ...cur.gallery.slice(1)].filter(Boolean) : [cur.shot];
+  const gal = [...new Set([cur.gallery_lead, ...(cur.gallery || [cur.shot])].filter(Boolean))];
   document.getElementById('pgal').hidden = !cur.real;
   document.getElementById('rail').innerHTML = gal.map((g,n)=>
     `<button aria-current="${n===0}" aria-label="View image ${n+1}" onclick="showShot(${n})"><img src="assets/img/${g}.jpg" alt=""></button>`).join('');
