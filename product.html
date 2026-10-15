@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1792046685"></head><body>
+<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1792046877"></head><body>
 
 <div class="wrap pdp">
   <div class="gallery">
@@ -112,27 +112,8 @@
 
 <section class="sec tight" id="infoSec"><div class="wrap">
   <div class="eyebrow">Product information</div>
-  <h2 style="font-size:32px;margin-bottom:30px">What goes in, and why.</h2>
-  <div class="inforow">
-    <div class="infocard"><img src="assets/img/ing-protein.jpg" alt="Soya protein, split peas and brown rice">
-      <div class="b"><h4>Three protein sources</h4>
-        <p>Soya protein isolate as the base, with pea and brown rice protein covering the amino acids soya alone runs light on.</p></div></div>
-    <div class="infocard"><img src="assets/img/ing-vitamins.jpg" alt="Vitamin and mineral premix granules">
-      <div class="b"><h4>Vitamins and minerals</h4>
-        <p>A full micronutrient premix, every vitamin and mineral named with its amount and %RDA on the back of the pack.</p></div></div>
-    <div class="infocard"><img src="assets/img/powder-macro.jpg" alt="Protein powder texture">
-      <div class="b"><h4>Enzymes and fibre</h4>
-        <p>Amylase, protease, lipase, cellulase and lactase, plus FOS prebiotic fibre, so a large dose of plant protein goes down easier.</p></div></div>
-    <div class="infocard"><img src="assets/img/step-1.jpg" alt="A level scoop of powder">
-      <div class="b"><h4>One scoop, one serving</h4>
-        <p>The scoop ships in the pack. A 50 g serving goes into 250 ml of water, stirred until nothing sits at the bottom.</p></div></div>
-    <div class="infocard"><img src="assets/img/lsp-gym.jpg" alt="Sachet, shaker and towel on a gym bench">
-      <div class="b"><h4>Water, not milk</h4>
-        <p>The mix carries its own soy fat powder, so it goes creamy on water alone. Milk works, but adds calories the panel does not count.</p></div></div>
-    <div class="infocard"><img src="assets/img/facility.jpg" alt="Inside the manufacturing facility">
-      <div class="b"><h4>Where it is made</h4>
-        <p>Zeon Lifesciences in Paonta Sahib, Himachal Pradesh. The batch code on every pack traces back to the week it was made.</p></div></div>
-  </div>
+  <h2 style="font-size:32px;margin-bottom:28px">The detail, in full.</h2>
+  <div class="slidestack" id="slideStack"></div>
 </div></section>
 
 <section class="sec tight" id="cmpSec"><div class="wrap">
@@ -163,7 +144,7 @@
   <div class="grid3" id="more"></div>
 </div></section>
 
-<script src="assets/app.js?v=1792046685"></script><script>
+<script src="assets/app.js?v=1792046877"></script><script>
 chrome('products.html');
 
 
@@ -230,6 +211,10 @@ function paint(){
     `<a class="pair" href="product.html#${e.id}"><img src="assets/img/${e.shot}.jpg" alt="">
        <div><b>${e.name}</b><span>Herbal Drink · 1 g sachet</span></div></a>`).join('');
   ['howSec','cmpSec','infoSec'].forEach(id => document.getElementById(id).hidden = !protein);
+  // the generated marketing slides, shown large rather than hidden behind a thumbnail
+  const stack = gal.map(g => g.img).filter(n => n.startsWith('slide-'));
+  document.getElementById('slideStack').innerHTML = stack.map(n =>
+    `<img src="assets/img/${n}.jpg" alt="" loading="lazy">`).join('');
   document.getElementById('more').className = rest.length > 2 ? 'grid3' : 'grid2';
   document.title = `${cur.name} — StraightFrwd`;
 }
