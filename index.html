@@ -31,7 +31,7 @@
     </div></div>
   </div>
   <div class="slide" role="group" aria-roledescription="slide" aria-label="1 kg pack" style="--scrim:rgba(40,24,12,.92)">
-    <div class="bg"><img src="assets/img/pack-pouch.jpg" alt="The 1 kg Daily Protein pack beside a steel shaker"></div>
+    <div class="bg packbg"><img src="assets/img/life-pouch.jpg" alt="The 1 kg Daily Protein pack beside a steel shaker"></div>
     <div class="wrap"><div class="inner">
       <div class="eyebrow">The 1 kg pack</div>
       <h1>A meal, for when<br><em>there isn&rsquo;t time for one.</em></h1>
@@ -60,7 +60,7 @@
       <div><b>Plant protein</b><span>Soya isolate, pea and brown rice</span></div>
       <div><b>No added sugar</b><span>Sweeteners named on the front</span></div>
       <div><b>Full label</b><span>Every ingredient with its amount</span></div>
-      <div><b>FSSAI</b><span>Made in a licensed facility in Himachal</span></div>
+      <div><b>FSSAI</b><span>Made in a licensed facility</span></div>
     </div>
   </div>
 </section>
@@ -124,7 +124,7 @@
     <div><b>22.5 g</b><span>Protein a serving — 45 g per 100 g, from soya isolate, pea and brown rice</span></div>
     <div><b>4.4 g</b><span>Dietary fibre a serving — 8.8 g per 100 g, of which 1 g is FOS</span></div>
     <div><b>25+</b><span>Vitamins and minerals, listed one by one on the back</span></div>
-    <div><b>FSSAI</b><span>Made in a licensed facility in Sirmaur, Himachal Pradesh</span></div>
+    <div><b>FSSAI</b><span>Made in an FSSAI-licensed facility</span></div>
   </div>
 </div></section>
 
@@ -161,7 +161,7 @@ chrome('index.html');
 document.getElementById('homeProtein').innerHTML = PROTEIN.map(card).join('');
 document.getElementById('homeEnergy').innerHTML  = ENERGY.map(card).join('');
 document.getElementById('homeBuy').innerHTML = buyRow();
-document.getElementById('strip').innerHTML = Array(2).fill('<span>Nutrition, Made Easy</span><span>Plant protein</span><span>No added sugar</span><span>Every ingredient named</span><span>Amounts printed on the pack</span><span>Made in Himachal</span>').join('');
+document.getElementById('strip').innerHTML = Array(2).fill('<span>Nutrition, Made Easy</span><span>Plant protein</span><span>No added sugar</span><span>Every ingredient named</span><span>Amounts printed on the pack</span><span>Nothing hidden on the label</span>').join('');
 
 /* hero slider: autoplay pauses on hover, focus, hidden tab and reduced motion */
 (function(){
