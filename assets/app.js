@@ -15,7 +15,7 @@ function logo(size, color, tagline){
 
 /* --- the catalogue, taken off the packaging artwork --- */
 const PROTEIN = [
-  {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'pack-choc',  real:true, sachet_g:50, tag:'', gallery:['pack-choc','slide-hero-choc','slide-pack-choc','slide-nutrition','slide-howto','lsp-morning'],
+  {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'pack-choc',  real:true, sachet_g:50, tag:'', gallery:['pack-choc','lsp-choc-hand','slide-c-protein','slide-c-comp','slide-c-mix','slide-c-fibre','slide-nutrition','slide-c-allergen','slide-howto','lsp-morning'],
    note:'Dark cocoa, barely sweet, no chalk. The one most people start on and stay on.',
    gallery_lead:'pack-choc'},
   {id:'mango', name:'Mango',     cls:'pk-mango', shot:'pack-mango', real:true, sachet_g:30, tag:'', gallery:['pack-mango','solo-mango','slide-nutrition','slide-howto','lsp-mango','pack-pouch'],
