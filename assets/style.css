@@ -479,7 +479,12 @@ a.card:hover .more{text-decoration:underline}
 
 /* ---------- product gallery (thumbnail rail + main image) ---------- */
 .pgal{display:grid;grid-template-columns:76px 1fr;gap:14px;align-items:start}
-.pgal .rail{display:flex;flex-direction:column;gap:10px}
+/* rail height is synced to the main image in JS so a long gallery can't stretch the panel */
+.pgal .rail{display:flex;flex-direction:column;gap:10px;overflow-y:auto;overscroll-behavior:contain;
+  scrollbar-width:thin;scrollbar-color:rgba(0,0,0,.22) transparent}
+.pgal .rail::-webkit-scrollbar{width:4px}
+.pgal .rail::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:4px}
+.pgal .rail button{flex:0 0 auto}
 .pgal .rail button{padding:0;border:2px solid transparent;border-radius:10px;overflow:hidden;
   background:var(--paper-2);cursor:pointer;line-height:0;transition:border-color .15s}
 .pgal .rail button[aria-current="true"]{border-color:var(--brand)}
@@ -488,7 +493,7 @@ a.card:hover .more{text-decoration:underline}
 .pgal .main img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
 @media(max-width:600px){
   .pgal{grid-template-columns:1fr}
-  .pgal .rail{flex-direction:row;order:2;overflow-x:auto;scrollbar-width:none}
+  .pgal .rail{max-height:none !important;flex-direction:row;order:2;overflow-x:auto;overflow-y:visible;scrollbar-width:none}
   .pgal .rail::-webkit-scrollbar{display:none}
   .pgal .rail button{flex:0 0 68px}
 }

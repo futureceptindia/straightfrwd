@@ -255,6 +255,22 @@ document.getElementById('pstrip').innerHTML = Array(2).fill(
   '<span>Plant protein</span><span>No added sugar</span><span>Vitamins &amp; minerals</span>'
 + '<span>Digestive enzymes</span><span>Amounts on the pack</span><span>Nothing hidden on the label</span>').join('');
 document.getElementById('pdpBuy').innerHTML = buyRow();
+
+/* keep the thumbnail rail no taller than the main image, so the gallery panel never
+   grows a blank area under a short image */
+(function(){
+  const rail = document.getElementById('rail');
+  const main = document.querySelector('.pgal .mainwrap');
+  if(!rail || !main) return;
+  const sync = () => {
+    if (matchMedia('(max-width:820px)').matches) { rail.style.maxHeight = ''; return; }
+    const h = main.getBoundingClientRect().height;
+    if (h > 40) rail.style.maxHeight = Math.round(h) + 'px';
+  };
+  new ResizeObserver(sync).observe(main);
+  addEventListener('resize', sync);
+  sync();
+})();
 /* image zoom */
 const lb = document.createElement('div');
 lb.className = 'lightbox'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-modal','true'); lb.hidden = true;
