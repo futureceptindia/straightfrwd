@@ -147,7 +147,7 @@ function chrome(page){
   const nav = [['index.html','Home'],['products.html','Products'],
                ['about.html','About'],['contact.html','Contact']];
   document.body.insertAdjacentHTML('afterbegin', `
-  <div class="announce">Nutrition, Made Easy &nbsp;·&nbsp; <b>Plant protein and energy mixes</b>, made in Himachal</div>
+  <div class="announce">Nutrition, Made Easy &nbsp;·&nbsp; <b>Plant protein &amp; herbal mixes</b><span class="hide-sm"> &nbsp;·&nbsp; Made in Himachal</span></div>
   <header class="site"><div class="wrap bar">
     ${logo('', 'var(--brown)', false)}
     <nav>${nav.map(([h,l])=>`<a href="${h}" ${h===page?'aria-current="page"':''}>${l}</a>`).join('')}</nav>
@@ -160,7 +160,7 @@ function chrome(page){
     <div class="cols">
       <div class="brandcol">
         ${logo('', '#fff', false)}
-        <p>Protein and energy mixes with the label written in words you already know. Made in Sirmaur, packed in Delhi.</p>
+        <p>Protein and herbal mixes with the label written in words you already know. Made in Sirmaur, packed in Delhi.</p>
         <div class="socials">${SOCIALS}</div>
       </div>
       <div><h4>Products</h4><a href="products.html">Daily Protein</a><a href="products.html">Herbal Drinks</a><a href="science.html">What's Inside</a></div>
