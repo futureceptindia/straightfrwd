@@ -15,13 +15,13 @@ function logo(size, color, tagline){
 
 /* --- the catalogue, taken off the packaging artwork --- */
 const PROTEIN = [
-  {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'pack-choc',  real:true, sachet_g:50, tag:'', gallery:['pack-choc','pack-pouch','choc-3','choc-4'],
+  {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'pack-choc',  real:true, sachet_g:50, tag:'', gallery:['pack-choc','solo-choc','lsp-morning','lsp-gym'],
    note:'Dark cocoa, barely sweet, no chalk. The one most people start on and stay on.',
    gallery_lead:'pack-choc'},
-  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'pack-mango', real:true, sachet_g:30, tag:'', gallery:['pack-mango','pack-pouch','mango-3','mango-4'],
+  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'pack-mango', real:true, sachet_g:30, tag:'', gallery:['pack-mango','solo-mango','lsp-mango','pack-pouch'],
    note:'Ripe alphonso, thick enough to chew. Closer to a lassi than a supplement.',
    gallery_lead:'pack-mango'},
-  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'pack-kulfi', real:true, sachet_g:30, tag:'New', gallery:['pack-kulfi','pack-pouch','kulfi-3','kulfi-4'],
+  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'pack-kulfi', real:true, sachet_g:30, tag:'New', gallery:['pack-kulfi','solo-kulfi','lsp-kulfi','kulfi-3'],
    note:'Cardamom, pistachio, a little bit of childhood. For people who find chocolate boring.',
    gallery_lead:'pack-kulfi'},
 ];
