@@ -4,12 +4,12 @@
 <title>StraightFrwd — Nutrition, Made Easy</title>
 <link rel="stylesheet" href="assets/style.css?v=1792046877"></head><body>
 
-<section class="hero" aria-roledescription="carousel" aria-label="StraightFrwd highlights">
-  <div class="slides" id="slides">
-  <div class="slide on" role="group" aria-roledescription="slide" aria-label="Daily Protein" style="--scrim:rgba(26,13,7,.94)">
+<section class="hero">
+  <div class="slides">
+  <div class="slide on" style="--scrim:rgba(26,13,7,.94)">
     <div class="bg">
         <img class="poster" src="assets/video/v-gym1-poster.jpg" alt="">
-        <video src="assets/video/v-gym1.mp4" poster="assets/video/v-gym1-poster.jpg" muted loop playsinline autoplay aria-hidden="true"></video>
+        <video id="heroReel" poster="assets/video/v-gym1-poster.jpg" muted playsinline autoplay preload="auto" aria-hidden="true"></video>
       </div>
     <div class="wrap"><div class="inner">
       <div class="eyebrow">Daily Protein</div>
@@ -18,44 +18,6 @@
       <div class="cta"><a class="btn" href="products.html">See the range</a><a class="btn ghost" href="science.html" style="color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.45)">Read the full label</a></div>
     </div></div>
   </div>
-  <div class="slide" role="group" aria-roledescription="slide" aria-label="Three flavours" style="--scrim:rgba(10,38,22,.94)">
-    <div class="bg">
-        <img class="poster" src="assets/video/v-gym2-poster.jpg" alt="">
-        <video src="assets/video/v-gym2.mp4" poster="assets/video/v-gym2-poster.jpg" muted loop playsinline aria-hidden="true"></video>
-      </div>
-    <div class="wrap"><div class="inner">
-      <div class="eyebrow">Three flavours</div>
-      <h1>The one you&rsquo;ll<br><em>actually finish.</em></h1>
-      <p class="lede">Chocolate, mango and kulfi. Flavours people here already like, rather than whatever the catalogue had going spare.</p>
-      <div class="cta"><a class="btn" href="products.html">See the range</a><a class="btn ghost" href="science.html" style="color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.45)">Read the full label</a></div>
-    </div></div>
-  </div>
-  <div class="slide" role="group" aria-roledescription="slide" aria-label="1 kg pack" style="--scrim:rgba(40,24,12,.92)">
-    <div class="bg packbg"><img src="assets/img/life-pouch.jpg" alt="The 1 kg Daily Protein pack beside a steel shaker"></div>
-    <div class="wrap"><div class="inner">
-      <div class="eyebrow">The 1 kg pack</div>
-      <h1>A meal, for when<br><em>there isn&rsquo;t time for one.</em></h1>
-      <p class="lede">Soya, pea and brown rice protein with the vitamins, minerals and enzymes already in it. Recommended as a one meal replacement.</p>
-      <div class="cta"><a class="btn" href="products.html">See the range</a><a class="btn ghost" href="faq.html" style="color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.45)">Read the FAQs</a></div>
-    </div></div>
-  </div>
-  <div class="slide" role="group" aria-roledescription="slide" aria-label="Herbal Drinks" style="--scrim:rgba(48,10,18,.94)">
-    <div class="bg"><img src="assets/img/hero-4.jpg" alt="A glass cup of Kashmiri kahwa with saffron and almonds"></div>
-    <div class="wrap"><div class="inner">
-      <div class="eyebrow">Herbal Drinks</div>
-      <h1>Kahwa at your desk.<br><em>Without the kitchen.</em></h1>
-      <p class="lede">Kashmiri kahwa, ginger, tulsi and lemon. One sachet, hot water, and something better than a fourth coffee.</p>
-      <div class="cta"><a class="btn" href="products.html">See the range</a><a class="btn ghost" href="faq.html" style="color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.45)">Read the FAQs</a></div>
-    </div></div>
-  </div>
-  </div>
-  <div class="wrap">
-    <div class="hero-ui">
-      <button class="arrow" id="prev" aria-label="Previous slide"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 8 12l7 7"/></svg></button>
-      <button class="arrow" id="next" aria-label="Next slide"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></button>
-      <div class="dots" id="dots" role="tablist" aria-label="Choose slide"></div>
-      <span class="count" id="count"></span>
-    </div>
   </div>
 </section>
 
@@ -157,62 +119,36 @@ document.getElementById('homeEnergy').innerHTML  = ENERGY.map(card).join('');
 document.getElementById('homeBuy').innerHTML = buyRow();
 document.getElementById('strip').innerHTML = Array(2).fill('<span>Nutrition, Made Easy</span><span>Plant protein</span><span>No added sugar</span><span>Every ingredient named</span><span>Amounts printed on the pack</span><span>Nothing hidden on the label</span>').join('');
 
-/* hero slider: autoplay pauses on hover, focus, hidden tab and reduced motion */
+/* hero reel: six clips play one after another, then loop back to the first */
 (function(){
-  const slides = [...document.querySelectorAll('#slides .slide')];
-  const dots = document.getElementById('dots');
-  const count = document.getElementById('count');
+  const v = document.getElementById('heroReel');
+  const poster = document.querySelector('.hero .bg .poster');
+  if(!v) return;
+  const clips = ['v-gym1','v-gym2','v-gym3','v-gym4','v-gym5','v-gym6']
+                  .map(n => 'assets/video/' + n + '.mp4');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let i = 0, timer = null, held = false;
+  let i = 0;
 
-  dots.innerHTML = slides.map((s,n)=>
-    `<button class="dot" role="tab" aria-label="Slide ${n+1}: ${s.getAttribute('aria-label')}"></button>`).join('');
-  const buttons = [...dots.children];
+  // one hidden element preloads the next clip so the cut has no gap
+  const pre = document.createElement('video');
+  pre.muted = true; pre.preload = 'auto';
+  const warm = n => { pre.src = clips[n % clips.length]; pre.load(); };
 
-  function playFor(n){
-    slides.forEach((s,k)=>{
-      const v = s.querySelector('video'); if(!v) return;
-      if(k === n && !reduce){ v.play().catch(()=>{}); } else { v.pause(); }
-    });
+  function go(n){
+    i = n % clips.length;
+    v.src = clips[i];
+    v.play().catch(()=>{});
+    warm(i + 1);
   }
 
-  function show(n){
-    i = (n + slides.length) % slides.length;
-    slides.forEach((s,k)=>s.classList.toggle('on', k===i));
-    buttons.forEach((b,k)=>b.setAttribute('aria-current', String(k===i)));
-    count.textContent = `${i+1} / ${slides.length}`;
-    playFor(i);
-  }
-  const next = () => show(i+1), prev = () => show(i-1);
+  v.addEventListener('ended', () => go(i + 1));
+  v.addEventListener('error', () => go(i + 1));   // a bad clip must not stall the reel
+  v.addEventListener('playing', () => { if(poster) poster.style.opacity = '0'; }, {once:true});
 
-  function play(){ if(reduce || held) return; stop(); timer = setInterval(next, 6500); }
-  function stop(){ if(timer){ clearInterval(timer); timer = null; } }
-  function hold(v){ held = v; v ? stop() : play(); }
-
-  buttons.forEach((b,n)=>b.addEventListener('click', ()=>{ show(n); play(); }));
-  document.getElementById('next').addEventListener('click', ()=>{ next(); play(); });
-  document.getElementById('prev').addEventListener('click', ()=>{ prev(); play(); });
-
-  const hero = document.querySelector('.hero');
-  hero.addEventListener('mouseenter', ()=>hold(true));
-  hero.addEventListener('mouseleave', ()=>hold(false));
-  hero.addEventListener('focusin',   ()=>hold(true));
-  hero.addEventListener('focusout',  ()=>hold(false));
-  document.addEventListener('visibilitychange', ()=>hold(document.hidden));
-  hero.addEventListener('keydown', e=>{
-    if(e.key === 'ArrowRight'){ next(); play(); }
-    if(e.key === 'ArrowLeft'){ prev(); play(); }
+  if(reduce){ v.removeAttribute('autoplay'); return; }   // poster stays, nothing moves
+  document.addEventListener('visibilitychange', () => {
+    document.hidden ? v.pause() : v.play().catch(()=>{});
   });
-  // swipe
-  let x0 = null;
-  hero.addEventListener('touchstart', e=>{ x0 = e.touches[0].clientX; }, {passive:true});
-  hero.addEventListener('touchend', e=>{
-    if(x0 === null) return;
-    const dx = e.changedTouches[0].clientX - x0;
-    if(Math.abs(dx) > 45){ dx < 0 ? next() : prev(); play(); }
-    x0 = null;
-  }, {passive:true});
-
-  show(0); play();
+  go(0);
 })();
 </script></body></html>
