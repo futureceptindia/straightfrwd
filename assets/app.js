@@ -147,7 +147,7 @@ function chrome(page){
   const nav = [['index.html','Home'],['products.html','Products'],
                ['about.html','About'],['contact.html','Contact']];
   document.body.insertAdjacentHTML('afterbegin', `
-  <div class="announce">Nutrition, Made Easy &nbsp;·&nbsp; <b>Plant protein &amp; herbal mixes</b><span class="hide-sm"> &nbsp;·&nbsp; Every ingredient named</span></div>
+  <div class="announce">Nutrition, Made Easy &nbsp;·&nbsp; <b>Plant protein &amp; herbal mixes</b></div>
   <header class="site"><div class="wrap bar">
     ${logo('', 'var(--brown)', false)}
     <nav>${nav.map(([h,l])=>`<a href="${h}" ${h===page?'aria-current="page"':''}>${l}</a>`).join('')}</nav>
