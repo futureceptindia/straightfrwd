@@ -15,13 +15,13 @@ function logo(size, color, tagline){
 
 /* --- the catalogue, taken off the packaging artwork --- */
 const PROTEIN = [
-  {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'pack-choc',  real:true, tag:'', gallery:['pack-choc','choc-3','choc-4','life-choc'],
+  {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'pack-choc',  real:true, sachet_g:50, tag:'', gallery:['pack-choc','pack-pouch','choc-3','choc-4'],
    note:'Dark cocoa, barely sweet, no chalk. The one most people start on and stay on.',
    gallery_lead:'pack-choc'},
-  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'pack-mango', real:true, tag:'', gallery:['pack-mango','mango-3','mango-4','life-mango'],
+  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'pack-mango', real:true, sachet_g:30, tag:'', gallery:['pack-mango','pack-pouch','mango-3','mango-4'],
    note:'Ripe alphonso, thick enough to chew. Closer to a lassi than a supplement.',
    gallery_lead:'pack-mango'},
-  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'pack-kulfi', real:true, tag:'New', gallery:['pack-kulfi','kulfi-3','kulfi-4','life-kulfi'],
+  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'pack-kulfi', real:true, sachet_g:30, tag:'New', gallery:['pack-kulfi','pack-pouch','kulfi-3','kulfi-4'],
    note:'Cardamom, pistachio, a little bit of childhood. For people who find chocolate boring.',
    gallery_lead:'pack-kulfi'},
 ];
@@ -46,8 +46,8 @@ const LABEL = {
   ingredients: "Soya Protein Isolate, Pea Protein, Soy Fat Powder [Soy Oil, Maltodextrin, Sodium Caseinate, Stabilizer (INS 340(ii)), Emulsifier (INS 471), Anti-oxidant (INS 304)], Maltodextrin, Soya Fiber, Brown Rice Protein, Nature Identical Flavouring Substances, FOS, Minerals, Garcinia Cambogia, Curcumin, Vitamins, Cissus Quadrangularis Extract, Digestive Enzyme (α-amylase, protease, lipase, cellulase and lactase), Sweeteners (INS 955 &amp; INS 950) Sucralose &amp; Acesulfame potassium.",
   allergen: "Contains soy. Manufactured in a facility which processes wheat, milk, oats and nuts.",
   claims: [
-    '22.5 g protein in a 50 g serving — 45 g per 100 g',
-    '4.4 g dietary fibre a serving — 8.8 g per 100 g, of which 1 g is FOS',
+    '45 g protein per 100 g — 22.5 g in a 50 g serving',
+    '8.8 g dietary fibre per 100 g, of which 2 g is FOS',
     'No added sugar — sweetened with sucralose and acesulfame potassium',
     'Digestive enzymes, vitamins and minerals in the mix',
     'Contains soy. Made in a facility that also handles wheat, milk, oats and nuts.'
@@ -59,13 +59,13 @@ const LABEL = {
   disclaimer: 'The product is not intended to treat, cure, mitigate or prevent any specific disease, disorder or condition. For oral consumption only.',
 };
 const ENERGY = [
-  {id:'kahwa',  name:'Kashmiri Kahwa', cls:'pk-kahwa',  shot:'energy-kahwa',  tag:'',
+  {id:'kahwa',  name:'Kashmiri Kahwa', cls:'pk-kahwa',  shot:'sachet-kahwa',  real:true, gallery:['sachet-kahwa','energy-kahwa'],  tag:'',
    note:'Saffron and almond, the way it is made up north.'},
-  {id:'ginger', name:'Ginger',         cls:'pk-ginger', shot:'energy-ginger', tag:'',
+  {id:'ginger', name:'Ginger',         cls:'pk-ginger', shot:'sachet-ginger', real:true, gallery:['sachet-ginger','energy-ginger'], tag:'',
    note:'Sharp and warming. For mornings that started badly.'},
-  {id:'tulsi',  name:'Tulsi',          cls:'pk-tulsi',  shot:'energy-tulsi',  tag:'New',
+  {id:'tulsi',  name:'Tulsi',          cls:'pk-tulsi',  shot:'sachet-tulsi',  real:true, gallery:['sachet-tulsi','energy-tulsi'],  tag:'New',
    note:'Holy basil. Earthy, and the least sweet of the four.'},
-  {id:'lemon',  name:'Lemon',          cls:'pk-lemon',  shot:'energy-lemon',  tag:'',
+  {id:'lemon',  name:'Lemon',          cls:'pk-lemon',  shot:'sachet-lemon',  real:true, gallery:['sachet-lemon','energy-lemon'],  tag:'',
    note:'Plain and clean. The afternoon one.'},
 ];
 const ALL = [...PROTEIN, ...ENERGY];
@@ -84,7 +84,7 @@ function pack(p, opts={}){
       </span>
     </div>
     <div class="body">
-      <div class="kind">${sachet ? 'Energy Drink' : 'Daily<br>Protein'}</div>
+      <div class="kind">${sachet ? 'Herbal Drink' : 'Daily<br>Protein'}</div>
       <div class="flav">${p.name}</div>
       <div class="qty">${qty}</div>
     </div>
@@ -111,7 +111,7 @@ function card(p){
     ${p.real ? `<div class="shot"><img src="assets/img/${p.shot}.jpg" alt=""></div>` : packshot(p,{small:true})}
     <span class="pill" style="align-self:flex-start;margin-bottom:10px;${p.tag?'':'visibility:hidden'}">${p.tag||'–'}</span>
     <h3>${p.name}</h3>
-    <div class="sub">${sachet ? '1 g sachet · Energy Drink' : '50 g sachet &amp; 1 kg · Daily Protein'}</div>
+    <div class="sub">${sachet ? '1 g sachet · Herbal Drink' : `${p.sachet_g} g sachet &amp; 1 kg · Daily Protein`}</div>
     <p class="note">${p.note}</p>
     <span class="more">View details <span aria-hidden="true">→</span></span>
   </a>`;
@@ -144,8 +144,8 @@ const SOCIALS = Object.entries(SOCIAL_PATHS).map(([name, d]) =>
 
 /* --- shared chrome --- */
 function chrome(page){
-  const nav = [['index.html','Home'],['products.html','Products'],['science.html',"What's Inside"],
-               ['about.html','About'],['faq.html','FAQs'],['contact.html','Contact']];
+  const nav = [['index.html','Home'],['products.html','Products'],
+               ['about.html','About'],['contact.html','Contact']];
   document.body.insertAdjacentHTML('afterbegin', `
   <div class="announce">Nutrition, Made Easy &nbsp;·&nbsp; <b>Plant protein and energy mixes</b>, made in Himachal</div>
   <header class="site"><div class="wrap bar">
@@ -163,17 +163,18 @@ function chrome(page){
         <p>Protein and energy mixes with the label written in words you already know. Made in Sirmaur, packed in Delhi.</p>
         <div class="socials">${SOCIALS}</div>
       </div>
-      <div><h4>Products</h4><a href="products.html">Daily Protein</a><a href="products.html">Energy Drinks</a><a href="science.html">What's Inside</a></div>
+      <div><h4>Products</h4><a href="products.html">Daily Protein</a><a href="products.html">Herbal Drinks</a><a href="science.html">What's Inside</a></div>
       <div><h4>Company</h4><a href="about.html">Our Story</a><a href="faq.html">FAQs</a><a href="contact.html">Contact</a></div>
       <div><h4>Talk to us</h4>
-        <a href="tel:+919709704234" class="plain">+91 97097 04234</a>
-        <a href="mailto:writetous@ayushvanutrition.com" class="plain">writetous@ayushvanutrition.com</a>
+        <a href="tel:+919672227666" class="plain big">+91 96722 27666</a>
+        <a href="https://wa.me/919057119000" class="plain big">WhatsApp 90571 19000</a>
+        <a href="mailto:care@straightfrwd.com" class="plain big">care@straightfrwd.com</a>
         <p class="addr">2-A/3 S/F Front Side, Asafali Road,<br>Turkman Gate, Darya Ganj,<br>New Delhi 110002</p>
       </div>
     </div>
     <div class="legal">
       <span>&copy; 2026 Shiv Protein Private Limited</span>
-      <span>FSSAI Lic. 12200000000000 &nbsp;·&nbsp; Mfg. Lic. RJ/NUT/2026/001</span>
+      <span>Marketed by Shiv Protein Pvt Ltd &nbsp;·&nbsp; Made in Himachal Pradesh</span>
     </div>
   </div></footer>
   <div class="toast" id="toast"></div>`);

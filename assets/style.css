@@ -595,3 +595,32 @@ footer.site .legal{margin-top:40px;padding-top:22px;border-top:1px solid rgba(23
 .notin span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 15px;
   font-size:14px;font-weight:600}
 .notin span::before{content:"\00d7";color:var(--brand);font-weight:800;margin-right:7px}
+
+
+/* ---------- lightbox ---------- */
+.lightbox{position:fixed;inset:0;z-index:90;background:rgba(20,10,5,.93);
+  display:grid;place-items:center;padding:clamp(16px,4vw,48px)}
+.lightbox[hidden]{display:none}
+.lightbox img{max-width:min(1100px,92vw);max-height:86vh;width:auto;height:auto;
+  border-radius:10px;display:block;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.lbclose,.lbnav{position:absolute;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);
+  color:#fff;border-radius:999px;cursor:pointer;display:grid;place-items:center;transition:background .15s}
+.lbclose{top:clamp(14px,3vw,28px);right:clamp(14px,3vw,28px);width:44px;height:44px;font-size:26px;line-height:1}
+.lbnav{top:50%;transform:translateY(-50%);width:48px;height:48px;font-size:30px;line-height:1}
+.lbnav.prev{left:clamp(10px,2vw,24px)}
+.lbnav.next{right:clamp(10px,2vw,24px)}
+.lbclose:hover,.lbnav:hover{background:var(--brand);border-color:var(--brand)}
+.pgal .main{border:0;padding:0;cursor:zoom-in;width:100%;display:block}
+.pgal .main:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+
+/* ---------- retailer buttons ---------- */
+.retailers{gap:12px}
+.retailer{padding:14px 22px;border-radius:12px;border:1.5px solid var(--line);
+  background:#fff;font-weight:700;font-size:15px;box-shadow:0 1px 0 rgba(75,46,32,.04);
+  transition:transform .12s ease, border-color .15s, box-shadow .15s}
+.retailer:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px);
+  box-shadow:0 6px 16px -8px rgba(75,46,32,.4)}
+
+/* ---------- footer contact emphasis ---------- */
+footer.site a.plain.big{font-size:17px;font-weight:700;opacity:.95;margin-bottom:10px}
+footer.site a.plain.big:hover{color:var(--orange-lt);opacity:1}

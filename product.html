@@ -1,13 +1,13 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1791902411"></head><body>
+<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1792040642"></head><body>
 
 <div class="wrap pdp">
   <div class="gallery">
     <div class="pgal" id="pgal" hidden>
       <div class="rail" id="rail"></div>
-      <div class="main"><img id="heroImg" src="assets/img/life-choc.jpg" alt=""></div>
+      <button class="main" id="zoomBtn" aria-label="Open image larger"><img id="heroImg" src="assets/img/life-choc.jpg" alt=""></button>
     </div>
     <div id="shot"></div>
   </div>
@@ -32,7 +32,7 @@
     <div id="nutriBlock">
       <h3 style="margin-top:34px">Nutrition</h3>
       <table class="nutri">
-        <tr><th>Per serving</th><th>50 g</th><th>Per 100 g</th></tr>
+        <tr><th>Nutrition</th><th>Per 50 g serving</th><th>Per 100 g</th></tr>
         <tr class="key"><td>Protein</td><td>22.5 g</td><td>45 g</td></tr>
         <tr><td>Energy</td><td>200.3 kcal</td><td>400.6 kcal</td></tr>
         <tr><td>Carbohydrate</td><td>13 g</td><td>26 g</td></tr>
@@ -45,7 +45,7 @@
         <tr><td>&nbsp;&nbsp;Trans fat</td><td>0.0125 g</td><td>0.05 g</td></tr>
         <tr><td>Sodium</td><td>175 mg</td><td>350 mg</td></tr>
       </table>
-      <p style="font-size:13px;opacity:.6;margin-top:12px">Same panel on all three flavours. Full vitamin and mineral breakdown on <a href="science.html">What&rsquo;s Inside</a>.</p>
+      <p style="font-size:13px;opacity:.6;margin-top:12px">The pack panel is headed &ldquo;Serving Size: 50 g&rdquo; and is the same on all three flavours. Full vitamin and mineral breakdown on <a href="science.html">What&rsquo;s Inside</a>.</p>
 
       <h3 style="margin-top:34px">What it is made of</h3>
       <p style="font-size:14px;opacity:.65;margin:0 0 18px">In the order the label declares them. Exact percentages are not published on the pack, so we have not put any here.</p>
@@ -85,27 +85,6 @@
   </ol>
 </div></section>
 
-<section class="sec tight" id="bandSec"><div class="wrap">
-  <div class="imgband" style="--imgband-scrim:rgba(22,11,6,.93)">
-    <img src="assets/img/pack-choc.jpg" alt="Daily Protein chocolate sachet and carton">
-    <div class="copy">
-      <div class="eyebrow">Daily Protein</div>
-      <h3>Made for the mornings<br><em>you are already late.</em></h3>
-      <p>A scoop, some water, and you are out of the door. No blender, no measuring, no second thought.</p>
-    </div>
-  </div>
-  <div class="tiles" style="margin-top:20px">
-    <div class="tile">
-      <img src="assets/img/tile-scoop.jpg" alt="A scoop of protein powder">
-      <div class="copy"><b>One scoop is one serving</b><span>The scoop is in the pack, so there is nothing to work out.</span></div>
-    </div>
-    <div class="tile">
-      <img src="assets/img/ing-protein.jpg" alt="Soya protein, split peas and brown rice">
-      <div class="copy"><b>Three plant sources</b><span>Soya isolate, pea and brown rice, listed with their amounts.</span></div>
-    </div>
-  </div>
-</div></section>
-
 <section class="sec tight" id="cmpSec"><div class="wrap">
   <div class="eyebrow">How it compares</div>
   <h2 style="font-size:32px;margin-bottom:10px">What you usually have to dig for.</h2>
@@ -134,7 +113,7 @@
   <div class="grid3" id="more"></div>
 </div></section>
 
-<script src="assets/app.js?v=1791902411"></script><script>
+<script src="assets/app.js?v=1792040642"></script><script>
 chrome('products.html');
 
 
@@ -160,7 +139,7 @@ function paint(){
   // real renders exist for the protein packs, so show those instead of the CSS packshot
   document.getElementById('shot').hidden = !!cur.real;
   document.getElementById('shot').innerHTML = cur.real ? '' : packshot(cur,{cls:'packshot'});
-  document.getElementById('range').textContent = protein ? 'Daily Protein' : 'Energy Drink';
+  document.getElementById('range').textContent = protein ? 'Daily Protein' : 'Herbal Drink';
   document.getElementById('title').textContent = cur.name;
   document.getElementById('blurb').textContent = protein
     ? `${cur.note} Mixes in plain water with a spoon.`
@@ -170,7 +149,8 @@ function paint(){
   document.getElementById('ticks').innerHTML =
     (protein ? LABEL.claims : ENERGY_TICKS).map(t=>`<li>${t}</li>`).join('');
   document.getElementById('sizes').innerHTML = protein
-    ? '<dt>50 g sachet</dt><dd>One serving</dd><dt>1 kg pack</dt><dd>20 servings</dd>'
+    ? `<dt>${cur.sachet_g} g sachet</dt><dd>Single-serve</dd>`
+      + '<dt>1 kg pack</dt><dd>20 servings of 50 g</dd>'
     : '<dt>1 g sachet</dt><dd>One cup</dd>';
   document.getElementById('how').textContent = protein
     ? LABEL.howTo
@@ -193,13 +173,12 @@ function paint(){
   document.getElementById('nutriBlock').hidden = !protein;
   const rest = set.filter(p => p.id !== cur.id);
   document.getElementById('moreTitle').textContent =
-    protein ? 'The other protein flavours' : 'The other energy drinks';
+    protein ? 'The other protein flavours' : 'The other herbal drinks';
   document.getElementById('more').innerHTML = rest.map(card).join('');
   document.getElementById('pairs').innerHTML = ENERGY.map(e =>
     `<a class="pair" href="product.html#${e.id}"><img src="assets/img/${e.shot}.jpg" alt="">
-       <div><b>${e.name}</b><span>Energy Drink · 1 g sachet</span></div></a>`).join('');
+       <div><b>${e.name}</b><span>Herbal Drink · 1 g sachet</span></div></a>`).join('');
   ['howSec','cmpSec'].forEach(id => document.getElementById(id).hidden = !protein);
-  document.getElementById('bandSec').hidden = cur.id !== 'choc';
   document.getElementById('more').className = rest.length > 2 ? 'grid3' : 'grid2';
   document.title = `${cur.name} — StraightFrwd`;
 }
@@ -217,8 +196,48 @@ function pick(id){
 
 cur = ALL.find(p => p.id === location.hash.slice(1)) || PROTEIN[0];
 paint();
+
+// a card lower down the page links to #id on this same page, which fires hashchange
+// rather than a navigation — without this the click appeared to do nothing
+addEventListener('hashchange', () => {
+  const id = location.hash.slice(1).split('-').pop();
+  if (id && ALL.some(p => p.id === id) && id !== cur.id) pick(id);
+});
+
 document.getElementById('pstrip').innerHTML = Array(2).fill(
   '<span>Plant protein</span><span>No added sugar</span><span>Vitamins &amp; minerals</span>'
 + '<span>Digestive enzymes</span><span>Amounts on the pack</span><span>Made in Himachal</span>').join('');
 document.getElementById('pdpBuy').innerHTML = buyRow();
+/* image zoom */
+const lb = document.createElement('div');
+lb.className = 'lightbox'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-modal','true'); lb.hidden = true;
+lb.innerHTML = '<button class="lbclose" aria-label="Close">&times;</button><img alt=""><button class="lbnav prev" aria-label="Previous">&#8249;</button><button class="lbnav next" aria-label="Next">&#8250;</button>';
+document.body.appendChild(lb);
+const lbImg = lb.querySelector('img');
+let lbIndex = 0, lastFocus = null;
+
+function openLb(n){
+  lbIndex = (n + window.__gal.length) % window.__gal.length;
+  lbImg.src = `assets/img/${window.__gal[lbIndex]}.jpg`;
+  lastFocus = document.activeElement;
+  lb.hidden = false; document.body.style.overflow = 'hidden';
+  lb.querySelector('.lbclose').focus();
+}
+function closeLb(){
+  lb.hidden = true; document.body.style.overflow = '';
+  if (lastFocus) lastFocus.focus();
+}
+document.getElementById('zoomBtn').addEventListener('click', () => {
+  openLb(window.__gal.indexOf(document.getElementById('heroImg').getAttribute('src').split('/').pop().replace('.jpg','')));
+});
+lb.querySelector('.lbclose').addEventListener('click', closeLb);
+lb.querySelector('.prev').addEventListener('click', e => { e.stopPropagation(); openLb(lbIndex - 1); });
+lb.querySelector('.next').addEventListener('click', e => { e.stopPropagation(); openLb(lbIndex + 1); });
+lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+addEventListener('keydown', e => {
+  if (lb.hidden) return;
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowRight') openLb(lbIndex + 1);
+  if (e.key === 'ArrowLeft') openLb(lbIndex - 1);
+});
 </script></body></html>
