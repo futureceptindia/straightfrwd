@@ -29,16 +29,16 @@ const PROTEIN = [
 // One formulation across all three flavours — the approved label artwork carries an
 // identical ingredient list and nutrition panel on every variant.
 const COMPOSITION = [
-  {name:'Soya protein isolate', w:30},
-  {name:'Pea protein',          w:22},
-  {name:'Soy fat powder',       w:16},
-  {name:'Maltodextrin',         w:12},
-  {name:'Soya fibre',           w:9},
-  {name:'Brown rice protein',   w:7},
-  {name:'Vitamins, minerals, botanicals &amp; enzymes', w:4},
+  {name:'Soya protein isolate'},
+  {name:'Pea protein'},
+  {name:'Soy fat powder'},
+  {name:'Maltodextrin'},
+  {name:'Soya fibre'},
+  {name:'Brown rice protein'},
+  {name:'Vitamins, minerals, botanicals &amp; enzymes'},
 ];
 
-const NOT_IN_IT = ['no added sugar','no whey','no added colour','no proprietary blends',
+const NOT_IN_IT = ['no added sugar','no added colour','no proprietary blends',
                    'no unnamed botanicals','no hidden asterisks'];
 
 const LABEL = {

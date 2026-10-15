@@ -199,8 +199,7 @@ function paint(){
        <div><b>4</b><span>Flavours</span></div>`;
   if(protein){
     document.getElementById('comp').innerHTML = COMPOSITION.map((c,n)=>
-      `<div class="row"><span class="nm">${c.name}</span><span class="ord">${String(n+1).padStart(2,'0')}</span>
-       <span class="bar"><i style="width:${c.w}%"></i></span></div>`).join('');
+      `<div class="row"><span class="nm">${c.name}</span><span class="ord">${String(n+1).padStart(2,'0')}</span></div>`).join('');
     document.getElementById('notin').innerHTML = NOT_IN_IT.map(t=>`<span>${t}</span>`).join('');
     document.getElementById('ing').innerHTML = LABEL.ingredients;
     document.getElementById('alg').textContent = LABEL.allergen;
