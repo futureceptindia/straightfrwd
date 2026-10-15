@@ -1,13 +1,16 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1792045112"></head><body>
+<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1792045424"></head><body>
 
 <div class="wrap pdp">
   <div class="gallery">
     <div class="pgal" id="pgal" hidden>
       <div class="rail" id="rail"></div>
-      <button class="main" id="zoomBtn" aria-label="Open image larger"><img id="heroImg" src="assets/img/life-choc.jpg" alt=""></button>
+      <div class="mainwrap">
+        <button class="main" id="zoomBtn" aria-label="Open image larger"><img id="heroImg" src="assets/img/pack-choc.jpg" alt=""></button>
+        <figcaption class="shotcap" id="shotCap" hidden></figcaption>
+      </div>
     </div>
     <div id="shot"></div>
   </div>
@@ -160,7 +163,7 @@
   <div class="grid3" id="more"></div>
 </div></section>
 
-<script src="assets/app.js?v=1792045112"></script><script>
+<script src="assets/app.js?v=1792045424"></script><script>
 chrome('products.html');
 
 
@@ -177,12 +180,14 @@ function paint(){
   const protein = isProtein(cur.id);
   const set = protein ? PROTEIN : ENERGY;
 
-  const gal = [...new Set([cur.gallery_lead, ...(cur.gallery || [cur.shot])].filter(Boolean))];
+  const raw = cur.gallery || [cur.shot];
+  const gal = raw.map(g => typeof g === 'string' ? {img:g} : g);
   document.getElementById('pgal').hidden = !cur.real;
   document.getElementById('rail').innerHTML = gal.map((g,n)=>
-    `<button aria-current="${n===0}" aria-label="View image ${n+1}" onclick="showShot(${n})"><img src="assets/img/${g}.jpg" alt=""></button>`).join('');
+    `<button aria-current="${n===0}" aria-label="${g.k ? g.k + ' ' + g.t : 'Product photo ' + (n+1)}" onclick="showShot(${n})">
+       <img src="assets/img/${g.img}.jpg" alt="">${g.k ? '<i class="tmark"></i>' : ''}</button>`).join('');
   window.__gal = gal;
-  document.getElementById('heroImg').src = `assets/img/${gal[0]}.jpg`;
+  showShot(0);
   // real renders exist for the protein packs, so show those instead of the CSS packshot
   document.getElementById('shot').hidden = !!cur.real;
   document.getElementById('shot').innerHTML = cur.real ? '' : packshot(cur,{cls:'packshot'});
@@ -231,7 +236,15 @@ function paint(){
 }
 
 function showShot(n){
-  document.getElementById('heroImg').src = `assets/img/${window.__gal[n]}.jpg`;
+  const g = window.__gal[n];
+  document.getElementById('heroImg').src = `assets/img/${g.img}.jpg`;
+  const cap = document.getElementById('shotCap');
+  if (g.k) {
+    cap.hidden = false;
+    cap.innerHTML = `<b>${g.k}</b><em>${g.t}</em><span>${g.d}</span>`;
+  } else {
+    cap.hidden = true;
+  }
   [...document.querySelectorAll('#rail button')].forEach((b,k)=>b.setAttribute('aria-current', String(k===n)));
 }
 
@@ -265,7 +278,7 @@ let lbIndex = 0, lastFocus = null;
 
 function openLb(n){
   lbIndex = (n + window.__gal.length) % window.__gal.length;
-  lbImg.src = `assets/img/${window.__gal[lbIndex]}.jpg`;
+  lbImg.src = `assets/img/${window.__gal[lbIndex].img}.jpg`;
   lastFocus = document.activeElement;
   lb.hidden = false; document.body.style.overflow = 'hidden';
   lb.querySelector('.lbclose').focus();
@@ -275,7 +288,7 @@ function closeLb(){
   if (lastFocus) lastFocus.focus();
 }
 document.getElementById('zoomBtn').addEventListener('click', () => {
-  openLb(window.__gal.indexOf(document.getElementById('heroImg').getAttribute('src').split('/').pop().replace('.jpg','')));
+  openLb(window.__gal.findIndex(g => g.img === document.getElementById('heroImg').getAttribute('src').split('/').pop().replace('.jpg','')));
 });
 lb.querySelector('.lbclose').addEventListener('click', closeLb);
 lb.querySelector('.prev').addEventListener('click', e => { e.stopPropagation(); openLb(lbIndex - 1); });
