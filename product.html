@@ -21,6 +21,11 @@
 
     <div class="statrow" id="statrow"></div>
 
+    <div class="buyblock">
+      <h4 class="buylabel">Where to buy</h4>
+      <div class="retailers" id="pdpBuy"></div>
+    </div>
+
     <h4 style="font:800 12px/1 var(--font);letter-spacing:.16em;text-transform:uppercase;margin:0 0 0">Flavour</h4>
     <div class="swatches" id="sw"></div>
 
@@ -69,8 +74,6 @@
       </div>
     </div>
 
-    <h3 style="margin-top:34px">Where to buy</h3>
-    <div class="retailers" id="pdpBuy"></div>
   </div>
 </div>
 
@@ -188,8 +191,8 @@ function paint(){
     ? LABEL.howTo
     : 'Add one 1 g sachet to 150 ml of hot water and stir. Drink it while it is hot.';
   document.getElementById('statrow').innerHTML = protein
-    ? `<div><b>22.5 g</b><span>Protein per serving</span></div>
-       <div><b>4.4 g</b><span>Dietary fibre</span></div>
+    ? `<div><b>${(cur.sachet_g*0.45).toFixed(1).replace(/\.0$/,'')} g</b><span>Protein per ${cur.sachet_g} g sachet</span></div>
+       <div><b>${(cur.sachet_g*0.088).toFixed(1).replace(/\.0$/,'')} g</b><span>Dietary fibre</span></div>
        <div><b>0 g</b><span>Added sugar</span></div>`
     : `<div><b>1 g</b><span>One sachet</span></div>
        <div><b>150 ml</b><span>Hot water</span></div>

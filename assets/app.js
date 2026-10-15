@@ -18,10 +18,10 @@ const PROTEIN = [
   {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'pack-choc',  real:true, sachet_g:50, tag:'', gallery:['pack-choc','lsp-choc-hand','slide-c-protein','slide-c-comp','slide-c-mix','slide-c-fibre','slide-nutrition','slide-c-allergen','slide-howto','lsp-morning'],
    note:'Dark cocoa, barely sweet, no chalk. The one most people start on and stay on.',
    gallery_lead:'pack-choc'},
-  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'pack-mango', real:true, sachet_g:30, tag:'', gallery:['pack-mango','solo-mango','slide-nutrition','slide-howto','lsp-mango','pack-pouch'],
+  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'pack-mango', real:true, sachet_g:30, tag:'', gallery:['pack-mango','lsp-mango-hand','slide-m-protein','slide-c-comp','slide-m-mix','slide-c-fibre','slide-nutrition','slide-c-allergen','slide-howto','lsp-mango'],
    note:'Ripe alphonso, thick enough to chew. Closer to a lassi than a supplement.',
    gallery_lead:'pack-mango'},
-  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'pack-kulfi', real:true, sachet_g:30, tag:'New', gallery:['pack-kulfi','solo-kulfi','slide-nutrition','slide-howto','lsp-kulfi'],
+  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'pack-kulfi', real:true, sachet_g:30, tag:'New', gallery:['pack-kulfi','lsp-kulfi-hand','slide-k-protein','slide-c-comp','slide-k-mix','slide-c-fibre','slide-nutrition','slide-c-allergen','slide-howto','lsp-kulfi'],
    note:'Cardamom, pistachio, a little bit of childhood. For people who find chocolate boring.',
    gallery_lead:'pack-kulfi'},
 ];
