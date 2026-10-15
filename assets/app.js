@@ -15,25 +15,13 @@ function logo(size, color, tagline){
 
 /* --- the catalogue, taken off the packaging artwork --- */
 const PROTEIN = [
-  {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'pack-choc',  real:true, sachet_g:50, tag:'', gallery:[
-     {img:'pack-choc'},
-     {img:'solo-choc',   k:'45 g protein', t:'per 100 g', d:'22.5 g in every 50 g serving'},
-     {img:'lsp-morning', k:'8.8 g fibre',  t:'per 100 g', d:'2 g of it prebiotic FOS'},
-     {img:'lsp-gym',     k:'0 g',          t:'added sugar', d:'Sweetened with sucralose and acesulfame K'}],
+  {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'pack-choc',  real:true, sachet_g:50, tag:'', gallery:['pack-choc','slide-hero-choc','slide-pack-choc','slide-nutrition','slide-howto','lsp-morning'],
    note:'Dark cocoa, barely sweet, no chalk. The one most people start on and stay on.',
    gallery_lead:'pack-choc'},
-  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'pack-mango', real:true, sachet_g:30, tag:'', gallery:[
-     {img:'pack-mango'},
-     {img:'solo-mango', k:'45 g protein', t:'per 100 g', d:'22.5 g in every 50 g serving'},
-     {img:'lsp-mango',  k:'3 sources',    t:'of plant protein', d:'Soya isolate, pea and brown rice'},
-     {img:'pack-pouch', k:'20 servings',  t:'in the 1 kg pack', d:'Also sold as a single-serve sachet'}],
+  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'pack-mango', real:true, sachet_g:30, tag:'', gallery:['pack-mango','solo-mango','slide-nutrition','slide-howto','lsp-mango','pack-pouch'],
    note:'Ripe alphonso, thick enough to chew. Closer to a lassi than a supplement.',
    gallery_lead:'pack-mango'},
-  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'pack-kulfi', real:true, sachet_g:30, tag:'New', gallery:[
-     {img:'pack-kulfi'},
-     {img:'solo-kulfi', k:'45 g protein', t:'per 100 g', d:'22.5 g in every 50 g serving'},
-     {img:'lsp-kulfi',  k:'Enzymes',      t:'in the mix', d:'Amylase, protease, lipase, cellulase, lactase'},
-     {img:'kulfi-3',    k:'Mixes in water', t:'not milk', d:'Creamy on its own, stirred with a spoon'}],
+  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'pack-kulfi', real:true, sachet_g:30, tag:'New', gallery:['pack-kulfi','solo-kulfi','slide-nutrition','slide-howto','lsp-kulfi'],
    note:'Cardamom, pistachio, a little bit of childhood. For people who find chocolate boring.',
    gallery_lead:'pack-kulfi'},
 ];
@@ -71,17 +59,13 @@ const LABEL = {
   disclaimer: 'The product is not intended to treat, cure, mitigate or prevent any specific disease, disorder or condition. For oral consumption only.',
 };
 const ENERGY = [
-  {id:'kahwa',  name:'Kashmiri Kahwa', cls:'pk-kahwa',  shot:'sachet-kahwa',  real:true, gallery:[{img:'sachet-kahwa'},
-     {img:'energy-kahwa', k:'1 g sachet', t:'in 150 ml hot water', d:'Nothing to measure, nothing to shake'}],  tag:'',
+  {id:'kahwa',  name:'Kashmiri Kahwa', cls:'pk-kahwa',  shot:'sachet-kahwa',  real:true, gallery:['sachet-kahwa','energy-kahwa'],  tag:'',
    note:'Saffron and almond, the way it is made up north.'},
-  {id:'ginger', name:'Ginger',         cls:'pk-ginger', shot:'sachet-ginger', real:true, gallery:[{img:'sachet-ginger'},
-     {img:'energy-ginger', k:'1 g sachet', t:'in 150 ml hot water', d:'Nothing to measure, nothing to shake'}], tag:'',
+  {id:'ginger', name:'Ginger',         cls:'pk-ginger', shot:'sachet-ginger', real:true, gallery:['sachet-ginger','energy-ginger'], tag:'',
    note:'Sharp and warming. For mornings that started badly.'},
-  {id:'tulsi',  name:'Tulsi',          cls:'pk-tulsi',  shot:'sachet-tulsi',  real:true, gallery:[{img:'sachet-tulsi'},
-     {img:'energy-tulsi', k:'1 g sachet', t:'in 150 ml hot water', d:'Nothing to measure, nothing to shake'}],  tag:'New',
+  {id:'tulsi',  name:'Tulsi',          cls:'pk-tulsi',  shot:'sachet-tulsi',  real:true, gallery:['sachet-tulsi','energy-tulsi'],  tag:'New',
    note:'Holy basil. Earthy, and the least sweet of the four.'},
-  {id:'lemon',  name:'Lemon',          cls:'pk-lemon',  shot:'sachet-lemon',  real:true, gallery:[{img:'sachet-lemon'},
-     {img:'energy-lemon', k:'1 g sachet', t:'in 150 ml hot water', d:'Nothing to measure, nothing to shake'}],  tag:'',
+  {id:'lemon',  name:'Lemon',          cls:'pk-lemon',  shot:'sachet-lemon',  real:true, gallery:['sachet-lemon','energy-lemon'],  tag:'',
    note:'Plain and clean. The afternoon one.'},
 ];
 const ALL = [...PROTEIN, ...ENERGY];

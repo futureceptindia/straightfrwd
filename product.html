@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1792045424"></head><body>
+<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1792046685"></head><body>
 
 <div class="wrap pdp">
   <div class="gallery">
@@ -163,7 +163,7 @@
   <div class="grid3" id="more"></div>
 </div></section>
 
-<script src="assets/app.js?v=1792045424"></script><script>
+<script src="assets/app.js?v=1792046685"></script><script>
 chrome('products.html');
 
 
@@ -180,8 +180,7 @@ function paint(){
   const protein = isProtein(cur.id);
   const set = protein ? PROTEIN : ENERGY;
 
-  const raw = cur.gallery || [cur.shot];
-  const gal = raw.map(g => typeof g === 'string' ? {img:g} : g);
+  const gal = (cur.gallery || [cur.shot]).map(g => typeof g === 'string' ? {img:g} : g);
   document.getElementById('pgal').hidden = !cur.real;
   document.getElementById('rail').innerHTML = gal.map((g,n)=>
     `<button aria-current="${n===0}" aria-label="${g.k ? g.k + ' ' + g.t : 'Product photo ' + (n+1)}" onclick="showShot(${n})">
