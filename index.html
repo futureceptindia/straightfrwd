@@ -2,12 +2,15 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>StraightFrwd — Nutrition, Made Easy</title>
-<link rel="stylesheet" href="assets/style.css?v=1792040642"></head><body>
+<link rel="stylesheet" href="assets/style.css?v=1792041554"></head><body>
 
 <section class="hero" aria-roledescription="carousel" aria-label="StraightFrwd highlights">
   <div class="slides" id="slides">
   <div class="slide on" role="group" aria-roledescription="slide" aria-label="Daily Protein" style="--scrim:rgba(26,13,7,.94)">
-    <div class="bg"><img src="assets/img/hero-athletic-1.jpg" alt="An athlete resting between sets with a shaker"></div>
+    <div class="bg">
+        <img class="poster" src="assets/video/v-gym1-poster.jpg" alt="">
+        <video src="assets/video/v-gym1.mp4" poster="assets/video/v-gym1-poster.jpg" muted loop playsinline autoplay aria-hidden="true"></video>
+      </div>
     <div class="wrap"><div class="inner">
       <div class="eyebrow">Daily Protein</div>
       <h1>Nothing you<br><em>can&rsquo;t pronounce.</em></h1>
@@ -16,7 +19,10 @@
     </div></div>
   </div>
   <div class="slide" role="group" aria-roledescription="slide" aria-label="Three flavours" style="--scrim:rgba(10,38,22,.94)">
-    <div class="bg"><img src="assets/img/hero-athletic-2.jpg" alt="An athlete mid-workout in a gym"></div>
+    <div class="bg">
+        <img class="poster" src="assets/video/v-gada-poster.jpg" alt="">
+        <video src="assets/video/v-gada.mp4" poster="assets/video/v-gada-poster.jpg" muted loop playsinline aria-hidden="true"></video>
+      </div>
     <div class="wrap"><div class="inner">
       <div class="eyebrow">Three flavours</div>
       <h1>The one you&rsquo;ll<br><em>actually finish.</em></h1>
@@ -60,6 +66,25 @@
 </section>
 
 <div class="strip"><div class="run" id="strip"></div></div>
+
+<section class="sec"><div class="wrap">
+  <div class="explain">
+    <div>
+      <div class="eyebrow">What it actually is</div>
+      <h2 style="margin-bottom:20px">Three plant proteins,<br>doing one job.</h2>
+      <p class="lead">Most single-source plant proteins fall short on one amino acid or another. Soya isolate carries the bulk here, pea protein covers what soya runs light on, and brown rice protein fills the rest. Put together, the profile holds up against dairy protein without needing any.</p>
+      <p class="lead" style="margin-top:14px">It is built to go into water, not milk. The mix already carries its own fat powder, so it turns creamy on its own and dissolves with a spoon.</p>
+      <dl class="whatlist">
+        <div><b>Soya protein isolate</b><span>The base. Isolate rather than concentrate, so more protein and less of everything else.</span></div>
+        <div><b>Pea &amp; brown rice protein</b><span>Added for the amino acids soya alone does not cover well.</span></div>
+        <div><b>Digestive enzymes</b><span>Amylase, protease, lipase, cellulase and lactase, so a large dose of plant protein sits easier.</span></div>
+        <div><b>FOS, vitamins &amp; minerals</b><span>Prebiotic fibre plus a full micronutrient premix, listed one by one on the back.</span></div>
+        <div><b>Garcinia &amp; Cissus</b><span>Declared with their milligrams on the pack, not hidden inside a blend.</span></div>
+      </dl>
+    </div>
+    <div class="shotimg" style="border-radius:16px"><img src="assets/img/ing-protein.jpg" alt="Soya protein, split peas and brown rice"></div>
+  </div>
+</div></section>
 
 <section class="sec"><div class="wrap">
   <div style="display:flex;align-items:end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:36px">
@@ -131,7 +156,7 @@
   <details class="faq"><summary>Who should not take it?</summary><p>Pregnant, nursing and lactating women, children under 5, adolescents and the elderly, unless a physician or certified dietitian advises it. Contains soy; made in a facility that also processes wheat, milk, oats and nuts.</p></details>
 </div></section>
 
-<script src="assets/app.js?v=1792040642"></script><script>
+<script src="assets/app.js?v=1792041554"></script><script>
 chrome('index.html');
 document.getElementById('homeProtein').innerHTML = PROTEIN.map(card).join('');
 document.getElementById('homeEnergy').innerHTML  = ENERGY.map(card).join('');
@@ -150,11 +175,19 @@ document.getElementById('strip').innerHTML = Array(2).fill('<span>Nutrition, Mad
     `<button class="dot" role="tab" aria-label="Slide ${n+1}: ${s.getAttribute('aria-label')}"></button>`).join('');
   const buttons = [...dots.children];
 
+  function playFor(n){
+    slides.forEach((s,k)=>{
+      const v = s.querySelector('video'); if(!v) return;
+      if(k === n && !reduce){ v.play().catch(()=>{}); } else { v.pause(); }
+    });
+  }
+
   function show(n){
     i = (n + slides.length) % slides.length;
     slides.forEach((s,k)=>s.classList.toggle('on', k===i));
     buttons.forEach((b,k)=>b.setAttribute('aria-current', String(k===i)));
     count.textContent = `${i+1} / ${slides.length}`;
+    playFor(i);
   }
   const next = () => show(i+1), prev = () => show(i-1);
 

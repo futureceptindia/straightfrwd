@@ -624,3 +624,47 @@ footer.site .legal{margin-top:40px;padding-top:22px;border-top:1px solid rgba(23
 /* ---------- footer contact emphasis ---------- */
 footer.site a.plain.big{font-size:17px;font-weight:700;opacity:.95;margin-bottom:10px}
 footer.site a.plain.big:hover{color:var(--orange-lt);opacity:1}
+
+
+/* ---------- hero video ---------- */
+.slide .bg video{width:100%;height:100%;object-fit:cover;object-position:60% center;display:block}
+@media(prefers-reduced-motion:reduce){ .slide .bg video{display:none} }
+.slide .bg .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% center}
+@media(prefers-reduced-motion:no-preference){ .slide.on .bg .poster{opacity:0;transition:opacity .6s .2s} }
+
+/* ---------- protein explainer ---------- */
+.explain{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.explain .lead{font-size:19px;line-height:1.6;opacity:.85;max-width:52ch}
+.whatlist{display:grid;gap:0;margin-top:28px;border-top:1px solid var(--line)}
+.whatlist div{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.whatlist dt,.whatlist b{font-weight:800;font-size:15px}
+.whatlist span{font-size:15.5px;opacity:.78;line-height:1.55}
+@media(max-width:860px){
+  .explain{grid-template-columns:1fr;gap:30px}
+  .whatlist div{grid-template-columns:1fr;gap:4px}
+}
+
+
+/* ---------- lifestyle strip ---------- */
+.lsrow{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.lscard{position:relative;border-radius:16px;overflow:hidden;isolation:isolate;
+  display:grid;align-items:end;min-height:clamp(260px,28vw,340px)}
+.lscard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.lscard::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(22,11,6,.05) 0%,rgba(22,11,6,.55) 58%,rgba(22,11,6,.93) 100%)}
+.lscard .c{padding:24px;color:#fff}
+.lscard .when{font:800 11px/1 var(--font);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--orange-lt);margin-bottom:8px;display:block}
+.lscard b{display:block;font:800 20px/1.15 var(--font-display);margin-bottom:6px}
+.lscard span.d{font-size:14.5px;opacity:.85;display:block;max-width:32ch}
+
+/* ---------- product information panels ---------- */
+.inforow{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.infocard{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.infocard img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.infocard .b{padding:22px}
+.infocard h4{font:800 17px/1.2 var(--font-display);letter-spacing:0;text-transform:none;
+  color:var(--ink);margin:0 0 8px}
+.infocard p{margin:0;font-size:14.5px;opacity:.75;line-height:1.55}
+@media(max-width:860px){.lsrow,.inforow{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.lsrow,.inforow{grid-template-columns:1fr}}
