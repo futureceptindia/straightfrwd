@@ -104,14 +104,17 @@ function packshot(p, opts={}){
   </div>`;
 }
 
+/* full product name as it reads on the pack, without the brand */
+function fullName(p){ return `${p.name} ${isProtein(p.id) ? 'Daily Protein' : 'Herbal Drink'}`; }
+
 /* --- catalogue card --- */
 function card(p){
   const sachet = !isProtein(p.id);
   return `<a class="card" href="product.html#${p.id}">
     ${p.real ? `<div class="shot"><img src="assets/img/${p.shot}.jpg" alt=""></div>` : packshot(p,{small:true})}
     <span class="pill" style="align-self:flex-start;margin-bottom:10px;${p.tag?'':'visibility:hidden'}">${p.tag||'–'}</span>
-    <h3>${p.name}</h3>
-    <div class="sub">${sachet ? '1 g sachet · Herbal Drink' : `${p.sachet_g} g sachet &amp; 1 kg · Daily Protein`}</div>
+    <h3>${fullName(p)}</h3>
+    <div class="sub">${sachet ? '1 g sachet' : `${p.sachet_g} g sachet &amp; 1 kg`}</div>
     <p class="note">${p.note}</p>
     <span class="more">View details <span aria-hidden="true">→</span></span>
   </a>`;
