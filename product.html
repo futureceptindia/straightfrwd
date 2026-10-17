@@ -218,7 +218,7 @@ function paint(){
   document.getElementById('slideStack').innerHTML = stack.map(n =>
     `<img src="assets/img/${n}.jpg" alt="" loading="lazy">`).join('');
   document.getElementById('more').className = rest.length > 2 ? 'grid3' : 'grid2';
-  document.title = `${fullName(cur)} — StraightFrwd`;
+  document.title = `${fullName(cur)} | StraightFrwd`;
 }
 
 function showShot(n){
