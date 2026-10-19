@@ -29,6 +29,20 @@
   .value .ic{display:grid;place-items:center;width:46px;height:46px;margin-bottom:18px;
     border-radius:12px;background:rgba(174,93,64,.1);color:var(--brand)}
   .value .ic svg{width:23px;height:23px;display:block}
+
+  .milestones{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}
+  .ms b{display:block;font:800 clamp(30px,3.6vw,46px)/1 var(--font-display);color:var(--brand);margin-bottom:8px}
+  .ms span{font-size:14.5px;opacity:.7;line-height:1.45}
+  @media(max-width:860px){.milestones{grid-template-columns:1fr 1fr;gap:28px 18px}}
+
+  .panel.endcta{text-align:center;background:var(--orange);color:#fff;padding:62px 46px 46px;border:0}
+  .panel.endcta h2{color:#fff;font-size:clamp(28px,3.6vw,46px);margin:0 0 14px}
+  .panel.endcta p{max-width:52ch;margin:0 auto 28px;opacity:.93;font-size:18px;line-height:1.55}
+  .endcta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .panel.endcta .btn.ghost{color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.5);background:transparent}
+  .panel.endcta .btn.ghost:hover{background:rgba(255,255,255,.14)}
+  .panel.endcta .endcta-fine{font-size:13.5px;opacity:.72;margin:26px auto 0}
+  @media(max-width:700px){.panel.endcta{padding:44px 24px 36px}}
 </style></head><body>
 
 <!-- ============ HERO ============ -->
@@ -135,10 +149,15 @@
 
 <!-- ============ 6. CTA ============ -->
 <section class="sec tight"><div class="wrap">
-  <div class="panel" style="text-align:center;background:var(--orange);color:#fff">
-    <h2 style="color:#fff">Twenty years on one seed,<br>four products to show for it.</h2>
-    <p style="max-width:46ch;margin:0 auto 26px;opacity:.92;font-size:18px">Chocolate, Mango and Kulfi, plus a herbal range. One sachet is one serving.</p>
-    <a class="btn dark" href="products.html">See the range</a>
+  <div class="panel endcta">
+    <div class="eyebrow" style="color:rgba(255,255,255,.75)">Start here</div>
+    <h2 style="color:#fff">One sachet is one serving.</h2>
+    <p>Chocolate, Mango or Kulfi, plus a herbal range in Kashmiri Kahwa, Ginger, Tulsi and Lemon. Plain water, a spoon, thirty seconds.</p>
+    <div class="endcta-btns">
+      <a class="btn dark" href="products.html">See the range</a>
+      <a class="btn ghost" href="science.html">What&rsquo;s inside</a>
+    </div>
+    <p class="endcta-fine">Made in India, in our own facility. Licence 10013062000225.</p>
   </div>
 </div></section>
 
