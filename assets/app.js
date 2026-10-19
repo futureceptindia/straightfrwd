@@ -163,7 +163,7 @@ function chrome(page){
     <div class="cols">
       <div class="brandcol">
         ${logo('', '#fff', false)}
-        <p>Protein and herbal mixes with the label written in words you already know. Made in Sirmaur, packed in Delhi.</p>
+        <p>Protein and herbal mixes from Shiv Protein Private Limited, part of Shiv Group. Over twenty years with soya.</p>
         <div class="socials">${SOCIALS}</div>
       </div>
       <div><h4>Products</h4><a href="products.html">Daily Protein</a><a href="products.html">Herbal Drinks</a><a href="science.html">What's Inside</a></div>
