@@ -16,36 +16,19 @@
   .value p{margin:0;opacity:.76;font-size:15.5px;line-height:1.6}
   @media(max-width:860px){.values{grid-template-columns:1fr}}
 
-  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .member{background:var(--paper-2);border-radius:16px;overflow:hidden}
-  .member .ph{aspect-ratio:4/5;background:
-      repeating-linear-gradient(45deg,rgba(174,93,64,.07) 0 12px,rgba(174,93,64,.12) 12px 24px);
-      display:grid;place-items:center;color:var(--brand);text-align:center;padding:20px}
-  .member .ph span{font:800 11px/1.5 var(--font);letter-spacing:.14em;text-transform:uppercase;opacity:.6}
-  .member .bd{padding:24px 24px 28px}
-  .member h3{margin:0 0 4px;font-size:19px}
-  .member .role{font-size:14px;color:var(--brand);font-weight:700;margin:0 0 12px}
-  .member p{margin:0;opacity:.7;font-size:15px;line-height:1.6}
-  @media(max-width:860px){.team{grid-template-columns:1fr}}
-
   .badges{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  .badge{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 20px;text-align:center}
-  .badge b{display:block;font-size:15.5px;margin-bottom:5px}
+  .badge{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 22px;text-align:center}
+  .badge .ic{display:grid;place-items:center;width:50px;height:50px;margin:0 auto 16px;
+    border-radius:999px;background:rgba(174,93,64,.1);color:var(--brand)}
+  .badge .ic svg{width:25px;height:25px;display:block}
+  .badge .ic.veg{background:rgba(31,122,56,.1);color:#1f7a38}
+  .badge b{display:block;font-size:15.5px;margin-bottom:6px}
   .badge span{font-size:13px;opacity:.62;line-height:1.45;display:block}
   @media(max-width:860px){.badges{grid-template-columns:1fr 1fr}}
 
-  .milestones{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}
-  .ms b{display:block;font:800 clamp(30px,3.6vw,46px)/1 var(--font-display);color:var(--brand);margin-bottom:8px}
-  .ms span{font-size:14.5px;opacity:.7;line-height:1.45}
-  @media(max-width:860px){.milestones{grid-template-columns:1fr 1fr;gap:28px 18px}}
-
-  .press{display:flex;flex-wrap:wrap;gap:16px;align-items:stretch}
-  .press div{flex:1 1 180px;background:var(--paper-2);border-radius:12px;min-height:76px;
-    display:grid;place-items:center;font:800 13px/1 var(--font);letter-spacing:.14em;
-    text-transform:uppercase;color:rgba(0,0,0,.3)}
-
-  .ph-flag{display:inline-block;font:800 10px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;
-    background:#8a2f2f;color:#fff;padding:6px 10px;border-radius:999px;margin-bottom:14px}
+  .value .ic{display:grid;place-items:center;width:46px;height:46px;margin-bottom:18px;
+    border-radius:12px;background:rgba(174,93,64,.1);color:var(--brand)}
+  .value .ic svg{width:23px;height:23px;display:block}
 </style></head><body>
 
 <!-- ============ HERO ============ -->
@@ -97,81 +80,57 @@
   <div class="eyebrow">What we hold to</div>
   <h2 style="margin-bottom:34px">Three things, and we do not move on them.</h2>
   <div class="values">
-    <div class="value"><span class="n">01</span>
+    <div class="value"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></i><span class="n">01</span>
       <h3>Nature and science</h3>
       <p>Soya is a plant. What we do to it happens in our own labs, with instruments and people who read the output. Natural nutrition, validated by measurement.</p></div>
-    <div class="value"><span class="n">02</span>
+    <div class="value"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h16l-1.5 17a2 2 0 0 1-2 1.8H7.5a2 2 0 0 1-2-1.8z"/><path d="M8 8h8"/></svg></i><span class="n">02</span>
       <h3>Everyday ease</h3>
       <p>A sachet, a spoon, a glass of plain water. No shaker, no milk, no blender. Nutrition only works if you actually take it, and anything that needs planning gets abandoned by the second week.</p></div>
-    <div class="value"><span class="n">03</span>
+    <div class="value"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></i><span class="n">03</span>
       <h3>The long game</h3>
       <p>Nobody fixes their protein intake in a fortnight. We would rather you drank this for ten years than took it seriously for ten days.</p></div>
   </div>
 </div></section>
 
-<!-- ============ 4. MEET THE TEAM ============ -->
-<!-- PLACEHOLDER: no names, roles, bios or photographs supplied by the client.
-     Nothing here is invented. Replace all three cards before any public launch. -->
-<section class="sec tight"><div class="wrap">
-  <span class="ph-flag">Placeholder &middot; awaiting client</span>
-  <div class="eyebrow">Meet the team</div>
-  <h2 style="margin-bottom:34px">The people on the floor.</h2>
-  <div class="team">
-    <div class="member">
-      <div class="ph"><span>Photograph<br>to come</span></div>
-      <div class="bd"><h3>Name to come</h3><p class="role">Founder / Managing Director</p>
-        <p>Two or three lines on the decision to sell directly after four decades of manufacturing.</p></div>
-    </div>
-    <div class="member">
-      <div class="ph"><span>Photograph<br>to come</span></div>
-      <div class="bd"><h3>Name to come</h3><p class="role">Head of Research</p>
-        <p>Two or three lines on the labs, the testing protocol, and who signs off a batch.</p></div>
-    </div>
-    <div class="member">
-      <div class="ph"><span>Photograph<br>to come</span></div>
-      <div class="bd"><h3>Name to come</h3><p class="role">Plant Head</p>
-        <p>Two or three lines on the facility and how long they have worked with soya.</p></div>
-    </div>
-  </div>
-  <p style="font-size:14.5px;opacity:.6;margin-top:18px">Needed per person: name, role, one portrait, and two lines. We will not write these without the real details.</p>
-</div></section>
-
 <!-- ============ 5. SOCIAL PROOF ============ -->
-<!-- PLACEHOLDER: figures and press slots below are illustrative only.
-     Certifications must be confirmed against documents the client actually holds. -->
 <section class="sec tight"><div class="wrap">
-  <span class="ph-flag">Placeholder figures</span>
   <div class="eyebrow">By the numbers</div>
   <h2 style="margin-bottom:34px">What the years add up to.</h2>
   <div class="milestones">
     <div class="ms"><b>40+</b><span>Years in Indian manufacturing</span></div>
     <div class="ms"><b>20+</b><span>Years working with soya</span></div>
-    <div class="ms"><b>2</b><span>Research labs, in house</span></div>
+    <div class="ms"><b>1st</b><span>Consumer brand of our own</span></div>
     <div class="ms"><b>4</b><span>Products at launch</span></div>
   </div>
 </div></section>
 
 <section class="sec tight"><div class="wrap">
-  <div class="eyebrow">Certifications</div>
+  <div class="eyebrow">What is on every pack</div>
   <h2 style="margin-bottom:12px">Checks we hold.</h2>
-  <p class="lede" style="max-width:60ch;margin-bottom:30px">Every batch is made in India, in a licensed facility, and tested before it leaves.</p>
+  <p class="lede" style="max-width:60ch;margin-bottom:30px">Every batch is made in India, in a licensed facility, and tested in our own labs before it leaves.</p>
   <div class="badges">
-    <div class="badge"><b>FSSAI Licensed</b><span>Licence number printed on every pack</span></div>
-    <div class="badge"><b>ISO 22000</b><span>Food safety management</span></div>
-    <div class="badge"><b>GMP Certified</b><span>Good manufacturing practice</span></div>
-    <div class="badge"><b>Made in India</b><span>Our own facility and labs</span></div>
-  </div>
-  <p style="font-size:14.5px;opacity:.6;margin-top:16px">ISO 22000 and GMP are placeholders. Confirm which certifications the group actually holds, and we will swap in the real ones with their numbers.</p>
-</div></section>
 
-<section class="sec tight"><div class="wrap">
-  <span class="ph-flag">Placeholder</span>
-  <div class="eyebrow">As seen in</div>
-  <h2 style="margin-bottom:28px">Press.</h2>
-  <div class="press">
-    <div>Publication</div><div>Publication</div><div>Publication</div><div>Publication</div>
+    <div class="badge">
+      <i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg></i>
+      <b>FSSAI licensed</b><span>Licence 10013062000225, printed on every pack</span>
+    </div>
+
+    <div class="badge">
+      <i class="ic veg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="4.4" fill="currentColor" stroke="none"/></svg></i>
+      <b>Vegetarian</b><span>The green mark sits on the front of all four products</span>
+    </div>
+
+    <div class="badge">
+      <i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V9l6 4V9l6 4V7l6 4v10z"/><path d="M8 21v-4h4v4"/></svg></i>
+      <b>Made in India</b><span>Our own facility, not a booked production slot</span>
+    </div>
+
+    <div class="badge">
+      <i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v6.5L4.6 17A2.5 2.5 0 0 0 6.8 21h10.4a2.5 2.5 0 0 0 2.2-4L15 8.5V2"/><path d="M8 2h8"/><path d="M7.3 14h9.4"/></svg></i>
+      <b>Tested in house</b><span>Our own research labs check every batch</span>
+    </div>
+
   </div>
-  <p style="font-size:14.5px;opacity:.6;margin-top:16px">Left blank on purpose. We will not put a real masthead here until there is a real article behind it.</p>
 </div></section>
 
 <!-- ============ 6. CTA ============ -->
