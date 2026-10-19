@@ -83,14 +83,42 @@ header.site{position:sticky;top:0;z-index:40;background:var(--paper);border-bott
 .burger{display:none}
 
 /* ---------- buttons ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
-  padding:15px 28px;border-radius:999px;font-weight:700;font-size:16px;text-decoration:none;
-  background:var(--orange);color:#fff;transition:transform .12s ease, background .15s ease}
-.btn:hover{background:var(--brand-d);transform:translateY(-1px)}
-.btn.dark{background:var(--brown)}.btn.dark:hover{background:#34200F}
-.btn.ghost{background:transparent;color:var(--brown);box-shadow:inset 0 0 0 2px var(--brown)}
-.btn.ghost:hover{background:var(--brown);color:var(--paper)}
-.btn.sm{padding:11px 20px;font-size:14px}
+/* chevron is the logo mark, drawn once and reused via mask so it inherits colour */
+:root{--chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 20'%3E%3Cpath d='M0 0 L0 20 L15 10 Z'/%3E%3Cpath d='M17 0 L17 20 L32 10 Z'/%3E%3C/svg%3E")}
+
+.btn{display:inline-flex;align-items:center;gap:16px;position:relative;
+  padding:17px 24px;border-radius:12px;font-weight:800;font-size:14px;letter-spacing:.11em;
+  text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;
+  background:linear-gradient(180deg,var(--orange) 0%,#9c5138 100%);color:#fff;
+  box-shadow:0 10px 22px rgba(174,93,64,.3);
+  transition:box-shadow .16s ease, transform .12s ease, background .15s ease}
+.btn::after{content:"";width:26px;height:16px;flex:0 0 auto;margin-left:auto;
+  background:currentColor;-webkit-mask:var(--chev) center/contain no-repeat;mask:var(--chev) center/contain no-repeat}
+.btn:hover{box-shadow:0 6px 14px rgba(174,93,64,.42);transform:translateY(1px)}
+
+/* dark, for use on orange panels */
+.btn.dark{background:linear-gradient(180deg,#4B2E20 0%,#34200F 100%);
+  box-shadow:0 10px 22px rgba(0,0,0,.26)}
+.btn.dark:hover{box-shadow:0 6px 14px rgba(0,0,0,.34)}
+
+/* secondary: white bar with the chevron in a solid block */
+.btn.ghost{background:#fff;color:var(--ink);padding:0 0 0 22px;gap:22px;
+  box-shadow:0 1px 0 rgba(0,0,0,.08), inset 0 0 0 1px rgba(0,0,0,.1)}
+.btn.ghost::after{width:60px;height:100%;min-height:52px;margin-left:auto;
+  border-radius:0 12px 12px 0;background:var(--brand);
+  -webkit-mask:none;mask:none;
+  background-image:var(--chev);background-size:24px auto;background-position:center;
+  background-repeat:no-repeat;background-blend-mode:normal}
+.btn.ghost::after{background-color:var(--brand)}
+.btn.ghost:hover{box-shadow:0 1px 0 rgba(0,0,0,.12), inset 0 0 0 1px rgba(0,0,0,.18)}
+.btn.ghost:hover::after{background-color:var(--brand-d)}
+/* on an orange panel the brand-coloured block vanishes, so darken it there */
+.panel[style*="--orange"] .btn.ghost::after,.ab-cta .btn.ghost::after,
+.panel.brown .btn.ghost::after{background-color:var(--brown)}
+.ab-cta .btn.ghost:hover::after{background-color:#34200F}
+
+.btn.sm{padding:13px 18px;font-size:12.5px;gap:12px}
+.btn.sm::after{width:21px;height:13px}
 .btn.wide{width:100%}
 
 /* ---------- type ---------- */
