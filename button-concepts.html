@@ -1,0 +1,166 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Button concepts — StraightFrwd</title>
+<link rel="stylesheet" href="assets/style.css?v=1792046877">
+<style>
+  .bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:900px){.bgrid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:620px){.bgrid{grid-template-columns:1fr}}
+
+  .bcard{background:var(--paper-2);border-radius:16px;padding:30px 28px 34px;position:relative}
+  .bcard .num{position:absolute;top:14px;right:16px;font:800 11px/1 var(--font);
+    letter-spacing:.12em;opacity:.38}
+  .bcard h3{font:800 23px/1 var(--font);letter-spacing:.01em;text-transform:uppercase;margin:0 0 8px}
+  .bcard .meta{font-size:15px;opacity:.62;margin:0 0 26px}
+
+  /* the brand double chevron, drawn to match the logo mark */
+  .chev{display:block;flex:0 0 auto}
+  .chev path{fill:currentColor}
+
+  /* shared */
+  .b{display:inline-flex;align-items:center;gap:14px;text-decoration:none;
+     font:800 13.5px/1 var(--font);letter-spacing:.13em;text-transform:uppercase;
+     cursor:pointer;border:0;transition:.16s ease}
+
+  /* 1 solid pill */
+  .b1{background:var(--brand);color:#fff;padding:17px 26px;border-radius:999px;justify-content:space-between;width:100%}
+  .b1:hover{background:var(--brown)}
+
+  /* 2 outlined, divider */
+  .b2{background:#fff;color:var(--brand);padding:16px 24px;border-radius:999px;
+      box-shadow:inset 0 0 0 1.5px var(--brand);justify-content:space-between;width:100%}
+  .b2 .div{width:1.5px;height:22px;background:rgba(174,93,64,.35);margin-left:auto}
+  .b2:hover{background:var(--brand);color:#fff}
+  .b2:hover .div{background:rgba(255,255,255,.4)}
+
+  /* 3 solid pill, chevron in white disc */
+  .b3{background:var(--brand);color:#fff;padding:9px 10px 9px 28px;border-radius:999px;
+      justify-content:space-between;width:100%}
+  .b3 .disc{width:46px;height:46px;border-radius:999px;background:#fff;color:var(--brand);
+      display:grid;place-items:center;flex:0 0 auto}
+  .b3:hover{background:var(--brown)}
+
+  /* 4 text link */
+  .b4{color:var(--brand);padding:0 0 8px;border-bottom:2px solid var(--brand);
+      font:800 19px/1 var(--font);letter-spacing:0;text-transform:none;gap:16px}
+  .b4:hover{color:var(--brown);border-color:var(--brown)}
+
+  /* 5 tinted bar with solid arrow tail */
+  .b5{width:100%;padding:0;border-radius:10px 0 0 10px;overflow:visible;background:rgba(174,93,64,.13);
+      color:var(--brand);justify-content:space-between;gap:0}
+  .b5 span{padding:18px 20px}
+  .b5 .tail{background:var(--brand);color:#fff;padding:18px 16px 18px 14px;align-self:stretch;
+      display:grid;place-items:center;clip-path:polygon(0 0,76% 0,100% 50%,76% 100%,0 100%);min-width:76px}
+  .b5:hover{background:rgba(174,93,64,.2)}
+
+  /* 6 white bar, solid block */
+  .b6{width:100%;padding:0;border-radius:8px;overflow:hidden;background:#fff;color:var(--ink);
+      box-shadow:0 1px 0 rgba(0,0,0,.08),inset 0 0 0 1px rgba(0,0,0,.07);justify-content:space-between;gap:0}
+  .b6 span{padding:18px 20px}
+  .b6 .block{background:var(--brand);color:#fff;padding:18px 20px;align-self:stretch;display:grid;place-items:center}
+  .b6:hover .block{background:var(--brown)}
+
+  /* 7 disc left, thin arrow right */
+  .b7{color:var(--brown);gap:18px;padding:0}
+  .b7 .disc{width:54px;height:54px;border-radius:999px;background:var(--brand);color:#fff;
+      display:grid;place-items:center;flex:0 0 auto}
+  .b7 .arr{margin-left:auto;color:var(--brand)}
+  .b7:hover .disc{background:var(--brown)}
+
+  /* 8 solid, soft shadow */
+  .b8{width:100%;justify-content:space-between;padding:19px 24px;border-radius:12px;color:#fff;
+      background:linear-gradient(180deg,var(--brand) 0%,#9c5138 100%);
+      box-shadow:0 10px 22px rgba(174,93,64,.32)}
+  .b8:hover{box-shadow:0 6px 14px rgba(174,93,64,.4);transform:translateY(1px)}
+
+  /* 9 outlined, tinted disc */
+  .b9{width:100%;justify-content:space-between;padding:10px 12px 10px 26px;border-radius:999px;
+      background:#fff;color:var(--brand);box-shadow:inset 0 0 0 1.5px var(--brand)}
+  .b9 .disc{width:44px;height:44px;border-radius:999px;background:rgba(174,93,64,.16);
+      display:grid;place-items:center;flex:0 0 auto}
+  .b9:hover{background:var(--brand);color:#fff}
+  .b9:hover .disc{background:rgba(255,255,255,.22)}
+
+  .note{font-size:14.5px;opacity:.72;max-width:72ch}
+</style></head><body>
+
+<section class="sec tight"><div class="wrap" style="max-width:900px">
+  <div class="eyebrow">Internal review</div>
+  <h1 style="font-size:clamp(32px,4.4vw,48px)">Button concepts</h1>
+  <p class="lede" style="margin-top:16px">The nine treatments from the reference, built with live site tokens. The chevron is the brand mark from the logo, reused as the button affordance. Hover each one.</p>
+</div></section>
+
+<section class="sec tight"><div class="wrap">
+  <div class="bgrid">
+
+    <div class="bcard"><span class="num">01</span>
+      <h3>Chocolate</h3><p class="meta">50 g sachet &amp; 1 kg &middot; Daily Protein</p>
+      <a class="b b1" href="#"><span>View details</span>
+        <svg class="chev" width="30" height="18" viewBox="0 0 34 20" aria-hidden="true"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></a>
+    </div>
+
+    <div class="bcard"><span class="num">02</span>
+      <h3>Chocolate</h3><p class="meta">50 g sachet &amp; 1 kg &middot; Daily Protein</p>
+      <a class="b b2" href="#"><span>View details</span><i class="div"></i>
+        <svg class="chev" width="30" height="18" viewBox="0 0 34 20" aria-hidden="true"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></a>
+    </div>
+
+    <div class="bcard"><span class="num">03</span>
+      <h3>Chocolate</h3><p class="meta">50 g sachet &amp; 1 kg &middot; Daily Protein</p>
+      <a class="b b3" href="#"><span>View details</span>
+        <span class="disc"><svg class="chev" width="24" height="14" viewBox="0 0 34 20" aria-hidden="true"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></span></a>
+    </div>
+
+    <div class="bcard"><span class="num">04</span>
+      <h3>Chocolate</h3><p class="meta">50 g sachet &amp; 1 kg &middot; Daily Protein</p>
+      <a class="b b4" href="#"><span>View Details</span>
+        <svg class="chev" width="30" height="18" viewBox="0 0 34 20" aria-hidden="true"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></a>
+    </div>
+
+    <div class="bcard"><span class="num">05</span>
+      <h3>Chocolate</h3><p class="meta">50 g sachet &amp; 1 kg &middot; Daily Protein</p>
+      <a class="b b5" href="#"><span>View details</span>
+        <i class="tail"><svg class="chev" width="26" height="15" viewBox="0 0 34 20" aria-hidden="true"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></i></a>
+    </div>
+
+    <div class="bcard"><span class="num">06</span>
+      <h3>Chocolate</h3><p class="meta">50 g sachet &amp; 1 kg &middot; Daily Protein</p>
+      <a class="b b6" href="#"><span>View details</span>
+        <i class="block"><svg class="chev" width="26" height="15" viewBox="0 0 34 20" aria-hidden="true"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></i></a>
+    </div>
+
+    <div class="bcard"><span class="num">07</span>
+      <h3>Chocolate</h3><p class="meta">50 g sachet &amp; 1 kg &middot; Daily Protein</p>
+      <a class="b b7" href="#">
+        <span class="disc"><svg class="chev" width="24" height="14" viewBox="0 0 34 20" aria-hidden="true"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></span>
+        <span>View details</span>
+        <svg class="arr" width="30" height="14" viewBox="0 0 30 14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M0 7h27m0 0-6-5m6 5-6 5"/></svg></a>
+    </div>
+
+    <div class="bcard"><span class="num">08</span>
+      <h3>Chocolate</h3><p class="meta">50 g sachet &amp; 1 kg &middot; Daily Protein</p>
+      <a class="b b8" href="#"><span>View details</span>
+        <svg class="chev" width="30" height="18" viewBox="0 0 34 20" aria-hidden="true"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></a>
+    </div>
+
+    <div class="bcard"><span class="num">09</span>
+      <h3>Chocolate</h3><p class="meta">50 g sachet &amp; 1 kg &middot; Daily Protein</p>
+      <a class="b b9" href="#"><span>View details</span>
+        <span class="disc"><svg class="chev" width="22" height="13" viewBox="0 0 34 20" aria-hidden="true"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></span></a>
+    </div>
+
+  </div>
+</div></section>
+
+<section class="sec tight"><div class="wrap" style="max-width:860px;padding-bottom:70px">
+  <h2 style="font-size:26px;margin-bottom:14px">Notes</h2>
+  <p class="note" style="margin-bottom:10px"><b>01, 03, 08</b> are solid and read as primary actions. Only one of these should exist per screen, otherwise nothing looks primary.</p>
+  <p class="note" style="margin-bottom:10px"><b>02, 09</b> are the natural secondary pair to whichever solid one is chosen, so a primary and secondary can be picked from the same row.</p>
+  <p class="note" style="margin-bottom:10px"><b>04, 07</b> are tertiary. Good on cards, too quiet for a hero.</p>
+  <p class="note" style="margin-bottom:10px"><b>05</b> has an angled tail, so it cannot sit flush in a grid without the point colliding with whatever is to its right. Needs clearance.</p>
+  <p class="note"><b>06</b> is the only one that does not use the brand radius. It will look like a different design system next to the current cards unless the radius is reconciled.</p>
+</div></section>
+
+<script src="assets/app.js?v=1792046877"></script><script>chrome('button-concepts.html');</script>
+</body></html>
