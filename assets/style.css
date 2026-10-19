@@ -70,7 +70,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .announce{background:var(--brown);color:var(--tan-lt);font-size:13px;letter-spacing:.04em;text-align:center;padding:9px 16px;font-weight:500}
 .announce b{color:var(--orange-lt)}
 header.site{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;gap:28px;height:74px}
+.bar{display:flex;align-items:center;gap:28px;height:88px}
 .bar nav{display:flex;gap:26px;margin-left:12px}
 .bar nav a{text-decoration:none;font-weight:600;font-size:15px;padding:6px 0;border-bottom:2px solid transparent}
 .bar nav a:hover,.bar nav a[aria-current]{border-color:var(--orange)}
@@ -265,7 +265,7 @@ footer.site .logo{--logo-h:44px;color:#fff;display:inline-flex;margin:0}
   .grid3,.grid4,.quotes,.steps{grid-template-columns:1fr 1fr}
   .facts{grid-template-columns:1fr 1fr}
   footer.site .cols{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.25fr;gap:40px 36px;align-items:start}
-  .bar{height:64px}
+  .bar{height:74px}
   /* nav becomes a scrollable strip under the bar instead of vanishing */
   .bar nav{position:absolute;left:0;right:0;top:100%;margin:0;gap:0;
     background:var(--paper);border-top:1px solid var(--line);
@@ -437,7 +437,7 @@ a.card:hover .more{text-decoration:underline}
 
 /* SF_Guidelines / SCALING — logo minimum 80px for digital use, symbol 50px.
    SF_Guidelines / CLEAR SPACE — 1X clear on all sides, X = half the symbol height. */
-.bar .logo{--logo-h:40px}
+.bar .logo{--logo-h:54px}
 
 
 /* photo card: real pack render, same frame as the CSS packshot it sits beside */
@@ -726,3 +726,8 @@ footer.site a.plain.big:hover{color:var(--orange-lt);opacity:1}
 .buyblock{margin:22px 0 26px;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:var(--card,#fff)}
 .buylabel{font:800 12px/1 var(--font);letter-spacing:.16em;text-transform:uppercase;margin:0 0 12px;opacity:.72}
 .buyblock .retailers{margin:0}
+
+/* nav logo: mobile override must sit after the desktop rule above */
+@media(max-width:820px){
+  .bar .logo{--logo-h:44px}
+}
