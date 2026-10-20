@@ -148,7 +148,7 @@ const SOCIALS = Object.entries(SOCIAL_PATHS).map(([name, d]) =>
 /* --- shared chrome --- */
 function chrome(page){
   const nav = [['index.html','Home'],['products.html','Products'],
-               ['contact.html','Contact']];
+               ['about-v3.html','About'],['contact.html','Contact']];
   document.body.insertAdjacentHTML('afterbegin', `
   <div class="announce">Nutrition, Made Easy &nbsp;·&nbsp; <b>Plant protein &amp; herbal mixes</b></div>
   <header class="site"><div class="wrap bar">
