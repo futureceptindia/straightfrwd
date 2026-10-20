@@ -116,7 +116,7 @@ function card(p){
     <h3>${fullName(p)}</h3>
     <div class="sub">${sachet ? '1 g sachet' : `${p.sachet_g} g sachet &amp; 1 kg`}</div>
     <p class="note">${p.note}</p>
-    <span class="more">View details <span aria-hidden="true">→</span></span>
+    <span class="more">View details</span>
   </a>`;
 }
 
