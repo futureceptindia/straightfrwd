@@ -153,10 +153,31 @@ function chrome(page){
   <div class="announce">Nutrition, Made Easy &nbsp;·&nbsp; <b>Plant protein &amp; herbal mixes</b></div>
   <header class="site"><div class="wrap bar">
     ${logo('', 'var(--brown)', false)}
-    <nav>${nav.map(([h,l])=>`<a href="${h}" ${h===page?'aria-current="page"':''}>${l}</a>`).join('')}</nav>
+    <nav id="siteNav">${nav.map(([h,l])=>`<a href="${h}" ${h===page?'aria-current="page"':''}>${l}</a>`).join('')}</nav>
     <span class="sp"></span>
     <a class="btn sm" href="products.html">See the range</a>
-  </div></header>`);
+    <button class="navtoggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div></header>
+  <div class="navscrim" id="navScrim" hidden></div>`);
+
+  /* mobile sidebar */
+  (function(){
+    const t=document.getElementById('navToggle'), sc=document.getElementById('navScrim');
+    if(!t) return;
+    const set = open => {
+      document.body.classList.toggle('navopen', open);
+      t.setAttribute('aria-expanded', String(open));
+      t.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      sc.hidden = !open;
+    };
+    t.addEventListener('click', () => set(!document.body.classList.contains('navopen')));
+    sc.addEventListener('click', () => set(false));
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') set(false); });
+    document.querySelectorAll('#siteNav a').forEach(a => a.addEventListener('click', () => set(false)));
+    addEventListener('resize', () => { if(innerWidth > 820) set(false); });
+  })();
 
   document.body.insertAdjacentHTML('beforeend', `
   <footer class="site"><div class="wrap">
