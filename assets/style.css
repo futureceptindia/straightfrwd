@@ -89,7 +89,9 @@ header.site{position:sticky;top:0;z-index:40;background:var(--paper);border-bott
 
 /* ---------- buttons ---------- */
 /* chevron is the logo mark, drawn once and reused via mask so it inherits colour */
-:root{--chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 20'%3E%3Cpath d='M0 0 L0 20 L15 10 Z'/%3E%3Cpath d='M17 0 L17 20 L32 10 Z'/%3E%3C/svg%3E")}
+:root{--chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 20'%3E%3Cpath d='M0 0 L0 20 L15 10 Z'/%3E%3Cpath d='M17 0 L17 20 L32 10 Z'/%3E%3C/svg%3E");
+  /* used as a background-image rather than a mask, so the fill must be set explicitly */
+  --chev-white:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 20' fill='%23ffffff'%3E%3Cpath d='M0 0 L0 20 L15 10 Z'/%3E%3Cpath d='M17 0 L17 20 L32 10 Z'/%3E%3C/svg%3E")}
 
 .btn{display:inline-flex;align-items:center;gap:16px;position:relative;
   padding:17px 24px;border-radius:12px;font-weight:800;font-size:14px;letter-spacing:.11em;
@@ -112,7 +114,7 @@ header.site{position:sticky;top:0;z-index:40;background:var(--paper);border-bott
 .btn.ghost::after{width:60px;height:100%;min-height:56px;margin-left:auto;
   border-radius:0 12px 12px 0;background:var(--brand);
   -webkit-mask:none;mask:none;
-  background-image:var(--chev);background-size:24px auto;background-position:center;
+  background-image:var(--chev-white);background-size:24px auto;background-position:center;
   background-repeat:no-repeat;background-blend-mode:normal}
 .btn.ghost::after{background-color:var(--brand)}
 .btn.ghost:hover{box-shadow:0 1px 0 rgba(0,0,0,.12), inset 0 0 0 1px rgba(0,0,0,.18)}
