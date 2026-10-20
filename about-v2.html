@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>About v2 — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1792482989">
+<title>About v2 — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1792483065">
 <style>
 .ab{
   --s-lg:118px; --s-md:74px; --s-sm:48px;
@@ -39,7 +39,10 @@
 .ab-cards{display:grid;gap:20px}
 .ab-cards.three{grid-template-columns:repeat(3,1fr)}
 .ab-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px 26px}
-.ab-card .n{display:block;font:800 12px/1 var(--font);letter-spacing:.16em;color:var(--brand);margin-bottom:14px}
+.ab-card{display:flex;flex-direction:column}
+.ab-card .ic{display:grid;place-items:center;width:46px;height:46px;margin-bottom:18px;
+  border-radius:12px;background:rgba(174,93,64,.1);color:var(--brand);flex:0 0 auto}
+.ab-card .ic svg{width:23px;height:23px;display:block}
 .ab-card h3{margin:0 0 10px}
 .ab-card p{margin:0 0 12px;opacity:.76;font-size:15.5px;line-height:1.62}
 .ab-card ul{margin:0;padding-left:18px}
@@ -49,13 +52,18 @@
 .ab-trust div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 26px}
 .ab-trust b{display:block;margin-bottom:6px;font-size:16.5px}
 .ab-trust p{margin:0;opacity:.76;font-size:15.5px}
-.ab-fine{background:var(--paper-2);border-radius:16px;padding:30px 32px}
-.ab-fine p{margin:0 0 8px;font-size:15px;opacity:.78}
 .panel.ab-cta{background:var(--orange);color:#fff;border-radius:20px;padding:64px 56px;
   display:grid;grid-template-columns:1fr .92fr;gap:54px;align-items:center;border:0}
 .panel.ab-cta h2{color:#fff;font-size:var(--t-major);margin:0 0 16px;max-width:16ch}
 .panel.ab-cta p{max-width:46ch;margin:0 0 28px;opacity:.93;font-size:17.5px}
 .ab-cta-btns{display:flex;gap:12px;flex-wrap:wrap}
+/* the default dark button is built from the Chocolate packaging brown, which is not a
+   UI colour. On the orange panel use white and the brand colour only. */
+.panel.ab-cta .btn.dark{background:#fff;color:var(--brand);box-shadow:0 10px 22px rgba(0,0,0,.18)}
+.panel.ab-cta .btn.dark:hover{background:#fff;color:var(--brand-d);box-shadow:0 6px 14px rgba(0,0,0,.26)}
+.panel.ab-cta .btn.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.6)}
+.panel.ab-cta .btn.ghost::after{background-color:transparent;background-image:var(--chev-white)}
+.panel.ab-cta .btn.ghost:hover{background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 2px #fff}
 .ab-range{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:end}
 .ab-range figure{margin:0}
 .ab-range img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border-radius:14px;
@@ -110,20 +118,17 @@
   <div class="eyebrow">How we think about your health</div>
   <h2 class="major" style="margin-bottom:36px">Three simple principles.</h2>
   <div class="ab-cards three">
-    <div class="ab-card"><span class="n">01</span>
+    <div class="ab-card"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></i>
       <h3>Nature and science</h3>
-      <p>Soya protein isolate, pea protein and brown rice protein, with dietary fibre, vitamins, minerals, Garcinia Cambogia, Cissus Quadrangularis and digestive enzymes.</p>
-      <p>Every one of them named on the pack, with its amount.</p>
+      <p>Soya protein isolate, pea and brown rice protein, with fibre, vitamins, minerals and digestive enzymes. Every one of them named on the pack, with its amount.</p>
     </div>
-    <div class="ab-card"><span class="n">02</span>
+    <div class="ab-card"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h16l-1.5 17a2 2 0 0 1-2 1.8H7.5a2 2 0 0 1-2-1.8z"/><path d="M8 8h8"/></svg></i>
       <h3>Everyday ease</h3>
-      <p>The healthiest habit is the one you actually keep.</p>
-      <p>Water and a spoon. No blender, no milk, no planning. Sachets for the mornings, a 1 kg pouch for the kitchen, and a 1 g herbal sachet in hot water for the evening.</p>
+      <p>The healthiest habit is the one you keep. Water and a spoon, no blender and no planning. Sachets for the mornings, a 1 kg pouch for the kitchen.</p>
     </div>
-    <div class="ab-card"><span class="n">03</span>
+    <div class="ab-card"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></i>
       <h3>Built for the long game</h3>
-      <p>Wellness is not built in a week.</p>
-      <p>It is built in small choices, repeated for years. One serving a day, on the days a meal is not going to happen.</p>
+      <p>Wellness is not built in a week. It is built in small choices repeated for years, one serving a day, on the days a meal will not happen.</p>
     </div>
   </div>
 </div></section>
@@ -153,14 +158,6 @@
   </div>
 </div></section>
 
-<section class="s-sm"><div class="wrap">
-  <div class="col ab-fine">
-    <p><b>Brand</b> &nbsp;StraightFrwd, a unit of Shiv Protein Private Limited, part of Shiv Group</p>
-    <p><b>Registered office</b> &nbsp;2-A/3 S/F Front Side, Asafali Road, Turkman Gate, Darya Ganj, Central Delhi 110002, India</p>
-    <p style="margin:0"><b>Manufacturing partner</b> &nbsp;Zeon Lifesciences Ltd, Paonta Sahib. FSSAI Lic. No. 10013062000225</p>
-  </div>
-</div></section>
-
 <section class="s-sm" style="padding-bottom:var(--s-lg)"><div class="wrap">
   <div class="panel ab-cta">
     <div>
@@ -181,4 +178,4 @@
 </div></section>
 
 </div>
-<script src="assets/app.js?v=1792482989"></script><script>chrome('about-v2.html');</script></body></html>
+<script src="assets/app.js?v=1792483065"></script><script>chrome('about-v2.html');</script></body></html>
