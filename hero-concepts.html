@@ -2,7 +2,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Hero concepts — StraightFrwd</title>
-<link rel="stylesheet" href="assets/style.css?v=1792500678"><style>
+<link rel="stylesheet" href="assets/style.css?v=1792500735"><style>
   /* the artwork already carries its own headline, so no scrim over it */
   .hero.baked .slide .bg::after{display:none}
   .hero.baked .slide .bg img{object-position:center}
@@ -23,7 +23,11 @@
     display:flex;flex-direction:column;justify-content:center}
   .hero-ui .cap b{display:block;font:800 11.5px/1 var(--font);letter-spacing:.15em;
     text-transform:uppercase;color:var(--brand);opacity:1;margin-bottom:6px}
-  @media(max-width:620px){.hc-dots{margin-left:0;width:100%;order:3}}
+  @media(max-width:620px){
+    .hero-ui{flex-wrap:wrap}
+    .hero-ui .cap{order:2;width:100%;max-width:100%;min-height:0;margin-top:4px}
+    .hc-dots{margin-left:0;width:100%;order:3}
+  }
 </style></head><body>
 
 <section class="hero baked">
@@ -132,7 +136,7 @@
   <details class="faq"><summary>Who should not take it?</summary><p>Pregnant, nursing and lactating women, children under 5, adolescents and the elderly, unless a physician or certified dietitian advises it. Contains soy; made in a facility that also processes wheat, milk, oats and nuts.</p></details>
 </div></section>
 
-<script src="assets/app.js?v=1792500678"></script><script>
+<script src="assets/app.js?v=1792500735"></script><script>
 chrome('hero-concepts.html');
 document.getElementById('homeProtein').innerHTML = PROTEIN.map(card).join('');
 document.getElementById('homeEnergy').innerHTML  = ENERGY.map(card).join('');
