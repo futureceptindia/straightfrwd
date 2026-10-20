@@ -2,7 +2,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Hero concepts — StraightFrwd</title>
-<link rel="stylesheet" href="assets/style.css?v=1792502355"><style>
+<link rel="stylesheet" href="assets/style.css?v=1792502464"><style>
   /* the artwork already carries its own headline, so no scrim over it */
   .hero.baked .slide .bg::after{display:none}
   .hero.baked .slide .bg img{object-position:center}
@@ -15,25 +15,20 @@
     .hero.baked .slide .bg{position:relative;inset:auto}
     .hero.baked .slide .bg img{height:auto;aspect-ratio:16/9;object-fit:cover}
   }
-  .navpill{display:inline-flex;border-radius:999px;overflow:hidden;
-    box-shadow:inset 0 0 0 1px rgba(42,23,16,.16);background:#fff}
-  .hero-ui .navpill .arrow{width:52px;height:44px;border-radius:0;border:0;background:transparent;
-    color:var(--brand)}
-  .hero-ui .navpill .arrow + .arrow{box-shadow:inset 1px 0 0 rgba(42,23,16,.16)}
-  .hero-ui .navpill .arrow:hover{background:var(--brand);color:#fff}
-  .hc-dots{display:flex;gap:9px;margin-left:auto}
+  .hc-ctl{position:absolute;right:28px;bottom:26px;z-index:3;
+    display:flex;align-items:center;gap:16px}
+  .navpill{display:inline-flex;border-radius:999px;overflow:hidden;background:#fff;
+    box-shadow:0 6px 18px rgba(26,13,7,.22)}
+  .navpill .arrow{width:50px;height:42px;border-radius:0;border:0;background:transparent;
+    color:var(--brand);display:grid;place-items:center;cursor:pointer;transition:.15s}
+  .navpill .arrow + .arrow{box-shadow:inset 1px 0 0 rgba(42,23,16,.16)}
+  .navpill .arrow:hover{background:var(--brand);color:#fff}
+  .hc-dots{display:flex;gap:9px}
   .hc-dots button{width:9px;height:9px;padding:0;border:0;border-radius:999px;cursor:pointer;
-    background:rgba(42,23,16,.24);transition:.2s}
-  .hc-dots button[aria-current="true"]{background:var(--brand);width:26px}
-  .hero-ui .cap{font-size:15.5px;opacity:.74;margin:0;min-height:44px;max-width:52ch;
-    display:flex;flex-direction:column;justify-content:center}
-  .hero-ui .cap b{display:block;font:800 11.5px/1 var(--font);letter-spacing:.15em;
-    text-transform:uppercase;color:var(--brand);opacity:1;margin-bottom:6px}
-  @media(max-width:620px){
-    .hero-ui{flex-wrap:wrap}
-    .hero-ui .cap{order:2;width:100%;max-width:100%;min-height:0;margin-top:4px}
-    .hc-dots{margin-left:0;width:100%;order:3}
-  }
+    background:rgba(255,255,255,.55);box-shadow:0 1px 4px rgba(26,13,7,.3);transition:.2s}
+  .hc-dots button[aria-current="true"]{background:#fff;width:26px}
+  @media(max-width:620px){.hc-ctl{right:16px;bottom:14px;gap:12px}
+    .navpill .arrow{width:44px;height:38px}}
 </style></head><body>
 
 <section class="hero baked">
@@ -42,16 +37,16 @@
     <div class="slide"><div class="bg"><img src="assets/img/hero-c2-kulfi.jpg" alt="Kulfi Protein Powder on a balcony at dusk"></div></div>
     <div class="slide"><div class="bg"><img src="assets/img/hero-c3-choc.jpg" alt="Chocolate Protein Powder on a kitchen counter"></div></div>
   </div>
+  <div class="hc-ctl">
+    <div class="hc-dots" id="dts"></div>
+    <div class="navpill">
+      <button class="arrow" id="prv" aria-label="Previous"><svg width="20" height="12" viewBox="0 0 34 20" fill="currentColor" style="transform:scaleX(-1)"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></button>
+      <button class="arrow" id="nxt" aria-label="Next"><svg width="20" height="12" viewBox="0 0 34 20" fill="currentColor"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></button>
+    </div>
+  </div>
 </section>
 
-<div class="wrap"><div class="hero-ui">
-  <div class="navpill">
-    <button class="arrow" id="prv" aria-label="Previous"><svg width="20" height="12" viewBox="0 0 34 20" fill="currentColor" style="transform:scaleX(-1)"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></button>
-    <button class="arrow" id="nxt" aria-label="Next"><svg width="20" height="12" viewBox="0 0 34 20" fill="currentColor"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></button>
-  </div>
-  <p class="cap" id="cap"></p>
-  <div class="hc-dots" id="dts"></div>
-</div></div>
+
 
 <div class="strip"><div class="run" id="strip"></div></div>
 
@@ -144,7 +139,7 @@
   <details class="faq"><summary>Who should not take it?</summary><p>Pregnant, nursing and lactating women, children under 5, adolescents and the elderly, unless a physician or certified dietitian advises it. Contains soy; made in a facility that also processes wheat, milk, oats and nuts.</p></details>
 </div></section>
 
-<script src="assets/app.js?v=1792502355"></script><script>
+<script src="assets/app.js?v=1792502464"></script><script>
 chrome('hero-concepts.html');
 document.getElementById('homeProtein').innerHTML = PROTEIN.map(card).join('');
 document.getElementById('homeEnergy').innerHTML  = ENERGY.map(card).join('');
@@ -153,18 +148,13 @@ document.getElementById('strip').innerHTML = Array(2).fill('<span>Nutrition, Mad
 
 /* three baked hero frames, click through */
 (function(){
-  const caps = [
-    ['Mango \u00b7 Terrace','Mango Protein Powder, 30 g sachet. Shot where the fruit belongs.'],
-    ['Kulfi \u00b7 Balcony at dusk','Kulfi Protein Powder, 30 g sachet. Cardamom, pistachio, end of a hot day.'],
-    ['Chocolate \u00b7 Kitchen counter','Chocolate Protein Powder, 50 g sachet and 1 kg pouch. Mixes in plain water.']
-  ];
   const sl=[...document.querySelectorAll('#slides .slide')],
-        dts=document.getElementById('dts'), cap=document.getElementById('cap');
+        dts=document.getElementById('dts');
   let i=0;
-  caps.forEach((_,n)=>{const b=document.createElement('button');b.onclick=()=>go(n);dts.appendChild(b)});
+  sl.forEach((_,n)=>{const b=document.createElement('button');
+    b.setAttribute('aria-label','Slide '+(n+1));b.onclick=()=>go(n);dts.appendChild(b)});
   function go(n){ i=(n+sl.length)%sl.length;
     sl.forEach((x,k)=>x.classList.toggle('on',k===i));
-    cap.innerHTML='<b>'+caps[i][0]+'</b>'+caps[i][1];
     [...dts.children].forEach((b,k)=>b.setAttribute('aria-current',k===i));
   }
   document.getElementById('nxt').onclick=()=>go(i+1);
