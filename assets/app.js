@@ -105,7 +105,7 @@ function packshot(p, opts={}){
 }
 
 /* full product name as it reads on the pack, without the brand */
-function fullName(p){ return `${isProtein(p.id) ? 'Daily Protein' : 'Herbal Drink'} \u2014 ${p.name}`; }
+function fullName(p){ return `${p.name} ${isProtein(p.id) ? 'Protein Powder' : 'Herbal Drink'}`; }
 
 /* --- catalogue card --- */
 function card(p){
