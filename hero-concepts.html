@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Hero concepts — StraightFrwd</title>
+<link rel="stylesheet" href="assets/style.css?v=1792499631">
+<style>
+  .hx{position:relative;border-radius:20px;overflow:hidden;background:#1A0D07}
+  .hx-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+  .hx-slide{flex:0 0 100%}
+  .hx-slide img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+  .hx-ui{display:flex;align-items:center;gap:18px;padding:22px 2px 4px;flex-wrap:wrap}
+  .hx-dots{display:flex;gap:9px;margin-left:auto}
+  .hx-dots button{width:9px;height:9px;padding:0;border:0;border-radius:999px;cursor:pointer;
+    background:rgba(42,23,16,.24);transition:.2s}
+  .hx-dots button[aria-current="true"]{background:var(--brand);width:26px}
+  .hx-arrows{display:flex;gap:10px}
+  .hx-arrows button{width:44px;height:44px;border-radius:999px;border:0;cursor:pointer;
+    background:var(--paper-2);color:var(--brand);display:grid;place-items:center;transition:.18s}
+  .hx-arrows button:hover{background:var(--brand);color:#fff}
+  .hx-arrows svg{width:17px;height:17px;fill:currentColor}
+  .hx-cap{font-size:16px;line-height:1.5;opacity:.78;max-width:46ch;margin:0}
+  .hx-cap b{display:block;font:800 12px/1 var(--font);letter-spacing:.15em;text-transform:uppercase;
+    color:var(--brand);opacity:1;margin-bottom:7px}
+  @media(max-width:620px){.hx-dots{margin-left:0;width:100%;order:3}}
+</style></head><body>
+
+<section class="sec tight"><div class="wrap" style="max-width:900px">
+  <div class="eyebrow">Internal review</div>
+  <h1 style="font-size:clamp(32px,4.4vw,48px)">Hero concepts</h1>
+  <p class="lede" style="margin-top:16px">Three lifestyle frames, one per flavour, each shot in a setting that belongs to it. Headline and subline are baked into the image so the hero needs no overlay.</p>
+</div></section>
+
+<section class="sec tight"><div class="wrap">
+  <div class="hx"><div class="hx-track" id="trk">
+    <div class="hx-slide"><img src="assets/img/hero-c1-mango.jpg" alt="Mango Protein Powder on a sunlit terrace"></div>
+    <div class="hx-slide"><img src="assets/img/hero-c2-kulfi.jpg" alt="Kulfi Protein Powder on a balcony at dusk"></div>
+    <div class="hx-slide"><img src="assets/img/hero-c3-choc.jpg" alt="Chocolate Protein Powder on a kitchen counter"></div>
+  </div></div>
+
+  <div class="hx-ui">
+    <div class="hx-arrows">
+      <button id="prv" aria-label="Previous"><svg viewBox="0 0 34 20" style="transform:scaleX(-1)"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></button>
+      <button id="nxt" aria-label="Next"><svg viewBox="0 0 34 20"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></button>
+    </div>
+    <p class="hx-cap" id="cap"></p>
+    <div class="hx-dots" id="dts"></div>
+  </div>
+</div></section>
+
+<script src="assets/app.js?v=1792499631"></script>
+<script>
+chrome('hero-concepts.html');
+const caps = [
+  ['Mango · Terrace','Mango Protein Powder, 30 g sachet. Shot where the fruit belongs.'],
+  ['Kulfi · Balcony at dusk','Kulfi Protein Powder, 30 g sachet. Cardamom, pistachio, end of a hot day.'],
+  ['Chocolate · Kitchen counter','Chocolate Protein Powder, 50 g sachet and 1 kg pouch. Mixes in plain water.']
+];
+const trk=document.getElementById('trk'), dts=document.getElementById('dts'), cap=document.getElementById('cap');
+let i=0;
+caps.forEach((_,n)=>{const b=document.createElement('button');b.onclick=()=>go(n);dts.appendChild(b)});
+function go(n){ i=(n+caps.length)%caps.length;
+  trk.style.transform='translateX('+(-i*100)+'%)';
+  cap.innerHTML='<b>'+caps[i][0]+'</b>'+caps[i][1];
+  [...dts.children].forEach((b,k)=>b.setAttribute('aria-current',k===i));
+}
+document.getElementById('nxt').onclick=()=>go(i+1);
+document.getElementById('prv').onclick=()=>go(i-1);
+go(0);
+</script>
+</body></html>
