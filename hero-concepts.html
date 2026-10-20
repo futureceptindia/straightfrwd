@@ -2,7 +2,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Hero concepts — StraightFrwd</title>
-<link rel="stylesheet" href="assets/style.css?v=1792502464"><style>
+<link rel="stylesheet" href="assets/style.css?v=1792502538"><style>
   /* the artwork already carries its own headline, so no scrim over it */
   .hero.baked .slide .bg::after{display:none}
   .hero.baked .slide .bg img{object-position:center}
@@ -15,20 +15,22 @@
     .hero.baked .slide .bg{position:relative;inset:auto}
     .hero.baked .slide .bg img{height:auto;aspect-ratio:16/9;object-fit:cover}
   }
+  /* one control, floated on the artwork — the dots live inside it so they stay
+     legible whether the frame behind them is white marble or a dark kitchen */
   .hc-ctl{position:absolute;right:28px;bottom:26px;z-index:3;
-    display:flex;align-items:center;gap:16px}
-  .navpill{display:inline-flex;border-radius:999px;overflow:hidden;background:#fff;
-    box-shadow:0 6px 18px rgba(26,13,7,.22)}
-  .navpill .arrow{width:50px;height:42px;border-radius:0;border:0;background:transparent;
-    color:var(--brand);display:grid;place-items:center;cursor:pointer;transition:.15s}
-  .navpill .arrow + .arrow{box-shadow:inset 1px 0 0 rgba(42,23,16,.16)}
-  .navpill .arrow:hover{background:var(--brand);color:#fff}
-  .hc-dots{display:flex;gap:9px}
-  .hc-dots button{width:9px;height:9px;padding:0;border:0;border-radius:999px;cursor:pointer;
-    background:rgba(255,255,255,.55);box-shadow:0 1px 4px rgba(26,13,7,.3);transition:.2s}
-  .hc-dots button[aria-current="true"]{background:#fff;width:26px}
-  @media(max-width:620px){.hc-ctl{right:16px;bottom:14px;gap:12px}
-    .navpill .arrow{width:44px;height:38px}}
+    display:inline-flex;align-items:center;border-radius:999px;overflow:hidden;
+    background:#fff;box-shadow:0 6px 18px rgba(26,13,7,.22)}
+  .hc-dots{display:flex;gap:8px;padding:0 18px}
+  .hc-dots button{width:8px;height:8px;padding:0;border:0;border-radius:999px;cursor:pointer;
+    background:rgba(42,23,16,.22);transition:.2s}
+  .hc-dots button[aria-current="true"]{background:var(--brand);width:24px}
+  .hc-ctl .arrow{width:50px;height:42px;border-radius:0;border:0;background:transparent;
+    color:var(--brand);display:grid;place-items:center;cursor:pointer;transition:.15s;
+    box-shadow:inset 1px 0 0 rgba(42,23,16,.16)}
+  .hc-ctl .arrow:hover{background:var(--brand);color:#fff}
+  @media(max-width:620px){.hc-ctl{right:16px;bottom:14px}
+    .hc-dots{padding:0 14px}
+    .hc-ctl .arrow{width:44px;height:38px}}
 </style></head><body>
 
 <section class="hero baked">
@@ -39,10 +41,8 @@
   </div>
   <div class="hc-ctl">
     <div class="hc-dots" id="dts"></div>
-    <div class="navpill">
-      <button class="arrow" id="prv" aria-label="Previous"><svg width="20" height="12" viewBox="0 0 34 20" fill="currentColor" style="transform:scaleX(-1)"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></button>
-      <button class="arrow" id="nxt" aria-label="Next"><svg width="20" height="12" viewBox="0 0 34 20" fill="currentColor"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></button>
-    </div>
+    <button class="arrow" id="prv" aria-label="Previous"><svg width="20" height="12" viewBox="0 0 34 20" fill="currentColor" style="transform:scaleX(-1)"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></button>
+    <button class="arrow" id="nxt" aria-label="Next"><svg width="20" height="12" viewBox="0 0 34 20" fill="currentColor"><path d="M0 0 L0 20 L15 10 Z"/><path d="M17 0 L17 20 L32 10 Z"/></svg></button>
   </div>
 </section>
 
@@ -139,7 +139,7 @@
   <details class="faq"><summary>Who should not take it?</summary><p>Pregnant, nursing and lactating women, children under 5, adolescents and the elderly, unless a physician or certified dietitian advises it. Contains soy; made in a facility that also processes wheat, milk, oats and nuts.</p></details>
 </div></section>
 
-<script src="assets/app.js?v=1792502464"></script><script>
+<script src="assets/app.js?v=1792502538"></script><script>
 chrome('hero-concepts.html');
 document.getElementById('homeProtein').innerHTML = PROTEIN.map(card).join('');
 document.getElementById('homeEnergy').innerHTML  = ENERGY.map(card).join('');
