@@ -319,8 +319,12 @@ footer.site .logo{--logo-h:44px;color:#fff;display:inline-flex;margin:0}
     border-left:3px solid transparent;white-space:nowrap}
   .bar nav a[aria-current]{border-bottom-color:var(--line);border-left-color:var(--orange);
     background:var(--paper-2)}
-  .navscrim{display:block;position:fixed;inset:0;z-index:55;background:rgba(26,13,7,.45);
+  /* header is a sticky stacking context, so the drawer cannot rise above a scrim
+     that outranks the header. Keep the scrim under the header and lift the header
+     while the drawer is open. */
+  .navscrim{display:block;position:fixed;inset:0;z-index:38;background:rgba(26,13,7,.45);
     opacity:0;transition:opacity .26s ease}
+  body.navopen header.site{z-index:60}
   body.navopen .navscrim{opacity:1}
   body.navopen{overflow:hidden}
   /* the toggle sits above the open drawer and becomes a cross */
