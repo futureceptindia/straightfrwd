@@ -2,7 +2,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Hero concepts — StraightFrwd</title>
-<link rel="stylesheet" href="assets/style.css?v=1792499972">
+<link rel="stylesheet" href="assets/style.css?v=1792500024">
 <style>
   /* the artwork already carries its own headline, so no scrim over it */
   .hero.baked .slide .bg::after{display:none}
@@ -10,10 +10,13 @@
   .hero.baked .slides{min-height:min(78vh,660px)}
   .hero.baked .slide{align-items:stretch}
   @media(max-width:760px){
-    /* a 16:9 frame shrinks the baked headline to nothing on a phone,
-       so hold a taller crop and let the art breathe */
-    .hero.baked .slides{min-height:62vh}
-    .hero.baked .slide .bg img{object-position:62% center}
+    /* cropping a 16:9 frame to a tall hero cuts the baked headline off,
+       so show the whole composition instead and let the section shrink */
+    .hero.baked .slides{min-height:0}
+    .hero.baked .slide{position:relative}
+    .hero.baked .slide:not(.on){position:absolute;inset:0}
+    .hero.baked .slide .bg{position:relative;inset:auto}
+    .hero.baked .slide .bg img{height:auto;aspect-ratio:16/9;object-fit:cover;object-position:center}
   }
   .hc-ui{display:flex;align-items:center;gap:16px;padding:20px 0 0;flex-wrap:wrap}
   .hc-ui .cap{font-size:15.5px;opacity:.74;margin:0;min-height:44px;
@@ -59,7 +62,7 @@
   <p style="opacity:.74;font-size:16.5px;line-height:1.65;max-width:62ch">Each one is shot in a setting that belongs to that flavour, and the headline is baked into the artwork, so the hero needs no text overlay and no scrim. Pick one as the homepage opener, or run all three as the reel.</p>
 </div></section>
 
-<script src="assets/app.js?v=1792499972"></script>
+<script src="assets/app.js?v=1792500024"></script>
 <script>
 chrome('hero-concepts.html');
 const caps = [
