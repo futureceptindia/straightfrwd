@@ -119,6 +119,11 @@ header.site{position:sticky;top:0;z-index:40;background:var(--paper);border-bott
 
 .btn.sm{padding:13px 18px;font-size:12.5px;gap:12px}
 .btn.sm::after{width:21px;height:13px}
+/* ghost keeps its full-height block at every size, so .sm must not shrink it to a bar */
+.btn.ghost.sm{padding:0 0 0 18px;gap:16px;min-height:46px}
+.btn.ghost.sm::after{width:48px;height:100%;min-height:46px;border-radius:0 12px 12px 0;
+  background-size:20px auto}
+.btn.ghost{min-height:52px}
 .btn.wide{width:100%}
 
 /* ---------- type ---------- */
