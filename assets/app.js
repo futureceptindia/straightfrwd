@@ -120,10 +120,20 @@ function card(p){
   </a>`;
 }
 
-/* --- where to buy (placeholder destinations until the listings exist) --- */
-const RETAILERS = ['Amazon','Flipkart','Blinkit','Zepto','Swiggy Instamart'];
-const buyRow = () => RETAILERS.map(r =>
-  `<a class="retailer" href="#" onclick="event.preventDefault();toast('${r} listing not linked yet')">${r}</a>`).join('');
+/* --- where to buy ---
+   RETAILERS carries a url per platform. A platform with a url renders as a link;
+   one without renders as a plain chip, so the page never tells a visitor that a
+   listing is missing. Drop the real urls in as each one goes live. */
+const RETAILERS = [
+  {name:'Amazon',           url:''},
+  {name:'Flipkart',         url:''},
+  {name:'Blinkit',          url:''},
+  {name:'Zepto',            url:''},
+  {name:'Swiggy Instamart', url:''}
+];
+const buyRow = () => RETAILERS.map(r => r.url
+  ? `<a class="retailer" href="${r.url}" target="_blank" rel="noopener">${r.name}</a>`
+  : `<span class="retailer">${r.name}</span>`).join('');
 
 function toast(m){
   const t = document.getElementById('toast'); if(!t) return;
