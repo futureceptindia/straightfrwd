@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Products — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1793345880"></head><body>
+
+<section style="background:var(--paper-2);padding:52px 0 44px"><div class="wrap">
+  <div class="eyebrow">Catalogue</div><h1 style="font-size:clamp(38px,5.5vw,62px)">Everything we make</h1>
+  <p class="lede" style="margin-top:14px">Two products, seven flavours. We would rather do a short list properly.</p>
+</div></section>
+
+<section class="sec tight" id="protein"><div class="wrap">
+  <h2 style="font-size:30px;margin-bottom:8px">Daily Protein</h2>
+  <p style="opacity:.7;margin:0 0 28px">50 g sachet and 1 kg pack · 20 servings a kilo · 22.5 g protein per serving</p>
+  <div class="grid3" id="catProtein"></div>
+</div></section>
+
+<section class="sec tight" id="herbal"><div class="wrap">
+  <h2 style="font-size:30px;margin-bottom:8px">Herbal Drinks</h2>
+  <p style="opacity:.7;margin:0 0 28px">1 g sachets · one sachet in 150 ml hot water</p>
+  <div class="grid4" id="catEnergy"></div>
+</div></section>
+
+<section class="sec tight"><div class="wrap">
+  <div class="imgband" style="--imgband-scrim:rgba(22,11,6,.9)">
+    <img src="assets/img/pack-pouch.jpg" alt="The 1 kg Daily Protein pack">
+    <div class="copy">
+      <div class="eyebrow">Also in 1 kg</div>
+      <h3>Twenty servings,<br><em>one pack.</em></h3>
+      <p>The same mix as the sachets, in a resealable pack for people who have stopped experimenting.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec tight"><div class="wrap">
+  <div class="panel brown">
+    <div class="eyebrow">Where to buy</div>
+    <h2 style="margin-bottom:10px">Pick it up where you already shop.</h2>
+    <div class="retailers" id="catBuy"></div>
+  </div>
+</div></section>
+
+<script src="assets/app.js?v=1793345880"></script><script>
+chrome('products.html');
+document.getElementById('catProtein').innerHTML = PROTEIN.map(card).join('');
+document.getElementById('catEnergy').innerHTML  = ENERGY.map(card).join('');
+document.getElementById('catBuy').innerHTML = buyRow();
+</script></body></html>

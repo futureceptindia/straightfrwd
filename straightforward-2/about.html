@@ -1,0 +1,170 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>About v3 — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1793345880">
+<style>
+.ab{
+  --s-lg:118px; --s-md:74px; --s-sm:48px;
+  --t-display:clamp(38px,5.4vw,66px);
+  --t-major:clamp(30px,4.2vw,50px);
+  --t-norm:clamp(26px,2.8vw,36px);
+  --t-minor:clamp(21px,2vw,25px);
+  --tint:#F2E9DD;
+}
+.ab section{padding:var(--s-md) 0}
+.ab .s-lg{padding:var(--s-lg) 0}
+.ab .s-sm{padding:var(--s-sm) 0}
+.ab .tint{background:var(--tint)}
+.ab h2{font-size:var(--t-norm);line-height:1.08;margin:0 0 18px}
+.ab h2.major{font-size:var(--t-major)}
+.ab h3{font-size:var(--t-minor)}
+.ab .col{max-width:820px}
+.ab .col.centred{margin:0 auto;text-align:center}
+.ab .col.centred p{margin-left:auto;margin-right:auto;max-width:60ch}
+.ab p{font-size:17.5px;line-height:1.68}
+.ab .lede{font-size:19.5px;line-height:1.6}
+.ab-hero{background:var(--paper-2);padding:72px 0 62px}
+.ab-hero h1{font-size:var(--t-display);line-height:1.02;margin:0 0 10px}
+.ab-hero .sub{font:800 15px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--brand);margin-bottom:26px}
+.ab-band{aspect-ratio:16/9;max-height:600px;width:100%;overflow:hidden;border-radius:20px}
+.ab-band img{width:100%;height:100%;object-fit:cover;display:block}
+.ab-mission{background:var(--brown);color:var(--tan-lt);border-radius:20px;padding:76px 60px;
+  display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.ab-mission h2{color:#fff;font-size:var(--t-major);margin:0}
+.ab-mission p{opacity:.86;margin:0 0 18px;font-size:17.5px;line-height:1.66}
+.ab-mission p:last-child{margin-bottom:0}
+@media(max-width:860px){.ab-mission{grid-template-columns:1fr;gap:28px;padding:46px 26px}}
+.ab-split{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.ab-split.rev > .ab-split-img{order:-1}
+.ab-split-img{border-radius:18px;overflow:hidden;aspect-ratio:4/3}
+.ab-split-img img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:860px){.ab-split{grid-template-columns:1fr;gap:30px}.ab-split.rev > .ab-split-img{order:0}}
+.ab-cards{display:grid;gap:20px}
+.ab-cards.three{grid-template-columns:repeat(3,1fr)}
+.ab-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px 26px}
+.ab-card{display:flex;flex-direction:column}
+.ab-card .ic{display:grid;place-items:center;width:46px;height:46px;margin-bottom:18px;
+  border-radius:12px;background:rgba(174,93,64,.1);color:var(--brand);flex:0 0 auto}
+.ab-card .ic svg{width:23px;height:23px;display:block}
+.ab-card h3{margin:0 0 10px}
+.ab-card p{margin:0 0 12px;opacity:.76;font-size:15.5px;line-height:1.62}
+.ab-card ul{margin:0;padding-left:18px}
+.ab-card li{opacity:.76;font-size:15.5px;line-height:1.6;margin-bottom:8px}
+@media(max-width:900px){.ab-cards.three{grid-template-columns:1fr}}
+.panel.ab-cta{background:var(--orange);color:#fff;border-radius:20px;padding:64px 56px;
+  display:grid;grid-template-columns:1fr .92fr;gap:54px;align-items:center;border:0}
+.panel.ab-cta h2{color:#fff;font-size:var(--t-major);margin:0 0 16px;max-width:16ch}
+.panel.ab-cta p{max-width:46ch;margin:0 0 28px;opacity:.93;font-size:17.5px}
+.ab-cta-btns{display:flex;gap:12px;flex-wrap:wrap}
+/* the default dark button is built from the Chocolate packaging brown, which is not a
+   UI colour. On the orange panel use white and the brand colour only. */
+.panel.ab-cta .btn.dark{background:#fff;color:var(--brand);box-shadow:0 10px 22px rgba(0,0,0,.18)}
+.panel.ab-cta .btn.dark:hover{background:#fff;color:var(--brand-d);box-shadow:0 6px 14px rgba(0,0,0,.26)}
+.panel.ab-cta .btn.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.6)}
+.panel.ab-cta .btn.ghost::after{background-color:transparent;background-image:var(--chev-white)}
+.panel.ab-cta .btn.ghost:hover{background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 2px #fff}
+.ab-range{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:end}
+.ab-range figure{margin:0}
+.ab-range img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border-radius:14px;
+  box-shadow:0 18px 34px rgba(0,0,0,.26)}
+.ab-range figcaption{font:800 11.5px/1 var(--font);letter-spacing:.13em;text-transform:uppercase;
+  color:rgba(255,255,255,.9);margin-top:12px;text-align:center}
+.ab-range figure:nth-child(1),.ab-range figure:nth-child(3){transform:translateY(22px)}
+@media(max-width:900px){
+  .panel.ab-cta{grid-template-columns:1fr;gap:38px;padding:46px 26px 40px;text-align:center}
+  .panel.ab-cta h2,.panel.ab-cta p{max-width:100%;margin-left:auto;margin-right:auto}
+  .ab-cta-btns{justify-content:center}
+  .ab-range figure:nth-child(1),.ab-range figure:nth-child(3){transform:none}
+}
+</style></head><body>
+<div class="ab">
+
+<section class="ab-hero"><div class="wrap" style="max-width:880px">
+  <div class="eyebrow">About StraightFrwd</div>
+  <h1>Nutrition,<br>Made Easy.</h1>
+  <p class="lede" style="max-width:58ch">Looking after your health, and the health of the people you love, should not feel like a second job.</p>
+  <p class="lede" style="max-width:58ch;margin-top:16px">Even in homes where meals are cooked fresh and plates are full, a gap goes unnoticed. Most Indian diets fall short on daily protein. Turn to the supplement aisle and you meet intimidating tubs, chemical jargon, and a nagging question about what you can actually trust.</p>
+  <p class="lede" style="max-width:58ch;margin-top:16px">We created StraightFrwd to replace that noise with calm, everyday certainty.</p>
+</div></section>
+
+<section class="s-sm"><div class="wrap">
+  <div class="ab-band"><img src="assets/img/ab-band-trek.jpg" alt="A trekker walking through a forest trail"></div>
+</div></section>
+
+<section class="s-lg"><div class="wrap">
+  <div class="ab-mission">
+    <div>
+      <div class="eyebrow" style="color:var(--orange-lt)">Who it is for</div>
+      <h2>Built for people<br>who plan ahead.</h2>
+    </div>
+    <div class="ab-mission-body">
+      <p>StraightFrwd is for those who do not wait for a wake-up call to start caring about their wellbeing. People who think in decades rather than crash diets.</p>
+      <p>The best nutrition is not the most complicated formula on the shelf. It is the habit you actually keep.</p>
+      <p>When looking after yourself is easy, it stops being a chore and becomes part of how you live.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="tint s-lg"><div class="wrap">
+  <div class="eyebrow">Our philosophy</div>
+  <h2 class="major" style="margin-bottom:36px">Three simple commitments.</h2>
+  <div class="ab-cards three">
+    <div class="ab-card"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></i>
+      <h3>Nature and science</h3>
+      <p>Plant protein from soya, pea and brown rice, with dietary fibre, vitamins, minerals and digestive enzymes. Every one of them named on the pack, with its amount.</p>
+    </div>
+    <div class="ab-card"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h16l-1.5 17a2 2 0 0 1-2 1.8H7.5a2 2 0 0 1-2-1.8z"/><path d="M8 8h8"/></svg></i>
+      <h3>Everyday ease</h3>
+      <p>Good habits fall apart when they take too much effort. A pre-measured sachet, plain water and a spoon. No blender, no kitchen scale, no routine to learn.</p>
+    </div>
+    <div class="ab-card"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></i>
+      <h3>Built for the long game</h3>
+      <p>Real health is not built in a week. It is built in the small, quiet choices you repeat every day, with no added sugar and a label you can read in full.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="s-lg"><div class="wrap">
+  <div class="ab-split">
+    <div>
+      <div class="eyebrow">Where we come from</div>
+      <h2 class="major">A new name,<br>with decades behind it.</h2>
+      <p>StraightFrwd is a brand of Shiv Protein Private Limited, part of Shiv Group.</p>
+      <p>For over forty years Shiv Group has been a name in Indian industry. For more than two decades the work has centred on one ingredient, soya, what the team here calls the miracle seed.</p>
+      <p>StraightFrwd is the first time we have brought that expertise directly to you and your family.</p>
+    </div>
+    <div class="ab-split-img"><img src="assets/img/ab-soya.jpg" alt="Raw soya beans"></div>
+  </div>
+</div></section>
+
+<section class="s-lg"><div class="wrap">
+  <div class="col centred">
+    <div class="eyebrow">Our promise</div>
+    <h2 class="major">We want you to feel one thing. Relaxed.</h2>
+    <p>Relaxed because you know what is going into your body. Relaxed because closing your family&rsquo;s daily nutrition gap takes less than a minute. And relaxed because your long-term health is in your hands.</p>
+    <p style="font-weight:700;margin-top:18px">Simple, natural and straightforward.</p>
+  </div>
+</div></section>
+
+<section class="s-sm" style="padding-bottom:var(--s-lg)"><div class="wrap">
+  <div class="panel ab-cta">
+    <div>
+      <div class="eyebrow" style="color:rgba(255,255,255,.78)">Start today</div>
+      <h2>Give your day the protein it is missing.</h2>
+      <p>Less effort than making chai, and one less thing to worry about at the end of the day.</p>
+      <div class="ab-cta-btns">
+        <a class="btn dark" href="products.html">Try now</a>
+        <a class="btn ghost" href="science.html">What&rsquo;s inside</a>
+      </div>
+    </div>
+    <div class="ab-range">
+      <figure><img src="assets/img/pack-choc.jpg" alt="Chocolate Protein Powder"><figcaption>Chocolate</figcaption></figure>
+      <figure><img src="assets/img/pack-mango.jpg" alt="Mango Protein Powder"><figcaption>Mango</figcaption></figure>
+      <figure><img src="assets/img/pack-kulfi.jpg" alt="Kulfi Protein Powder"><figcaption>Kulfi</figcaption></figure>
+    </div>
+  </div>
+</div></section>
+
+</div>
+<script src="assets/app.js?v=1793345880"></script><script>chrome('about.html');</script></body></html>
