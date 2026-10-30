@@ -163,7 +163,12 @@ function chrome(page){
   <div class="announce">Nutrition, Made Easy &nbsp;·&nbsp; <b>Plant protein &amp; herbal mixes</b></div>
   <header class="site"><div class="wrap bar">
     ${logo('', 'var(--brown)', false)}
-    <nav id="siteNav">${nav.map(([h,l])=>`<a href="${h}" ${h===page?'aria-current="page"':''}>${l}</a>`).join('')}</nav>
+    <nav id="siteNav">${nav.map(([h,l])=>{
+      const cur = h===page?'aria-current="page"':'';
+      if(h!=='products.html') return `<a href="${h}" ${cur}>${l}</a>`;
+      return `<div class="navdd"><a href="${h}" ${cur} aria-haspopup="true">${l}<i class="caret" aria-hidden="true"></i></a>
+        <div class="navdd-menu"><a href="products.html#protein">Protein</a><a href="products.html#herbal">Herbal Drinks</a></div></div>`;
+    }).join('')}</nav>
     <span class="sp"></span>
     <a class="btn sm" href="products.html">See the range</a>
     <button class="navtoggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
