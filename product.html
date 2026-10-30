@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1793344751"></head><body>
+<title>Product — StraightFrwd</title><link rel="stylesheet" href="assets/style.css?v=1793345089"></head><body>
 
 <div class="wrap pdp">
   <div class="gallery">
@@ -26,6 +26,10 @@
       <div class="retailers" id="pdpBuy"></div>
     </div>
 
+    <div id="sizeBlock">
+      <h4 style="font:800 12px/1 var(--font);letter-spacing:.16em;text-transform:uppercase;margin:0 0 0">Size</h4>
+      <div class="swatches" id="sz"></div>
+    </div>
     <h4 style="font:800 12px/1 var(--font);letter-spacing:.16em;text-transform:uppercase;margin:0 0 0">Flavour</h4>
     <div class="swatches" id="sw"></div>
 
@@ -147,7 +151,7 @@
   <div class="grid3" id="more"></div>
 </div></section>
 
-<script src="assets/app.js?v=1793344751"></script><script>
+<script src="assets/app.js?v=1793345089"></script><script>
 chrome('products.html');
 
 
@@ -179,6 +183,13 @@ function paint(){
   document.getElementById('blurb').textContent = protein
     ? `${cur.note} Mixes in plain water with a spoon.`
     : cur.note;
+  document.getElementById('sizeBlock').hidden = !protein;
+  if(protein){
+    const sizes = [['sachet', `${cur.sachet_g} g sachet`], ['kilo', '1 kg pack']];
+    if(!window.__size) window.__size = 'sachet';
+    document.getElementById('sz').innerHTML = sizes.map(([k,l]) =>
+      `<button class="sw" aria-pressed="${k===window.__size}" onclick="window.__size='${k}';pick('${cur.id}')">${l}</button>`).join('');
+  }
   document.getElementById('sw').innerHTML = set.map(p =>
     `<button class="sw" aria-pressed="${p.id===cur.id}" onclick="pick('${p.id}')">${p.name}</button>`).join('');
   document.getElementById('ticks').innerHTML =
@@ -191,7 +202,7 @@ function paint(){
     ? LABEL.howTo
     : 'Add one 1 g sachet to 150 ml of hot water and stir. Drink it while it is hot.';
   document.getElementById('statrow').innerHTML = protein
-    ? `<div><b>${(cur.sachet_g*0.45).toFixed(1).replace(/\.0$/,'')} g</b><span>Protein per ${cur.sachet_g} g sachet</span></div>
+    ? `<div><b>${(cur.sachet_g*0.45).toFixed(1).replace(/\.0$/,'')} g</b><span>${window.__size==='kilo' ? 'Protein per 50 g serving · 20 per pack' : `Protein per ${cur.sachet_g} g sachet`}</span></div>
        <div><b>${(cur.sachet_g*0.088).toFixed(1).replace(/\.0$/,'')} g</b><span>Dietary fibre</span></div>
        <div><b>0 g</b><span>Added sugar</span></div>`
     : `<div><b>1 g</b><span>One sachet</span></div>

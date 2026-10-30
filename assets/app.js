@@ -18,10 +18,10 @@ const PROTEIN = [
   {id:'choc',  name:'Chocolate', cls:'pk-choc',  shot:'pack-choc',  real:true, sachet_g:50, tag:'', gallery:['pack-choc','lsp-choc-hand','slide-c-protein','slide-c-comp','slide-c-mix','slide-c-fibre','slide-nutrition','slide-c-allergen','slide-howto','lsp-morning'],
    note:'Dark cocoa, barely sweet, no chalk. The one most people start on and stay on.',
    gallery_lead:'pack-choc'},
-  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'pack-mango', real:true, sachet_g:30, tag:'', gallery:['pack-mango','lsp-mango-hand','slide-m-protein','slide-c-comp','slide-m-mix','slide-c-fibre','slide-nutrition','slide-c-allergen','slide-howto','lsp-mango'],
+  {id:'mango', name:'Mango',     cls:'pk-mango', shot:'pack-mango', real:true, sachet_g:50, tag:'', gallery:['pack-mango','lsp-mango-hand','slide-m-protein','slide-c-comp','slide-m-mix','slide-c-fibre','slide-nutrition','slide-c-allergen','slide-howto','lsp-mango'],
    note:'Ripe alphonso, thick enough to chew. Closer to a lassi than a supplement.',
    gallery_lead:'pack-mango'},
-  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'pack-kulfi', real:true, sachet_g:30, tag:'New', gallery:['pack-kulfi','lsp-kulfi-hand','slide-k-protein','slide-c-comp','slide-k-mix','slide-c-fibre','slide-nutrition','slide-c-allergen','slide-howto','lsp-kulfi'],
+  {id:'kulfi', name:'Kulfi',     cls:'pk-kulfi', shot:'pack-kulfi', real:true, sachet_g:50, tag:'New', gallery:['pack-kulfi','lsp-kulfi-hand','slide-k-protein','slide-c-comp','slide-k-mix','slide-c-fibre','slide-nutrition','slide-c-allergen','slide-howto','lsp-kulfi'],
    note:'Cardamom, pistachio, a little bit of childhood. For people who find chocolate boring.',
    gallery_lead:'pack-kulfi'},
 ];
@@ -208,12 +208,10 @@ function chrome(page){
         <a href="tel:+919672227666" class="plain big">+91 96722 27666</a>
         <a href="https://wa.me/919057119000" class="plain big">WhatsApp 90571 19000</a>
         <a href="mailto:care@straightfrwd.com" class="plain big">care@straightfrwd.com</a>
-        <p class="addr">2-A/3 S/F Front Side, Asafali Road,<br>Turkman Gate, Darya Ganj,<br>New Delhi 110002</p>
       </div>
     </div>
     <div class="legal">
       <span>&copy; 2026 Shiv Protein Private Limited</span>
-      <span>Marketed by Shiv Protein Pvt Ltd</span>
     </div>
   </div></footer>
   <div class="toast" id="toast"></div>`);
