@@ -834,3 +834,28 @@ footer.site a.plain.big:hover{color:var(--orange-lt);opacity:1}
   .btn::after{transition:transform .2s ease}
   .shotimg,.bleed{overflow:hidden}
 }
+
+/* ---------- Products mega menu ---------- */
+.navdd-menu.mega{flex-direction:row;gap:6px;min-width:560px;padding:12px}
+.mega-col{flex:1;display:flex;flex-direction:column;min-width:0}
+.mega-col + .mega-col{border-left:1px solid var(--line);padding-left:6px}
+.bar nav .mega-head{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;white-space:normal}
+.mega-ic{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;
+  background:rgba(174,93,64,.12);color:var(--brand);flex:0 0 auto}
+.mega-ic svg{width:20px;height:20px}
+.mega-head b{display:block;font-size:15px;line-height:1.2}
+.mega-head small{display:block;font-size:12px;font-weight:500;opacity:.6;margin-top:2px}
+.mega-list{display:flex;flex-direction:column;margin-top:4px}
+.bar nav .mega-item{display:flex;align-items:center;gap:12px;padding:7px 12px;font-weight:600;font-size:14px}
+.mega-item img{width:34px;height:34px;border-radius:8px;object-fit:cover;background:var(--paper-2);flex:0 0 auto}
+.bar nav .mega-head:hover,.bar nav .mega-item:hover{background:var(--paper-2);color:var(--brand)}
+@media(max-width:900px){
+  .navdd-menu.mega{flex-direction:column;min-width:0;padding:0;gap:0}
+  .mega-col + .mega-col{border-left:0;padding-left:0}
+  .bar nav .mega-head{padding:12px 26px 12px 40px;border-radius:0;border-bottom:1px solid var(--line)}
+  .mega-ic{width:30px;height:30px}.mega-ic svg{width:17px;height:17px}
+  .mega-head small{display:none}
+  .mega-list{margin:0}
+  .bar nav .mega-item{padding:9px 26px 9px 56px;border-radius:0;border-bottom:1px solid var(--line);font-size:14.5px}
+  .mega-item img{width:28px;height:28px}
+}
