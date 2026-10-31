@@ -2,14 +2,14 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>StraightFrwd — Nutrition, Made Easy</title>
-<link rel="stylesheet" href="assets/style.css?v=1793436078"></head><body>
+<link rel="stylesheet" href="assets/style.css?v=1793436216"></head><body>
 
 <section class="hero">
   <div class="slides">
   <div class="slide on" style="--scrim:rgba(26,13,7,.94)">
     <div class="bg">
-        <img class="poster" src="assets/video/v-hr1-poster.jpg" alt="">
-        <video id="heroReel" poster="assets/video/v-hr1-poster.jpg" muted playsinline autoplay preload="auto" aria-hidden="true"></video>
+        <img class="poster" src="assets/video/v-hr1b-poster.jpg" alt="">
+        <video id="heroReel" poster="assets/video/v-hr1b-poster.jpg" muted playsinline autoplay preload="auto" aria-hidden="true"></video>
       </div>
     <div class="wrap"><div class="inner">
       <div class="eyebrow">Daily Protein</div>
@@ -110,7 +110,7 @@
   <details class="faq"><summary>Who should not take it?</summary><p>Pregnant, nursing and lactating women, children under 5, adolescents and the elderly, unless a physician or certified dietitian advises it. Contains soy; made in a facility that also processes wheat, milk, oats and nuts.</p></details>
 </div></section>
 
-<script src="assets/app.js?v=1793436078"></script><script>
+<script src="assets/app.js?v=1793436216"></script><script>
 chrome('index.html');
 document.getElementById('homeProtein').innerHTML = PROTEIN.map(card).join('');
 document.getElementById('homeEnergy').innerHTML  = ENERGY.map(card).join('');
@@ -122,7 +122,7 @@ document.getElementById('strip').innerHTML = Array(2).fill('<span>22.5 g protein
   const v = document.getElementById('heroReel');
   const poster = document.querySelector('.hero .bg .poster');
   if(!v) return;
-  const clips = ['v-hr1','v-hr2','v-hr3','v-hr4','v-hr5','v-hr6']
+  const clips = ['v-hr1b','v-hr2','v-hr3','v-hr4','v-hr5','v-hr6']
                   .map(n => 'assets/video/' + n + '.mp4');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let i = 0;
