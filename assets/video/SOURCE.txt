@@ -1,1 +1,7 @@
-Pexels IDs in order, reframed subject-right 31 Oct 2026: 32620160 32239229 11274562(flipped) 32620156 39347711 8344807
+Hero reel, 31 Oct 2026. Order as played:
+v-hr1b  Pexels 32620160 (real footage, reframed subject-right)
+v-hr2b  AI-generated, Modal MiniMax H3: Indian woman, dumbbell press, premium gym
+v-hr3   Pexels 11274562 (real footage, mirrored, reframed)
+v-hr4b  AI-generated, Modal MiniMax H3: Indian man jogging, Mumbai seafront
+v-hr5b  AI-generated, Modal MiniMax H3: Indian woman, balcony yoga
+v-hr6b  AI-generated, Modal MiniMax H3: Indian man cycling, Delhi avenue
