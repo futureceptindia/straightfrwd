@@ -159,7 +159,7 @@ const SOCIALS = Object.entries(SOCIAL_PATHS).map(([name, d]) =>
 const ICON_PROTEIN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-1 4H8z"/><path d="M8 7l-1.5 13a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1L16 7"/><path d="M9.5 12h5"/></svg>';
 const ICON_HERBAL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h13v4a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M9 3c-1 1.5 1 2.5 0 4M13 3c-1 1.5 1 2.5 0 4"/></svg>';
 function megaCol(title, href, icon, items, sub){
-  return `<div class="mega-col"><a class="mega-head" href="${href}"><i class="mega-ic">${icon}</i><span><b>${title}</b><small>${sub}</small></span></a>
+  return `<div class="mega-col"><a class="mega-head" href="${href}"><i class="mega-ic">${icon}</i><span><b>${title}</b>${sub?`<small>${sub}</small>`:''}</span></a>
     <div class="mega-list">${items.map(p=>`<a class="mega-item" href="product.html#${p.id}"><img src="assets/img/${p.shot}.jpg" alt="" loading="lazy"><span>${p.name}</span></a>`).join('')}</div></div>`;
 }
 function chrome(page){
@@ -173,7 +173,7 @@ function chrome(page){
       const cur = h===page?'aria-current="page"':'';
       if(h!=='products.html') return `<a href="${h}" ${cur}>${l}</a>`;
       return `<div class="navdd"><a href="${h}" ${cur} aria-haspopup="true">${l}<i class="caret" aria-hidden="true"></i></a>
-        <div class="navdd-menu mega">${megaCol('Protein','products.html#protein',ICON_PROTEIN,PROTEIN,'Plant protein · 50 g & 1 kg')}${megaCol('Herbal Drinks','products.html#herbal',ICON_HERBAL,ENERGY,'1 g sachets · hot water')}</div></div>`;
+        <div class="navdd-menu mega">${megaCol('Protein','products.html#protein',ICON_PROTEIN,PROTEIN,'')}${megaCol('Herbal Drinks','products.html#herbal',ICON_HERBAL,ENERGY,'')}</div></div>`;
     }).join('')}</nav>
     <span class="sp"></span>
     <a class="btn sm" href="products.html">See the range</a>
