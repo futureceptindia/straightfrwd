@@ -844,3 +844,7 @@ footer.site a.plain.big:hover{color:var(--orange-lt);opacity:1}
   .bar nav .mega-item{padding:9px 26px 9px 56px;border-radius:0;border-bottom:1px solid var(--line);font-size:14.5px}
   .mega-item img{width:28px;height:28px}
 }
+
+/* hero videos are reframed so the person sits on the right; follow them on narrow screens */
+.slide .bg video,.slide .bg .poster{object-position:72% center}
+@media(max-width:860px){.slide .bg video,.slide .bg .poster{object-position:76% center}}
