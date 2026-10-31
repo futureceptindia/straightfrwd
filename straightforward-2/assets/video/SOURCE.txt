@@ -1,7 +1,7 @@
-Hero reel, 31 Oct 2026. Order as played:
-v-hr1b  Pexels 32620160 (real footage, reframed subject-right)
-v-hr2b  AI-generated, Modal MiniMax H3: Indian woman, dumbbell press, premium gym
-v-hr3   Pexels 11274562 (real footage, mirrored, reframed)
-v-hr4b  AI-generated, Modal MiniMax H3: Indian man jogging, Mumbai seafront
-v-hr5b  AI-generated, Modal MiniMax H3: Indian woman, balcony yoga
-v-hr6b  AI-generated, Modal MiniMax H3: Indian man cycling, Delhi avenue
+Hero reel, 31 Oct 2026. All AI-generated (Modal MiniMax H3). Order as played:
+v-hr7   Indian woman stretching, Bengaluru park
+v-hr8   Indian man, kettlebell swings, Gurugram rooftop (starts 3s in, slowed 1.4x, cropped right)
+v-hr2c  Indian woman, dumbbell press, premium gym (starts 1.5s in)
+v-hr4b  Indian man jogging, Mumbai seafront
+v-hr5b  Indian woman, balcony yoga
+v-hr6b  Indian man cycling, Delhi avenue
