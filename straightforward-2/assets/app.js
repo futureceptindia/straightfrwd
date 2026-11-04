@@ -188,7 +188,7 @@ function chrome(page){
         <div class="navdd-menu mega">${megaCol('Protein','products.html#protein',ICON_PROTEIN,PROTEIN,'')}${megaCol('Herbal Drinks','products.html#herbal',ICON_HERBAL,ENERGY,'')}</div></div>`;
     }).join('')}</nav>
     <span class="sp"></span>
-    <a class="btn sm" href="products.html">See the range</a>
+    <a class="btn sm" href="products.html">See Our Products</a>
     <button class="navtoggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
       <span></span><span></span><span></span>
     </button>
