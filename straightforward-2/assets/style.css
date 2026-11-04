@@ -863,3 +863,6 @@ footer.site a.plain.big:hover{color:var(--orange-lt);opacity:1}
 /* hero videos are reframed so the person sits on the right; follow them on narrow screens */
 .slide .bg video,.slide .bg .poster{object-position:72% top}
 @media(max-width:860px){.slide .bg video,.slide .bg .poster{object-position:76% center}}
+
+.facts.facts3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:860px){.facts.facts3{grid-template-columns:1fr}}
