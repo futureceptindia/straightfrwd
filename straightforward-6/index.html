@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..800,100&family=DM+Sans:opsz,wght@9..40,400..700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=1794895814">
+<link rel="stylesheet" href="assets/style.css?v=1794897898">
 <script src="assets/logo.js"></script>
 </head>
 <body>
@@ -40,9 +40,11 @@
     <path d="M60 14c-2-6 0-10 4-12"/><path d="M100 98c8-4 14 0 14 6-6 4-12 2-14-6zM96 110c6 0 9 4 8 8"/></g></symbol>
   <!-- mango -->
   <symbol id="i-mango" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M58 26c26-6 46 14 44 40-2 28-26 46-50 42-20-4-30-24-24-44 4-14 14-20 14-20" fill="var(--orange)" fill-opacity=".4"/>
-    <path d="M48 32c4-4 8-6 10-6"/><path d="M56 24c0-8 4-14 10-16"/><path d="M64 14c14-10 34-6 40 4-16 8-30 6-40-4z" fill="var(--leaf)" fill-opacity=".3"/><path d="M70 14c10 0 20 2 30 6"/>
-    <path d="M44 56c-2 12 4 24 14 30" opacity=".6"/></g></symbol>
+    <path d="M46 24C70 18 92 40 94 68C96 94 80 114 61 113C49 112 45 104 47 96C49 86 39 84 33 74C23 57 26 30 46 24Z" fill="var(--orange)" fill-opacity=".75"/>
+    <path d="M46 24C60 21 74 28 82 40C70 36 56 38 44 46C36 40 38 28 46 24Z" fill="var(--lime)" fill-opacity=".55" stroke="none"/>
+    <path d="M76 56C84 66 86 80 82 92" opacity=".5"/>
+    <path d="M50 24c0-6 2-11 6-14"/>
+    <path d="M56 10c10-8 30-10 44-2-10 9-30 11-44 2z" fill="var(--leaf)" fill-opacity=".35"/><path d="M58 10c12-2 26-3 40-2"/></g></symbol>
   <!-- kulfi -->
   <symbol id="i-kulfi" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
     <path d="M42 22c0-8 36-8 36 0l-4 62c0 4-28 4-28 0z" fill="var(--cream2)"/>
@@ -94,13 +96,18 @@
   <div class="wrap nav-in">
     <a class="brand" href="index.html" aria-label="StraightFrwd home"><span class="logo" data-logo></span></a>
     <nav class="nav-links" aria-label="Main">
-      <a href="#inside">What's inside</a>
-      <a href="#range">The range</a>
-      <a href="#how">How to make</a>
-      <a href="#faq">FAQ</a>
+      <a href="products.html" data-nav="products">Products</a>
+      <a href="index.html#inside" data-nav="inside">What's inside</a>
+      <a href="index.html#how" data-nav="how">How to make</a>
+      <a href="about.html" data-nav="about">About</a>
+      <a href="contact.html" data-nav="contact">Contact</a>
     </nav>
-    <a class="btn btn-sm" href="products.html">See Our Products</a>
+    <a class="btn btn-sm nav-cta" href="products.html">See Our Products</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
   </div>
+  <nav class="mnav" id="mnav" aria-label="Mobile">
+    <a href="products.html">Products</a><a href="index.html#inside">What's inside</a><a href="index.html#how">How to make</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  </nav>
 </header>
 
 <main id="main">
@@ -109,7 +116,7 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="hand kicker">hello, from a soya family <svg class="kick-star"><use href="#d-star"/></svg></p>
+      <p class="hand kicker">plant protein, made simple <svg class="kick-star"><use href="#d-star"/></svg></p>
       <h1>Good food,<br>in a <span class="ul">glass.<svg aria-hidden="true"><use href="#d-under"/></svg></span></h1>
       <p class="lead">Plant protein shakes in Chocolate, Mango and Kulfi. Four warm herbal drinks for the in-between hours. Stir, sip, get on with your day.</p>
       <div class="hero-cta">
@@ -125,7 +132,7 @@
     </div>
     <div class="hero-art" aria-hidden="false">
       <div class="blob"></div>
-      <figure class="sticker s-main"><img src="assets/img/pack-mango.jpg" alt="StraightFrwd Mango Daily Protein sachet and box" width="1200" height="1200"></figure>
+      <figure class="sticker s-main"><img src="assets/img/pack-mango-clean.jpg" alt="StraightFrwd Mango Daily Protein sachet and box" width="1200" height="1200"></figure>
       <figure class="sticker s-small s-a"><img src="assets/img/pack-choc.jpg" alt="Chocolate Daily Protein pack" loading="lazy"></figure>
       <figure class="sticker s-small s-b"><img src="assets/img/sachet-tulsi.jpg" alt="Tulsi herbal drink sachet" loading="lazy"></figure>
       <svg class="ill f1 c-brown" aria-hidden="true"><use href="#i-mango"/></svg>
@@ -181,12 +188,12 @@
         <h3>Chocolate</h3><p>Dark cocoa, barely sweet.</p><span class="more">Have a look</span>
       </a>
       <a class="card" href="product.html#mango" style="--tilt:1.5deg;--accent:#1F4A33">
-        <figure class="sticker"><img src="assets/img/pack-mango.jpg" alt="Mango Daily Protein sachet and box" loading="lazy"></figure>
+        <figure class="sticker"><img src="assets/img/pack-mango-clean.jpg" alt="Mango Daily Protein sachet and box" loading="lazy"></figure>
         <svg class="card-ill c-brown"><use href="#i-mango"/></svg>
         <h3>Mango</h3><p>Ripe mango, thick like a lassi.</p><span class="more">Have a look</span>
       </a>
       <a class="card" href="product.html#kulfi" style="--tilt:-1deg;--accent:#AE5D40">
-        <figure class="sticker"><img src="assets/img/pack-kulfi.jpg" alt="Kulfi Daily Protein sachet and box" loading="lazy"></figure>
+        <figure class="sticker"><img src="assets/img/pack-kulfi-clean.jpg" alt="Kulfi Daily Protein sachet and box" loading="lazy"></figure>
         <svg class="card-ill c-brown"><use href="#i-cardamom"/></svg>
         <h3>Kulfi</h3><p>Cardamom and pistachio.</p><span class="more">Have a look</span>
       </a>
@@ -312,6 +319,10 @@
       <a href="product.html#kahwa">Kashmiri Kahwa</a><a href="product.html#ginger">Ginger</a><a href="product.html#tulsi">Tulsi</a><a href="product.html#lemon">Lemon</a>
     </div>
     <div>
+      <h4>Explore</h4>
+      <a href="products.html">All products</a><a href="about.html">About us</a><a href="contact.html">Contact</a><a href="contact.html#buy">Where to buy</a>
+    </div>
+    <div>
       <h4>Talk to us</h4>
       <a href="tel:+919672227666">+91 96722 27666</a>
       <a href="https://wa.me/919057119000">WhatsApp 90571 19000</a>
@@ -321,6 +332,6 @@
   <div class="wrap foot-base">© 2026 StraightFrwd</div>
 </footer>
 
-<script src="assets/main.js?v=1794895814"></script>
+<script src="assets/main.js?v=1794897898"></script>
 </body>
 </html>
