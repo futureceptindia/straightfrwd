@@ -4,274 +4,256 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>StraightFrwd — Nutrition, Made Easy</title>
-<meta name="description" content="Plant protein shakes and herbal drinks with a label you can read in one go.">
-<link rel="stylesheet" href="assets/site.css?v=1794888187">
+<meta name="description" content="Plant protein shakes and herbal drinks. Tear a sachet, stir it into water, drink.">
+<link rel="stylesheet" href="assets/site.css?v=1794888898">
 <style>
-/* ---- hero: one flat field, the name at full volume ---- */
-.hero{position:relative;min-height:100svh;padding:0 var(--m);overflow:hidden;display:grid;grid-template-rows:1fr auto}
-.hero h1{font-size:var(--t-mega);line-height:.82;letter-spacing:-.045em;padding-top:18svh;position:relative;z-index:2}
-.hero h1 span{display:block}
-.hero h1 .pale{color:var(--tan-lt)}
-.hero h1 .dark{color:var(--brown)}
-.hero .reel{position:absolute;z-index:1;right:calc(var(--m) + 2vw);top:22svh;width:min(34vw,520px);aspect-ratio:4/5;
-  transform:rotate(4deg);background:var(--brown);overflow:hidden}
-.hero .reel video,.hero .reel img{width:100%;height:100%;object-fit:cover;object-position:72% 20%}
-.hero .reel img{position:absolute;inset:0;transition:opacity .6s}
-.hero .foot-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:0 0 clamp(28px,5svh,56px);position:relative;z-index:2}
-.hero .foot-row p{max-width:30ch;font-size:var(--t-lede);line-height:1.35;color:#fff}
-.hero .btn{background:var(--brown);color:var(--tan-lt)}
-@media(max-width:760px){
-  .hero h1{font-size:21vw;padding-top:16svh}
-  .hero .reel{width:56vw;right:var(--m);top:auto;bottom:24svh}
-  .hero .foot-row{flex-direction:column;align-items:flex-start}
-  .hero .foot-row p{max-width:24ch;font-size:18px;background:var(--terra);position:relative}
-}
+:root{--r:22px}
+.ic{display:inline-block;width:56px;height:56px;flex:0 0 auto;font-style:normal}
+.ic svg{width:100%;height:100%;display:block}
+.sec{padding:clamp(80px,9vw,130px) var(--m)}
+.sec h2{font-size:clamp(38px,5vw,76px);line-height:.95}
+.sec .lead{font-size:var(--t-lede);line-height:1.4;max-width:40ch;margin-top:16px}
+.center{text-align:center}.center .lead{margin-left:auto;margin-right:auto}
 
-/* ---- two numbers ---- */
-.nums .head{align-items:start;margin-bottom:10vh}
-.nums h2{grid-column:1/6;font-size:var(--t-head);line-height:.95}
-.nums .head p{grid-column:7/12;font-size:var(--t-body)}
-.nums .spec{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,24px)}
-.nums .spec figure{margin:0}
-.nums .spec figcaption{font-size:var(--t-lede);font-weight:700;margin-top:14px}
-.nums .spec b{display:block;font-weight:900;font-size:clamp(150px,27vw,430px);line-height:.8;letter-spacing:-.06em}
-.nums .spec b sub{font-size:.36em;vertical-align:baseline;letter-spacing:-.02em}
-@media(max-width:760px){
-  .nums h2,.nums .head p{grid-column:1/-1}
-  .nums .head p{margin-top:16px}
-  .nums .spec{grid-template-columns:1fr;height:auto;overflow:visible}
-  .nums .spec figure:last-child{background:var(--brown);color:var(--tan);margin:0 calc(-1*var(--m));padding:16px var(--m) 0}
-  .nums .spec b{font-size:40vw}
-}
+/* ---------- 1. hero: the glass with its ingredients in orbit ---------- */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:40px;
+  padding:110px var(--m) 60px;background:var(--brown);color:var(--tan-lt);overflow:hidden}
+.hero h1{font-size:clamp(60px,8vw,128px);line-height:.88;color:#fff}
+.hero h1 span{color:var(--orange);display:block}
+.hero .lead{color:var(--tan-lt);margin-top:26px}
+.hero .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.hero .btn{background:var(--orange);color:var(--ink);border-radius:999px}
+.hero .btn.alt{background:transparent;color:var(--tan-lt);box-shadow:inset 0 0 0 2px var(--tan-lt)}
+.hero .btn.alt:hover{background:var(--tan-lt);color:var(--brown)}
+.orbit{position:relative;width:min(100%,560px);aspect-ratio:1;justify-self:center}
+.orbit .disc{position:absolute;inset:14%;border-radius:50%;background:var(--terra);transition:background .5s}
+.orbit .ring{position:absolute;inset:0;animation:spin 60s linear infinite}
+.orbit .ring > .ic{position:absolute;width:92px;height:92px;margin:-46px;background:var(--brown-2);border-radius:50%;padding:12px;
+  animation:spin 60s linear infinite reverse;box-shadow:0 0 0 6px var(--brown)}
+.orbit .cup{position:absolute;inset:28%;display:grid;place-items:center}
+.orbit .cup .ic{width:100%;height:100%}
+.orbit .cup .ic svg path:nth-child(2),.orbit .cup .ic svg ellipse{transition:fill .5s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.flav{display:flex;gap:8px;margin-top:22px;flex-wrap:wrap}
+.flav button{display:flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:6px 16px 6px 6px;font:700 16px var(--font);
+  background:rgba(231,216,190,.12);color:var(--tan-lt);cursor:pointer;transition:background .25s,transform .25s var(--ease)}
+.flav button .ic{width:34px;height:34px;background:var(--brown);border-radius:50%;padding:5px}
+.flav button[aria-pressed="true"]{background:var(--tan-lt);color:var(--brown)}
+.flav button:hover{transform:translateY(-2px)}
+.flav-note{margin-top:14px;font-size:17px;min-height:1.6em}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:100px}.orbit{width:min(100%,400px)}.orbit .ring > .ic{width:58px;height:58px;margin:-29px;padding:9px}}
 
-/* ---- thirty seconds: accordion of tinted panels ---- */
-.steps .head{margin-bottom:64px;align-items:end}
-.steps h2{grid-column:1/6;font-size:var(--t-big)}
-.steps .head p{grid-column:7/12;max-width:38ch}
-.acc{display:flex;height:540px}
-.acc .s{flex:1;position:relative;overflow:hidden;border:0;padding:0;text-align:left;font:inherit;cursor:pointer;
-  transition:flex-grow .45s var(--ease);color:var(--tan-lt)}
-.acc .s:nth-child(1){background:#3A2318}
-.acc .s:nth-child(2){background:var(--brown-2);}
-.acc .s:nth-child(3){background:var(--brown-3)}
-.acc .s:nth-child(4){background:var(--tan);color:var(--brown)}
-.acc .s[aria-expanded="true"]{flex-grow:5;cursor:default}
-.acc .s .nm{position:absolute;left:18px;bottom:18px;font-weight:900;font-size:22px;writing-mode:vertical-rl;transform:rotate(180deg)}
-.acc .s[aria-expanded="true"] .nm{writing-mode:horizontal-tb;transform:none;top:28px;left:28px;bottom:auto;font-size:clamp(34px,3.4vw,52px);letter-spacing:-.03em}
-.acc .s .body{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;opacity:0;transition:opacity .3s}
-.acc .s[aria-expanded="true"] .body{opacity:1;transition-delay:.2s}
-.acc .s .body p{align-self:end;padding:28px;max-width:34ch;font-size:18px}
-.acc .s .body img{width:100%;height:100%;object-fit:cover}
-@media(max-width:760px){
-  .steps h2,.steps .head p{grid-column:1/-1}
-  .steps .head p{margin-top:14px}
-  .acc{flex-direction:column;height:auto}
-  .acc .s{min-height:64px}
-  .acc .s .nm,.acc .s[aria-expanded="true"] .nm{writing-mode:horizontal-tb;transform:none;top:18px;left:18px;bottom:auto;font-size:20px}
-  .acc .s .body{position:static;display:none}
-  .acc .s[aria-expanded="true"] .body{display:grid;grid-template-columns:1fr;padding-top:60px}
-  .acc .s .body img{height:220px}
-  .acc .s .body p{padding:18px;font-size:17px}
-}
+/* ---------- 2. icon stat tiles ---------- */
+.stats{background:var(--paper)}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.tile{background:#fff;border-radius:var(--r);padding:26px;display:flex;gap:18px;align-items:center;transition:transform .35s var(--ease),background .3s}
+.tile:hover{transform:translateY(-6px) rotate(-1deg);background:var(--tan-lt)}
+.tile .ic{width:72px;height:72px;background:var(--paper-2);border-radius:18px;padding:10px}
+.tile b{display:block;font-weight:900;font-size:clamp(34px,3.4vw,52px);letter-spacing:-.04em;line-height:1}
+.tile span{display:block;font-size:16px;font-weight:600;margin-top:6px}
+@media(max-width:900px){.tiles{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.tiles{grid-template-columns:1fr}}
 
-/* ---- statements on colour fields ---- */
-.st{min-height:76svh;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding:clamp(48px,6vw,80px) var(--m) 28px}
-.st p{grid-column:8/12;grid-row:1;max-width:30ch;font-size:var(--t-body)}
-.st h2{grid-column:1/-1;grid-row:2;align-self:end;font-size:var(--t-big);max-width:12ch}
-.st.mirror p{grid-column:2/6}
-.f-orange{color:var(--ink)}
-.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.st.mirror h2{justify-self:end;text-align:right}
-@media(max-width:760px){
-  .st{min-height:64svh;grid-template-columns:1fr}
-  .st p,.st.mirror p{grid-column:1;max-width:none;width:85%}
-  .st.mirror p{justify-self:end;text-align:right}
-  .st h2,.st.mirror h2{grid-column:1;justify-self:start;text-align:left;font-size:13vw}
-}
+/* ---------- 3. build the glass ---------- */
+.build{background:var(--tan)}
+.build .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(30px,5vw,80px);align-items:center;margin-top:48px}
+.vessel{position:relative;width:min(100%,360px);aspect-ratio:3/4;justify-self:center}
+.vessel svg{width:100%;height:100%;overflow:visible}
+.vessel .layer{transform-box:fill-box;transform-origin:bottom;transform:scaleY(0);transition:transform .6s var(--ease)}
+.vessel .layer.on{transform:scaleY(1)}
+.vessel .tag{position:absolute;left:100%;margin-left:12px;white-space:nowrap;font-weight:700;font-size:15px;background:var(--brown);color:var(--tan-lt);
+  padding:6px 12px;border-radius:999px;opacity:0;transform:translateX(-10px);transition:.4s var(--ease)}
+.vessel .tag.on{opacity:1;transform:none}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chip{display:flex;align-items:center;gap:14px;text-align:left;border:0;border-radius:18px;padding:14px;background:var(--tan-lt);
+  font:700 17px/1.2 var(--font);color:var(--ink);cursor:pointer;transition:transform .25s var(--ease),background .25s}
+.chip .ic{width:52px;height:52px;background:#fff;border-radius:14px;padding:7px}
+.chip small{display:block;font-weight:500;font-size:15px;margin-top:3px}
+.chip:hover{transform:translateY(-3px)}
+.chip[aria-pressed="true"]{background:var(--brown);color:var(--tan-lt)}
+.build .why{margin-top:18px;background:var(--paper);border-radius:18px;padding:18px 20px;font-size:17px;min-height:84px}
+.build .row{display:flex;gap:10px;margin-top:14px}
+.build .row button{border:0;border-radius:999px;min-height:46px;padding:0 20px;font:700 16px var(--font);cursor:pointer;background:var(--brown);color:var(--tan-lt)}
+.build .row button.ghost{background:transparent;box-shadow:inset 0 0 0 2px var(--brown);color:var(--brown)}
+@media(max-width:900px){.build .wrap{grid-template-columns:1fr}.vessel{width:220px}.vessel .tag{display:none}.chips{grid-template-columns:1fr}}
 
-/* ---- the range: a list of names, the pack follows the pointer ---- */
-.range h2{font-size:var(--t-big);margin-bottom:48px}
-.range ol{list-style:none;margin:0;padding:0}
-.range li a{display:flex;align-items:baseline;justify-content:space-between;gap:20px;text-decoration:none;
-  padding:6px 0;transition:color .25s,padding .35s var(--ease)}
-.range li a b{font-weight:900;font-size:clamp(44px,7.2vw,118px);line-height:.95;letter-spacing:-.045em}
-.range li a span{font-weight:700;font-size:16px;white-space:nowrap}
-.range li a:hover,.range li a:focus-visible{color:var(--terra);padding-left:24px}
-.range .tray{position:fixed;left:0;top:0;width:300px;aspect-ratio:4/5;pointer-events:none;z-index:40;
-  opacity:0;transform:translate(-50%,-50%) rotate(-5deg) scale(.9);transition:opacity .25s,transform .35s var(--ease)}
-.range .tray.on{opacity:1;transform:translate(-50%,-50%) rotate(-5deg) scale(1)}
-.range .tray img{width:100%;height:100%;object-fit:cover}
-.range .sub{font-size:var(--t-lede);letter-spacing:-.01em;line-height:1.2;margin:56px 0 12px;color:var(--terra)}
-.range .sub:first-of-type{margin-top:0}
-.range li img.th{display:none}
-@media(hover:none),(max-width:760px){
-  .range .tray{display:none}
-  .range li a{align-items:center}
-  .range li img.th{display:block;width:64px;height:80px;object-fit:cover;order:-1;flex:0 0 auto}
-  .range li a b{font-size:11vw;flex:1}
-  .range li a span{display:none}
-}
+/* ---------- 4. what you will not need ---------- */
+.notneed{background:var(--paper)}
+.nn{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:48px}
+.nn div{background:#fff;border-radius:var(--r);padding:26px 18px 22px;text-align:center}
+.nn .ico{position:relative;width:96px;height:96px;margin:0 auto 16px}
+.nn .ico .ic{width:100%;height:100%}
+.nn .ico .x{position:absolute;inset:auto -10px -10px auto;width:46px;height:46px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 0 0 3px var(--paper-2);opacity:0;transform:scale(.4) rotate(-30deg);transition:.5s var(--ease)}
+.nn .in .x{opacity:1;transform:none}
+.nn b{display:block;font-size:20px;font-weight:900;letter-spacing:-.02em}
+.nn span{display:block;font-size:15px;margin-top:6px}
+.nn .yes{background:var(--green);color:var(--tan-lt)}
+@media(max-width:1000px){.nn{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.nn{grid-template-columns:1fr 1fr}}
 
-/* ---- the label, decoded (the live thing) ---- */
-.lab{display:grid;grid-template-columns:minmax(0,620px) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:start}
-.lab .col{container-type:inline-size}
-.lab .word{font-weight:900;font-size:39cqw;line-height:.78;letter-spacing:-.05em;margin:0 0 20px;color:var(--brown)}
-.lab details{background:var(--tan-lt);margin-bottom:6px;transition:background .25s}
-.lab details[open]{background:var(--tan)}
-.lab summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;
-  min-height:56px;padding:0 18px;font-weight:700;font-size:17px;cursor:pointer}
-.lab summary::-webkit-details-marker{display:none}
-.lab summary em{font-style:normal;font-weight:500;font-size:16px;margin-left:auto}
-.lab summary i{font-style:normal;font-size:26px;font-weight:500;line-height:1;transition:transform .3s var(--ease);width:20px;text-align:center}
-.lab details[open] summary i{transform:rotate(45deg)}
-.lab details:hover:not([open]){background:#dccbaa}
-.lab .in{padding:0 18px 20px}
-.lab .in ul{margin:0 0 12px;padding:0;list-style:none}
-.lab .in li{font-size:16px;padding:5px 0}
-.lab .in p{font-size:16px;font-weight:500}
-.lab aside h2{font-size:var(--t-head);margin-bottom:22px}
-.lab aside p{font-size:var(--t-body);max-width:46ch;margin-bottom:18px}
-.lab .raw{background:var(--brown);color:var(--tan-lt);padding:28px;margin-top:32px;font-size:16px;line-height:1.6}
-.lab .raw b{display:block;font-size:16px;margin-bottom:8px;color:#fff}
-.lab .raw mark{background:var(--terra);color:var(--paper);padding:0 2px;transition:background .2s}
-.lab .shot{margin-top:24px;transform:rotate(-3deg);width:min(100%,460px)}
-@media(max-width:900px){.lab{grid-template-columns:1fr}}
+/* ---------- 5. a day, along the sun's arc ---------- */
+.day{background:#2F1C13;color:var(--tan-lt)}
+.sky{position:relative;max-width:980px;margin:56px auto 0;aspect-ratio:2.6/1}
+.sky svg.arc{width:100%;height:100%}
+.sky .orb{position:absolute;width:74px;height:74px;margin:-37px;transition:left .8s var(--ease),top .8s var(--ease)}
+.sky .orb .ic{width:100%;height:100%}
+.times{display:flex;justify-content:space-between;gap:8px;max-width:980px;margin:20px auto 0}
+.times button{flex:1;border:0;border-radius:16px;padding:14px 8px;background:rgba(231,216,190,.08);color:var(--tan-lt);font:700 16px var(--font);cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;gap:8px;transition:background .25s}
+.times button .ic{width:40px;height:40px}
+.times button[aria-pressed="true"]{background:var(--tan-lt);color:var(--brown)}
+.moment{max-width:680px;margin:30px auto 0;text-align:center;font-size:var(--t-lede);line-height:1.4;min-height:3em}
+@media(max-width:700px){.times{overflow-x:auto;justify-content:flex-start}.times button{flex:0 0 96px}.sky .orb{width:44px;height:44px;margin:-22px}}
 
-/* ---- questions: a band per question ---- */
-.qhead{min-height:40svh;display:flex;align-items:flex-end;padding-bottom:28px}
-.qhead h2{font-size:clamp(56px,7vw,112px)}
-.q{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding:56px var(--m)}
-.q:nth-of-type(odd){background:var(--paper-2)}
-.q:nth-of-type(even){background:var(--paper)}
-.q h3{grid-column:1/6;font-size:clamp(24px,2.2vw,32px);line-height:1.1;letter-spacing:-.02em}
-.q div{grid-column:7/13;font-size:var(--t-body);max-width:56ch}
-.q .plan{margin-top:18px;background:var(--brown);color:var(--tan-lt);padding:22px}
-.q .plan label{font-weight:700;display:block;margin-bottom:10px}
-.q .plan input{width:100%;accent-color:var(--terra);height:28px}
-.q .plan output{display:block;font-weight:700;font-size:var(--t-lede);margin-top:8px;color:#fff}
-@media(max-width:760px){
-  .qhead{min-height:30svh}.qhead h2{font-size:13vw}
-  .q{grid-template-columns:1fr;padding:32px 20px}
-  .q h3,.q div{grid-column:1}
-  .q h3{font-size:22px;margin-bottom:12px}
-}
+/* ---------- 6. the shelf ---------- */
+.shelf{background:var(--paper)}
+.shelf h3{font-size:24px;letter-spacing:-.02em;margin:48px 0 16px}
+.row7{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.row7.h{grid-template-columns:repeat(4,1fr)}
+.pc{position:relative;display:block;border-radius:var(--r);overflow:hidden;text-decoration:none;color:var(--ink);background:#fff;transition:transform .35s var(--ease)}
+.pc:hover{transform:translateY(-6px)}
+.pc .ph2{aspect-ratio:1;overflow:hidden;background:var(--paper-2)}
+.pc .ph2 img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.pc:hover .ph2 img{transform:scale(1.07)}
+.pc .ic{position:absolute;top:14px;left:14px;width:58px;height:58px;background:#fff;border-radius:50%;padding:8px;box-shadow:0 6px 16px rgba(0,0,0,.12)}
+.pc .meta{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 18px}
+.pc .meta b{font-size:22px;font-weight:900;letter-spacing:-.02em}
+.pc .meta span{font-size:15px;font-weight:600}
+.pc .arrow{width:38px;height:38px;border-radius:50%;background:var(--brown);color:var(--tan-lt);display:grid;place-items:center;transition:transform .3s var(--ease)}
+.pc .arrow svg{width:16px}
+.pc:hover .arrow{transform:translateX(4px);background:var(--terra)}
+.cup-steam .ic svg .steam{animation:steam 2.4s ease-in-out infinite}
+@keyframes steam{0%,100%{transform:translateY(0);opacity:.9}50%{transform:translateY(-3px);opacity:.4}}
+@media(max-width:900px){.row7,.row7.h{grid-template-columns:1fr 1fr}}
 
-/* ---- close: the idea again, inverted ---- */
-.close{min-height:90svh;display:flex;flex-direction:column;justify-content:space-between;padding-top:clamp(90px,12vw,160px);padding-bottom:40px}
-.close h2{font-size:clamp(64px,10vw,170px);line-height:.86;color:var(--paper)}
-.close h2 span{display:block;color:var(--terra)}
-.close .row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
-.close .row p{max-width:34ch;font-size:20px}
-@media(max-width:760px){
-  .close{min-height:80svh}.close h2{font-size:12vw}
-  .close .row{flex-direction:column;align-items:stretch}.close .row .btn{justify-content:space-between}
-}
+/* ---------- 7. ask us: a chat ---------- */
+.chat{background:var(--green);color:var(--tan-lt)}
+.thread{max-width:820px;margin:48px auto 0;display:flex;flex-direction:column;gap:14px}
+.qrow{display:flex;gap:12px;align-items:flex-end;justify-content:flex-end}
+.qrow button{border:0;text-align:left;cursor:pointer;background:var(--tan-lt);color:var(--brown);font:700 18px/1.3 var(--font);
+  padding:14px 20px;border-radius:22px 22px 6px 22px;max-width:80%;transition:transform .25s var(--ease)}
+.qrow button:hover{transform:translateX(-4px)}
+.arow{display:flex;gap:12px;align-items:flex-end;max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
+.arow.open{max-height:400px}
+.arow .av{width:46px;height:46px;border-radius:50%;background:var(--orange);display:grid;place-items:center;flex:0 0 auto;color:var(--brown)}
+.arow .av svg{width:26px}
+.arow p{background:#2B5C42;padding:14px 20px;border-radius:22px 22px 22px 6px;max-width:80%;font-size:17px}
+.typing{display:inline-flex;gap:4px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--tan-lt);animation:dot 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{50%{opacity:.2;transform:translateY(-3px)}}
+
+/* ---------- 8. close: icons on a belt ---------- */
+.closer{background:var(--orange);color:var(--ink);text-align:center;overflow:hidden}
+.closer h2{font-size:clamp(46px,7vw,110px)}
+.belt{display:flex;gap:26px;width:max-content;animation:belt 40s linear infinite;margin:44px 0}
+.belt .ic{width:84px;height:84px;background:#fff;border-radius:24px;padding:12px}
+@keyframes belt{to{transform:translateX(-50%)}}
+.closer .btn{border-radius:999px;background:var(--brown);color:var(--tan-lt)}
+
+@media (prefers-reduced-motion:reduce){.orbit .ring,.orbit .ring > .ic,.belt{animation:none}}
 </style>
 </head>
 <body>
 <main id="main">
 
-<section class="hero f-terra" data-ink="light" aria-labelledby="h1">
-  <h1 id="h1"><span class="pale">Straight</span><span class="dark">forward.</span></h1>
-  <div class="reel" aria-hidden="true">
-    <img src="assets/video/v-hr7-poster.jpg" alt="" id="poster">
-    <video id="reel" muted playsinline preload="metadata"></video>
-  </div>
-  <div class="foot-row">
-    <p>Plant protein shakes and herbal drinks, with a label you can read in one go.</p>
-    <a class="btn" href="products.html"><span>See Our Products</span><svg viewBox="394.69 277.69 52.61 39.75" fill="currentColor" aria-hidden="true"><path d="M429.94 304.52v-13.9l7.65 6.95zM429.94 278.09h-8.94v38.95h8.94l16.96-16.17v-6.61z"/><path d="M404.03 304.52v-13.9l7.65 6.95zM404.03 278.09h-8.94v38.95h8.94l16.97-16.17v-6.61z"/></svg></a>
-  </div>
-</section>
-
-<section class="nums f f-tan" data-ink="dark" aria-labelledby="h-nums">
-  <div class="grid head">
-    <h2 id="h-nums" class="rv">Two numbers first.</h2>
-    <p class="rv">Most tubs put one big number on the front and keep the rest small. Here are the two that matter, per 50 g sachet of Daily Protein, before you read anything else.</p>
-  </div>
-  <div class="spec">
-    <figure class="rv"><b>22.5<sub>g</sub></b><figcaption>protein in a 50 g serving</figcaption></figure>
-    <figure class="rv"><b>0<sub>g</sub></b><figcaption>added sugar</figcaption></figure>
-  </div>
-</section>
-
-<section class="steps f f-paper" data-ink="dark" aria-labelledby="h-steps">
-  <div class="grid head">
-    <h2 id="h-steps" class="rv">Thirty seconds.</h2>
-    <p class="rv">No blender, no kitchen scale, no milk. One sachet, one glass of water and a spoon. Tap a step.</p>
-  </div>
-  <div class="acc rv" role="group" aria-label="How to make it">
-    <button class="s" aria-expanded="true"><span class="nm">Tear</span>
-      <span class="body"><p>Open one 50 g sachet. That is one full serving, already measured.</p><img src="assets/img/step-1.jpg" alt="A serving of powder going into a glass" loading="lazy"></span></button>
-    <button class="s" aria-expanded="false"><span class="nm">Pour</span>
-      <span class="body"><p>Add it to 250 ml of water. The soy fat powder in the mix makes it creamy, so milk is optional.</p><img src="assets/img/step-2.jpg" alt="Water poured into the glass" loading="lazy"></span></button>
-    <button class="s" aria-expanded="false"><span class="nm">Stir</span>
-      <span class="body"><p>Stir until nothing is sitting at the bottom. A spoon is enough.</p><img src="assets/img/mixing.jpg" alt="The shake being stirred" loading="lazy"></span></button>
-    <button class="s" aria-expanded="false"><span class="nm">Drink</span>
-      <span class="body"><p>Drink it straight away, before it thickens. One serving a day.</p><img src="assets/img/life-choc.jpg" alt="A glass of chocolate shake" loading="lazy"></span></button>
-  </div>
-</section>
-
-<section class="st f-green" data-ink="light">
-  <p class="rv">Soya protein isolate, pea protein and brown rice protein. 45 g of protein in every 100 g of powder, from plants only.</p>
-  <h2 class="rv">Three plant proteins.</h2>
-</section>
-<section class="st mirror f-orange" data-ink="dark">
-  <p class="rv">Sweetened with sucralose and acesulfame potassium, so a full serving is 200 kcal. Both are named on the front of the pack.</p>
-  <h2 class="rv">No added sugar.</h2>
-</section>
-<section class="st f-brown" data-ink="light">
-  <p class="rv">The pack says it plainly: recommended as a one meal replacement. One serving a day, with fibre, vitamins, minerals and enzymes in it.</p>
-  <h2 class="rv">One meal, sorted.</h2>
-</section>
-
-<section class="range f f-paper" data-ink="dark" aria-labelledby="h-range">
-  <h2 id="h-range" class="rv">Seven packs.</h2>
-  <h3 class="sub rv">Daily Protein, in 50 g sachets and 1 kg pouches</h3>
-  <ol id="rp"></ol>
-  <h3 class="sub rv">Herbal Drinks, 1 g in 150 ml of hot water</h3>
-  <ol id="rh"></ol>
-  <div class="tray" id="tray" aria-hidden="true"><img alt=""></div>
-</section>
-
-<section class="f f-paper2" data-ink="dark" aria-labelledby="h-lab" id="label">
-  <div class="lab">
-    <div class="col">
-      <p class="word" aria-hidden="true">Label</p>
-      <div id="labelList"></div>
+<!-- 1 -->
+<section class="hero" data-ink="light">
+  <div>
+    <h1 class="rv">Nutrition,<span>made easy.</span></h1>
+    <p class="lead rv">Plant protein shakes and herbal drinks. Tear the sachet, stir it into water, done.</p>
+    <div class="acts rv">
+      <a class="btn" href="products.html"><span>See Our Products</span></a>
+      <a class="btn alt" href="#build"><span>What is inside?</span></a>
     </div>
-    <aside>
-      <h2 id="h-lab" class="rv">The back, opened up.</h2>
-      <p class="rv">This is the whole back of the Daily Protein pack, grouped so it reads in a minute. Open a line to see what it is and why it is in there. Same formulation in Chocolate, Mango and Kulfi.</p>
-      <div class="raw rv" id="raw"><b>As printed on the pack</b><span id="rawText"></span></div>
-      <img class="shot rv" src="assets/img/slide-nutrition.jpg" alt="The nutrition panel from the back of the pack" loading="lazy" width="920" height="613">
-    </aside>
+    <div class="flav rv" role="group" aria-label="Pick a flavour" id="flav"></div>
+    <p class="flav-note" id="flavNote" aria-live="polite"></p>
+  </div>
+  <div class="orbit" aria-hidden="true">
+    <div class="disc" id="disc"></div>
+    <div class="ring" id="ring"></div>
+    <div class="cup" id="cup"></div>
   </div>
 </section>
 
-<section aria-labelledby="h-faq" id="faq">
-  <div class="qhead f f-terra" data-ink="light"><h2 id="h-faq" class="rv">Before you ask.</h2></div>
-  <div class="q" data-ink="dark"><h3>Is it a meal replacement?</h3><div><p>Yes. The pack says "recommended as a one meal replacement". One serving a day, or as directed by a physician, certified dietitian or nutrition professional. It is not meant to treat, cure, mitigate or prevent any disease.</p></div></div>
-  <div class="q" data-ink="dark"><h3>Whey or plant?</h3><div><p>Plant. Soya protein isolate, pea protein and brown rice protein. The soy fat powder contains sodium caseinate, which comes from milk, so it is not dairy-free.</p></div></div>
-  <div class="q" data-ink="dark"><h3>How long does a 1 kg pouch last?</h3><div><p>A 1 kg pouch holds 20 servings of 50 g. Move the slider to see how long that is for you.</p>
-    <div class="plan"><label for="perwk" class="vh">Shakes a week</label>
-      <input type="range" id="perwk" min="1" max="7" value="7">
-      <output id="planOut" for="perwk">About 20 days</output></div></div></div>
-  <div class="q" data-ink="dark"><h3>Water or milk?</h3><div><p>Water. The mix carries its own fat powder and goes creamy on its own. Milk works if you want it richer, but it adds calories the label does not count.</p></div></div>
-  <div class="q" data-ink="dark"><h3>Who should not take it?</h3><div><p>Pregnant, nursing and lactating women, children under 5, adolescents and the elderly, unless a physician or certified dietitian advises it. Contains soy. Made in a facility that also processes wheat, milk, oats and nuts.</p></div></div>
-  <div class="q" data-ink="dark"><h3>How do I make the herbal drinks?</h3><div><p>One 1 g sachet in 150 ml of hot water. Stir and drink. Kashmiri Kahwa, Ginger, Tulsi and Lemon.</p></div></div>
+<!-- 2 -->
+<section class="sec stats" data-ink="dark">
+  <div class="center">
+    <h2 class="rv">One sachet. All of this.</h2>
+    <p class="lead rv">Per 50 g serving of Daily Protein, straight off the back of the pack.</p>
+  </div>
+  <div class="tiles" id="tiles"></div>
 </section>
 
-<section class="close f f-brown" data-ink="light" aria-labelledby="h-close">
-  <h2 id="h-close" class="rv">Read the back.<span>Then drink it.</span></h2>
-  <div class="row">
-    <p class="rv">Three protein flavours and four herbal drinks. Every one of them has the same honest back.</p>
-    <a class="btn on-dark rv" href="products.html"><span>See Our Products</span><svg viewBox="394.69 277.69 52.61 39.75" fill="currentColor" aria-hidden="true"><path d="M429.94 304.52v-13.9l7.65 6.95zM429.94 278.09h-8.94v38.95h8.94l16.96-16.17v-6.61z"/><path d="M404.03 304.52v-13.9l7.65 6.95zM404.03 278.09h-8.94v38.95h8.94l16.97-16.17v-6.61z"/></svg></a>
+<!-- 3 -->
+<section class="sec build" data-ink="dark" id="build">
+  <h2 class="rv">Fill the glass.</h2>
+  <p class="lead rv">Tap each ingredient to pour it in and see why it is there.</p>
+  <div class="wrap">
+    <div class="vessel" id="vessel"></div>
+    <div>
+      <div class="chips" id="chips"></div>
+      <p class="why" id="why" aria-live="polite">Start with the protein.</p>
+      <div class="row"><button id="fillAll">Pour everything</button><button class="ghost" id="empty">Empty the glass</button></div>
+    </div>
   </div>
+</section>
+
+<!-- 4 -->
+<section class="sec notneed" data-ink="dark">
+  <div class="center">
+    <h2 class="rv">Things you can skip.</h2>
+    <p class="lead rv">No kit, no measuring. A sachet, a glass of water and a spoon.</p>
+  </div>
+  <div class="nn" id="nn"></div>
+</section>
+
+<!-- 5 -->
+<section class="sec day" data-ink="light">
+  <div class="center">
+    <h2 class="rv">Where it fits in a day.</h2>
+    <p class="lead rv">Tap a time.</p>
+  </div>
+  <div class="sky">
+    <svg class="arc" viewBox="0 0 1000 380" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M40 360 Q500 -120 960 360" fill="none" stroke="rgba(231,216,190,.25)" stroke-width="4" stroke-dasharray="4 14" stroke-linecap="round"/>
+      <path d="M0 360H1000" stroke="rgba(231,216,190,.2)" stroke-width="2"/>
+    </svg>
+    <div class="orb" id="orb"></div>
+  </div>
+  <div class="times" id="times" role="group" aria-label="Time of day"></div>
+  <p class="moment" id="moment" aria-live="polite"></p>
+</section>
+
+<!-- 6 -->
+<section class="sec shelf" data-ink="dark">
+  <h2 class="rv">Pick a pack.</h2>
+  <h3 class="rv">Daily Protein · 50 g sachets and 1 kg pouches</h3>
+  <div class="row7" id="shelfP"></div>
+  <h3 class="rv">Herbal Drinks · 1 g in 150 ml of hot water</h3>
+  <div class="row7 h" id="shelfH"></div>
+</section>
+
+<!-- 7 -->
+<section class="sec chat" data-ink="light">
+  <div class="center">
+    <h2 class="rv">Ask us anything.</h2>
+    <p class="lead rv">The questions we get most. Tap one.</p>
+  </div>
+  <div class="thread" id="thread"></div>
+</section>
+
+<!-- 8 -->
+<section class="sec closer" data-ink="dark">
+  <h2 class="rv">Read the back. Then drink it.</h2>
+  <div class="belt" id="belt" aria-hidden="true"></div>
+  <a class="btn" href="products.html"><span>See Our Products</span></a>
 </section>
 
 </main>
-<script src="assets/logo.js?v=1794888187"></script>
-<script src="assets/site.js?v=1794888187"></script>
-<script src="assets/home.js?v=1794888187"></script>
+<script src="assets/logo.js?v=1794888898"></script>
+<script src="assets/icons.js?v=1794888898"></script>
+<script src="assets/site.js?v=1794888898"></script>
+<script src="assets/home.js?v=1794888898"></script>
 <script>boot('index.html'); home();</script>
 </body></html>

@@ -50,7 +50,7 @@ h1,h2,h3{font-weight:900;letter-spacing:-.035em;line-height:.9}
 .grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:clamp(12px,1.6vw,24px)}
 
 /* ---------- buttons: square, flat, one shape everywhere ---------- */
-.btn{display:inline-flex;align-items:center;gap:14px;min-height:56px;padding:0 26px;border:0;
+.btn{display:inline-flex;align-items:center;gap:14px;min-height:56px;padding:0 26px;border:0;border-radius:999px;
   background:var(--brown);color:var(--tan-lt);font:700 17px/1 var(--font);text-decoration:none;cursor:pointer;
   transition:transform .25s var(--ease),background .25s}
 .btn svg{width:22px;height:17px;transition:transform .3s var(--ease)}
@@ -103,12 +103,8 @@ h1,h2,h3{font-weight:900;letter-spacing:-.035em;line-height:.9}
 
 /* ---------- footer: the mark, built large ---------- */
 .foot{background:var(--brown);color:var(--tan-lt);padding:clamp(56px,7vw,96px) var(--m) 28px}
-.foot .big{display:flex;gap:6px;align-items:flex-end;height:clamp(150px,30svh,320px);margin-bottom:56px}
-.foot .big i{flex:1;height:100%;display:block;background:var(--c)}
-.foot .big i:nth-child(1){--c:var(--terra);height:100%}
-.foot .big i:nth-child(2){--c:var(--tan);height:74%}
-.foot .big i:nth-child(3){--c:var(--orange);height:88%}
-.foot .big svg{flex:2.2;height:100%;color:var(--tan-lt)}
+.foot .big{display:block;color:var(--tan-lt);width:min(100%,900px);margin-bottom:56px}
+.foot .big svg{width:100%;height:auto;display:block}
 .foot .cols{display:grid;grid-template-columns:repeat(4,1fr) 1.6fr;gap:24px;font-size:16px}
 .foot .cols b{display:block;color:#fff;margin-bottom:10px}
 .foot .cols a{display:block;text-decoration:none;padding:4px 0;opacity:.85}
@@ -117,7 +113,7 @@ h1,h2,h3{font-weight:900;letter-spacing:-.035em;line-height:.9}
 @media(max-width:760px){
   .foot .cols{grid-template-columns:1fr 1fr}
   .foot .cols > div:last-child{grid-column:1/-1}
-  .foot .big{height:22svh}
+
 }
 
 /* ---------- product fields (catalogue + product page) ---------- */

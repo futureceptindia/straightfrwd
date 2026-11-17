@@ -79,7 +79,7 @@ function header(page){
 function footer(){
   document.body.insertAdjacentHTML('beforeend', `
   <footer class="foot" data-ink="light">
-    <div class="big" aria-hidden="true"><i></i><i></i><i></i>${ARROW}</div>
+    <div class="big" aria-hidden="true">${window.LOGO_SVG}</div>
     <div class="cols">
       <div><b>Daily Protein</b>${PROTEIN.map(p=>`<a href="product.html#${p.id}">${p.name}</a>`).join('')}</div>
       <div><b>Herbal Drinks</b>${HERBAL.map(p=>`<a href="product.html#${p.id}">${p.name}</a>`).join('')}</div>
@@ -118,7 +118,9 @@ function reveal(){
   els.forEach(e => {
     const sibs = [...e.parentElement.children].filter(c=>c.classList.contains('rv'));
     e.style.transitionDelay = (sibs.indexOf(e) * 80) + 'ms';
-    io.observe(e);
+    // anything already on screen shows straight away; the rest waits for the observer
+    if(e.getBoundingClientRect().top < innerHeight) requestAnimationFrame(()=>e.classList.add('in'));
+    else io.observe(e);
   });
 }
 
