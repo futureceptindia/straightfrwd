@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en-IN"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>The Label — StraightFrwd</title>
+<meta name="description" content="The whole back of the Daily Protein pack, grouped and explained.">
+<link rel="stylesheet" href="assets/site.css?v=1794888187">
+<style>
+.lab{display:grid;grid-template-columns:minmax(0,640px) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:start}
+.lab details{background:var(--tan-lt);margin-bottom:6px;transition:background .25s}
+.lab details[open]{background:var(--tan)}
+.lab details:hover:not([open]){background:#dccbaa}
+.lab summary{list-style:none;display:flex;align-items:center;gap:12px;min-height:60px;padding:0 20px;font-weight:700;font-size:18px;cursor:pointer}
+.lab summary::-webkit-details-marker{display:none}
+.lab summary em{font-style:normal;font-weight:500;font-size:16px;margin-left:auto}
+.lab summary i{font-style:normal;font-size:28px;font-weight:500;width:22px;text-align:center;transition:transform .3s var(--ease)}
+.lab details[open] summary i{transform:rotate(45deg)}
+.lab .in{padding:0 20px 22px;font-size:17px}
+.lab .in ul{margin:0 0 10px;padding:0;list-style:none}
+.lab .in li{padding:4px 0}
+.lab aside{position:sticky;top:90px}
+.raw{background:var(--brown);color:var(--tan-lt);padding:28px;font-size:16px;line-height:1.65}
+.raw b{display:block;color:#fff;margin-bottom:8px}
+.raw mark{background:var(--terra);color:#fff;padding:0 2px}
+.lab aside img{margin-top:6px;width:100%}
+@media(max-width:900px){.lab{grid-template-columns:1fr}.lab aside{position:static}}
+.rules{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:56px}
+.rules div{grid-column:span 6}
+.rules h3{font-size:var(--t-head);line-height:.95;margin-bottom:14px}
+.rules p{max-width:44ch}
+@media(max-width:760px){.rules div{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<main id="main">
+  <section class="ph f f-tan" data-ink="dark">
+    <img class="pin" src="assets/img/powder-macro.jpg" alt="Close-up of the protein powder" width="440" height="550">
+    <h1 class="rv">The label.</h1>
+    <p class="rv">Everything printed on the back of a Daily Protein pack, in the order it is printed, grouped so it reads in a minute.</p>
+  </section>
+
+  <section class="f f-paper2" data-ink="dark">
+    <div class="lab">
+      <div id="labelList"></div>
+      <aside>
+        <div class="raw rv"><b>As printed on the pack</b><span id="rawText"></span></div>
+        <img class="rv" src="assets/img/slide-nutrition.jpg" alt="Nutrition panel: per serving 22.5 g protein, 4.4 g fibre, 1 g FOS, 0 g added sugar, 200 kcal" loading="lazy">
+      </aside>
+    </div>
+  </section>
+
+  <section class="f f-paper" data-ink="dark" style="padding-top:6px;padding-bottom:6px">
+    <div class="pics"><img src="assets/img/ing-protein.jpg" alt="Soya, pea and brown rice, the three protein sources" loading="lazy"><img src="assets/img/ing-fibre.jpg" alt="Soya fibre" loading="lazy"><img src="assets/img/ing-vitamins.jpg" alt="Vitamins and minerals" loading="lazy"></div>
+  </section>
+  <section class="f f-brown" data-ink="light">
+    <div class="rules">
+      <div class="rv"><h3>Recommended use.</h3><p>One serving a day, or as directed by a physician, certified dietitian or nutritional professional. Do not exceed the recommended daily usage. Recommended as a one meal replacement.</p></div>
+      <div class="rv"><h3>Not for.</h3><p>Pregnant, nursing and lactating women, children under 5, adolescents or the elderly, except when medically advised by a physician, certified dietitian or nutrition professional.</p></div>
+      <div class="rv"><h3>How to make it.</h3><p>Add 50 g of powder to 250 ml of water and stir until it has completely dissolved. Drink it straight away.</p></div>
+      <div class="rv"><h3>The small print.</h3><p>Not intended to treat, cure, mitigate or prevent any specific disease, disorder or condition. For oral consumption only.</p></div>
+    </div>
+  </section>
+</main>
+<script src="assets/logo.js?v=1794888187"></script>
+<script src="assets/site.js?v=1794888187"></script>
+<script src="assets/home.js?v=1794888187"></script>
+<script>
+labelReader(document.getElementById('labelList'), document.getElementById('rawText'));
+document.querySelectorAll('#labelList details').forEach(d=>d.open=true);
+boot('label.html');
+</script>
+</body></html>

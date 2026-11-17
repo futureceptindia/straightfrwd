@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en-IN"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Contact — StraightFrwd</title>
+<meta name="description" content="Talk to a person at StraightFrwd: customer care, where to buy, trade and bulk.">
+<link rel="stylesheet" href="assets/site.css?v=1794888187">
+<style>
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.ways a{display:flex;flex-direction:column;justify-content:space-between;min-height:38svh;padding:28px 24px;text-decoration:none;transition:transform .3s var(--ease)}
+.ways a:hover{transform:translateY(-6px)}
+.ways a:nth-child(1){background:var(--brown);color:var(--tan-lt)}
+.ways a:nth-child(2){background:var(--green);color:var(--tan-lt)}
+.ways a:nth-child(3){background:var(--orange);color:var(--ink)}
+.ways b{font-size:clamp(30px,3.2vw,48px);font-weight:900;letter-spacing:-.03em;line-height:1}
+.ways span{font-size:17px;font-weight:700}
+select,option{font-size:18px}
+@media(max-width:860px){.ways{grid-template-columns:1fr}.ways a{min-height:26svh}}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px 24px;max-width:960px}
+form label{display:flex;flex-direction:column;gap:8px;font-weight:700;font-size:16px}
+form .wide{grid-column:1/-1}
+input,select,textarea{font:400 18px var(--font);padding:14px 16px;border:2px solid var(--brown);background:#fff;color:var(--ink);border-radius:0}
+textarea{min-height:160px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--terra);outline-offset:0}
+@media(max-width:760px){form{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main id="main">
+  <section class="ph f f-green" data-ink="light" style="min-height:64svh">
+    <img class="pin" src="assets/img/lsp-choc-hand.jpg" alt="A hand holding a Chocolate sachet" width="440" height="550">
+    <h1 class="rv">Talk to us.</h1>
+    <p class="rv">Questions about a pack, where to buy in your city, or stocking us in your shop. A person reads every message.</p>
+  </section>
+
+  <section class="f f-paper" data-ink="dark">
+    <div class="ways">
+      <a class="rv" href="tel:+919672227666"><span>Customer care, Monday to Saturday, 10am to 6pm</span><b>+91 96722 27666</b></a>
+      <a class="rv" href="https://wa.me/919057119000"><span>WhatsApp</span><b>90571 19000</b></a>
+      <a class="rv" href="mailto:care@straightfrwd.com"><span>Email, replies within two working days</span><b>care@ straightfrwd.com</b></a>
+    </div>
+  </section>
+
+  <section class="f f-paper2" data-ink="dark" id="buy">
+    <div class="two" style="margin-bottom:48px"><h2 class="rv" id="trade">Write to us.</h2>
+      <div class="txt rv"><p class="lede">Tell us what it is about and we will route it to the right person.</p></div></div>
+    <form id="f" class="rv" action="mailto:care@straightfrwd.com" method="get">
+      <label>Your name<input name="name" autocomplete="name" required></label>
+      <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+      <label class="wide">Email<input name="email" type="email" autocomplete="email" required></label>
+      <label>What is it about?<select name="topic">
+        <option>Where to buy in my city</option><option>A question about a product</option><option>Nutrition, ingredients or allergens</option>
+        <option>Something wrong with a pack</option><option>Trade, retail or bulk</option><option>Something else</option></select></label>
+      <label>Which product?<select name="product"><option>Not a specific product</option></select></label>
+      <label class="wide">Message<textarea name="message" required></textarea></label>
+      <div class="wide"><button class="btn" type="submit"><span>Send</span><svg viewBox="394.69 277.69 52.61 39.75" fill="currentColor" aria-hidden="true"><path d="M429.94 304.52v-13.9l7.65 6.95zM429.94 278.09h-8.94v38.95h8.94l16.96-16.17v-6.61z"/><path d="M404.03 304.52v-13.9l7.65 6.95zM404.03 278.09h-8.94v38.95h8.94l16.97-16.17v-6.61z"/></svg></button></div>
+    </form>
+  </section>
+</main>
+<script src="assets/logo.js?v=1794888187"></script>
+<script src="assets/site.js?v=1794888187"></script>
+<script>
+const sel = document.querySelector('select[name=product]');
+sel.insertAdjacentHTML('beforeend', ALL.map(p=>`<option>${p.name} ${kind(p)}</option>`).join(''));
+// no form backend yet: open the visitor's mail app with everything filled in
+document.getElementById('f').addEventListener('submit', e=>{
+  e.preventDefault();
+  const d = Object.fromEntries(new FormData(e.target));
+  const body = `${d.message}\n\nName: ${d.name}\nPhone: ${d.phone}\nEmail: ${d.email}\nProduct: ${d.product}`;
+  location.href = `mailto:care@straightfrwd.com?subject=${encodeURIComponent(d.topic)}&body=${encodeURIComponent(body)}`;
+});
+boot('contact.html');
+</script>
+</body></html>

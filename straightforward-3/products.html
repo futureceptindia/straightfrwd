@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en-IN"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Products — StraightFrwd</title>
+<meta name="description" content="Daily Protein in Chocolate, Mango and Kulfi, and four herbal drinks: Kashmiri Kahwa, Ginger, Tulsi and Lemon.">
+<link rel="stylesheet" href="assets/site.css?v=1794888187">
+<style>
+.jump{display:flex;flex-wrap:wrap;gap:6px;margin-top:40px}
+.jump a{display:inline-flex;align-items:center;min-height:48px;padding:0 20px;background:var(--brown);color:var(--tan-lt);
+  font-weight:700;text-decoration:none;transition:background .25s,transform .25s var(--ease)}
+.jump a:hover{background:var(--ink);transform:translateY(-3px)}
+.group{min-height:46svh;display:flex;flex-direction:column;justify-content:flex-end}
+.group h2{font-size:var(--t-big)}
+.group p{max-width:46ch;font-size:var(--t-lede);line-height:1.4;margin-top:20px}
+</style>
+</head>
+<body>
+<main id="main">
+  <section class="ph f f-terra" data-ink="light">
+    <h1 class="rv">Seven packs.</h1>
+    <p class="rv">Three Daily Protein flavours, one formulation. Four herbal drinks in 1 g sachets. Pick one to read its whole label.</p>
+    <div class="jump rv" id="jump"></div>
+  </section>
+
+  <section class="group f f-paper" data-ink="dark" id="protein">
+    <h2 class="rv">Daily Protein.</h2>
+    <p class="rv">50 g sachets and 1 kg pouches. 22.5 g of plant protein a serving, no added sugar, recommended as a one meal replacement.</p>
+  </section>
+  <div id="pList"></div>
+
+  <section class="group f f-paper" data-ink="dark" id="herbal">
+    <h2 class="rv">Herbal Drinks.</h2>
+    <p class="rv">One 1 g sachet in 150 ml of hot water. Stir and drink.</p>
+  </section>
+  <div id="hList"></div>
+</main>
+<script src="assets/logo.js?v=1794888187"></script>
+<script src="assets/site.js?v=1794888187"></script>
+<script>
+const field = (p,i) => `<a class="pf ${p.field} ${i%2?'mirror':''}" data-ink="${['f-tan','f-orange','f-paper'].includes(p.field)?'dark':'light'}" href="product.html#${p.id}" id="${p.id}">
+  <span class="who rv">${kind(p)}</span>
+  <p class="rv">${p.note}</p>
+  <figure class="rv"><img src="assets/img/${p.shot}.jpg" alt="${p.name} ${kind(p)} pack" loading="lazy"></figure>
+  <h2 class="rv">${p.name}</h2>
+</a>`;
+document.getElementById('pList').innerHTML = PROTEIN.map(field).join('');
+document.getElementById('hList').innerHTML = HERBAL.map(field).join('');
+document.getElementById('jump').innerHTML = ALL.map(p=>`<a href="#${p.id}">${p.name}</a>`).join('');
+boot('products.html');
+</script>
+</body></html>

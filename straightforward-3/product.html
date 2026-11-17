@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en-IN"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Product — StraightFrwd</title>
+<link rel="stylesheet" href="assets/site.css?v=1794888187">
+<style>
+.pf.top-field{min-height:100svh}
+.size{display:flex;gap:6px;margin-top:22px}
+.size button{min-height:48px;padding:0 20px;border:0;font:700 16px var(--font);cursor:pointer;
+  background:rgba(0,0,0,.14);color:inherit;transition:background .25s}
+.size button[aria-pressed="true"]{background:var(--brown);color:var(--tan-lt)}
+.f-brown .size button[aria-pressed="true"],.f-green .size button[aria-pressed="true"],.f-terra .size button[aria-pressed="true"]{background:var(--paper);color:var(--brown)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.facts div{background:var(--tan-lt);padding:26px 22px 22px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between}
+.facts b{font-size:clamp(48px,6vw,92px);font-weight:900;letter-spacing:-.05em;line-height:.9}
+.facts span{font-size:16px;font-weight:700;margin-top:18px}
+@media(max-width:760px){.facts{grid-template-columns:1fr 1fr}.facts div{min-height:150px}}
+.lab2{display:grid;grid-template-columns:minmax(0,620px) minmax(0,1fr);gap:clamp(32px,6vw,96px)}
+.lab2 details{background:var(--tan-lt);margin-bottom:6px}
+.lab2 details[open]{background:var(--tan)}
+.lab2 summary{list-style:none;display:flex;align-items:center;gap:12px;min-height:56px;padding:0 18px;font-weight:700;cursor:pointer}
+.lab2 summary::-webkit-details-marker{display:none}
+.lab2 summary em{font-style:normal;font-weight:500;font-size:16px;margin-left:auto}
+.lab2 summary i{font-style:normal;font-size:26px;font-weight:500;width:20px;text-align:center;transition:transform .3s var(--ease)}
+.lab2 details[open] summary i{transform:rotate(45deg)}
+.lab2 .in{padding:0 18px 20px;font-size:16px}
+.lab2 .in ul{margin:0 0 10px;padding:0;list-style:none}
+.lab2 .in li{padding:4px 0}
+.lab2 h2{font-size:var(--t-head);margin-bottom:20px}
+@media(max-width:900px){.lab2{grid-template-columns:1fr}}
+.others{display:flex;flex-wrap:wrap;gap:6px 28px}
+.others a{font-weight:900;font-size:clamp(36px,5vw,76px);letter-spacing:-.04em;text-decoration:none;line-height:1.05;transition:color .25s}
+.others a:hover{color:var(--terra)}
+.others h2{width:100%;font-size:var(--t-lede);letter-spacing:-.01em;margin-bottom:12px}
+</style>
+</head>
+<body>
+<main id="main"></main>
+<script src="assets/logo.js?v=1794888187"></script>
+<script src="assets/site.js?v=1794888187"></script>
+<script src="assets/home.js?v=1794888187"></script>
+<script>
+function render(){
+  const id = location.hash.slice(1);
+  const p = ALL.find(x=>x.id===id) || PROTEIN[0];
+  const prot = isProtein(p.id);
+  const ink = ['f-tan','f-orange','f-paper'].includes(p.field) ? 'dark' : 'light';
+  document.title = `${p.name} ${kind(p)} — StraightFrwd`;
+  const facts = prot
+    ? [['22.5 g','protein in a 50 g serving'],['4.4 g','dietary fibre a serving'],['0 g','added sugar'],['200','kcal in a full serving']]
+    : [['1 g','in each sachet'],['150 ml','of hot water'],['4','herbal flavours'],['1','sachet, one cup']];
+  document.getElementById('main').innerHTML = `
+  <section class="pf top-field ${p.field}" data-ink="${ink}">
+    <span class="who rv">${kind(p)}</span>
+    <div class="rv" style="grid-column:1/6;grid-row:2;align-self:start">
+      <p style="font-size:var(--t-lede);line-height:1.4;max-width:30ch;margin-top:14px">${p.note}</p>
+      ${prot?`<div class="size" role="group" aria-label="Pack size"><button aria-pressed="true" data-s="50 g sachet">50 g sachet</button><button aria-pressed="false" data-s="1 kg pouch">1 kg pouch</button></div>`:''}
+      <a class="btn" style="margin-top:22px" href="contact.html#buy"><span>Ask where to buy</span>${ARROW}</a>
+    </div>
+    <figure class="rv"><img id="hero" src="assets/img/${p.shot}.jpg" alt="${p.name} ${kind(p)} pack"></figure>
+    <h1 class="rv">${p.name}</h1>
+  </section>
+
+  <section class="f f-paper" data-ink="dark">
+    <div class="facts">${facts.map(([b,s])=>`<div class="rv"><b>${b}</b><span>${s}</span></div>`).join('')}</div>
+  </section>
+
+  <section data-ink="dark" class="f-paper" style="padding:0 var(--m) 6px">
+    <div class="strip">${p.gallery.map(g=>`<img src="assets/img/${g}.jpg" alt="${p.name}" loading="lazy">`).join('')}</div>
+  </section>
+
+  ${prot ? `
+  <section class="f f-paper2" data-ink="dark">
+    <div class="lab2">
+      <div id="labelList"></div>
+      <div><h2 class="rv">The whole back.</h2>
+        <p class="rv" style="max-width:46ch">Same formulation in Chocolate, Mango and Kulfi. Open any line. ${LABEL_NOTE}</p>
+        <div class="raw rv" style="background:var(--brown);color:var(--tan-lt);padding:26px;margin-top:28px;font-size:16px;line-height:1.6"><b style="display:block;color:#fff;margin-bottom:8px">As printed on the pack</b><span id="rawText"></span></div>
+      </div>
+    </div>
+  </section>` : `
+  <section class="f f-paper2" data-ink="dark">
+    <div class="two"><h2 class="rv">How to make it.</h2>
+      <div class="txt rv"><p class="lede">Tear one 1 g sachet into 150 ml of hot water. Stir and drink.</p>
+      <p>The full ingredient list for each herbal drink is printed on its sachet. Write to us if you want it before you buy.</p></div></div>
+  </section>`}
+
+  <section class="f f-paper" data-ink="dark">
+    <div class="others"><h2>The rest of the range</h2>${ALL.filter(x=>x.id!==p.id).map(x=>`<a href="product.html#${x.id}">${x.name}</a>`).join('')}</div>
+  </section>`;
+  if(prot){
+    labelReader(document.getElementById('labelList'), document.getElementById('rawText'));
+    document.querySelectorAll('.size button').forEach(b=>b.onclick=()=>{
+      document.querySelectorAll('.size button').forEach(x=>x.setAttribute('aria-pressed', x===b));
+      document.getElementById('hero').src = 'assets/img/' + (b.dataset.s.startsWith('1 kg') && p.id==='mango' ? 'pack-pouch' : p.shot) + '.jpg';
+    });
+  }
+  scrollTo(0,0);
+}
+const LABEL_NOTE = 'Amounts are given where the pack gives them.';
+render();
+boot('');
+addEventListener('hashchange', ()=>{ render(); reveal(); });
+</script>
+</body></html>

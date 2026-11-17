@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en-IN"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>StraightFrwd — Nutrition, Made Easy</title>
+<meta name="description" content="Plant protein shakes and herbal drinks with a label you can read in one go.">
+<link rel="stylesheet" href="assets/site.css?v=1794888187">
+<style>
+/* ---- hero: one flat field, the name at full volume ---- */
+.hero{position:relative;min-height:100svh;padding:0 var(--m);overflow:hidden;display:grid;grid-template-rows:1fr auto}
+.hero h1{font-size:var(--t-mega);line-height:.82;letter-spacing:-.045em;padding-top:18svh;position:relative;z-index:2}
+.hero h1 span{display:block}
+.hero h1 .pale{color:var(--tan-lt)}
+.hero h1 .dark{color:var(--brown)}
+.hero .reel{position:absolute;z-index:1;right:calc(var(--m) + 2vw);top:22svh;width:min(34vw,520px);aspect-ratio:4/5;
+  transform:rotate(4deg);background:var(--brown);overflow:hidden}
+.hero .reel video,.hero .reel img{width:100%;height:100%;object-fit:cover;object-position:72% 20%}
+.hero .reel img{position:absolute;inset:0;transition:opacity .6s}
+.hero .foot-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:0 0 clamp(28px,5svh,56px);position:relative;z-index:2}
+.hero .foot-row p{max-width:30ch;font-size:var(--t-lede);line-height:1.35;color:#fff}
+.hero .btn{background:var(--brown);color:var(--tan-lt)}
+@media(max-width:760px){
+  .hero h1{font-size:21vw;padding-top:16svh}
+  .hero .reel{width:56vw;right:var(--m);top:auto;bottom:24svh}
+  .hero .foot-row{flex-direction:column;align-items:flex-start}
+  .hero .foot-row p{max-width:24ch;font-size:18px;background:var(--terra);position:relative}
+}
+
+/* ---- two numbers ---- */
+.nums .head{align-items:start;margin-bottom:10vh}
+.nums h2{grid-column:1/6;font-size:var(--t-head);line-height:.95}
+.nums .head p{grid-column:7/12;font-size:var(--t-body)}
+.nums .spec{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,24px)}
+.nums .spec figure{margin:0}
+.nums .spec figcaption{font-size:var(--t-lede);font-weight:700;margin-top:14px}
+.nums .spec b{display:block;font-weight:900;font-size:clamp(150px,27vw,430px);line-height:.8;letter-spacing:-.06em}
+.nums .spec b sub{font-size:.36em;vertical-align:baseline;letter-spacing:-.02em}
+@media(max-width:760px){
+  .nums h2,.nums .head p{grid-column:1/-1}
+  .nums .head p{margin-top:16px}
+  .nums .spec{grid-template-columns:1fr;height:auto;overflow:visible}
+  .nums .spec figure:last-child{background:var(--brown);color:var(--tan);margin:0 calc(-1*var(--m));padding:16px var(--m) 0}
+  .nums .spec b{font-size:40vw}
+}
+
+/* ---- thirty seconds: accordion of tinted panels ---- */
+.steps .head{margin-bottom:64px;align-items:end}
+.steps h2{grid-column:1/6;font-size:var(--t-big)}
+.steps .head p{grid-column:7/12;max-width:38ch}
+.acc{display:flex;height:540px}
+.acc .s{flex:1;position:relative;overflow:hidden;border:0;padding:0;text-align:left;font:inherit;cursor:pointer;
+  transition:flex-grow .45s var(--ease);color:var(--tan-lt)}
+.acc .s:nth-child(1){background:#3A2318}
+.acc .s:nth-child(2){background:var(--brown-2);}
+.acc .s:nth-child(3){background:var(--brown-3)}
+.acc .s:nth-child(4){background:var(--tan);color:var(--brown)}
+.acc .s[aria-expanded="true"]{flex-grow:5;cursor:default}
+.acc .s .nm{position:absolute;left:18px;bottom:18px;font-weight:900;font-size:22px;writing-mode:vertical-rl;transform:rotate(180deg)}
+.acc .s[aria-expanded="true"] .nm{writing-mode:horizontal-tb;transform:none;top:28px;left:28px;bottom:auto;font-size:clamp(34px,3.4vw,52px);letter-spacing:-.03em}
+.acc .s .body{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;opacity:0;transition:opacity .3s}
+.acc .s[aria-expanded="true"] .body{opacity:1;transition-delay:.2s}
+.acc .s .body p{align-self:end;padding:28px;max-width:34ch;font-size:18px}
+.acc .s .body img{width:100%;height:100%;object-fit:cover}
+@media(max-width:760px){
+  .steps h2,.steps .head p{grid-column:1/-1}
+  .steps .head p{margin-top:14px}
+  .acc{flex-direction:column;height:auto}
+  .acc .s{min-height:64px}
+  .acc .s .nm,.acc .s[aria-expanded="true"] .nm{writing-mode:horizontal-tb;transform:none;top:18px;left:18px;bottom:auto;font-size:20px}
+  .acc .s .body{position:static;display:none}
+  .acc .s[aria-expanded="true"] .body{display:grid;grid-template-columns:1fr;padding-top:60px}
+  .acc .s .body img{height:220px}
+  .acc .s .body p{padding:18px;font-size:17px}
+}
+
+/* ---- statements on colour fields ---- */
+.st{min-height:76svh;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding:clamp(48px,6vw,80px) var(--m) 28px}
+.st p{grid-column:8/12;grid-row:1;max-width:30ch;font-size:var(--t-body)}
+.st h2{grid-column:1/-1;grid-row:2;align-self:end;font-size:var(--t-big);max-width:12ch}
+.st.mirror p{grid-column:2/6}
+.f-orange{color:var(--ink)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.st.mirror h2{justify-self:end;text-align:right}
+@media(max-width:760px){
+  .st{min-height:64svh;grid-template-columns:1fr}
+  .st p,.st.mirror p{grid-column:1;max-width:none;width:85%}
+  .st.mirror p{justify-self:end;text-align:right}
+  .st h2,.st.mirror h2{grid-column:1;justify-self:start;text-align:left;font-size:13vw}
+}
+
+/* ---- the range: a list of names, the pack follows the pointer ---- */
+.range h2{font-size:var(--t-big);margin-bottom:48px}
+.range ol{list-style:none;margin:0;padding:0}
+.range li a{display:flex;align-items:baseline;justify-content:space-between;gap:20px;text-decoration:none;
+  padding:6px 0;transition:color .25s,padding .35s var(--ease)}
+.range li a b{font-weight:900;font-size:clamp(44px,7.2vw,118px);line-height:.95;letter-spacing:-.045em}
+.range li a span{font-weight:700;font-size:16px;white-space:nowrap}
+.range li a:hover,.range li a:focus-visible{color:var(--terra);padding-left:24px}
+.range .tray{position:fixed;left:0;top:0;width:300px;aspect-ratio:4/5;pointer-events:none;z-index:40;
+  opacity:0;transform:translate(-50%,-50%) rotate(-5deg) scale(.9);transition:opacity .25s,transform .35s var(--ease)}
+.range .tray.on{opacity:1;transform:translate(-50%,-50%) rotate(-5deg) scale(1)}
+.range .tray img{width:100%;height:100%;object-fit:cover}
+.range .sub{font-size:var(--t-lede);letter-spacing:-.01em;line-height:1.2;margin:56px 0 12px;color:var(--terra)}
+.range .sub:first-of-type{margin-top:0}
+.range li img.th{display:none}
+@media(hover:none),(max-width:760px){
+  .range .tray{display:none}
+  .range li a{align-items:center}
+  .range li img.th{display:block;width:64px;height:80px;object-fit:cover;order:-1;flex:0 0 auto}
+  .range li a b{font-size:11vw;flex:1}
+  .range li a span{display:none}
+}
+
+/* ---- the label, decoded (the live thing) ---- */
+.lab{display:grid;grid-template-columns:minmax(0,620px) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:start}
+.lab .col{container-type:inline-size}
+.lab .word{font-weight:900;font-size:39cqw;line-height:.78;letter-spacing:-.05em;margin:0 0 20px;color:var(--brown)}
+.lab details{background:var(--tan-lt);margin-bottom:6px;transition:background .25s}
+.lab details[open]{background:var(--tan)}
+.lab summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  min-height:56px;padding:0 18px;font-weight:700;font-size:17px;cursor:pointer}
+.lab summary::-webkit-details-marker{display:none}
+.lab summary em{font-style:normal;font-weight:500;font-size:16px;margin-left:auto}
+.lab summary i{font-style:normal;font-size:26px;font-weight:500;line-height:1;transition:transform .3s var(--ease);width:20px;text-align:center}
+.lab details[open] summary i{transform:rotate(45deg)}
+.lab details:hover:not([open]){background:#dccbaa}
+.lab .in{padding:0 18px 20px}
+.lab .in ul{margin:0 0 12px;padding:0;list-style:none}
+.lab .in li{font-size:16px;padding:5px 0}
+.lab .in p{font-size:16px;font-weight:500}
+.lab aside h2{font-size:var(--t-head);margin-bottom:22px}
+.lab aside p{font-size:var(--t-body);max-width:46ch;margin-bottom:18px}
+.lab .raw{background:var(--brown);color:var(--tan-lt);padding:28px;margin-top:32px;font-size:16px;line-height:1.6}
+.lab .raw b{display:block;font-size:16px;margin-bottom:8px;color:#fff}
+.lab .raw mark{background:var(--terra);color:var(--paper);padding:0 2px;transition:background .2s}
+.lab .shot{margin-top:24px;transform:rotate(-3deg);width:min(100%,460px)}
+@media(max-width:900px){.lab{grid-template-columns:1fr}}
+
+/* ---- questions: a band per question ---- */
+.qhead{min-height:40svh;display:flex;align-items:flex-end;padding-bottom:28px}
+.qhead h2{font-size:clamp(56px,7vw,112px)}
+.q{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding:56px var(--m)}
+.q:nth-of-type(odd){background:var(--paper-2)}
+.q:nth-of-type(even){background:var(--paper)}
+.q h3{grid-column:1/6;font-size:clamp(24px,2.2vw,32px);line-height:1.1;letter-spacing:-.02em}
+.q div{grid-column:7/13;font-size:var(--t-body);max-width:56ch}
+.q .plan{margin-top:18px;background:var(--brown);color:var(--tan-lt);padding:22px}
+.q .plan label{font-weight:700;display:block;margin-bottom:10px}
+.q .plan input{width:100%;accent-color:var(--terra);height:28px}
+.q .plan output{display:block;font-weight:700;font-size:var(--t-lede);margin-top:8px;color:#fff}
+@media(max-width:760px){
+  .qhead{min-height:30svh}.qhead h2{font-size:13vw}
+  .q{grid-template-columns:1fr;padding:32px 20px}
+  .q h3,.q div{grid-column:1}
+  .q h3{font-size:22px;margin-bottom:12px}
+}
+
+/* ---- close: the idea again, inverted ---- */
+.close{min-height:90svh;display:flex;flex-direction:column;justify-content:space-between;padding-top:clamp(90px,12vw,160px);padding-bottom:40px}
+.close h2{font-size:clamp(64px,10vw,170px);line-height:.86;color:var(--paper)}
+.close h2 span{display:block;color:var(--terra)}
+.close .row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.close .row p{max-width:34ch;font-size:20px}
+@media(max-width:760px){
+  .close{min-height:80svh}.close h2{font-size:12vw}
+  .close .row{flex-direction:column;align-items:stretch}.close .row .btn{justify-content:space-between}
+}
+</style>
+</head>
+<body>
+<main id="main">
+
+<section class="hero f-terra" data-ink="light" aria-labelledby="h1">
+  <h1 id="h1"><span class="pale">Straight</span><span class="dark">forward.</span></h1>
+  <div class="reel" aria-hidden="true">
+    <img src="assets/video/v-hr7-poster.jpg" alt="" id="poster">
+    <video id="reel" muted playsinline preload="metadata"></video>
+  </div>
+  <div class="foot-row">
+    <p>Plant protein shakes and herbal drinks, with a label you can read in one go.</p>
+    <a class="btn" href="products.html"><span>See Our Products</span><svg viewBox="394.69 277.69 52.61 39.75" fill="currentColor" aria-hidden="true"><path d="M429.94 304.52v-13.9l7.65 6.95zM429.94 278.09h-8.94v38.95h8.94l16.96-16.17v-6.61z"/><path d="M404.03 304.52v-13.9l7.65 6.95zM404.03 278.09h-8.94v38.95h8.94l16.97-16.17v-6.61z"/></svg></a>
+  </div>
+</section>
+
+<section class="nums f f-tan" data-ink="dark" aria-labelledby="h-nums">
+  <div class="grid head">
+    <h2 id="h-nums" class="rv">Two numbers first.</h2>
+    <p class="rv">Most tubs put one big number on the front and keep the rest small. Here are the two that matter, per 50 g sachet of Daily Protein, before you read anything else.</p>
+  </div>
+  <div class="spec">
+    <figure class="rv"><b>22.5<sub>g</sub></b><figcaption>protein in a 50 g serving</figcaption></figure>
+    <figure class="rv"><b>0<sub>g</sub></b><figcaption>added sugar</figcaption></figure>
+  </div>
+</section>
+
+<section class="steps f f-paper" data-ink="dark" aria-labelledby="h-steps">
+  <div class="grid head">
+    <h2 id="h-steps" class="rv">Thirty seconds.</h2>
+    <p class="rv">No blender, no kitchen scale, no milk. One sachet, one glass of water and a spoon. Tap a step.</p>
+  </div>
+  <div class="acc rv" role="group" aria-label="How to make it">
+    <button class="s" aria-expanded="true"><span class="nm">Tear</span>
+      <span class="body"><p>Open one 50 g sachet. That is one full serving, already measured.</p><img src="assets/img/step-1.jpg" alt="A serving of powder going into a glass" loading="lazy"></span></button>
+    <button class="s" aria-expanded="false"><span class="nm">Pour</span>
+      <span class="body"><p>Add it to 250 ml of water. The soy fat powder in the mix makes it creamy, so milk is optional.</p><img src="assets/img/step-2.jpg" alt="Water poured into the glass" loading="lazy"></span></button>
+    <button class="s" aria-expanded="false"><span class="nm">Stir</span>
+      <span class="body"><p>Stir until nothing is sitting at the bottom. A spoon is enough.</p><img src="assets/img/mixing.jpg" alt="The shake being stirred" loading="lazy"></span></button>
+    <button class="s" aria-expanded="false"><span class="nm">Drink</span>
+      <span class="body"><p>Drink it straight away, before it thickens. One serving a day.</p><img src="assets/img/life-choc.jpg" alt="A glass of chocolate shake" loading="lazy"></span></button>
+  </div>
+</section>
+
+<section class="st f-green" data-ink="light">
+  <p class="rv">Soya protein isolate, pea protein and brown rice protein. 45 g of protein in every 100 g of powder, from plants only.</p>
+  <h2 class="rv">Three plant proteins.</h2>
+</section>
+<section class="st mirror f-orange" data-ink="dark">
+  <p class="rv">Sweetened with sucralose and acesulfame potassium, so a full serving is 200 kcal. Both are named on the front of the pack.</p>
+  <h2 class="rv">No added sugar.</h2>
+</section>
+<section class="st f-brown" data-ink="light">
+  <p class="rv">The pack says it plainly: recommended as a one meal replacement. One serving a day, with fibre, vitamins, minerals and enzymes in it.</p>
+  <h2 class="rv">One meal, sorted.</h2>
+</section>
+
+<section class="range f f-paper" data-ink="dark" aria-labelledby="h-range">
+  <h2 id="h-range" class="rv">Seven packs.</h2>
+  <h3 class="sub rv">Daily Protein, in 50 g sachets and 1 kg pouches</h3>
+  <ol id="rp"></ol>
+  <h3 class="sub rv">Herbal Drinks, 1 g in 150 ml of hot water</h3>
+  <ol id="rh"></ol>
+  <div class="tray" id="tray" aria-hidden="true"><img alt=""></div>
+</section>
+
+<section class="f f-paper2" data-ink="dark" aria-labelledby="h-lab" id="label">
+  <div class="lab">
+    <div class="col">
+      <p class="word" aria-hidden="true">Label</p>
+      <div id="labelList"></div>
+    </div>
+    <aside>
+      <h2 id="h-lab" class="rv">The back, opened up.</h2>
+      <p class="rv">This is the whole back of the Daily Protein pack, grouped so it reads in a minute. Open a line to see what it is and why it is in there. Same formulation in Chocolate, Mango and Kulfi.</p>
+      <div class="raw rv" id="raw"><b>As printed on the pack</b><span id="rawText"></span></div>
+      <img class="shot rv" src="assets/img/slide-nutrition.jpg" alt="The nutrition panel from the back of the pack" loading="lazy" width="920" height="613">
+    </aside>
+  </div>
+</section>
+
+<section aria-labelledby="h-faq" id="faq">
+  <div class="qhead f f-terra" data-ink="light"><h2 id="h-faq" class="rv">Before you ask.</h2></div>
+  <div class="q" data-ink="dark"><h3>Is it a meal replacement?</h3><div><p>Yes. The pack says "recommended as a one meal replacement". One serving a day, or as directed by a physician, certified dietitian or nutrition professional. It is not meant to treat, cure, mitigate or prevent any disease.</p></div></div>
+  <div class="q" data-ink="dark"><h3>Whey or plant?</h3><div><p>Plant. Soya protein isolate, pea protein and brown rice protein. The soy fat powder contains sodium caseinate, which comes from milk, so it is not dairy-free.</p></div></div>
+  <div class="q" data-ink="dark"><h3>How long does a 1 kg pouch last?</h3><div><p>A 1 kg pouch holds 20 servings of 50 g. Move the slider to see how long that is for you.</p>
+    <div class="plan"><label for="perwk" class="vh">Shakes a week</label>
+      <input type="range" id="perwk" min="1" max="7" value="7">
+      <output id="planOut" for="perwk">About 20 days</output></div></div></div>
+  <div class="q" data-ink="dark"><h3>Water or milk?</h3><div><p>Water. The mix carries its own fat powder and goes creamy on its own. Milk works if you want it richer, but it adds calories the label does not count.</p></div></div>
+  <div class="q" data-ink="dark"><h3>Who should not take it?</h3><div><p>Pregnant, nursing and lactating women, children under 5, adolescents and the elderly, unless a physician or certified dietitian advises it. Contains soy. Made in a facility that also processes wheat, milk, oats and nuts.</p></div></div>
+  <div class="q" data-ink="dark"><h3>How do I make the herbal drinks?</h3><div><p>One 1 g sachet in 150 ml of hot water. Stir and drink. Kashmiri Kahwa, Ginger, Tulsi and Lemon.</p></div></div>
+</section>
+
+<section class="close f f-brown" data-ink="light" aria-labelledby="h-close">
+  <h2 id="h-close" class="rv">Read the back.<span>Then drink it.</span></h2>
+  <div class="row">
+    <p class="rv">Three protein flavours and four herbal drinks. Every one of them has the same honest back.</p>
+    <a class="btn on-dark rv" href="products.html"><span>See Our Products</span><svg viewBox="394.69 277.69 52.61 39.75" fill="currentColor" aria-hidden="true"><path d="M429.94 304.52v-13.9l7.65 6.95zM429.94 278.09h-8.94v38.95h8.94l16.96-16.17v-6.61z"/><path d="M404.03 304.52v-13.9l7.65 6.95zM404.03 278.09h-8.94v38.95h8.94l16.97-16.17v-6.61z"/></svg></a>
+  </div>
+</section>
+
+</main>
+<script src="assets/logo.js?v=1794888187"></script>
+<script src="assets/site.js?v=1794888187"></script>
+<script src="assets/home.js?v=1794888187"></script>
+<script>boot('index.html'); home();</script>
+</body></html>
