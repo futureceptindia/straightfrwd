@@ -4,25 +4,25 @@ var SF = {
   items: {
     choc:  {name:'Chocolate', kind:'Daily Protein', ill:'i-cocoa', col:'c-brown', accent:'#E0822F',
             note:'Dark cocoa, barely sweet.', shot:'pack-choc.jpg',
-            gallery:[['pack-choc.jpg','Chocolate sachet and box'],['lsp-choc-hand.jpg','Holding a Chocolate sachet by a glass of shake'],['life-choc.jpg','Chocolate shake beside the pack on a kitchen counter'],['hero-shake.jpg','A glass of chocolate shake'],['flat-choc.jpg','Chocolate sachet and box on orange']]},
+            gallery:[['lsp-choc-hand.jpg','Holding a Chocolate sachet by a glass of shake'],['hero-c3-choc.jpg','A chocolate shake with cocoa beans and the pack'],['band-choc.jpg','Chocolate shake with the sachet and box'],['life-choc.jpg','Chocolate shake beside the pack on a kitchen counter'],['slide-c-mix.jpg','50 g powder into 250 ml water'],['slide-pack-choc.jpg','The Chocolate sachet and what is in it'],['pack-choc.jpg','Chocolate sachet and box']]},
     mango: {name:'Mango', kind:'Daily Protein', ill:'i-mango', col:'c-brown', accent:'#1F4A33',
             note:'Ripe mango, thick like a lassi.', shot:'pack-mango-clean.jpg', pouch:'pack-pouch.jpg',
-            gallery:[['pack-mango-clean.jpg','Mango sachet and box'],['pack-pouch.jpg','Mango 1 kg pouch'],['life-pouch.jpg','Mango 1 kg pouch on a kitchen counter'],['mango-shake.jpg','A glass of mango shake with fresh mango']]},
+            gallery:[['lsp-mango.jpg','Mango sachet beside a glass of mango shake'],['mango-shake.jpg','A glass of mango shake with fresh mango'],['hero-3.jpg','Mango 1 kg pouch on a sunny counter'],['slide-m-mix.jpg','50 g powder into 250 ml water'],['life-mango.jpg','Mango shake with the sachet and box'],['pack-mango-clean.jpg','Mango sachet and box'],['pack-pouch.jpg','Mango 1 kg pouch']]},
     kulfi: {name:'Kulfi', kind:'Daily Protein', ill:'i-cardamom', col:'c-brown', accent:'#AE5D40',
             note:'Cardamom and pistachio.', shot:'pack-kulfi-clean.jpg',
-            gallery:[['pack-kulfi-clean.jpg','Kulfi sachet and box'],['kulfi-shake.jpg','A kulfi shake with pistachios'],['mixing.jpg','Stirring a shake into water']]},
+            gallery:[['lsp-kulfi.jpg','Kulfi sachet with a glass of kulfi shake'],['kulfi-shake.jpg','A kulfi shake with pistachios'],['life-kulfi.jpg','Kulfi shake with the sachet and box'],['slide-k-mix.jpg','50 g powder into 250 ml water'],['lsp-kulfi-hand.jpg','Holding a Kulfi sachet'],['pack-kulfi-clean.jpg','Kulfi sachet and box']]},
     kahwa: {name:'Kashmiri Kahwa', kind:'Herbal Drink', ill:'i-saffron', col:'c-brown', accent:'#8a2f3c',
             note:'Saffron and almond.', shot:'sachet-kahwa.jpg',
-            gallery:[['sachet-kahwa.jpg','Kashmiri Kahwa sachet'],['energy-kahwa.jpg','A cup of kahwa with saffron and cinnamon'],['lsp-herbal.jpg','Kahwa sachet beside a cup of tea']]},
+            gallery:[['energy-kahwa.jpg','A cup of kahwa with saffron and cinnamon'],['hero-4.jpg','Steaming kahwa on a wooden table'],['lsp-herbal.jpg','Kahwa sachet beside a cup of tea'],['sachet-kahwa.jpg','Kashmiri Kahwa sachet']]},
     ginger:{name:'Ginger', kind:'Herbal Drink', ill:'i-ginger', col:'c-brown', accent:'#c08a1e',
             note:'Sharp and warming.', shot:'sachet-ginger.jpg',
-            gallery:[['sachet-ginger.jpg','Ginger sachet'],['energy-ginger.jpg','A cup of ginger tea with fresh ginger']]},
+            gallery:[['energy-ginger.jpg','A cup of ginger tea with fresh ginger'],['sachet-ginger.jpg','Ginger sachet']]},
     tulsi: {name:'Tulsi', kind:'Herbal Drink', ill:'i-tulsi', col:'c-green', accent:'#1F4A33',
             note:'Holy basil, earthy.', shot:'sachet-tulsi.jpg',
-            gallery:[['sachet-tulsi.jpg','Tulsi sachet'],['energy-tulsi.jpg','A cup of tulsi tea with fresh leaves']]},
+            gallery:[['energy-tulsi.jpg','A cup of tulsi tea with fresh leaves'],['sachet-tulsi.jpg','Tulsi sachet']]},
     lemon: {name:'Lemon', kind:'Herbal Drink', ill:'i-lemon', col:'c-green', accent:'#1F4A33',
             note:'Plain and clean.', shot:'sachet-lemon.jpg',
-            gallery:[['sachet-lemon.jpg','Lemon sachet'],['energy-lemon.jpg','A cup of lemon tea with a cut lemon']]}
+            gallery:[['energy-lemon.jpg','A cup of lemon tea with a cut lemon'],['ls-desk.jpg','A warm cup at the desk'],['sachet-lemon.jpg','Lemon sachet']]}
   },
   ingredients: [
     ['Protein', 'Soya protein isolate, pea protein, brown rice protein'],
@@ -92,7 +92,7 @@ var SF = {
       pdp.innerHTML =
         '<div class="wrap pdp-grid">'+
           '<div class="pdp-media">'+
-            '<figure class="sticker pdp-shot" style="--tilt:-2deg"><img id="pdp-img" src="assets/img/'+p.shot+'" alt="'+p.name+' '+p.kind+' pack" width="1200" height="1200"></figure>'+
+            '<figure class="sticker pdp-shot xf" style="--tilt:-2deg"><img class="on" id="pdp-img" src="assets/img/'+p.gallery[0][0]+'" alt="'+p.gallery[0][1]+'" width="1200" height="1200"><img class="xf-b" src="assets/img/'+p.shot+'" alt=""></figure>'+
             '<svg class="pdp-ill '+p.col+'" aria-hidden="true"><use href="#'+p.ill+'"/></svg>'+
             '<div class="thumbs">'+gallery+'</div>'+
           '</div>'+
@@ -107,19 +107,25 @@ var SF = {
           '</div>'+
         '</div>' + detail;
 
+      var show = function(src, alt){
+        var fig = pdp.querySelector('.pdp-shot'), cur = fig.querySelector('img.on'), nxt = fig.querySelector('img:not(.on)');
+        if (cur.getAttribute('src') === src) return;
+        nxt.onload = function(){ nxt.classList.add('on'); cur.classList.remove('on'); nxt.id='pdp-img'; cur.removeAttribute('id'); nxt.alt = alt; cur.alt=''; };
+        nxt.src = src; if (nxt.complete && nxt.naturalWidth) nxt.onload();
+      };
       pdp.querySelectorAll('.thumb').forEach(function(t){
         t.addEventListener('click', function(){
           pdp.querySelectorAll('.thumb').forEach(function(x){x.classList.remove('on');}); t.classList.add('on');
-          var im = document.getElementById('pdp-img'); im.src = t.dataset.src; im.alt = t.dataset.alt;
+          show(t.dataset.src, t.dataset.alt);
         });
       });
       pdp.querySelectorAll('.size').forEach(function(b){
         b.addEventListener('click', function(){
           pdp.querySelectorAll('.size').forEach(function(x){x.classList.remove('on'); x.setAttribute('aria-pressed','false');});
           b.classList.add('on'); b.setAttribute('aria-pressed','true');
-          var pouch = b.dataset.size === 'pouch', im = document.getElementById('pdp-img');
-          if (pouch && p.pouch) { im.src = 'assets/img/'+p.pouch; im.alt = p.name+' 1 kg pouch'; }
-          else { im.src = 'assets/img/'+p.shot; im.alt = p.name+' '+p.kind+' pack'; }
+          var pouch = b.dataset.size === 'pouch';
+          if (pouch && p.pouch) show('assets/img/'+p.pouch, p.name+' 1 kg pouch');
+          else show('assets/img/'+p.shot, p.name+' '+p.kind+' pack');
           document.getElementById('size-note').textContent = pouch ? '1 kg pouch, 20 servings of 50 g.' : 'One serving. Tear, pour, stir.';
         });
       });
@@ -148,11 +154,109 @@ var SF = {
   });
   if (location.hash === '#buy' && form) { var t = form.elements.topic; if (t) t.value = 'Where to buy'; }
 
-  if (reduce) { document.querySelectorAll('video').forEach(function(v){ v.pause(); v.removeAttribute('autoplay'); }); return; }
-  if (!('IntersectionObserver' in window)) return;
-  document.documentElement.classList.add('js-reveal');
-  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }); }, {rootMargin:'0px 0px -8% 0px'});
-  document.querySelectorAll('.sec-head, .ing, .card, .steps li, .extra, .life-media, details, .close-in, .way, .split > *').forEach(function(el, i){
-    el.classList.add('rv'); el.style.setProperty('--d', (i % 4) * 70 + 'ms'); io.observe(el);
-  });
+  window.SF_REDUCE = reduce;
 })();
+
+/* ===== motion engine: transform/opacity only, IO-driven, reduced-motion safe ===== */
+window.SFmotion = function(reduce){
+  var root = document.documentElement;
+  var bar = document.querySelector('.progress i');
+  var nav = document.querySelector('.nav');
+  var pars = [].slice.call(document.querySelectorAll('[data-par]'));
+  var lastY = window.scrollY, ticking = false;
+
+  function frame(){
+    ticking = false;
+    var y = window.scrollY, max = document.documentElement.scrollHeight - innerHeight;
+    if (bar) bar.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+    if (nav) { nav.classList.toggle('hide', y > 300 && y > lastY && !document.body.classList.contains('menu-open')); }
+    lastY = y;
+    if (!reduce) pars.forEach(function(el){
+      var r = el.getBoundingClientRect(); if (r.bottom < -200 || r.top > innerHeight + 200) return;
+      var off = (r.top + r.height/2 - innerHeight/2) * parseFloat(el.dataset.par);
+      el.style.translate = '0 ' + off.toFixed(1) + 'px';
+    });
+  }
+  window.addEventListener('scroll', function(){ if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, {passive:true});
+  frame();
+
+  /* fade sliders (hero sticker) */
+  document.querySelectorAll('.fade-slider').forEach(function(s){
+    var imgs = s.querySelectorAll('img'), i = 0;
+    if (reduce || imgs.length < 2) return;
+    setInterval(function(){ if (document.hidden) return; imgs[i].classList.remove('on'); i = (i+1) % imgs.length; imgs[i].classList.add('on'); }, +s.dataset.interval || 4000);
+  });
+
+  /* day slider with progress dots */
+  document.querySelectorAll('.slider').forEach(function(sl){
+    var slides = sl.querySelectorAll('.slide'), dots = sl.querySelector('.dots'), i = 0, timer;
+    slides.forEach(function(_, k){ var b = document.createElement('button'); b.setAttribute('aria-label','Slide '+(k+1)); b.innerHTML='<i></i>'; b.onclick=function(){ go(k); }; dots.appendChild(b); });
+    function go(k){
+      slides[i].classList.remove('on'); dots.children[i].removeAttribute('aria-current');
+      i = (k + slides.length) % slides.length;
+      slides[i].classList.add('on'); var d = dots.children[i]; d.setAttribute('aria-current','true');
+      var bar = d.querySelector('i'); bar.style.animation='none'; void bar.offsetWidth; bar.style.animation='';
+      clearTimeout(timer); if (!reduce) timer = setTimeout(function(){ go(i+1); }, +sl.dataset.interval || 6000);
+    }
+    sl.querySelector('.prev').onclick = function(){ go(i-1); };
+    sl.querySelector('.next').onclick = function(){ go(i+1); };
+    go(0);
+  });
+
+  /* accordion: smooth open/close of the answer (opacity + translate) */
+  document.querySelectorAll('details').forEach(function(d){
+    var s = d.querySelector('summary'), p = d.querySelector('p');
+    s.addEventListener('click', function(e){
+      if (reduce || !p) return;
+      e.preventDefault();
+      if (d.open) { d.classList.add('closing'); setTimeout(function(){ d.open = false; d.classList.remove('closing'); }, 220); }
+      else { d.open = true; }
+    });
+  });
+
+  /* magnetic buttons */
+  if (!reduce && matchMedia('(hover:hover)').matches) {
+    document.querySelectorAll('.btn, .chip').forEach(function(b){
+      b.addEventListener('pointermove', function(e){ var r = b.getBoundingClientRect(); b.style.translate = ((e.clientX-r.left-r.width/2)*.15).toFixed(1)+'px '+((e.clientY-r.top-r.height/2)*.25).toFixed(1)+'px'; });
+      b.addEventListener('pointerleave', function(){ b.style.translate = ''; });
+    });
+    /* sticker cards tilt toward the pointer */
+    document.querySelectorAll('.card .sticker, .pdp-shot').forEach(function(st){
+      var host = st.closest('.card') || st;
+      host.addEventListener('pointermove', function(e){ var r = st.getBoundingClientRect(); var x = (e.clientX-r.left)/r.width-.5, y = (e.clientY-r.top)/r.height-.5;
+        st.style.setProperty('--rx', (-y*8).toFixed(2)+'deg'); st.style.setProperty('--ry', (x*10).toFixed(2)+'deg'); });
+      host.addEventListener('pointerleave', function(){ st.style.removeProperty('--rx'); st.style.removeProperty('--ry'); });
+    });
+  }
+
+  if (reduce || !('IntersectionObserver' in window)) return;
+
+  /* count-ups */
+  var cio = new IntersectionObserver(function(es){ es.forEach(function(e){
+    if (!e.isIntersecting) return; cio.unobserve(e.target);
+    var el = e.target, to = parseFloat(el.dataset.count), dec = +el.dataset.dec || 0, unit = el.dataset.unit || '', t0 = performance.now(), dur = 1200;
+    (function step(t){ var k = Math.min(1,(t-t0)/dur), v = to * (1 - Math.pow(1-k,3));
+      el.textContent = v.toFixed(dec) + unit; if (k < 1) requestAnimationFrame(step); else { el.textContent = to.toFixed(dec)+unit; el.classList.add('bump'); } })(t0);
+  }); }, {threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(el){ cio.observe(el); });
+
+  /* staggered reveals */
+  root.classList.add('js-reveal');
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, {rootMargin:'0px 0px -10% 0px'});
+  var groups = '.cards, .ing-row, .extras, .steps, .faq-list, .ways, .ing-list, .use-grid, .other-list, .pdp-nums, .thumbs, .foot-grid';
+  document.querySelectorAll(groups).forEach(function(g){
+    [].forEach.call(g.children, function(c, i){ c.classList.add('rv'); c.style.setProperty('--d', Math.min(i,8)*90 + 'ms'); io.observe(c); });
+  });
+  document.querySelectorAll('.sec-head, .life-media, .close-in, .split > *, .banner, .slider, .life-copy, .roots > *, .promise, .form, .form-intro').forEach(function(el){
+    if (el.classList.contains('rv')) return; el.classList.add('rv'); io.observe(el);
+  });
+  /* re-run for content the product template re-renders */
+  window.addEventListener('hashchange', function(){ setTimeout(function(){
+    document.querySelectorAll('.pdp-nums, .thumbs, .ing-list, .use-grid, .other-list').forEach(function(g){
+      [].forEach.call(g.children, function(c, i){ if (c.classList.contains('rv')) return; c.classList.add('rv'); c.style.setProperty('--d', Math.min(i,8)*70+'ms'); io.observe(c); });
+    });
+  }, 30); });
+};
+
+window.SFmotion(window.SF_REDUCE);
+if (window.SF_REDUCE) document.querySelectorAll('video').forEach(function(v){ v.pause(); v.removeAttribute('autoplay'); });
