@@ -72,23 +72,22 @@ var SF = {
           '<button class="size on" data-size="sachet" aria-pressed="true">50 g sachet</button>'+
           '<button class="size" data-size="pouch" aria-pressed="false">1 kg pouch</button></div>'+
           '<p class="size-note" id="size-note">One serving. Tear, pour, stir.</p>' : '';
-      var nums = isP
-        ? [['22.5 g','protein'],['4.4 g','fibre, 1 g of it FOS'],['0 g','added sugar'],['200','kcal per serving']]
-        : [['1 g','sachet'],['150 ml','hot water'],['1 min','to make']];
-      var numHtml = '<ul class="pdp-nums">'+nums.map(function(n){return '<li><b>'+n[0]+'</b><span>'+n[1]+'</span></li>';}).join('')+'</ul>';
-      var detail = isP
-        ? '<div class="pdp-detail"><div class="wrap">'+
-            '<div class="sec-head"><p class="hand kicker">everything in the sachet</p><h2>What goes into it</h2><p class="sub">Same formulation in Chocolate, Mango and Kulfi. Per 100 g: 45 g protein, 8.8 g fibre.</p></div>'+
-            '<dl class="ing-list">'+SF.ingredients.map(function(r){return '<div class="ing-g"><dt>'+r[0]+'</dt><dd>'+r[1]+'</dd></div>';}).join('')+'</dl>'+
-            '<div class="use-grid">'+
-              '<div class="use"><h3>How to make it</h3><p>Add 50 g to 250 ml water. Stir well until fully dissolved. Drink straight away.</p></div>'+
-              '<div class="use"><h3>How much</h3><p>One serving a day. Recommended as a one meal replacement. Do not exceed the recommended daily usage.</p></div>'+
-              '<div class="use warn"><h3>Not for</h3><p>Not to be used by pregnant, nursing and lactating women, children under 5, adolescents or the elderly, except when medically advised by a physician, certified dietitian or nutrition professional.</p></div>'+
-            '</div></div></div>'
-        : '<div class="pdp-detail"><div class="wrap"><div class="herbal-how">'+
-            '<svg class="ill-lg c-brown" aria-hidden="true"><use href="#i-kahwa"/></svg>'+
-            '<div><p class="hand kicker">how to make it</p><h2>1 g in 150 ml hot water.</h2><p>Tear the sachet, empty it into a cup of 150 ml hot water and stir. Give it a minute, then sip.</p></div>'+
-          '</div></div></div>';
+      var sib = isP ? SF.protein : ['kahwa','ginger','tulsi','lemon'];
+      var switcher = '<nav class="flav-switch" aria-label="Choose flavour">'+sib.map(function(k){ var o = SF.items[k];
+        return '<a class="flav-pill'+(k===id?' on':'')+'" href="product.html#'+k+'"'+(k===id?' aria-current="true"':'')+' style="--dot:'+o.accent+'"><svg class="'+o.col+'" aria-hidden="true"><use href="#'+o.ill+'"/></svg>'+o.name+'</a>'; }).join('')+'</nav>';
+      var nut = [['Energy','200.3 kcal'],['Protein','22.5 g'],['Carbohydrate','13 g'],['Total sugars','1.12 g'],['Added sugars','0 g'],['Dietary fibre','4.4 g'],['Total fat','5.5 g'],['Saturated fat','1.36 g']];
+      var numHtml = isP
+        ? '<div class="nut"><h2 class="nut-h">Nutrition facts</h2><p class="nut-sub">Per 50 g serving. 20 servings per 1 kg.</p><table><tbody>'+
+            nut.map(function(r){ var sub = /Total sugars|Added|Saturated/.test(r[0]); return '<tr'+(sub?' class="sub"':'')+'><th scope="row">'+r[0]+'</th><td>'+r[1]+'</td></tr>'; }).join('')+'</tbody></table></div>'
+        : '<ul class="pdp-nums">'+[['1 g','sachet'],['150 ml','hot water'],['1 min','to make']].map(function(n){return '<li><b>'+n[0]+'</b><span>'+n[1]+'</span></li>';}).join('')+'</ul>';
+      var acc = function(t, body){ return '<details class="pacc"><summary>'+t+'</summary><div class="pacc-b">'+body+'</div></details>'; };
+      var storage = acc('Storage','<p>Store in a cool and dry place, away from direct sunlight and moisture. Keep out of reach of children.</p>');
+      var accs = isP
+        ? acc('Ingredients','<p>Soya Protein Isolate, Pea Protein, Soy Fat Powder [Soy Oil, Maltodextrin, Sodium Caseinate, Stabilizer (INS 340(ii)), Emulsifier (INS 471), Anti-oxidant (INS 304)], Maltodextrin, Soya Fiber, Brown Rice Protein, Nature Identical Flavouring Substances, FOS, Minerals, Garcinia Cambogia, Curcumin, Vitamins, Cissus Quadrangularis Extract, Digestive Enzyme (α-amylase, protease, lipase, cellulase and lactase), Sweeteners (INS 955 &amp; INS 950).</p>') +
+          acc('How to use','<p>Add 50 g to 250 ml water and stir well until fully dissolved. Drink straight away.</p><p>One serving a day. Recommended as a one meal replacement. Do not exceed the recommended daily usage.</p>') +
+          acc('Allergens and safety','<p>Contains soy and milk (sodium caseinate). Made in a facility that also handles wheat, milk, oats and nuts. Plant protein, not whey.</p><p>Not to be used by pregnant, nursing and lactating women, children under 5, adolescents or the elderly, except when medically advised by a physician, certified dietitian or nutrition professional.</p>') + storage
+        : acc('How to use','<p>Empty one 1 g sachet into 150 ml hot water. Stir, give it a minute, then sip.</p>') + storage;
+      var detail = '';
       pdp.innerHTML =
         '<div class="wrap pdp-grid">'+
           '<div class="pdp-media">'+
@@ -97,13 +96,14 @@ var SF = {
             '<div class="thumbs">'+gallery+'</div>'+
           '</div>'+
           '<div class="pdp-copy">'+
-            '<p class="crumbs"><a href="products.html">Products</a> / <a href="products.html#'+(isP?'protein':'herbal')+'">'+p.kind+'</a></p>'+
+            switcher+'<p class="crumbs"><a href="products.html">Products</a> / <a href="products.html#'+(isP?'protein':'herbal')+'">'+p.kind+'</a></p>'+
             '<h1>'+p.name+'</h1>'+
             '<p class="pdp-kind" style="--accent:'+p.accent+'">'+p.kind+'</p>'+
             '<p class="hand pdp-note">"'+p.note+'"</p>'+
             sizes + numHtml +
-            (isP ? '<p class="tiny">Per 50 g serving. Plant protein, not whey.</p>' : '') +
+            
             '<div class="pdp-cta"><a class="btn" href="contact.html#buy">Ask where to buy</a><a class="link-doodle" href="products.html">All products</a></div>'+
+            '<div class="paccs">'+accs+'</div>'+
           '</div>'+
         '</div>' + detail;
 
@@ -132,7 +132,7 @@ var SF = {
       var others = document.getElementById('others');
       if (others) others.innerHTML = Object.keys(SF.items).filter(function(k){return k!==id;}).map(function(k,i){
         var o = SF.items[k];
-        return '<a class="other" href="product.html#'+k+'" style="--tilt:'+(i%2?'1.5deg':'-1.5deg')+'"><span class="sticker"><img src="assets/img/'+o.shot+'" alt="" loading="lazy"></span><span class="o-name">'+o.name+'</span><span class="o-kind">'+o.kind+'</span></a>';
+        return '<a class="other" href="product.html#'+k+'" style="--tilt:'+(i%2?'1.5deg':'-1.5deg')+'"><span class="sticker"><img src="assets/img/'+o.shot+'" alt="" loading="lazy"></span>'+(k==='tulsi'?'<span class="o-tag">New</span>':'')+'<span class="o-name">'+o.name+'</span><span class="o-kind">'+o.kind+'</span></a>';
       }).join('');
       if (render.ran) window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
       render.ran = true;
@@ -204,14 +204,11 @@ window.SFmotion = function(reduce){
   });
 
   /* accordion: smooth open/close of the answer (opacity + translate) */
-  document.querySelectorAll('details').forEach(function(d){
-    var s = d.querySelector('summary'), p = d.querySelector('p');
-    s.addEventListener('click', function(e){
-      if (reduce || !p) return;
-      e.preventDefault();
-      if (d.open) { d.classList.add('closing'); setTimeout(function(){ d.open = false; d.classList.remove('closing'); }, 220); }
-      else { d.open = true; }
-    });
+  document.addEventListener('click', function(e){
+    var s = e.target.closest('summary'); if (!s || reduce) return;
+    var d = s.parentElement; e.preventDefault();
+    if (d.open) { d.classList.add('closing'); setTimeout(function(){ d.open = false; d.classList.remove('closing'); }, 240); }
+    else { d.open = true; }
   });
 
   /* magnetic buttons */

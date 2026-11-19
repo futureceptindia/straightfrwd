@@ -547,3 +547,32 @@ details:hover{transform:translateX(4px) rotate(-.3deg)}
 .slide img[src*="mango-shake"]{object-position:30% 60%}
 @media (max-width:700px){.thumbs{flex-wrap:nowrap;overflow-x:auto;padding:4px 2px 8px;scrollbar-width:none}.thumb{flex:none}}
 .pdp-grid>*{min-width:0}
+
+/* ===== product page v3: switcher, nutrition, accordions ===== */
+.flav-switch{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.flav-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 14px 6px 6px;border:2px solid var(--tan);border-radius:999px;background:var(--cream2);text-decoration:none;color:var(--brown);font-weight:700;font-size:.9rem;transition:transform .25s cubic-bezier(.3,1.6,.5,1),border-color .2s}
+.flav-pill svg{width:28px;height:28px;padding:3px;border-radius:50%;background:color-mix(in srgb,var(--dot) 18%,transparent);filter:url(#rough)}
+.flav-pill:hover{transform:translateY(-2px) rotate(-2deg);border-color:var(--brown)}
+.flav-pill.on{border-color:var(--brown);background:var(--brown);color:var(--cream);box-shadow:3px 3px 0 var(--tan)}
+.flav-pill.on svg{background:var(--cream);color:var(--brown)}
+.nut{margin:24px 0 8px;background:var(--cream2);border:2px solid var(--brown);border-radius:20px;padding:18px 20px;box-shadow:4px 4px 0 var(--tan)}
+.nut-h{font-size:1.35rem}
+.nut-sub{font-size:.85rem;color:var(--muted);margin:4px 0 10px;padding-bottom:10px;border-bottom:3px solid var(--brown)}
+.nut table{width:100%;border-collapse:collapse;font-size:.95rem}
+.nut th,.nut td{padding:8px 0;border-bottom:1px dashed var(--tan);text-align:left;font-weight:700;color:var(--brown)}
+.nut td{text-align:right;font-family:var(--disp);color:var(--terra)}
+.nut tr.sub th{font-weight:400;padding-left:16px;color:var(--muted)}
+.nut tr.sub td{font-weight:500}
+.nut tr:last-child th,.nut tr:last-child td{border-bottom:0}
+.paccs{margin-top:28px;border-top:2px solid var(--brown)}
+.pacc{background:none;border:0;border-bottom:2px solid var(--brown);border-radius:0;padding:0;box-shadow:none}
+.pacc:hover{transform:none}
+.pacc summary{padding:16px 34px 16px 0;font-family:var(--disp);font-size:1.15rem}
+.pacc-b{padding:0 0 16px}
+.pacc-b p{color:var(--muted);font-size:.95rem;margin-bottom:8px;padding:0}
+details[open] .pacc-b{animation:accIn .4s cubic-bezier(.2,.7,.2,1)}
+details.closing .pacc-b{animation:accOut .24s ease forwards}
+.other{position:relative}
+.o-tag{position:absolute;top:-8px;left:-6px;z-index:2;background:var(--lime);color:var(--leaf);font-weight:800;font-size:.75rem;padding:3px 10px;border-radius:999px;border:2px solid var(--leaf);transform:rotate(-8deg)}
+.pdp-grid{padding-bottom:80px}
+.others{padding-top:60px;border-radius:48px 48px 0 0}
