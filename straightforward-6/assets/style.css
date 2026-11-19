@@ -577,3 +577,16 @@ details.closing .pacc-b{animation:accOut .24s ease forwards}
 .o-tag{position:absolute;top:-8px;left:-6px;z-index:2;background:var(--lime);color:var(--leaf);font-weight:800;font-size:.75rem;padding:3px 10px;border-radius:999px;border:2px solid var(--leaf);transform:rotate(-8deg)}
 .pdp-grid{padding-bottom:80px}
 .others{padding-top:60px;border-radius:48px 48px 0 0}
+
+/* where to buy */
+.buy-on{margin-top:26px}
+.buy-h{font-family:var(--disp);font-weight:700;font-size:1.1rem;margin:0 0 10px}
+.buy-row{display:flex;flex-wrap:wrap;gap:10px}
+.store{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:2px solid var(--brown);border-radius:14px;background:var(--cream2);
+  font-weight:700;font-size:.95rem;color:var(--brown);text-decoration:none;box-shadow:3px 3px 0 var(--tan);transition:transform .2s,box-shadow .2s}
+a.store:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--terra)}
+a.store:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--tan)}
+.store span{color:var(--terra)}
+.store.soon{opacity:.75;cursor:default}
+.store.soon small{font-family:var(--hand,inherit);font-size:.8rem;font-weight:600;background:var(--tan);color:var(--brown);padding:1px 7px;border-radius:999px}
+.buy-note{font-size:.85rem;color:var(--muted);margin:10px 0 0}

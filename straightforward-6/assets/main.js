@@ -1,3 +1,5 @@
+/* Retailer links: paste each listing URL here when it goes live; empty = shown as 'soon'. */
+var STORES=[{name:'Blinkit',url:''},{name:'Zepto',url:''},{name:'Swiggy Instamart',url:''},{name:'Amazon',url:''},{name:'Flipkart',url:''}];
 /* StraightFrwd v6: shared behaviour + catalogue data */
 var SF = {
   protein: ['choc','mango','kulfi'],
@@ -102,6 +104,10 @@ var SF = {
             '<p class="hand pdp-note">"'+p.note+'"</p>'+
             sizes + numHtml +
             
+            '<div class="buy-on"><p class="buy-h">Buy on</p><div class="buy-row">'+STORES.map(function(st){
+                return st.url ? '<a class="store" href="'+st.url+'" target="_blank" rel="noopener">'+st.name+' <span aria-hidden="true">&#x23E9;</span></a>'
+                              : '<span class="store soon" title="Link coming soon">'+st.name+' <small>soon</small></span>';
+              }).join('')+'</div><p class="buy-note">Store links go live as each listing launches. Ratings and reviews will be on each app\'s listing.</p></div>'+
             '<div class="pdp-cta"><a class="btn" href="contact.html#buy">Ask where to buy</a><a class="link-doodle" href="products.html">All products</a></div>'+
             '<div class="paccs">'+accs+'</div>'+
           '</div>'+
