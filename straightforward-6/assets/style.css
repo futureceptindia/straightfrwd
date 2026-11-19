@@ -261,6 +261,7 @@ details p{padding:0 0 20px;color:var(--muted)}
 .pdp{padding:36px 0 0}
 .pdp-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:start;padding-bottom:70px}
 .pdp-media{position:relative}
+@media(min-width:1001px){.pdp-media{position:sticky;top:96px}}
 .pdp-shot{aspect-ratio:1;padding:12px;border-radius:32px}
 .pdp-shot img{border-radius:22px}
 .pdp-ill{position:absolute;right:-18px;top:-22px;width:118px;height:118px;padding:10px;background:var(--cream);border-radius:50%;filter:url(#rough);box-shadow:0 0 0 2px var(--tan);animation:float 7s ease-in-out infinite}
