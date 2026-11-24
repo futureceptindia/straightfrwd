@@ -15,7 +15,7 @@ var SF = {
             gallery:[['pack-kulfi-clean.jpg','Kulfi sachet and box'],['lsp-kulfi-hand.jpg','Holding a Kulfi sachet'],['slide-k-protein.jpg','22.5 g protein per serving'],['slide-c-comp.jpg','What goes into the mix'],['slide-k-mix.jpg','50 g powder into 250 ml water'],['slide-c-fibre.jpg','4.4 g dietary fibre per serving'],['slide-nutrition.jpg','Nutrition per serving'],['slide-c-allergen.jpg','Allergen information'],['slide-howto.jpg','How to make it'],['lsp-kulfi.jpg','Kulfi sachet with a kulfi shake']]},
     kahwa: {name:'Kashmiri Kahwa', kind:'Herbal Drink', ill:'i-saffron', col:'c-brown', accent:'#8a2f3c',
             note:'Saffron and almond.', shot:'sachet-kahwa.jpg',
-            gallery:[['energy-kahwa.jpg','A cup of kahwa with saffron and cinnamon'],['hero-4.jpg','Steaming kahwa on a wooden table'],['lsp-herbal.jpg','Kahwa sachet beside a cup of tea'],['sachet-kahwa.jpg','Kashmiri Kahwa sachet']]},
+            gallery:[['energy-kahwa.jpg','A cup of kahwa with saffron and cinnamon'],['hero-4.jpg','Steaming kahwa on a wooden table'],['sachet-kahwa.jpg','Kashmiri Kahwa sachet']]},
     ginger:{name:'Ginger', kind:'Herbal Drink', ill:'i-ginger', col:'c-brown', accent:'#c08a1e',
             note:'Sharp and warming.', shot:'sachet-ginger.jpg',
             gallery:[['energy-ginger.jpg','A cup of ginger tea with fresh ginger'],['sachet-ginger.jpg','Ginger sachet']]},
@@ -147,16 +147,21 @@ var SF = {
     window.addEventListener('hashchange', render);
   }
 
-  /* contact form -> mailto */
+  /* contact form -> sent by FormSubmit to care@straightfrwd.com */
   var form = document.getElementById('contact-form');
   if (form) form.addEventListener('submit', function(e){
     e.preventDefault();
-    var f = form.elements;
-    if (!f.name.value.trim()) { f.name.focus(); document.getElementById('form-note').textContent = 'Please add your name.'; return; }
-    var body = 'Name: '+f.name.value+'\nPhone: '+f.phone.value+'\nEmail: '+f.email.value+'\nTopic: '+f.topic.value+'\nProduct: '+f.product.value+'\n\n'+f.message.value;
-    var url = 'mailto:care@straightfrwd.com?subject='+encodeURIComponent(f.topic.value+' - '+f.product.value)+'&body='+encodeURIComponent(body);
-    document.getElementById('form-note').textContent = 'Opening your email app. If nothing happens, write to care@straightfrwd.com.';
-    window.location.href = url;
+    var f = form.elements, note = document.getElementById('form-note'), btn = form.querySelector('button[type=submit]');
+    if (!f.name.value.trim()) { f.name.focus(); note.textContent = 'Please add your name.'; return; }
+    if (!f.email.value.trim() && !f.phone.value.trim()) { f.email.focus(); note.textContent = 'Please add an email or phone number so we can reply.'; return; }
+    btn.disabled = true; btn.textContent = 'Sending…'; note.textContent = '';
+    fetch('https://formsubmit.co/ajax/care@straightfrwd.com', {
+      method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({_subject:'Website: '+f.topic.value+' - '+f.product.value, _template:'table', _captcha:'false',
+        name:f.name.value, phone:f.phone.value, email:f.email.value, topic:f.topic.value, product:f.product.value, message:f.message.value})
+    }).then(function(r){ return r.json().then(function(j){ if(!r.ok || j.success==='false' || j.success===false) throw new Error(j.message||'failed'); }); })
+      .then(function(){ form.reset(); note.textContent = 'Sent. We reply within two working days.'; btn.textContent = 'Sent'; })
+      .catch(function(){ note.textContent = 'That did not send. Please try again, or write to care@straightfrwd.com.'; btn.disabled = false; btn.textContent = 'Send'; });
   });
   if (location.hash === '#buy' && form) { var t = form.elements.topic; if (t) t.value = 'Where to buy'; }
 
@@ -263,3 +268,14 @@ window.SFmotion = function(reduce){
 
 window.SFmotion(window.SF_REDUCE);
 if (window.SF_REDUCE) document.querySelectorAll('video').forEach(function(v){ v.pause(); v.removeAttribute('autoplay'); });
+
+/* email links: many visitors have no mail app set up, so a click copies the address and says so */
+document.addEventListener('click', function(e){
+  var a = e.target.closest && e.target.closest('a[href^="mailto:"]'); if (!a) return;
+  e.preventDefault();
+  var addr = a.getAttribute('href').replace('mailto:','').split('?')[0];
+  var done = function(){ var t = document.createElement('span'); t.className = 'copy-toast'; t.textContent = 'Email copied: ' + addr;
+    document.body.appendChild(t); setTimeout(function(){ t.remove(); }, 2200); };
+  (navigator.clipboard ? navigator.clipboard.writeText(addr) : Promise.reject()).then(done, function(){
+    var r = document.createRange(); r.selectNodeContents(a); var s = getSelection(); s.removeAllRanges(); s.addRange(r); done(); });
+});
