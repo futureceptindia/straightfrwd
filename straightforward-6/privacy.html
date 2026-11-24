@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy | StraightFrwd</title>
+<meta name="description" content="How StraightFrwd handles the details you send through our contact form.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..800,100&family=DM+Sans:opsz,wght@9..40,400..700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=1795520763">
+<script>document.documentElement.classList.add('js')</script>
+<script src="assets/logo.js"></script>
+</head>
+<body class="pg-privacy">
+
+<!-- ===== Ingredient illustration library (hand-drawn line style) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+  <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="2.2"/></filter>
+  <!-- soya beans -->
+  <symbol id="i-soya" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path pathLength="1" d="M22 92c10-30 28-52 62-66" /><path pathLength="1" d="M30 76c-12-4-16-14-12-24 10 2 15 12 12 24zM46 58c-12-6-14-17-8-26 10 4 13 15 8 26zM63 43c-10-8-10-19-2-26 9 6 9 17 2 26z" fill="var(--leaf)" fill-opacity=".25"/>
+    <path pathLength="1" d="M70 70c8-8 22-8 28 0s0 22-14 22-22-14-14-22z" fill="var(--tan)" fill-opacity=".6"/><path pathLength="1" d="M78 76c4-3 9-3 12 0"/>
+    <ellipse cx="52" cy="96" rx="11" ry="8" fill="var(--tan)" fill-opacity=".6"/><path pathLength="1" d="M47 94c3-2 6-2 9 0"/></g></symbol>
+  <!-- pea pod -->
+  <symbol id="i-pea" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path pathLength="1" d="M14 70c20-24 58-40 94-34-14 30-54 52-94 34z" fill="var(--leaf)" fill-opacity=".22"/>
+    <path pathLength="1" d="M18 70c26 4 58-8 86-32"/><circle cx="40" cy="62" r="8" fill="var(--lime)" fill-opacity=".5"/><circle cx="58" cy="56" r="9" fill="var(--lime)" fill-opacity=".5"/><circle cx="77" cy="48" r="8" fill="var(--lime)" fill-opacity=".5"/>
+    <path pathLength="1" d="M108 36c4-8 2-16-4-20M104 30c6 0 9-4 10-8"/></g></symbol>
+  <!-- brown rice -->
+  <symbol id="i-rice" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path pathLength="1" d="M60 108c0-30-4-60-16-88"/><path pathLength="1" d="M48 34c-12-2-16 8-12 14 8-2 13-8 12-14zM52 52c-12 0-14 10-10 15 8-3 12-9 10-15zM55 70c-11 1-13 11-8 15 8-3 11-9 8-15zM46 26c8-6 16-2 16 6-8 2-14-1-16-6zM51 44c9-5 16 0 15 8-8 1-14-3-15-8zM55 62c9-4 15 2 13 9-8 0-13-4-13-9z" fill="var(--tan)" fill-opacity=".65"/>
+    <ellipse cx="86" cy="96" rx="6" ry="10" transform="rotate(30 86 96)" fill="var(--tan)" fill-opacity=".65"/><ellipse cx="100" cy="88" rx="5" ry="9" transform="rotate(-20 100 88)" fill="var(--tan)" fill-opacity=".65"/></g></symbol>
+  <!-- cocoa pod -->
+  <symbol id="i-cocoa" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path pathLength="1" d="M60 14c22 10 36 40 30 66-4 18-18 28-30 28s-26-10-30-28c-6-26 8-56 30-66z" fill="var(--orange)" fill-opacity=".35"/>
+    <path pathLength="1" d="M60 16c-6 24-6 62 0 90M60 16c6 24 6 62 0 90M44 26c-8 24-6 56 6 78M76 26c8 24 6 56-6 78"/>
+    <path pathLength="1" d="M60 14c-2-6 0-10 4-12"/><path pathLength="1" d="M100 98c8-4 14 0 14 6-6 4-12 2-14-6zM96 110c6 0 9 4 8 8"/></g></symbol>
+  <!-- mango -->
+  <symbol id="i-mango" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path pathLength="1" d="M46 24C70 18 92 40 94 68C96 94 80 114 61 113C49 112 45 104 47 96C49 86 39 84 33 74C23 57 26 30 46 24Z" fill="var(--orange)" fill-opacity=".75"/>
+    <path pathLength="1" d="M46 24C60 21 74 28 82 40C70 36 56 38 44 46C36 40 38 28 46 24Z" fill="var(--lime)" fill-opacity=".55" stroke="none"/>
+    <path pathLength="1" d="M76 56C84 66 86 80 82 92" opacity=".5"/>
+    <path pathLength="1" d="M50 24c0-6 2-11 6-14"/>
+    <path pathLength="1" d="M56 10c10-8 30-10 44-2-10 9-30 11-44 2z" fill="var(--leaf)" fill-opacity=".35"/><path pathLength="1" d="M58 10c12-2 26-3 40-2"/></g></symbol>
+  <!-- kulfi -->
+  <symbol id="i-kulfi" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path pathLength="1" d="M42 22c0-8 36-8 36 0l-4 62c0 4-28 4-28 0z" fill="var(--cream2)"/>
+    <path pathLength="1" d="M56 86l2 26h4l2-26" fill="var(--tan)" fill-opacity=".7"/>
+    <path pathLength="1" d="M48 40c8 3 16 3 24 0M47 58c9 3 17 3 26 0" opacity=".55"/>
+    <ellipse cx="54" cy="30" rx="3" ry="5" fill="var(--lime)" fill-opacity=".7"/><ellipse cx="66" cy="48" rx="3" ry="5" transform="rotate(30 66 48)" fill="var(--lime)" fill-opacity=".7"/><ellipse cx="54" cy="68" rx="3" ry="5" transform="rotate(-20 54 68)" fill="var(--lime)" fill-opacity=".7"/>
+    <path pathLength="1" d="M92 36c6-6 14-4 16 2-6 6-12 6-16-2zM98 30c2 8 2 14 0 20" /></g></symbol>
+  <!-- cardamom -->
+  <symbol id="i-cardamom" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path pathLength="1" d="M30 80c-6-24 10-50 34-54 4 22-10 50-34 54z" fill="var(--lime)" fill-opacity=".35"/><path pathLength="1" d="M32 78c10-16 20-32 30-50M40 64c4-12 12-24 20-34" opacity=".6"/>
+    <path pathLength="1" d="M70 98c-2-18 12-34 30-34 0 16-12 32-30 34z" fill="var(--lime)" fill-opacity=".35"/><path pathLength="1" d="M72 96c8-10 16-20 26-30"/></g></symbol>
+  <!-- tulsi -->
+  <symbol id="i-tulsi" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path pathLength="1" d="M60 112c0-30 2-62 0-96"/>
+    <path pathLength="1" d="M60 86c-18 2-30-8-32-20 16-2 28 6 32 20zM60 86c18 2 30-8 32-20-16-2-28 6-32 20zM60 58c-14 0-24-8-26-18 14-2 24 6 26 18zM60 58c14 0 24-8 26-18-14-2-24 6-26 18z" fill="var(--leaf)" fill-opacity=".3"/>
+    <path pathLength="1" d="M60 32c-6-4-6-12 0-18 6 6 6 14 0 18z" fill="var(--lime)" fill-opacity=".5"/></g></symbol>
+  <!-- lemon -->
+  <symbol id="i-lemon" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path pathLength="1" d="M18 60c0-22 16-36 38-36 20 0 34 14 36 36-2 22-16 36-36 36-22 0-38-14-38-36z" fill="var(--lime)" fill-opacity=".35"/><path pathLength="1" d="M92 58c6 0 10 2 12 4M18 62c-4 0-8 0-10 2"/>
+    <circle cx="86" cy="94" r="20" fill="var(--cream2)"/><circle cx="86" cy="94" r="14"/><path pathLength="1" d="M86 80v28M72 94h28M76 84l20 20M96 84l-20 20" opacity=".55"/></g></symbol>
+  <!-- ginger -->
+  <symbol id="i-ginger" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path pathLength="1" d="M14 76c6-10 18-12 26-8 2-10 12-16 22-12 4-10 18-14 26-6 10-4 20 4 18 14-2 12-14 14-22 12-6 10-18 12-26 8-6 10-20 14-30 8s-18-8-14-16z" fill="var(--orange)" fill-opacity=".3"/>
+    <path pathLength="1" d="M40 68c4 4 10 6 16 4M62 56c2 4 6 8 12 8M30 82c4 0 8-2 10-6" opacity=".6"/><path pathLength="1" d="M62 56c-2-10 2-18 8-22M88 50c2-8 6-12 12-14"/></g></symbol>
+  <!-- saffron -->
+  <symbol id="i-saffron" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path pathLength="1" d="M60 60C50 40 30 34 22 38c4 14 22 22 38 22zM60 60c10-20 30-26 38-22-4 14-22 22-38 22zM60 60c-8-22-2-40 0-46 4 8 8 26 0 46z" fill="#b48ad1" fill-opacity=".3"/>
+    <path pathLength="1" d="M60 60c-4 14-10 30-16 46M60 60c2 16 0 32-2 48M60 60c6 14 14 28 22 40" stroke="var(--terra)"/>
+    <path pathLength="1" d="M60 60v12" /></g></symbol>
+  <!-- kahwa cup -->
+  <symbol id="i-kahwa" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path pathLength="1" d="M22 58h66c0 24-12 40-33 40S22 82 22 58z" fill="var(--orange)" fill-opacity=".3"/><path pathLength="1" d="M88 64c12-2 18 4 16 12-2 8-12 10-18 6"/>
+    <path pathLength="1" d="M14 104c20 6 66 6 86 0"/><path pathLength="1" d="M26 58c10 4 50 4 60 0" opacity=".6"/>
+    <path pathLength="1" class="steam" d="M42 46c-6-8 6-12 0-22M56 44c-6-8 6-12 0-24M70 46c-6-8 6-12 0-22"/></g></symbol>
+  <!-- pistachio / almond -->
+  <symbol id="i-nut" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path pathLength="1" d="M30 60c-4-22 14-38 34-34 16 4 20 22 10 36-12 16-40 20-44-2z" fill="var(--tan)" fill-opacity=".6"/><path pathLength="1" d="M40 62c8-6 18-16 24-28" opacity=".6"/>
+    <path pathLength="1" d="M72 96c0-14 12-22 24-18 4 12-8 22-24 18z" fill="var(--lime)" fill-opacity=".45"/></g></symbol>
+  <!-- doodles -->
+  <symbol id="d-arrow" viewBox="0 0 120 60"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M6 10c20 34 60 44 98 30"/><path pathLength="1" d="M90 30l14 10-16 8"/></g></symbol>
+  <symbol id="d-star" viewBox="0 0 40 40"><path pathLength="1" d="M20 4c1 10 6 15 16 16-10 1-15 6-16 16-1-10-6-15-16-16 10-1 15-6 16-16z" fill="currentColor"/></symbol>
+  <symbol id="d-under" viewBox="0 0 300 20" preserveAspectRatio="none"><path pathLength="1" d="M4 14c50-8 120-12 200-8 30 2 60 4 92-2" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></symbol>
+</defs>
+</svg>
+
+<div class="progress" aria-hidden="true"><i></i></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="top" data-chrome="header">
+  <div class="wrap nav-in nojs-nav">
+    <a class="brand" href="index.html">StraightFrwd</a>
+    <nav class="nav-links" aria-label="Main"><a href="products.html">Products</a> <a href="about.html">About</a> <a href="contact.html">Contact</a> <a href="privacy.html">Privacy</a></nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="page-hero">
+  <div class="wrap ph-in">
+    <p class="hand kicker">the short version: we only see what you send us</p>
+    <h1>Privacy <span class="ul">policy.<svg aria-hidden="true"><use href="#d-under"/></svg></span></h1>
+    <p class="lead">What happens to the details you type into our contact form, in plain English.</p>
+    <svg data-par=".15" class="ill ph1 c-green" aria-hidden="true"><use href="#i-tulsi"/></svg>
+    <svg data-par="-.12" class="ill ph2 c-brown" aria-hidden="true"><use href="#i-kahwa"/></svg>
+  </div>
+</section>
+<section class="policy">
+  <div class="wrap policy-in">
+    <section class="pol-sec"><h2>Who we are</h2>
+<p>This site belongs to StraightFrwd, a brand of Shiv Protein Private Limited (StraightFrwd), part of Shiv Group. When this page says "we", it means us.</p>
+    </section>
+    <section class="pol-sec"><h2>What we collect</h2>
+<p>Only what you type into our contact form: your name, phone number, email, the topic, the product you pick and your message.</p>
+<p>That is all. We don't sell products on this site, so there are no accounts, no logins and no payments here.</p>
+    </section>
+    <section class="pol-sec"><h2>How it reaches us</h2>
+<p>When you press Send, the form is delivered by email through FormSubmit, a third-party form service, to our customer care inbox. FormSubmit handles the message in transit so it can pass it on to us.</p>
+    </section>
+    <section class="pol-sec"><h2>Why we use it</h2>
+<p>To reply to you. Usually that means answering a product question, telling you where to buy, or handling a bulk or retail enquiry.</p>
+<p>We won't send you marketing messages unless you ask us to.</p>
+    </section>
+    <section class="pol-sec"><h2>Cookies and tracking</h2>
+<p>We don't use analytics, ad trackers or tracking cookies on this site.</p>
+<p>Our fonts load from Google Fonts. When your browser fetches them, Google receives your IP address, as it would for any website that uses those fonts.</p>
+    </section>
+    <section class="pol-sec"><h2>Store links</h2>
+<p>Once our listings go live, some buttons will take you to Amazon, Flipkart, Blinkit, Zepto and Swiggy Instamart. Their own privacy policies apply on their sites, not this one.</p>
+    </section>
+    <section class="pol-sec"><h2>How long we keep it</h2>
+<p>As long as we need to handle your request. After that we delete it, normally within 12 months.</p>
+    </section>
+    <section class="pol-sec"><h2>Your rights</h2>
+<p>Under India's Digital Personal Data Protection Act, 2023, you can ask us to:</p>
+<ul><li>show you the personal data we hold about you</li><li>correct it</li><li>delete it</li><li>stop using it, by withdrawing your consent</li><li>look into a complaint (a grievance) about how we handled it</li></ul>
+<p>To ask, email <a href="mailto:care@straightfrwd.com?subject=Privacy%20request">care@straightfrwd.com</a> with the subject "Privacy request". We reply within 30 days.</p>
+    </section>
+    <section class="pol-sec"><h2>Children</h2>
+<p>This site isn't meant for anyone under 18. Please don't send us a child's details.</p>
+    </section>
+    <section class="pol-sec"><h2>Changes to this policy</h2>
+<p>If we change how we handle your details, we'll update this page and the date below.</p>
+<p class="updated">Last updated: 24 November 2026</p>
+    </section>
+  </div>
+</section>
+</main>
+
+<footer class="foot" data-chrome="footer">
+  <div class="wrap">
+    <p>StraightFrwd. Nutrition, Made Easy. Part of Shiv Group.</p>
+    <p><a href="tel:+919672227666">+91 96722 27666</a> · <a href="https://wa.me/919057119000">WhatsApp 90571 19000</a> · <a href="mailto:care@straightfrwd.com">care@straightfrwd.com</a> · <a href="privacy.html">Privacy</a></p>
+  </div>
+</footer>
+
+<script src="assets/chrome.js?v=1795520763"></script>
+<script src="assets/main.js?v=1795520763"></script>
+</body>
+</html>
