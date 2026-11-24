@@ -307,7 +307,7 @@ document.addEventListener('click', function(e){
     lb.classList.add('open'); document.body.classList.add('lb-lock'); lb.querySelector('.lb-close').focus(); }
   function close(){ lb.classList.remove('open'); document.body.classList.remove('lb-lock'); if (lastFocus && lastFocus.focus) lastFocus.focus(); }
   function mark(){
-    document.querySelectorAll('.pdp-shot, .frame img').forEach(function(el){ el.classList.add('zoomable');
+    document.querySelectorAll('.pdp-shot').forEach(function(el){ el.classList.add('zoomable');
       if (el.tagName === 'IMG') { el.setAttribute('tabindex','0'); el.setAttribute('role','button'); } });
     var shot = document.querySelector('.pdp-shot'); if (shot) { shot.setAttribute('tabindex','0'); shot.setAttribute('role','button'); shot.setAttribute('aria-label','Enlarge image'); }
   }
@@ -320,9 +320,6 @@ document.addEventListener('click', function(e){
       if (!l.length && cur) l = [[cur.getAttribute('src'), cur.alt]];
       if (cur && !l.some(function(it){ return it[0] === cur.getAttribute('src'); })) { l.unshift([cur.getAttribute('src'), cur.alt]); i = 0; }
       open(l, i); return true; }
-    var fi = e.target.closest('.frame img');
-    if (fi) { var all = [].slice.call(document.querySelectorAll('.frame img'));
-      open(all.map(function(m){ return [m.getAttribute('src'), m.alt]; }), all.indexOf(fi)); return true; }
   }
   document.addEventListener('click', function(e){ trigger(e); });
   document.addEventListener('keydown', function(e){ if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('zoomable')) { e.preventDefault(); trigger(e); } });
