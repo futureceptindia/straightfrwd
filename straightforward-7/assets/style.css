@@ -772,3 +772,35 @@ h1,h2,h3{letter-spacing:-.025em;font-weight:700}
 .ki b{font-family:var(--disp);color:var(--brown)}
 .ki span{color:var(--ink);font-size:.93rem}
 .ki em{font-style:normal;color:var(--terra);font-size:.85rem}
+
+/* ===== phone homepage tune (v7.3) ===== */
+@media (max-width:600px){
+  .hero-facts{display:grid!important;grid-template-columns:repeat(3,1fr);gap:8px}
+  .hero-facts li{padding:7px 8px;min-width:0}
+  .hero-facts b{font-size:1.05rem;white-space:nowrap}
+  .hero-facts span{font-size:.75rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  /* one compact image instead of the cluster */
+  .hero-art{aspect-ratio:auto!important;max-width:none!important;width:100%;margin:14px 0 0!important}
+  .hero-art .blob,.hero-art .s-small,.hero-art .ill,.hero-art .note,.hero-art .doodle-arrow{display:none!important}
+  .hero-art .s-main{position:relative!important;left:auto!important;top:auto!important;width:100%!important;aspect-ratio:16/10!important;--tilt:-1deg}
+  /* product cards: 2 per row */
+  .cards-3,.cards-4{display:grid!important;grid-template-columns:1fr 1fr!important;overflow:visible!important;gap:16px 12px!important;padding:10px 0 0!important;margin:0!important;max-width:none!important}
+  .cards-3>*,.cards-4>*{flex:none!important;min-width:0}
+  .card{padding:0;display:flex;flex-direction:column}
+  .card .sticker{aspect-ratio:1;padding:6px;border-radius:20px}
+  .card .sticker img{border-radius:14px}
+  .card .sticker.swap .alt{inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
+  .card-ill{width:40px!important;height:40px!important;top:-8px!important;right:-4px!important;padding:4px}
+  .card h3{font-size:1rem;margin-top:8px}
+  .card p{font-size:.84rem;line-height:1.35}
+  .card .size{font-size:.75rem}
+  .card .more{font-size:1.1rem;margin-top:2px}
+  /* ingredient trio in one row */
+  .ing-row{display:grid!important;grid-template-columns:repeat(3,1fr)!important;overflow:visible!important;gap:8px!important;padding:0!important;margin:0!important}
+  .ing-row>*{flex:none!important;min-width:0}
+  .inside .ill-lg{width:58px;height:58px;margin-bottom:4px}
+  .inside .ing h3{font-size:.86rem;line-height:1.2}
+  .inside .ing p{display:none}
+  .extras{margin-top:18px}
+}
+@media (max-width:600px){.hero-facts span,.card .size{font-size:.8rem}}
