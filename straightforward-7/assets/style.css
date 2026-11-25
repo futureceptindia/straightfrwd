@@ -659,7 +659,7 @@ h1,h2,h3{letter-spacing:-.025em;font-weight:700}
   h2{font-size:1.65rem}
   .sec-head{margin-bottom:22px}
   .sec-head .sub{font-size:.95rem;margin-top:8px}
-  .kicker{margin-bottom:6px;font-size:1.25rem}
+  .kicker{margin-bottom:6px;font-size:.74rem;letter-spacing:.12em}
   .wave{height:20px}
   /* sections */
   .hero{padding:14px 0 22px}
