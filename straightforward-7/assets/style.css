@@ -767,3 +767,8 @@ h1,h2,h3{letter-spacing:-.025em;font-weight:700}
   .hero-art{max-width:260px;margin-top:0}
   .hero-grid{gap:10px}
 }
+.key-ing{display:grid;gap:10px;padding-bottom:6px}
+.ki{background:var(--cream2);border:2px dashed var(--tan);border-radius:14px;padding:10px 14px;display:flex;flex-direction:column;gap:2px}
+.ki b{font-family:var(--disp);color:var(--brown)}
+.ki span{color:var(--ink);font-size:.93rem}
+.ki em{font-style:normal;color:var(--terra);font-size:.85rem}
