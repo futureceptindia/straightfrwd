@@ -269,16 +269,6 @@ window.SFmotion = function(reduce){
 window.SFmotion(window.SF_REDUCE);
 if (window.SF_REDUCE) document.querySelectorAll('video').forEach(function(v){ v.pause(); v.removeAttribute('autoplay'); });
 
-/* email links: many visitors have no mail app set up, so a click copies the address and says so */
-document.addEventListener('click', function(e){
-  var a = e.target.closest && e.target.closest('a[href^="mailto:"]'); if (!a) return;
-  e.preventDefault();
-  var addr = a.getAttribute('href').replace('mailto:','').split('?')[0];
-  var done = function(){ var t = document.createElement('span'); t.className = 'copy-toast'; t.textContent = 'Email copied: ' + addr;
-    document.body.appendChild(t); setTimeout(function(){ t.remove(); }, 2200); };
-  (navigator.clipboard ? navigator.clipboard.writeText(addr) : Promise.reject()).then(done, function(){
-    var r = document.createRange(); r.selectNodeContents(a); var s = getSelection(); s.removeAllRanges(); s.addRange(r); done(); });
-});
 
 /* ===== lightbox: pdp gallery + photo frames ===== */
 (function(){
