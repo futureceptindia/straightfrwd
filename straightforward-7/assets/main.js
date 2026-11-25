@@ -1,5 +1,5 @@
 /* Retailer links: paste each listing URL here when it goes live; empty = shown as 'soon'. */
-var STORES=[{name:'Blinkit',url:''},{name:'Zepto',url:''},{name:'Swiggy Instamart',url:''},{name:'Amazon',url:''},{name:'Flipkart',url:''}];
+var STORES=[{name:'Amazon',url:''},{name:'Flipkart',url:''},{name:'Blinkit',url:''},{name:'Zepto',url:''},{name:'Swiggy Instamart',url:''}];
 /* StraightFrwd v6: shared behaviour + catalogue data */
 var SF = {
   protein: ['choc','mango','kulfi'],
@@ -8,8 +8,8 @@ var SF = {
             note:'Dark cocoa, barely sweet.', shot:'pack-choc2.jpg',
             gallery:[['pack-choc2.jpg','Chocolate sachet and box'],['lsp-choc-hand.jpg','Holding a Chocolate sachet'],['slide-c-comp2.jpg','Four plant ingredients: soya protein isolate, pea protein, soya fibre, brown rice protein'],['slide-c-protein.jpg','22.5 g protein per serving'],['slide-c-mix.jpg','50 g powder into 250 ml water'],['slide-howto.jpg','How to make it'],['lsp-morning.jpg','Chocolate shake in the morning']]},
     mango: {name:'Mango', kind:'Daily Protein', ill:'i-mango', col:'c-brown', accent:'#1F4A33',
-            note:'Ripe mango, thick like a lassi.', shot:'pack-mango2.jpg', pouch:'pack-pouch.jpg',
-            gallery:[['pack-mango2.jpg','Mango sachet and box'],['lsp-mango-hand.jpg','Holding a Mango sachet'],['slide-c-comp2.jpg','Four plant ingredients: soya protein isolate, pea protein, soya fibre, brown rice protein'],['slide-m-mix.jpg','50 g powder into 250 ml water'],['slide-howto.jpg','How to make it'],['lsp-mango.jpg','Mango sachet with a mango shake'],['pack-pouch.jpg','Mango 1 kg pouch']]},
+            note:'Ripe mango, thick like a lassi.', shot:'pack-mango2.jpg',
+            gallery:[['pack-mango2.jpg','Mango sachet and box'],['lsp-mango-hand.jpg','Holding a Mango sachet'],['slide-c-comp2.jpg','Four plant ingredients: soya protein isolate, pea protein, soya fibre, brown rice protein'],['slide-m-mix.jpg','50 g powder into 250 ml water'],['slide-howto.jpg','How to make it'],['lsp-mango.jpg','Mango sachet with a mango shake']]},
     kulfi: {name:'Kulfi', kind:'Daily Protein', ill:'i-cardamom', col:'c-brown', accent:'#AE5D40',
             note:'Cardamom and pistachio.', shot:'pack-kulfi2.jpg',
             gallery:[['pack-kulfi2.jpg','Kulfi sachet and box'],['lsp-kulfi-hand.jpg','Holding a Kulfi sachet'],['slide-c-comp2.jpg','Four plant ingredients: soya protein isolate, pea protein, soya fibre, brown rice protein'],['slide-k-mix.jpg','50 g powder into 250 ml water'],['slide-howto.jpg','How to make it'],['lsp-kulfi.jpg','Kulfi sachet with a kulfi shake']]},
@@ -70,16 +70,13 @@ var SF = {
       var gallery = p.gallery.map(function(g,i){
         return '<button class="thumb'+(i===0?' on':'')+'" data-src="assets/img/'+g[0]+'" data-alt="'+g[1]+'" aria-label="Show: '+g[1]+'"><img src="assets/img/'+g[0]+'" alt="" loading="lazy"></button>';
       }).join('');
-      var sizes = isP ? '<div class="sizes" role="group" aria-label="Pack size">'+
-          '<button class="size on" data-size="sachet" aria-pressed="true">50 g sachet</button>'+
-          '<button class="size" data-size="pouch" aria-pressed="false">1 kg pouch</button></div>'+
-          '<p class="size-note" id="size-note">One serving. Tear, pour, stir.</p>' : '';
+      var sizes = '';
       var sib = isP ? SF.protein : ['kahwa','ginger','tulsi','lemon'];
       var switcher = '<nav class="flav-switch" aria-label="Choose flavour">'+sib.map(function(k){ var o = SF.items[k];
         return '<a class="flav-pill'+(k===id?' on':'')+'" href="product.html#'+k+'"'+(k===id?' aria-current="true"':'')+' style="--dot:'+o.accent+'"><svg class="'+o.col+'" aria-hidden="true"><use href="#'+o.ill+'"/></svg>'+o.name+'</a>'; }).join('')+'</nav>';
       var nut = [['Energy','200.3 kcal'],['Protein','22.5 g'],['Carbohydrate','13 g'],['Total sugars','1.12 g'],['Added sugars','0 g'],['Dietary fibre','4.4 g'],['Total fat','5.5 g'],['Saturated fat','1.36 g']];
       var numHtml = isP
-        ? '<div class="nut"><h2 class="nut-h">Nutrition facts</h2><p class="nut-sub">Per 50 g serving. 20 servings per 1 kg.</p><table><tbody>'+
+        ? '<div class="nut"><h2 class="nut-h">Nutrition facts</h2><p class="nut-sub">Per 50 g serving.</p><table><tbody>'+
             nut.map(function(r){ var sub = /Total sugars|Added|Saturated/.test(r[0]); return '<tr'+(sub?' class="sub"':'')+'><th scope="row">'+r[0]+'</th><td>'+r[1]+'</td></tr>'; }).join('')+'</tbody></table></div>'
         : '<ul class="pdp-nums">'+[['1 g','sachet'],['150 ml','hot water'],['1 min','to make']].map(function(n){return '<li><b>'+n[0]+'</b><span>'+n[1]+'</span></li>';}).join('')+'</ul>';
       var acc = function(t, body){ return '<details class="pacc"><summary>'+t+'</summary><div class="pacc-b">'+body+'</div></details>'; };
@@ -123,16 +120,6 @@ var SF = {
         t.addEventListener('click', function(){
           pdp.querySelectorAll('.thumb').forEach(function(x){x.classList.remove('on');}); t.classList.add('on');
           show(t.dataset.src, t.dataset.alt);
-        });
-      });
-      pdp.querySelectorAll('.size').forEach(function(b){
-        b.addEventListener('click', function(){
-          pdp.querySelectorAll('.size').forEach(function(x){x.classList.remove('on'); x.setAttribute('aria-pressed','false');});
-          b.classList.add('on'); b.setAttribute('aria-pressed','true');
-          var pouch = b.dataset.size === 'pouch';
-          if (pouch && p.pouch) show('assets/img/'+p.pouch, p.name+' 1 kg pouch');
-          else show('assets/img/'+p.shot, p.name+' '+p.kind+' pack');
-          document.getElementById('size-note').textContent = pouch ? '1 kg pouch, 20 servings of 50 g.' : 'One serving. Tear, pour, stir.';
         });
       });
       var others = document.getElementById('others');
