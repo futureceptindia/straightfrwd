@@ -18,113 +18,44 @@
   <symbol id="chev" viewBox="393.69 270.565 54.61 54.61"><path d="M 429.9375 304.515625 L 429.9375 290.613281 L 437.589844 297.566406 Z M 429.9375 278.089844 L 420.996094 278.089844 L 420.996094 317.042969 L 429.9375 317.042969 L 446.902344 300.867188 L 446.902344 294.261719 Z"/><path d="M 404.03125 304.515625 L 404.03125 290.613281 L 411.683594 297.566406 Z M 404.03125 278.089844 L 395.089844 278.089844 L 395.089844 317.042969 L 404.03125 317.042969 L 420.996094 300.867188 L 420.996094 294.261719 Z"/></symbol>
 </svg>
 
+<div class="page">
+<div class="chev-field" id="chevField" aria-hidden="true"></div>
 <header class="top">
   <a class="brand" href="#" aria-label="StraightFrwd"><span class="logo" id="logo">StraightFrwd</span></a>
-  <a class="pill" href="#notify">Notify me</a>
+  <p class="eyebrow"><span class="dot"></span> Launching on Amazon and Flipkart</p>
 </header>
 
-<main>
-<section class="hero" id="hero">
-  <div class="chev-field" id="chevField" aria-hidden="true"></div>
-  <p class="eyebrow"><span class="dot"></span> Plant protein and herbal drinks</p>
-  <h1 class="kinetic" aria-label="Launching soon">
-    <span class="line"><span class="w">Launching</span></span>
-    <span class="line"><span class="w">soon</span><svg class="h-chev"><use href="#chev"/></svg></span>
-  </h1>
-  <p class="lede">Nutrition, Made Easy. A plant protein shake that mixes in plain water, plus four herbal drinks. First on Amazon and Flipkart.</p>
-  <div class="hero-cta">
-    <a class="btn" href="#notify">Tell me when it drops</a>
-    <a class="btn ghost" href="#shake">Build the shake</a>
+<main class="stage">
+  <div class="left">
+    <h1 class="kinetic" aria-label="Launching soon">
+      <span class="line"><span class="w">Launching</span></span>
+      <span class="line"><span class="w">soon</span><svg class="h-chev"><use href="#chev"/></svg></span>
+    </h1>
+    <p class="lede">Nutrition, Made Easy. A plant protein shake that mixes in plain water, plus four herbal drinks.</p>
+    <form id="notifyForm" class="nform" novalidate>
+      <label for="email" class="vh">Email address</label>
+      <input id="email" name="email" type="email" placeholder="Your email" autocomplete="email" required>
+      <button type="submit" class="btn">Notify me</button>
+    </form>
+    <div class="thanks" id="thanks" hidden><strong>We'll let you know.</strong></div>
   </div>
-  <div class="scroll-hint" aria-hidden="true"><svg><use href="#chev"/></svg></div>
-</section>
 
-<div class="marquee" aria-hidden="true">
-  <div class="track">
-    <span>22.5 g plant protein</span><svg><use href="#chev"/></svg><span>0 g added sugar</span><svg><use href="#chev"/></svg><span>Mixes in water</span><svg><use href="#chev"/></svg><span>25+ vitamins and minerals</span><svg><use href="#chev"/></svg><span>5 digestive enzymes</span><svg><use href="#chev"/></svg>
-    <span>22.5 g plant protein</span><svg><use href="#chev"/></svg><span>0 g added sugar</span><svg><use href="#chev"/></svg><span>Mixes in water</span><svg><use href="#chev"/></svg><span>25+ vitamins and minerals</span><svg><use href="#chev"/></svg><span>5 digestive enzymes</span><svg><use href="#chev"/></svg>
-  </div>
-</div>
-
-<section class="numbers" id="numbers">
-  <h2 class="sec-title">What's in every 50 g serving</h2>
-  <div class="grid">
-    <article class="stat big"><b data-count="22.5" data-dec="1">22.5</b><i>g</i><p>plant protein, from three plants. Not whey.</p></article>
-    <article class="stat"><b data-count="4.4" data-dec="1">4.4</b><i>g</i><p>dietary fibre, with prebiotic FOS</p></article>
-    <article class="stat accent"><b data-count="0">0</b><i>g</i><p>added sugar</p></article>
-    <article class="stat"><b data-count="25">25</b><i>+</i><p>vitamins and minerals</p></article>
-    <article class="stat"><b data-count="5">5</b><i></i><p>digestive enzymes</p></article>
-    <article class="stat"><b data-count="1">1</b><i>min</i><p>to mix in plain water. No blender.</p></article>
-  </div>
-</section>
-
-<section class="shake" id="shake">
-  <div class="shake-copy">
-    <h2 class="sec-title">Build the shake</h2>
-    <p>Tap each one in. This is what goes into a single serving, minus the guesswork.</p>
-    <div class="ings" id="ings">
-      <button type="button" class="ing" data-fill="22" data-c="#D0BB92">Soya protein isolate</button>
-      <button type="button" class="ing" data-fill="18" data-c="#E7D8BE">Pea protein</button>
-      <button type="button" class="ing" data-fill="16" data-c="#C9A56E">Brown rice protein</button>
-      <button type="button" class="ing" data-fill="14" data-c="#8DC63F">Fibre with FOS</button>
-      <button type="button" class="ing" data-fill="12" data-c="#E0822F">25+ vitamins and minerals</button>
-      <button type="button" class="ing" data-fill="10" data-c="#BC5A3A">5 digestive enzymes</button>
-      <button type="button" class="ing water" data-fill="8" data-c="#9fc6d6">Plain water</button>
+  <div class="right">
+    <div class="grid">
+      <article class="stat big"><span class="n"><b data-count="22.5" data-dec="1">22.5</b><i>g</i></span><p>plant protein a serving. Not whey.</p></article>
+      <article class="stat"><span class="n"><b data-count="4.4" data-dec="1">4.4</b><i>g</i></span><p>fibre, with FOS</p></article>
+      <article class="stat accent"><span class="n"><b data-count="0">0</b><i>g</i></span><p>added sugar</p></article>
+      <article class="stat"><span class="n"><b data-count="25">25</b><i>+</i></span><p>vitamins and minerals</p></article>
     </div>
-    <p class="shake-msg" id="shakeMsg" aria-live="polite">0 of 7 in. Keep going.</p>
-    <button type="button" class="reset" id="shakeReset">Start again</button>
-  </div>
-  <div class="glass-wrap" aria-hidden="true">
-    <div class="glass" id="glass">
-      <div class="layers" id="layers"></div>
-      <div class="foam" id="foam"></div>
-      <span class="done-badge" id="doneBadge">Done. One meal sorted.</span>
+    <div class="fl-row">
+      <div class="fl-switch" role="radiogroup" aria-label="Flavour">
+        <button type="button" role="radio" aria-checked="true" data-f="chocolate">Chocolate</button>
+        <button type="button" role="radio" aria-checked="false" data-f="mango">Mango</button>
+        <button type="button" role="radio" aria-checked="false" data-f="kulfi">Kulfi</button>
+      </div>
+      <p class="herbs-line">+ Kashmiri Kahwa, Ginger, Tulsi, Lemon</p>
     </div>
   </div>
-</section>
-
-<section class="flavours" id="flavours">
-  <h2 class="sec-title">Pick your flavour</h2>
-  <p class="sub">Three shakes to start. Tap one and watch the page change.</p>
-  <div class="fl-switch" role="radiogroup" aria-label="Flavour">
-    <button type="button" role="radio" aria-checked="true" data-f="chocolate">Chocolate</button>
-    <button type="button" role="radio" aria-checked="false" data-f="mango">Mango</button>
-    <button type="button" role="radio" aria-checked="false" data-f="kulfi">Kulfi</button>
-  </div>
-  <p class="fl-line" id="flLine">Chocolate. The one everyone asks for first.</p>
-
-  <h3 class="herb-title">And four herbal drinks</h3>
-  <ul class="herbs">
-    <li style="--h:#8a5a3c">Kashmiri Kahwa</li>
-    <li style="--h:#d29a3a">Ginger</li>
-    <li style="--h:#6f9e36">Tulsi</li>
-    <li style="--h:#c9b52c">Lemon</li>
-  </ul>
-</section>
-
-<section class="how">
-  <ol>
-    <li><span>01</span>One serving a day.</li>
-    <li><span>02</span>Shake it in plain water.</li>
-    <li><span>03</span>That's one meal replaced.</li>
-  </ol>
-</section>
-
-<section class="notify" id="notify">
-  <svg class="big-chev" aria-hidden="true"><use href="#chev"/></svg>
-  <h2>Be first in line.</h2>
-  <p>Coming first to <strong>Amazon</strong> and <strong>Flipkart</strong>. Leave your email and we'll let you know.</p>
-  <form id="notifyForm" class="nform" novalidate>
-    <label for="email" class="vh">Email address</label>
-    <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
-    <button type="submit" class="btn">Notify me</button>
-  </form>
-  <p class="nnote" id="nnote">This preview page does not save your email anywhere. For now, the quickest way to hear from us is below.</p>
-  <div class="thanks" id="thanks" hidden>
-    <strong>We'll let you know.</strong>
-    <span>Small print: this page stores nothing, so drop us a line on WhatsApp or email if you want to be sure.</span>
-  </div>
-</section>
 </main>
 
 <footer class="foot">
@@ -133,8 +64,9 @@
     <a href="https://wa.me/919057119000" target="_blank" rel="noopener">WhatsApp</a>
     <a href="tel:+919672227666">+91 96722 27666</a>
   </div>
-  <p>StraightFrwd by Shiv Protein Private Limited, part of Shiv Group.</p>
+  <p>Shiv Protein Pvt Ltd, part of Shiv Group</p>
 </footer>
+</div>
 
 <script src="assets/logo.js"></script>
 <script src="assets/main.js"></script>

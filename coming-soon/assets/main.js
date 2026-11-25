@@ -10,7 +10,7 @@
   // chevron field, pointer-driven
   var field=d.getElementById('chevField'), chevs=[];
   if(field){
-    var n=window.innerWidth<600?7:14;
+    var n=window.innerWidth<600?6:12;
     for(var i=0;i<n;i++){
       var s=d.createElementNS('http://www.w3.org/2000/svg','svg');
       s.innerHTML='<use href="#chev"/>';
@@ -21,7 +21,7 @@
       field.appendChild(s); chevs.push(s);
     }
     if(!reduce){
-      var hero=d.getElementById('hero');
+      var hero=d.querySelector('.page');
       hero.addEventListener('pointermove',function(e){
         var r=hero.getBoundingClientRect();
         var x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
@@ -49,42 +49,11 @@
     nums.forEach(function(el){io.observe(el);});
   }
 
-  // build the shake
-  var glass=d.getElementById('glass'), layers=d.getElementById('layers'), foam=d.getElementById('foam'),
-      msg=d.getElementById('shakeMsg'), ings=[].slice.call(d.querySelectorAll('.ing'));
-  var mixes={chocolate:'#6b3f2a',mango:'#f0a43a',kulfi:'#e6cf9e'};
-  function total(){return ings.filter(function(b){return b.getAttribute('aria-pressed')==='true';});}
-  function update(){
-    var on=total(), h=0;
-    on.forEach(function(b){h+= +b.dataset.fill;});
-    foam.style.bottom=Math.min(h,92)+'%'; foam.style.opacity=on.length?1:0;
-    var full=on.length===ings.length;
-    glass.classList.toggle('full',full);
-    glass.style.setProperty('--mix',mixes[root.dataset.flavour]);
-    msg.textContent=full?'All 7 in. That is one meal, ready in about a minute.':on.length+' of '+ings.length+' in. Keep going.';
-  }
-  ings.forEach(function(b){
-    b.setAttribute('aria-pressed','false');
-    b.addEventListener('click',function(){
-      var on=b.getAttribute('aria-pressed')==='true';
-      b.setAttribute('aria-pressed',on?'false':'true');
-      if(on){var l=layers.querySelector('[data-k="'+b.textContent+'"]'); if(l) l.remove();}
-      else{var l2=d.createElement('div');l2.className='layer';l2.dataset.k=b.textContent;l2.style.background=b.dataset.c;
-        layers.appendChild(l2); requestAnimationFrame(function(){requestAnimationFrame(function(){l2.style.height=b.dataset.fill*glass.clientHeight/100+'px';});});}
-      update();
-    });
-  });
-  d.getElementById('shakeReset').addEventListener('click',function(){
-    ings.forEach(function(b){b.setAttribute('aria-pressed','false');}); layers.innerHTML=''; update();
-  });
-
   // flavour switcher
-  var lines={chocolate:'Chocolate. The one everyone asks for first.',mango:'Mango. Summer in a shaker, any month.',kulfi:'Kulfi. The flavour you grew up with, now with protein.'};
-  var fl=d.getElementById('flLine');
   d.querySelectorAll('.fl-switch button').forEach(function(b){
     b.addEventListener('click',function(){
       d.querySelectorAll('.fl-switch button').forEach(function(x){x.setAttribute('aria-checked',x===b?'true':'false');});
-      root.dataset.flavour=b.dataset.f; fl.textContent=lines[b.dataset.f]; update();
+      root.dataset.flavour=b.dataset.f;
     });
   });
 
@@ -94,6 +63,6 @@
     e.preventDefault();
     var v=form.email.value.trim();
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){form.classList.remove('err');void form.offsetWidth;form.classList.add('err');form.email.focus();return;}
-    form.reset(); form.hidden=true; d.getElementById('nnote').hidden=true; d.getElementById('thanks').hidden=false;
+    form.reset(); form.hidden=true; d.getElementById('thanks').hidden=false;
   });
 })();
