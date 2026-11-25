@@ -1,74 +1,58 @@
 <!doctype html>
-<html lang="en-IN" data-flavour="chocolate">
+<html lang="en-IN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
 <title>StraightFrwd | Launching soon</title>
-<meta name="description" content="StraightFrwd plant protein and herbal drinks. 22.5 g plant protein, 0 g added sugar, mixes in water. Launching soon on Amazon and Flipkart.">
+<meta name="description" content="StraightFrwd plant protein and herbal drinks. Launching soon on Amazon and Flipkart.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=1795628592">
 </head>
-<body>
+<body data-s="0">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="chev" viewBox="393.69 270.565 54.61 54.61"><path d="M 429.9375 304.515625 L 429.9375 290.613281 L 437.589844 297.566406 Z M 429.9375 278.089844 L 420.996094 278.089844 L 420.996094 317.042969 L 429.9375 317.042969 L 446.902344 300.867188 L 446.902344 294.261719 Z"/><path d="M 404.03125 304.515625 L 404.03125 290.613281 L 411.683594 297.566406 Z M 404.03125 278.089844 L 395.089844 278.089844 L 395.089844 317.042969 L 404.03125 317.042969 L 420.996094 300.867188 L 420.996094 294.261719 Z"/></symbol>
 </svg>
 
-<div class="page">
-<div class="chev-field" id="chevField" aria-hidden="true"></div>
-<header class="top">
-  <a class="brand" href="#" aria-label="StraightFrwd"><span class="logo" id="logo">StraightFrwd</span></a>
-  <p class="eyebrow"><span class="dot"></span> Launching on Amazon and Flipkart</p>
-</header>
+<div class="screen">
+  <header class="top">
+    <span class="logo" id="logo">StraightFrwd</span>
+    <span class="tag"><i class="dot"></i>Launching soon</span>
+  </header>
 
-<main class="stage">
-  <div class="left">
-    <h1 class="kinetic" aria-label="Launching soon">
-      <span class="line"><span class="w">Launching</span></span>
-      <span class="line"><span class="w">soon</span><svg class="h-chev"><use href="#chev"/></svg></span>
-    </h1>
-    <p class="lede">Nutrition, Made Easy. A plant protein shake that mixes in plain water, plus four herbal drinks.</p>
-    <form id="notifyForm" class="nform" novalidate>
-      <label for="email" class="vh">Email address</label>
-      <input id="email" name="email" type="email" placeholder="Your email" autocomplete="email" required>
-      <button type="submit" class="btn">Notify me</button>
+  <main class="poster" id="poster" aria-live="polite">
+    <p class="kick" id="kick">Something straightforward is coming</p>
+    <h1 class="big" id="big"><span>Coming</span></h1>
+    <p class="say" id="say">A plant protein shake and four herbal drinks. First on Amazon and Flipkart.</p>
+  </main>
+
+  <button class="next" id="next" type="button" aria-label="Next">
+    <svg><use href="#chev"/></svg>
+  </button>
+
+  <footer class="bottom">
+    <ol class="dots" id="dots" aria-label="Slides"></ol>
+    <form class="nform" id="nform" novalidate>
+      <label class="vh" for="email">Email</label>
+      <input id="email" type="email" placeholder="Email me at launch" autocomplete="email">
+      <button type="submit">Notify me</button>
     </form>
-    <div class="thanks" id="thanks" hidden><strong>We'll let you know.</strong></div>
-  </div>
-
-  <div class="right">
-    <div class="grid">
-      <article class="stat big"><span class="n"><b data-count="22.5" data-dec="1">22.5</b><i>g</i></span><p>plant protein a serving. Not whey.</p></article>
-      <article class="stat"><span class="n"><b data-count="4.4" data-dec="1">4.4</b><i>g</i></span><p>fibre, with FOS</p></article>
-      <article class="stat accent"><span class="n"><b data-count="0">0</b><i>g</i></span><p>added sugar</p></article>
-      <article class="stat"><span class="n"><b data-count="25">25</b><i>+</i></span><p>vitamins and minerals</p></article>
-    </div>
-    <div class="fl-row">
-      <div class="fl-switch" role="radiogroup" aria-label="Flavour">
-        <button type="button" role="radio" aria-checked="true" data-f="chocolate">Chocolate</button>
-        <button type="button" role="radio" aria-checked="false" data-f="mango">Mango</button>
-        <button type="button" role="radio" aria-checked="false" data-f="kulfi">Kulfi</button>
-      </div>
-      <p class="herbs-line">+ Kashmiri Kahwa, Ginger, Tulsi, Lemon</p>
-    </div>
-  </div>
-</main>
-
-<footer class="foot">
-  <div class="contacts">
-    <a href="mailto:care@straightfrwd.com">care@straightfrwd.com</a>
-    <a href="https://wa.me/919057119000" target="_blank" rel="noopener">WhatsApp</a>
-    <a href="tel:+919672227666">+91 96722 27666</a>
-  </div>
-  <p>Shiv Protein Pvt Ltd, part of Shiv Group</p>
-</footer>
+    <p class="thanks" id="thanks" hidden>Noted. We'll tell you first.</p>
+    <nav class="contacts">
+      <a href="https://wa.me/919057119000" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:care@straightfrwd.com">Email</a>
+      <a href="tel:+919672227666">Call</a>
+    </nav>
+  </footer>
 </div>
 
-<script src="assets/logo.js"></script>
-<script src="assets/main.js"></script>
+<noscript><style>.next,.dots{display:none}</style></noscript>
+<script src="assets/logo.js?v=1795628592"></script>
+<script src="assets/main.js?v=1795628592"></script>
 </body>
 </html>
