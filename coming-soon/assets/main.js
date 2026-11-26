@@ -1,7 +1,7 @@
 (function(){
   var d=document;d.documentElement.classList.add('js');
   if(window.LOGO_SVG) d.getElementById('logo').innerHTML=window.LOGO_SVG;
-  var items=[['22.5 g plant protein','i-soya'],['Chocolate','i-cocoa'],['0 g added sugar','i-pea'],['Mango','i-mango'],['Mixes in plain water','i-rice'],['Kulfi','i-kulfi'],['Kashmiri Kahwa','i-saffron'],['Ginger','i-ginger'],['Tulsi','i-tulsi'],['Lemon','i-lemon']];
+  var items=[['High protein','i-soya'],['Chocolate','i-cocoa'],['No added sugar','i-pea'],['Mango','i-mango'],['High fibre','i-rice'],['Kulfi','i-kulfi'],['Kashmiri Kahwa','i-saffron'],['Ginger','i-ginger'],['Tulsi','i-tulsi'],['Lemon','i-lemon']];
   var h=items.map(function(x){return '<span>'+x[0]+'</span><svg><use href="#'+x[1]+'"/></svg>';}).join('');
   d.getElementById('trk').innerHTML=h+h;
   var art=d.getElementById('art'),els=[].slice.call(art.querySelectorAll('[data-d]'));
