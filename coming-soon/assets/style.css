@@ -96,3 +96,7 @@ h1{font-weight:800;font-size:clamp(44px,min(6.4vw,10.5vh),104px);line-height:.98
   .contacts{gap:4px 14px;font-size:12px}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+.offer{display:inline-block;margin-top:14px;font-weight:600;font-size:clamp(15px,1.4vw,18px);color:var(--brown);background:#fff3c9;border:2px dashed var(--terra);border-radius:14px;padding:8px 14px;transform:rotate(-1deg)}
+.offer b{color:var(--terra);font-weight:900}
+.js .offer{animation:pop .5s cubic-bezier(.3,1.6,.5,1) .9s both}
+@media (max-width:820px){.offer{margin-top:10px;font-size:14px;padding:6px 12px}}
