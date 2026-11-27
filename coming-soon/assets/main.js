@@ -15,5 +15,6 @@
   var f=d.getElementById('nform'),em=d.getElementById('email');
   f.addEventListener('submit',function(e){e.preventDefault();
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim())){f.classList.remove('err');void f.offsetWidth;f.classList.add('err');em.focus();return;}
+    fetch('https://formsubmit.co/ajax/care@straightfrwd.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({email:em.value.trim(),_subject:'New StraightFrwd pre-registration',_template:'table',_captcha:'false',page:location.href,time:new Date().toISOString()})}).catch(function(){});
     f.hidden=true;d.getElementById('thanks').hidden=false;});
 })();
