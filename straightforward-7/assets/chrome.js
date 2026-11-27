@@ -15,7 +15,7 @@
   var P = [['choc','Chocolate'],['mango','Mango'],['kulfi','Kulfi'],['kahwa','Kashmiri Kahwa'],['ginger','Ginger'],['tulsi','Tulsi'],['lemon','Lemon']];
   var footer =
     '<div class="wrap foot-grid">'+
-      '<div><span class="logo logo-foot" data-logo></span><p>Nutrition, Made Easy.<br>Part of Shiv Group.</p></div>'+
+      '<div><span class="logo logo-foot" data-logo></span><p>Nutrition, Made Easy.</p></div>'+
       '<div><h4>Products</h4>'+P.map(function(p){ return '<a href="product.html#'+p[0]+'">'+p[1]+'</a>'; }).join('')+'</div>'+
       '<div><h4>Explore</h4><a href="products.html">All products</a><a href="about.html">About us</a><a href="contact.html">Contact</a><a href="contact.html#buy">Where to buy</a><a href="privacy.html"'+(page==='privacy.html'?' aria-current="page"':'')+'>Privacy</a></div>'+
       '<div><h4>Talk to us</h4><a href="tel:+919672227666">+91 96722 27666</a><a href="https://wa.me/919057119000" target="_blank" rel="noopener">WhatsApp 90571 19000</a><a href="mailto:care@straightfrwd.com">care@straightfrwd.com</a></div>'+
