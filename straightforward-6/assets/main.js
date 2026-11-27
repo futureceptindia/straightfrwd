@@ -15,7 +15,7 @@ var SF = {
             gallery:[['pack-kulfi-clean.jpg','Kulfi sachet and box'],['lsp-kulfi-hand.jpg','Holding a Kulfi sachet'],['slide-c-comp.jpg','What goes into the mix'],['slide-k-mix.jpg','50 g powder into 250 ml water'],['slide-howto.jpg','How to make it'],['lsp-kulfi.jpg','Kulfi sachet with a kulfi shake']]},
     kahwa: {name:'Kashmiri Kahwa', kind:'Herbal Drink', ill:'i-saffron', col:'c-brown', accent:'#8a2f3c',
             note:'Saffron and almond.', shot:'sachet-kahwa.jpg',
-            gallery:[['energy-kahwa.jpg','A cup of kahwa with saffron and cinnamon'],['hero-4.jpg','Steaming kahwa on a wooden table'],['sachet-kahwa.jpg','Kashmiri Kahwa sachet']]},
+            gallery:[['energy-kahwa.jpg','A cup of kahwa with saffron and cinnamon'],['sachet-kahwa.jpg','Kashmiri Kahwa sachet']]},
     ginger:{name:'Ginger', kind:'Herbal Drink', ill:'i-ginger', col:'c-brown', accent:'#c08a1e',
             note:'Sharp and warming.', shot:'sachet-ginger.jpg',
             gallery:[['energy-ginger.jpg','A cup of ginger tea with fresh ginger'],['sachet-ginger.jpg','Ginger sachet']]},
